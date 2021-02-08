@@ -58,6 +58,7 @@ jobs:
         sudo apt-get update
         sudo apt-get install r-base
         sudo apt-get install r-base-dev
+        sudo apt-get install -y zlib1g-dev libicu-dev pandoc make libcurl4-openssl-dev libssl-dev
 
     - name: Get user library folder
       run: |
