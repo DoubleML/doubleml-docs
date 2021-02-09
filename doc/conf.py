@@ -92,7 +92,7 @@ nbsphinx_prolog = r"""
         <ul class="simple">
     {% endraw %}
     Download Jupyter notebook:
-    {{ '<' }}a class={{ '"' }}reference external{{ '"' }} href={{ '"' }}https://github.com/DoubleML/doubleml-docs/blob/doc/{{ env.doc2path(env.docname, base=None) }}{{ '"' }}{{ '>' }}https://github.com/DoubleML/doubleml-docs/blob/doc/{{ env.doc2path(env.docname, base=None) }}{{ '</a>' }}.
+    {{ '<' }}a class={{ '"' }}reference external{{ '"' }} href={{ '"' }}https://docs.doubleml.org/stable/{{ env.doc2path(env.docname, base=None) }}{{ '"' }}{{ '>' }}https://docs.doubleml.org/stable/{{ env.doc2path(env.docname, base=None) }}{{ '</a>' }}.
     {% raw %}
         </ul>
         </div>
