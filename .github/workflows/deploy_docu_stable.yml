@@ -3,7 +3,6 @@
 name: Deploy Docu (stable)
 
 on:
-  push:
   workflow_dispatch:
 
 
