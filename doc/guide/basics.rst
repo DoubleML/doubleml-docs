@@ -29,7 +29,7 @@ The nuisance functions are given by
 
 .. math::
 
-    m_0(x_i) &= \frac{1}{4} x_{i,1} + \frac{\exp(x_{i,3})}{1+\exp(x_{i,3})},
+    m_0(x_i) &= x_{i,1} + \frac{1}{4}  \frac{\exp(x_{i,3})}{1+\exp(x_{i,3})},
 
     g_0(X) &= \frac{\exp(x_{i,1})}{1+\exp(x_{i,1})} + \frac{1}{4} x_{i,3}.
 
