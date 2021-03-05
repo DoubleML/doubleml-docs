@@ -18,8 +18,9 @@ interests. The relationship between the treatment variable :math:`D_j` and the r
 
     D_j = m_{0,j}(D_k, X) + V_j, \quad \mathbb{E}(V_j | X) = 0,
 
-with all remaining treatment variables :math:`D_k` with :math:`k\neq j` being comprised in the nuisance component :math:`m_{0,j}`.
-The parameter of interest :math:`\theta_j` with :math:`j = 1, \ldots, p_1` solves a corresponding moment condition
+:math:`j \in \lbrace 1, \ldots, p_1 \rbrace` and :math:`k \in \lbrace 1, \ldots, p_1\rbrace \setminus j`.
+All remaining treatment variables :math:`D_k` are comprised in the nuisance component :math:`m_{0,j}`.
+The parameter of interest :math:`\theta_j` solves a corresponding moment condition
 
 .. math::
 
