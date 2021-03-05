@@ -2,7 +2,7 @@
 
 .. math::
 
-    Y = g_0(D, X) + \zeta, & &\mathbb{E}(\zeta | Z, X) = 0,
+    Y = \ell_0(D, X) + \zeta, & &\mathbb{E}(\zeta | Z, X) = 0,
 
     Z = m_0(X) + V, & &\mathbb{E}(V | X) = 0,
 
@@ -14,9 +14,9 @@ Consider the functions :math:`g_0`, :math:`r_0` and :math:`m_0`, where :math:`g_
 
 .. math::
 
-    Y = g_0(D, X) + \zeta, & &\mathbb{E}(\zeta | Z, X) = 0,
+    Y = g_0(Z, X) + \nu, & &\mathbb{E}(\nu | Z, X) = 0,
 
-    D = r_0(D, X) + U, & &\mathbb{E}(U | Z, X) = 0,
+    D = r_0(Z, X) + U, & &\mathbb{E}(U | Z, X) = 0,
 
     Z = m_0(X) + V, & &\mathbb{E}(V | X) = 0.
 
@@ -24,4 +24,4 @@ The target parameter of interest in this model is the local average treatment ef
 
 .. math::
 
-    \theta_0 = \frac{\mathbb{E}[g(1, X)] - \mathbb{E}[g(0,X)]}{\mathbb{E}[r(1, X)] - \mathbb{E}[r(0,X)]}.
+    \theta_0 = \frac{\mathbb{E}[g_0(1, X)] - \mathbb{E}[g_0(0,X)]}{\mathbb{E}[r_0(1, X)] - \mathbb{E}[r_0(0,X)]}.
