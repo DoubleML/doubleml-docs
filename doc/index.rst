@@ -78,17 +78,22 @@ Contents
         ---
         .. link-button:: guide/learners
             :type: ref
-            :text: 6. Machine learners, hyperparameters and hyperparameter tuning
+            :text: 6. Learners, hyperparameters and hyperparameter tuning
             :classes: btn-outline-primary btn-block
         ---
         .. link-button:: guide/se_confint
             :type: ref
-            :text: 7. Variance estimation, confidence intervals and boostrap standard errors
+            :text: 7. Variance estimation and confidence intervals for a causal parameter of interest
+            :classes: btn-outline-primary btn-block
+        ---
+        .. link-button:: guide/sim_inf
+            :type: ref
+            :text: 8. Confidence bands and multiplier bootstrap for valid simultaneous inference
             :classes: btn-outline-primary btn-block
         ---
         .. link-button:: guide/resampling
             :type: ref
-            :text: 8. Sample-splitting, cross-fitting and repeated cross-fitting
+            :text: 9. Sample-splitting, cross-fitting and repeated cross-fitting
             :classes: btn-outline-primary btn-block
 
 .. toctree::

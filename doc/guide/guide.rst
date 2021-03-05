@@ -14,6 +14,7 @@ User guide
     Models <models>
     Score functions <scores>
     Double machine learning algorithms <algorithms>
-    Machine learners, hyperparameters and hyperparameter tuning <learners>
-    Variance estimation, confidence intervals and boostrap standard errors <se_confint>
+    Learners, hyperparameters and hyperparameter tuning <learners>
+    Variance estimation and confidence intervals for a causal parameter of interest <se_confint>
+    Confidence bands and multiplier bootstrap for valid simultaneous inference <sim_inf>
     Sample-splitting, cross-fitting and repeated cross-fitting <resampling>
