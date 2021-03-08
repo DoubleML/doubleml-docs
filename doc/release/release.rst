@@ -16,12 +16,12 @@ Release notes
       `https://github.com/DoubleML/doubleml-docs <https://github.com/DoubleML/doubleml-docs>`_
     - Generate and upload a unit test coverage report to codecov
       `https://app.codecov.io/gh/DoubleML/doubleml-for-py <https://app.codecov.io/gh/DoubleML/doubleml-for-py>`_
-      (`#76 <https://github.com/DoubleML/doubleml-for-py/pull/76>`_)
-    - Run lint checks with flake8 (`#78 <https://github.com/DoubleML/doubleml-for-py/pull/78>`_), align code with PEP8
-      standards (`#79 <https://github.com/DoubleML/doubleml-for-py/pull/79>`_), activate code quality checks at codacy
-      (`#80 <https://github.com/DoubleML/doubleml-for-py/pull/80>`_)
+      `#76 <https://github.com/DoubleML/doubleml-for-py/pull/76>`_
+    - Run lint checks with flake8 `#78 <https://github.com/DoubleML/doubleml-for-py/pull/78>`_, align code with PEP8
+      standards `#79 <https://github.com/DoubleML/doubleml-for-py/pull/79>`_, activate code quality checks at codacy
+      `#80 <https://github.com/DoubleML/doubleml-for-py/pull/80>`_
     - Refactoring (reduce code redundancy) of the code for tuning of the ML learners used for approximation the
-      nuisance functions (`#81 <https://github.com/DoubleML/doubleml-for-py/pull/81>`_)
+      nuisance functions `#81 <https://github.com/DoubleML/doubleml-for-py/pull/81>`_
     - Minor updates, bug fixes and improvements of the exception handling
       (contained in `#82 <https://github.com/DoubleML/doubleml-for-py/pull/82>`_ &
       `#89 <https://github.com/DoubleML/doubleml-for-py/pull/89>`_)
