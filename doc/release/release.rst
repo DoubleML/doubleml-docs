@@ -5,6 +5,27 @@ Release notes
 
 .. tabbed:: Python
 
+    **DoubleML 0.2.0**
+
+    - Major extensions of the unit test framework which result in a coverage >98% (a summary is given in
+      `#82 <https://github.com/DoubleML/doubleml-for-py/pull/82>`_)
+    - In the PLR one can now also specify classifiers for ``ml_m`` in case of a binary treatment variable with values 0
+      and 1 (see `#86 <https://github.com/DoubleML/doubleml-for-py/pull/86>`_ for details)
+    - The joint Python and R docu and user guide is now served to
+      `https://docs.doubleml.org <https://docs.doubleml.org>`_ from a separate repo
+      `https://github.com/DoubleML/doubleml-docs <https://github.com/DoubleML/doubleml-docs>`_
+    - Generate and upload a unit test coverage report to codecov
+      `https://app.codecov.io/gh/DoubleML/doubleml-for-py <https://app.codecov.io/gh/DoubleML/doubleml-for-py>`_
+      (`#76 <https://github.com/DoubleML/doubleml-for-py/pull/76>`_)
+    - Run lint checks with flake8 (`#78 <https://github.com/DoubleML/doubleml-for-py/pull/78>`_), align code with PEP8
+      standards (`#79 <https://github.com/DoubleML/doubleml-for-py/pull/79>`_), activate code quality checks at codacy
+      (`#80 <https://github.com/DoubleML/doubleml-for-py/pull/80>`_)
+    - Refactoring (reduce code redundancy) of the code for tuning of the ML learners used for approximation the
+      nuisance functions (`#81 <https://github.com/DoubleML/doubleml-for-py/pull/81>`_)
+    - Minor updates, bug fixes and improvements of the exception handling
+      (contained in `#82 <https://github.com/DoubleML/doubleml-for-py/pull/82>`_ &
+      `#89 <https://github.com/DoubleML/doubleml-for-py/pull/89>`_)
+
     **DoubleML 0.1.2**
 
     - Fixed a compatibility issue with ``scikit-learn`` 0.24, which only affected some unit tests
