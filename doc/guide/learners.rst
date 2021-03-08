@@ -368,7 +368,7 @@ The entries in the list specify options during parameter tuning with `mlr3tuning
       that specifies the resampling method for evaluation, for example `rsmp("cv", folds = 5)` implements 5-fold cross-validation.
       `rsmp("holdout", ratio = 0.8)` implements an evaluation based on a hold-out sample that contains 20 percent of the observations.
       By default, 5-fold cross-validation is performed.
-    * ``measure`` is names list containing the measures used for tuning of the nuisance components.
+    * ``measure`` is a named list containing the measures used for tuning of the nuisance components.
       The names of the entries must match the learner names (see method ``learner_names()``).  The entries in the list must either be
       objects of class `Measure <https://mlr3.mlr-org.com/reference/Measure.html>`_ or keys passed to `msr() <https://mlr3.mlr-org.com/reference/mlr_sugar.html>`_.
       If ``measure`` is not provided by the user, mean squared error for regression models and classification error for binary outcomes.
