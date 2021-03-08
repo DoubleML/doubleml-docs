@@ -358,7 +358,7 @@ The entries in the list specify options during parameter tuning with `mlr3tuning
     * ``terminator`` is a `Terminator object <https://bbotk.mlr-org.com/reference/Terminator.html>`_ passed to
       `mlr3tuning <https://mlr3tuning.mlr-org.com/>`_ that manages the budget to solve the tuning problem.
     * ``algorithm`` is an object of class
-      `Tuner <https://mlr3tuning.mlr-org.com/reference/Tuner.html`_ and specifies the tuning algorithm.
+      `Tuner <https://mlr3tuning.mlr-org.com/reference/Tuner.html>`_ and specifies the tuning algorithm.
       Alternatively, ``algorithm`` can be a ``character()`` that is used as an argument in the wrapper
       `mlr3tuning <https://mlr3tuning.mlr-org.com/>`_ call
       `tnr(algorithm) <https://mlr3tuning.mlr-org.com/reference/tnr.html>`_.
