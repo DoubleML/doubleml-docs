@@ -362,8 +362,9 @@ The entries in the list specify options during parameter tuning with `mlr3tuning
       Alternatively, ``algorithm`` can be a ``character()`` that is used as an argument in the wrapper
       `mlr3tuning <https://mlr3tuning.mlr-org.com/>`_ call
       `tnr(algorithm) <https://mlr3tuning.mlr-org.com/reference/tnr.html>`_.
-      `The Tuner class in mlr3tuning <https://mlr3book.mlr-org.com/tuning.html#the-tuner-class>`_ supports grid search,
-      random search, generalized simulated annealing and non-linear optimization.
+      `The corresponding chapter in the mlr3book <https://mlr3book.mlr-org.com/tuning.html#the-tuner-class>`_ illustrates
+      how the `Tuner <https://mlr3tuning.mlr-org.com/reference/Tuner.html>`_ class supports grid search, random search,
+      generalized simulated annealing and non-linear optimization.
     * ``rsmp_tune`` is an object of class `mlr3 resampling <https://mlr3.mlr-org.com/reference/Resampling.html>`_
       that specifies the resampling method for evaluation, for example `rsmp("cv", folds = 5)` implements 5-fold cross-validation.
       `rsmp("holdout", ratio = 0.8)` implements an evaluation based on a hold-out sample that contains 20 percent of the observations.
@@ -408,7 +409,7 @@ for tuning, each of the two folds would be split up into 5 subfolds and the erro
                          "ml_m" =  ParamSet$new(list(
                                           ParamDbl$new("lambda", lower = 0.05, upper = 0.1))))
 
-        tune_settings = list(terminator = mlr3tuning::trm("evals", n_evals = 100),
+        tune_settings = list(terminator = trm("evals", n_evals = 100),
                               algorithm = tnr("grid_search", resolution = 10),
                               rsmp_tune = rsmp("cv", folds = 5),
                               measure = list("ml_g" = msr("regr.mse"),
