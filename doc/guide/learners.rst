@@ -364,7 +364,7 @@ The entries in the list specify options during parameter tuning with `mlr3tuning
       `tnr(algorithm) <https://mlr3tuning.mlr-org.com/reference/tnr.html>`_.
       `The Tuner class in mlr3tuning <https://mlr3book.mlr-org.com/tuning.html#the-tuner-class>`_ supports grid search,
       random search, generalized simulated annealing and non-linear optimization.
-    * ``rsmp_tune`` is an object of class `mlr3 resampling object <https://mlr3.mlr-org.com/reference/Resampling.html>`_
+    * ``rsmp_tune`` is an object of class `mlr3 resampling <https://mlr3.mlr-org.com/reference/Resampling.html>`_
       that specifies the resampling method for evaluation, for example `rsmp("cv", folds = 5)` implements 5-fold cross-validation.
       `rsmp("holdout", ratio = 0.8)` implements an evaluation based on a hold-out sample that contains 20 percent of the observations.
       By default, 5-fold cross-validation is performed.
