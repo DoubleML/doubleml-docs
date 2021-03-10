@@ -1,4 +1,4 @@
-# Documentation and User Guide for DoubleML - Double Machine Learning in Python & R
+# Documentation and User Guide for DoubleML - Double Machine Learning in Python & R <img src="img/logo.png" align="right" width = "120" />
 
 [![PyPI version](https://badge.fury.io/py/DoubleML.svg)](https://badge.fury.io/py/DoubleML)
 [![CRAN Version](https://www.r-pkg.org/badges/version/DoubleML)](https://cran.r-project.org/package=DoubleML)
