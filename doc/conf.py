@@ -72,6 +72,14 @@ html_theme_options = {
     'navigation_with_keys': False,
 }
 
+# html_logo = '../img/logo.png'
+html_extra_path = ['../img/logo.png']
+html_favicon = '../img/favicon.ico'
+
+html_sidebars = {'**': ['logo.html',
+                        'sidebar-search-bs.html',
+                        'sidebar-nav-bs.html']}
+
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,
 # so a file named "default.css" will overwrite the builtin "default.css".
