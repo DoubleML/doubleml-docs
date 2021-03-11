@@ -5,6 +5,12 @@ Release notes
 
 .. tabbed:: Python
 
+    **DoubleML 0.2.1**
+
+    - Provide an option to store & export the first-stage predictions
+      `#91 <https://github.com/DoubleML/doubleml-for-py/pull/91>`_
+    - Added the package logo to the doc
+
     **DoubleML 0.2.0**
 
     - Major extensions of the unit test framework which result in a coverage >98% (a summary is given in
@@ -60,6 +66,17 @@ Release notes
       learning are implemented.
 
 .. tabbed:: R
+
+    **DoubleML 0.2.1**
+
+    - Provide an option to store & export the first-stage predictions
+      `#74 <https://github.com/DoubleML/doubleml-for-r/pull/74>`_
+    - Reduce and refine messaging to the console during estimation
+      `#72 <https://github.com/DoubleML/doubleml-for-r/pull/72>`_
+    - Fix bug in IIVM model if the IV variable is not named ``z``
+      `#75 <https://github.com/DoubleML/doubleml-for-r/pull/75>`_
+    - Fix failing unit test `#71 <https://github.com/DoubleML/doubleml-for-r/pull/71>`_
+    - Added the package logo to the doc
 
     **DoubleML 0.2.0**
 
