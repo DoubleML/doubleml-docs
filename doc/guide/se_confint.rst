@@ -6,12 +6,12 @@ Variance estimation and confidence intervals for a causal parameter of interest
 Variance estimation
 +++++++++++++++++++
 
-Under regularity conditions the estimator :math:`\tilde{\theta}_0` concentrates in a :math:`1/\sqrt(N)`-neighborhood
-of :math:`\theta_0` and the sampling error :math:`\sqrt(N)(\tilde{\theta}_0 - \theta_0)` is approximately normal
+Under regularity conditions the estimator :math:`\tilde{\theta}_0` concentrates in a :math:`1/\sqrt{N}`-neighborhood
+of :math:`\theta_0` and the sampling error :math:`\sqrt{N}(\tilde{\theta}_0 - \theta_0)` is approximately normal
 
 .. math::
 
-    \sqrt(N)(\tilde{\theta}_0 - \theta_0) \leadsto N(o, \sigma^2),
+    \sqrt{N}(\tilde{\theta}_0 - \theta_0) \leadsto N(o, \sigma^2),
 
 with mean zero and variance given by
 
