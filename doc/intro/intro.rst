@@ -122,7 +122,7 @@ Learners to estimate the nuisance models
 ------------------------------------------------
 
 To estimate our partially linear regression (PLR) model with the double machine learning algorithm, we first have to
-specify machine learners to estimate :math:`m_0` and :math:`g_0`. For the bonus data we use a random forest
+specify learners to estimate :math:`m_0` and :math:`g_0`. For the bonus data we use a random forest
 regression model and for our simulated data from a sparse partially linear model we use a Lasso regression model.
 The implementation of :ref:`DoubleML <doubleml_package>` is based on the meta-packages
 `scikit-learn <https://scikit-learn.org/>`_ (Pedregosa et al., 2011) for Python
