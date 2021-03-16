@@ -172,13 +172,13 @@ If you use the DoubleML package a citation is highly appreciated:
 Bach, P., Chernozhukov, V., Kurz, M. S., and Spindler, M. (2020),
 DoubleML - Double Machine Learning in Python.
 URL: `https://github.com/DoubleML/doubleml-for-py <https://github.com/DoubleML/doubleml-for-py>`_,
-Python-Package version 0.1.0.
+Python-Package version 0.2.1.
 
 
 Bach, P., Chernozhukov, V., Kurz, M. S., and Spindler, M. (2020),
 DoubleML - Double Machine Learning in Python.
 URL: `https://github.com/DoubleML/doubleml-for-r <https://github.com/DoubleML/doubleml-for-r>`_,
-R-Package version 0.1.0.
+R-Package version 0.2.1.
 
 Bibtex-entries:
 
@@ -188,7 +188,7 @@ Bibtex-entries:
         title = {DoubleML - Double Machine Learning in Python},
         author = {Bach, P., Chernozhukov, V., Kurz, M. S., and Spindler, M.},
         year = {2020},
-        note = {URL: \url{https://github.com/DoubleML/doubleml-for-py}, Python-Package version 0.1.0}
+        note = {URL: \url{https://github.com/DoubleML/doubleml-for-py}, Python-Package version 0.2.1}
     }
 
 .. code-block:: TeX
@@ -197,7 +197,7 @@ Bibtex-entries:
         title = {DoubleML - Double Machine Learning in R},
         author = {Bach, P., Chernozhukov, V., Kurz, M. S., and Spindler, M.},
         year = {2020},
-        note = {URL: \url{https://github.com/DoubleML/doubleml-for-r}, R-Package version 0.1.0}
+        note = {URL: \url{https://github.com/DoubleML/doubleml-for-r}, R-Package version 0.2.1}
     }
 
 References
