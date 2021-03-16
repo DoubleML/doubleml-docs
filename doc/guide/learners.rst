@@ -372,11 +372,13 @@ The entries in the list specify options during parameter tuning with `mlr3tuning
     * ``measure`` is a named list containing the measures used for tuning of the nuisance components.
       The names of the entries must match the learner names (see method ``learner_names()``).  The entries in the list must either be
       objects of class `Measure <https://mlr3.mlr-org.com/reference/Measure.html>`_ or keys passed to `msr() <https://mlr3.mlr-org.com/reference/mlr_sugar.html>`_.
-      If ``measure`` is not provided by the user, mean squared error for regression models and classification error for binary outcomes.
+      If ``measure`` is not provided by the user, default measures are used, i.e., mean squared error for regression models
+      and classification error for binary outcomes.
 
 In the following example, we tune the penalty parameter :math:`\lambda` (``lambda``) for lasso with the R package
-`glmnet <https://glmnet.stanford.edu/>`_. To tune the value of ``lambda`` a grid search over a grid of values that range from `0.05`
-to `0.1` at a resolution of 10. To evaluate the predictive performance in both nuisance parts, the cross-validated mean squared error is used.
+`glmnet <https://glmnet.stanford.edu/>`_. To tune the value of ``lambda``, a grid search  is performed over a grid of values that range from 0.05
+to 0.1 at a resolution of 10. Using a resolution of 10 splits the grid of values in 10 equally spaced values ranging from a minimum of 0.05
+to a maximum of 0.1. To evaluate the predictive performance in both nuisance parts, the cross-validated mean squared error is used.
 
 Setting the option ``tune_on_folds=FALSE``, the tuning is performed on the whole sample. Hence, the cross-validated errors
 are obtained from a random split of the whole sample into 5 folds. As a result, one set of ``lambda`` values are obtained
@@ -396,6 +398,7 @@ for tuning, each of the two folds would be split up into 5 subfolds and the erro
         library(data.table)
         library(mlr3learners)
         library(mlr3tuning)
+        library(paradox)
         lgr::get_logger("mlr3")$set_threshold("warn")
         lgr::get_logger("bbotk")$set_threshold("warn")
 
@@ -462,6 +465,7 @@ parameters ``mtry`` and ``max.depth`` of a random forest. Evaluation is based on
         library(mlr3learners)
         library(data.table)
         library(mlr3tuning)
+        library(paradox)
         lgr::get_logger("mlr3")$set_threshold("warn")
         lgr::get_logger("bbotk")$set_threshold("warn")
 
