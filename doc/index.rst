@@ -130,7 +130,7 @@ In particular functionalities to estimate double machine learning models and to 
 methods `fit`, `bootstrap`, `confint`, `p_adjust` and `tune`.
 This object-oriented implementation allows a high flexibility for the model specification in terms of ...
 
-- ... the machine learners for the nuisance functions,
+- ... the machine learning methods for estimation of the nuisance functions,
 - ... the resampling schemes,
 - ... the double machine learning algorithm,
 - ... the Neyman orthogonal score functions,
