@@ -12,12 +12,12 @@ interests: Each of the coefficients of interest, :math:`\theta_{0,j}`, with :mat
 
     \mathbb{E}[ \psi_j(W; \theta_{0,j}, \eta_{0,j})] = 0.
 
-Analogously to case with a single parameter of interest, the PLR model with multiple treatment variables includes two regression steps to achieve orthogonality.
+Analogously to the case with a single parameter of interest, the PLR model with multiple treatment variables includes two regression steps to achieve orthogonality.
 First, the main regression is given by
 
 .. math::
 
-    Y = D_j \theta_{0,j} + g_{0,j}([D_k, X]) + \zeta_j, \quad \mathbb{E}(\zeta_j | D_j,X) = 0,
+    Y = D_j \theta_{0,j} + g_{0,j}([D_k, X]) + \zeta_j, \quad \mathbb{E}(\zeta_j | D, X) = 0,
 
 with :math:`[D_k, X]` being a matrix comprising the confounders, :math:`X`, and all remaining treatment variables
 :math:`D_k` with  :math:`k \in \lbrace 1, \ldots, p_1\rbrace \setminus j`, by default.
@@ -25,7 +25,7 @@ Second, the relationship between the treatment variable :math:`D_j` and the rema
 
 .. math::
 
-    D_j = m_{0,j}([D_k, X]) + V_j, \quad \mathbb{E}(V_j | X) = 0,
+    D_j = m_{0,j}([D_k, X]) + V_j, \quad \mathbb{E}(V_j | D_k, X) = 0,
 
 For further details, we refer to Belloni et al. (2018). Simultaneous inference can be based on a multiplier bootstrap procedure introduced in Belloni et al. (2014a, 2014b).
 Alternatively, traditional correction approaches, for example the Bonferroni correction, can be used to adjust p-values.
