@@ -5,29 +5,29 @@ Confidence bands and multiplier bootstrap for valid simultaneous inference
 
 :ref:`DoubleML <doubleml_package>` provides methods to perform valid simultaneous inference for multiple treatment variables.
 As an example, consider a PLR with :math:`p_1` causal parameters of interest :math:`\theta_{0,1}, \ldots, \theta_{0,p_1}` associated with
-treatment variables :math:`D_1, \ldots, D_{p_1}`
-
-.. math::
-
-    Y = D_1 \theta_{0,1} + \ldots + D_{p_1} \theta_{0, p_1}  + g_0(X) + \zeta, \quad \mathbb{E}(\zeta | D,X) = 0,
-
-Inference on multiple target coefficients can be performed by iterating the DML inference procedure over the target variables of
-interests. The relationship between the treatment variable :math:`D_j` and the remaining explanatory variables is determined by the equation
-
-.. math::
-
-    D_j = m_{0,j}(D_k, X) + V_j, \quad \mathbb{E}(V_j | X) = 0,
-
-:math:`j \in \lbrace 1, \ldots, p_1 \rbrace` and :math:`k \in \lbrace 1, \ldots, p_1\rbrace \setminus j`.
-All remaining treatment variables :math:`D_k` are comprised in the nuisance component :math:`m_{0,j}`.
-The parameter of interest :math:`\theta_j` solves a corresponding moment condition
+treatment variables :math:`D_1, \ldots, D_{p_1}`. Inference on multiple target coefficients can be performed by iteratively applying the DML inference procedure over the target variables of
+interests: Each of the coefficients of interest, :math:`\theta_{0,j}`, with :math:`j \in \lbrace 1, \ldots, p_1 \rbrace`, solves a corresponding moment condition
 
 .. math::
 
     \mathbb{E}[ \psi_j(W; \theta_{0,j}, \eta_{0,j})] = 0.
 
-For further details, we refer to Belloni et al. (2018).
-Simultaneous inference can be based on a multiplier bootstrap procedure introduced in Belloni et al. (2014a, 2014b).
+Analogously to case with a single parameter of interest, the PLR model with multiple treatment variables includes two regression steps to achieve orthogonality.
+First, the main regression is given by
+
+.. math::
+
+    Y = D_j \theta_{0,j} + g_{0,j}([D_k, X]) + \zeta_j, \quad \mathbb{E}(\zeta_j | D_j,X) = 0,
+
+with :math:`[D_k, X]` being a matrix comprising the confounders, :math:`X`, and all remaining treatment variables
+:math:`D_k` with  :math:`k \in \lbrace 1, \ldots, p_1\rbrace \setminus j`, by default.
+Second, the relationship between the treatment variable :math:`D_j` and the remaining explanatory variables is determined by the equation
+
+.. math::
+
+    D_j = m_{0,j}([D_k, X]) + V_j, \quad \mathbb{E}(V_j | X) = 0,
+
+For further details, we refer to Belloni et al. (2018). Simultaneous inference can be based on a multiplier bootstrap procedure introduced in Belloni et al. (2014a, 2014b).
 Alternatively, traditional correction approaches, for example the Bonferroni correction, can be used to adjust p-values.
 
 Multiplier bootstrap and joint confidence intervals
@@ -61,7 +61,7 @@ when calling the method ``confint``.
 
 Moreover, a multiple hypotheses testing adjustment of p-values from a high-dimensional model can be obtained with
 the method ``p_adjust``. :ref:`DoubleML <doubleml_package>`  performs a version of the Romano-Wolf stepdown adjustment,
-which is based on the multiplier bootstrap, by default. Alternatively, ``p_adjust`` allows the user to apply traditional corrections
+which is based on the multiplier bootstrap, by default. Alternatively, ``p_adjust`` allows users to apply traditional corrections
 via the option ``method``.
 
 .. tabbed:: Python
