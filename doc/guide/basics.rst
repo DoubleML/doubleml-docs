@@ -3,9 +3,10 @@
 The basics of double/debiased machine learning
 ----------------------------------------------
 
-In the following we provide a brief summary of and motivation to double machine learning methods and show how the
+In the following we provide a brief summary of and motivation to the double machine learning (DML) framework and show how the
 corresponding methods provided by the :ref:`DoubleML <doubleml_package>` package can be applied.
 For details we refer to Chernozhukov et al. (2018).
+
 
 .. Add references to the vignette here when it is ready.
 
@@ -16,27 +17,27 @@ We consider the following partially linear model
 
 .. math::
 
-        d_i = m_0(x_i) + v_i, & &v_i \sim \mathcal{N}(0,1),
-
         y_i = \theta d_i + g_0(x_i) + \zeta_i, & &\zeta_i \sim \mathcal{N}(0,1),
+
+        d_i = m_0(x_i) + v_i, & &v_i \sim \mathcal{N}(0,1),
 
 
 with covariates :math:`x_i \sim \mathcal{N}(0, \Sigma)`, where  :math:`\Sigma` is a matrix with entries
-:math:`\Sigma_{kj} = 0.7^{|j-k|}`.
-The true parameter :math:`\theta` is set to :math:`0.5`.
+:math:`\Sigma_{kj} = 0.7^{|j-k|}`. We are interested in performing valid inference on the causal parameter :math:`\theta`.
+The true parameter :math:`\theta` is set to :math:`0.5` in our simulation experiment.
 
 The nuisance functions are given by
 
 .. math::
 
-    m_0(x_i) &= \frac{1}{4} x_{i,1} + \frac{\exp(x_{i,3})}{1+\exp(x_{i,3})},
+    m_0(x_i) &= x_{i,1} + \frac{1}{4}  \frac{\exp(x_{i,3})}{1+\exp(x_{i,3})},
 
     g_0(X) &= \frac{\exp(x_{i,1})}{1+\exp(x_{i,1})} + \frac{1}{4} x_{i,3}.
 
 
 .. note::
     - In Python the data can be generated with :py:func:`doubleml.datasets.make_plr_CCDDHNR2018`.
-    - In R the data can be generated with `DoubleML::make_plr_CCDDHNR2018()`.
+    - In R the data can be generated with `DoubleML::make_plr_CCDDHNR2018() <https://docs.doubleml.org/r/stable/reference/make_plr_CCDDHNR2018.html>`_.
 
 .. tabbed:: Python
 
@@ -158,8 +159,11 @@ efficient.
 Regularization bias in simple ML-approaches
 +++++++++++++++++++++++++++++++++++++++++++
 
-A simple ML approach is given by randomly splitting the sample into two parts.
-On the auxiliary sample indexed by :math:`i \in I^C` the nuisance function :math:`g_0(X)` is estimated with an ML method.
+Naive inference that is based on a direct application of machine learning methods to estimate the causal
+parameter, :math:`\theta`, is generally invalid. The use of machine learning methods introduces a bias that arises due to
+regularization. A simple ML approach is given by randomly splitting the sample into two parts.
+On the auxiliary sample indexed by :math:`i \in I^C` the nuisance function :math:`g_0(X)` is estimated with an ML method,
+for example a random forest learner.
 Given the estimate :math:`\hat{g}_0(X)`, the final estimate of :math:`\theta` is obtained as (:math:`n=N/2`) using the
 other half of observations indexed with :math:`i \in I`
 
@@ -273,9 +277,9 @@ The regularization bias in the simple ML-approach is caused by the slow converge
 
     |\sqrt{n} (\hat{\theta} - \theta) | \rightarrow_{P} \infty
 
-i.e. slower than :math:`1/\sqrt{n}`.
-The driving factor is the bias in learning :math:`g`.
-A Heuristic illustration is given by
+i.e., slower than :math:`1/\sqrt{n}`.
+The driving factor is the bias that arises by learning :math:`g` with a random forest or any other ML technique.
+A heuristic illustration is given by
 
 .. math::
 
@@ -290,7 +294,7 @@ However, :math:`b` (the regularization bias) diverges in general.
 Overcoming regularization bias by orthogonalization
 +++++++++++++++++++++++++++++++++++++++++++++++++++
 
-To overcome the regularization bias we are directly partialling out the effect of :math:`X` from :math:`D` to obtain the
+To overcome the regularization bias we can partial out the effect of :math:`X` from :math:`D` to obtain the
 orthogonalized regressor :math:`V = D - m(X)`. We then use the final estimate
 
 .. math::
@@ -363,8 +367,8 @@ orthogonalized regressor :math:`V = D - m(X)`. We then use the final estimate
         g_nosplit
 
 
-If the nuisance models :math:`\hat{g}_0()` and :math:`\hat{m}()` are estimate on the whole dataset which is also used for obtaining
-the final estimate :math:`\check{\theta}` another bias can be observed.
+If the nuisance models :math:`\hat{g}_0()` and :math:`\hat{m}()` are estimated on the whole dataset, which is also used for obtaining
+the final estimate :math:`\check{\theta}`, another bias is observed.
 
 .. _bias_overfitting:
 
@@ -372,8 +376,9 @@ Sample splitting to remove bias induced by overfitting
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 Using sample splitting, i.e., estimate the nuisance models :math:`\hat{g}_0()` and :math:`\hat{m}()` on one part of the
-data (training data) and estimate :math:`\check{\theta}` on the other part of the data (test data) overcomes the bias
-induced by overfitting. Cross-fitting performs well empirically.
+data (training data) and estimate :math:`\check{\theta}` on the other part of the data (test data), overcomes the bias
+induced by overfitting. We can exploit the benefits of cross-fitting by switching the role of the training and test sample.
+Cross-fitting performs well empirically because the entire sample can be used for estimation.
 
 .. tabbed:: Python
 
@@ -441,7 +446,7 @@ induced by overfitting. Cross-fitting performs well empirically.
 Double/debiased machine learning
 ++++++++++++++++++++++++++++++++
 
-To illustrate the benefits of the auxiliary prediction step (the DML) we write the error as
+To illustrate the benefits of the auxiliary prediction step in the DML framework we write the error as
 
 .. math::
 

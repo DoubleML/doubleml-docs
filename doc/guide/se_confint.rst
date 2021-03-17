@@ -1,17 +1,17 @@
 .. _se_confint:
 
-Variance estimation, confidence intervals and multiplier bootstrap
-------------------------------------------------------------------
+Variance estimation and confidence intervals for a causal parameter of interest
+-------------------------------------------------------------------------------
 
 Variance estimation
 +++++++++++++++++++
 
-Under regularity conditions the estimator :math:`\tilde{\theta}_0` concentrates in a :math:`1/\sqrt(N)`-neighborhood
-of :math:`\theta_0` and the sampling error :math:`\sqrt(N)(\tilde{\theta}_0 - \theta_0)` is approximately normal
+Under regularity conditions the estimator :math:`\tilde{\theta}_0` concentrates in a :math:`1/\sqrt{N}`-neighborhood
+of :math:`\theta_0` and the sampling error :math:`\sqrt{N}(\tilde{\theta}_0 - \theta_0)` is approximately normal
 
 .. math::
 
-    \sqrt(N)(\tilde{\theta}_0 - \theta_0) \leadsto N(o, \sigma^2),
+    \sqrt{N}(\tilde{\theta}_0 - \theta_0) \leadsto N(o, \sigma^2),
 
 with mean zero and variance given by
 
@@ -158,88 +158,3 @@ string-representation of the object.
 
         print(dml_plr_obj)
 
-.. TODO: Add a documentation of the ``se_reestimate`` option here (especially for DML1 algorithm).
-
-Multiplier bootstrap and joint confidence intervals
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++
-
-The ``bootstrap()`` method provides an implementation of a multiplier bootstrap for double machine learning models.
-For :math:`b=1, \ldots, B` weights :math:`\xi_{i, b}` are generated according to a normal (Gaussian) bootstrap, wild
-bootstrap or exponential bootstrap.
-The number of bootstrap samples is provided as input ``n_rep_boot`` and for ``method`` one can choose ``'Bayes'``,
-``'normal'`` or ``'wild'``.
-Based on the estimates of the standard errors given by
-
-.. math::
-
-    \hat{\sigma}^2 &= \hat{J}_0^{-2} \frac{1}{N} \sum_{k=1}^{K} \sum_{i \in I_k} \big[\psi(W_i; \tilde{\theta}_0, \hat{\eta}_{0,k})\big]^2,
-
-    \hat{J}_0 &= \frac{1}{N} \sum_{k=1}^{K} \sum_{i \in I_k} \psi_a(W_i; \hat{\eta}_{0,k}),
-
-we obtain bootstrap coefficients :math:`\theta^*_b` and bootstrap t-statistics :math:`t^*_b`
-
-.. math::
-
-    \theta^*_b &= \frac{1}{\sqrt{N} \hat{J}_0}\sum_{k=1}^{K} \sum_{i \in I_k} \xi_{i, b} \cdot \psi(W_i; \tilde{\theta}_0, \hat{\eta}_{0,k}),
-
-    t^*_b &= \frac{1}{\sqrt{N} \hat{J}_0 \hat{\sigma}} \sum_{k=1}^{K} \sum_{i \in I_k} \xi_{i, b} \cdot \psi(W_i; \tilde{\theta}_0, \hat{\eta}_{0,k}).
-
-
-To demonstrate the bootstrap, we simulate data from a sparse partially linear regression model.
-Then we estimate the PLR model and perform the multiplier bootstrap.
-Joint confidence intervals based on the multiplier bootstrap are then obtained with the method ``confint()``.
-Besides that, a multiple hypotheses testing adjustment of p-values from a high-dimensional model can be obtained with
-the method ``p_adjust``.
-
-.. tabbed:: Python
-
-    .. ipython:: python
-
-        import doubleml as dml
-        import numpy as np
-        from sklearn.base import clone
-        from sklearn.linear_model import LassoCV
-
-        # Simulate data
-        np.random.seed(1234)
-        n_obs = 500
-        n_vars = 100
-        X = np.random.normal(size=(n_obs, n_vars))
-        theta = np.array([3., 3., 3.])
-        y = np.dot(X[:, :3], theta) + np.random.standard_normal(size=(n_obs,))
-
-        dml_data = dml.DoubleMLData.from_arrays(X[:, 10:], y, X[:, :10])
-
-        learner = LassoCV()
-        ml_g = clone(learner)
-        ml_m = clone(learner)
-        dml_plr = dml.DoubleMLPLR(dml_data, ml_g, ml_m)
-
-        print(dml_plr.fit().bootstrap().confint(joint=True))
-        print(dml_plr.p_adjust())
-
-.. tabbed:: R
-
-    .. jupyter-execute::
-
-        library(DoubleML)
-        library(mlr3)
-        library(data.table)
-
-        set.seed(3141)
-        n_obs = 500
-        n_vars = 100
-        theta = rep(3, 3)
-        X = matrix(stats::rnorm(n_obs * n_vars), nrow = n_obs, ncol = n_vars)
-        y = X[, 1:3, drop = FALSE] %*% theta  + stats::rnorm(n_obs)
-        dml_data = double_ml_data_from_matrix(X = X[, 11:n_vars], y = y, d = X[,1:10])
-
-        learner = lrn("regr.cv_glmnet", s="lambda.min")
-        ml_g = learner$clone()
-        ml_m = learner$clone()
-        dml_plr = DoubleMLPLR$new(dml_data, ml_g, ml_m)
-
-        dml_plr$fit()
-        dml_plr$bootstrap()
-        dml_plr$confint(joint=TRUE)
-        dml_plr$p_adjust()
