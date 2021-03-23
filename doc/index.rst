@@ -175,10 +175,9 @@ URL: `https://github.com/DoubleML/doubleml-for-py <https://github.com/DoubleML/d
 Python-Package version 0.2.1.
 
 
-Bach, P., Chernozhukov, V., Kurz, M. S., and Spindler, M. (2020),
-DoubleML - Double Machine Learning in Python.
-URL: `https://github.com/DoubleML/doubleml-for-r <https://github.com/DoubleML/doubleml-for-r>`_,
-R-Package version 0.2.1.
+Bach, P., Chernozhukov, V., Kurz, M. S., and Spindler, M.,
+DoubleML - An Object-Oriented Implementation of Double Machine Learning in R, 2021.
+arxiv:`2103.09603 <https://arxiv.org/abs/2103.09603>`_ [stat.ML].
 
 Bibtex-entries:
 
@@ -193,11 +192,14 @@ Bibtex-entries:
 
 .. code-block:: TeX
 
-    @Manual{DoubleML2020R,
-        title = {DoubleML - Double Machine Learning in R},
-        author = {Bach, P., Chernozhukov, V., Kurz, M. S., and Spindler, M.},
-        year = {2020},
-        note = {URL: \url{https://github.com/DoubleML/doubleml-for-r}, R-Package version 0.2.1}
+    @misc{DoubleML2021R,
+      title={{DoubleML} -- {A}n Object-Oriented Implementation of Double Machine Learning in {R}},
+      author={P. Bach and V. Chernozhukov and M. S. Kurz and M. Spindler},
+      year={2021},
+      eprint={2103.09603},
+      archivePrefix={arXiv},
+      primaryClass={stat.ML},
+      note={arXiv:\href{https://arxiv.org/abs/2103.09603}{2103.09603} [stat.ML]}
     }
 
 References
