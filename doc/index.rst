@@ -182,7 +182,7 @@ Bibtex-entries:
 
 .. code-block:: TeX
 
-    @misc{DoubleML2020Python,
+    @misc{DoubleML2021Python,
       title={{DoubleML} -- {A}n Object-Oriented Implementation of Double Machine Learning in {P}ython},
       author={Philipp Bach and Victor Chernozhukov and Malte S. Kurz and Martin Spindler},
       year={2021},
