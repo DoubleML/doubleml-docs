@@ -30,7 +30,7 @@ The algorithm ``dml_procedure='dml1'`` can be summarized as
 
     .. math::
 
-        \tilde{\theta}_0 = \sum_{k=1}^{K} \check{\theta}_{0,k}.
+        \tilde{\theta}_0 = \frac{1}{K} \sum_{k=1}^{K} \check{\theta}_{0,k}.
 
 
 4. **Outputs:** The estimate of the causal parameter :math:`\tilde{\theta}_0` as well as the values of the evaluated score function are returned.
