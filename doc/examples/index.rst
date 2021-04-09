@@ -10,4 +10,3 @@ Examples
 
     double_ml_multiway_cluster.ipynb
     double_ml_bonus_data.ipynb
-    r_notebook.ipynb
