@@ -169,35 +169,39 @@ Citation
 
 If you use the DoubleML package a citation is highly appreciated:
 
-Bach, P., Chernozhukov, V., Kurz, M. S., and Spindler, M. (2020),
-DoubleML - Double Machine Learning in Python.
-URL: `https://github.com/DoubleML/doubleml-for-py <https://github.com/DoubleML/doubleml-for-py>`_,
-Python-Package version 0.2.1.
+Bach, P., Chernozhukov, V., Kurz, M. S., and Spindler, M. (2021),
+DoubleML - An Object-Oriented Implementation of Double Machine Learning in Python,
+arXiv:`2104.03220 <https://arxiv.org/abs/2104.03220>`_.
 
 
-Bach, P., Chernozhukov, V., Kurz, M. S., and Spindler, M. (2020),
-DoubleML - Double Machine Learning in Python.
-URL: `https://github.com/DoubleML/doubleml-for-r <https://github.com/DoubleML/doubleml-for-r>`_,
-R-Package version 0.2.1.
+Bach, P., Chernozhukov, V., Kurz, M. S., and Spindler, M. (2021),
+DoubleML - An Object-Oriented Implementation of Double Machine Learning in R,
+arXiv:`2103.09603 <https://arxiv.org/abs/2103.09603>`_.
 
 Bibtex-entries:
 
 .. code-block:: TeX
 
-    @Manual{DoubleML2020Python,
-        title = {DoubleML - Double Machine Learning in Python},
-        author = {Bach, P., Chernozhukov, V., Kurz, M. S., and Spindler, M.},
-        year = {2020},
-        note = {URL: \url{https://github.com/DoubleML/doubleml-for-py}, Python-Package version 0.2.1}
+    @misc{DoubleML2021Python,
+      title={{DoubleML} -- {A}n Object-Oriented Implementation of Double Machine Learning in {P}ython},
+      author={Philipp Bach and Victor Chernozhukov and Malte S. Kurz and Martin Spindler},
+      year={2021},
+      eprint={2104.03220},
+      archivePrefix={arXiv},
+      primaryClass={stat.ML},
+      note={arXiv:\href{https://arxiv.org/abs/2104.03220}{2104.03220} [stat.ML]}
     }
 
 .. code-block:: TeX
 
-    @Manual{DoubleML2020R,
-        title = {DoubleML - Double Machine Learning in R},
-        author = {Bach, P., Chernozhukov, V., Kurz, M. S., and Spindler, M.},
-        year = {2020},
-        note = {URL: \url{https://github.com/DoubleML/doubleml-for-r}, R-Package version 0.2.1}
+    @misc{DoubleML2021R,
+      title={{DoubleML} -- {A}n Object-Oriented Implementation of Double Machine Learning in {R}},
+      author={P. Bach and V. Chernozhukov and M. S. Kurz and M. Spindler},
+      year={2021},
+      eprint={2103.09603},
+      archivePrefix={arXiv},
+      primaryClass={stat.ML},
+      note={arXiv:\href{https://arxiv.org/abs/2103.09603}{2103.09603} [stat.ML]}
     }
 
 References
