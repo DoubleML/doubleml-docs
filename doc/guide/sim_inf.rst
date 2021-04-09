@@ -38,14 +38,17 @@ For :math:`b=1, \ldots, B` weights :math:`\xi_{i, b}` are generated according to
 bootstrap or exponential bootstrap.
 The number of bootstrap samples is provided as input ``n_rep_boot`` and for ``method`` one can choose ``'Bayes'``,
 ``'normal'`` or ``'wild'``.
-Based on the estimates of the standard errors that are obtained from DML, we construct bootstrap coefficients
+Based on the estimates of the standard errors :math:`\hat{\sigma}_j`
+and :math:`\hat{J}_{0,j} = \mathbb{E}_N(\psi_{a,j}(W; \eta_{0,j}))`
+that are obtained from DML, we construct bootstrap coefficients
 :math:`\theta^{*,b}_j` and bootstrap t-statistics :math:`t^{*,b}_j`
+for :math:`j=1, \ldots, p_1`
 
 .. math::
 
-    \theta^{*,b}_{j} &= \frac{1}{\sqrt{N} \hat{J}_0}\sum_{k=1}^{K} \sum_{i \in I_k} \xi_{i}^b \cdot \psi_j(W_i; \tilde{\theta}_{0,j}, \hat{\eta}_{0,j;k}),
+    \theta^{*,b}_{j} &= \frac{1}{\sqrt{N} \hat{J}_{0,j}}\sum_{k=1}^{K} \sum_{i \in I_k} \xi_{i}^b \cdot \psi_j(W_i; \tilde{\theta}_{0,j}, \hat{\eta}_{0,j;k}),
 
-    t^{*,b}_{j} &= \frac{1}{\sqrt{N} \hat{J}_0 \hat{\sigma}} \sum_{k=1}^{K} \sum_{i \in I_k} \xi_{i}^b  \cdot \psi_j(W_i; \tilde{\theta}_{0,j}, \hat{\eta}_{0,j;k}).
+    t^{*,b}_{j} &= \frac{1}{\sqrt{N} \hat{J}_{0,j} \hat{\sigma}_{j}} \sum_{k=1}^{K} \sum_{i \in I_k} \xi_{i}^b  \cdot \psi_j(W_i; \tilde{\theta}_{0,j}, \hat{\eta}_{0,j;k}).
 
 The output of the multiplier bootstrap can be used to determine the constant, :math:`c_{1-\alpha}` that is required for the construction of a
 simultaneous :math:`(1-\alpha)` confidence band
