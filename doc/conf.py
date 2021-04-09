@@ -107,6 +107,10 @@ nbsphinx_prolog = r"""
     {% endraw %}
 """
 
+sphinx_gallery_conf = {
+    'default_thumb_file': 'img/logo.png',
+}
+
 # intersphinx configuration
 intersphinx_mapping = {
     'python': ('https://docs.python.org/{.major}'.format(sys.version_info), None),
