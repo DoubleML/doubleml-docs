@@ -6,6 +6,7 @@ rpy2
 # doc
 sphinx
 sphinx-copybutton
+nbsphinx
 sphinx-gallery
 sphinx-panels
 jupyter-sphinx
