@@ -5,6 +5,33 @@ Release notes
 
 .. tabbed:: Python
 
+    **DoubleML 0.2.1**
+
+    - Provide an option to store & export the first-stage predictions
+      `#91 <https://github.com/DoubleML/doubleml-for-py/pull/91>`_
+    - Added the package logo to the doc
+
+    **DoubleML 0.2.0**
+
+    - Major extensions of the unit test framework which result in a coverage >98% (a summary is given in
+      `#82 <https://github.com/DoubleML/doubleml-for-py/pull/82>`_)
+    - In the PLR one can now also specify classifiers for ``ml_m`` in case of a binary treatment variable with values 0
+      and 1 (see `#86 <https://github.com/DoubleML/doubleml-for-py/pull/86>`_ for details)
+    - The joint Python and R docu and user guide is now served to
+      `https://docs.doubleml.org <https://docs.doubleml.org>`_ from a separate repo
+      `https://github.com/DoubleML/doubleml-docs <https://github.com/DoubleML/doubleml-docs>`_
+    - Generate and upload a unit test coverage report to codecov
+      `https://app.codecov.io/gh/DoubleML/doubleml-for-py <https://app.codecov.io/gh/DoubleML/doubleml-for-py>`_
+      `#76 <https://github.com/DoubleML/doubleml-for-py/pull/76>`_
+    - Run lint checks with flake8 `#78 <https://github.com/DoubleML/doubleml-for-py/pull/78>`_, align code with PEP8
+      standards `#79 <https://github.com/DoubleML/doubleml-for-py/pull/79>`_, activate code quality checks at codacy
+      `#80 <https://github.com/DoubleML/doubleml-for-py/pull/80>`_
+    - Refactoring (reduce code redundancy) of the code for tuning of the ML learners used for approximation the
+      nuisance functions `#81 <https://github.com/DoubleML/doubleml-for-py/pull/81>`_
+    - Minor updates, bug fixes and improvements of the exception handling
+      (contained in `#82 <https://github.com/DoubleML/doubleml-for-py/pull/82>`_ &
+      `#89 <https://github.com/DoubleML/doubleml-for-py/pull/89>`_)
+
     **DoubleML 0.1.2**
 
     - Fixed a compatibility issue with ``scikit-learn`` 0.24, which only affected some unit tests
@@ -39,6 +66,25 @@ Release notes
       learning are implemented.
 
 .. tabbed:: R
+
+    **DoubleML 0.2.1**
+
+    - Provide an option to store & export the first-stage predictions
+      `#74 <https://github.com/DoubleML/doubleml-for-r/pull/74>`_
+    - Reduce and refine messaging to the console during estimation
+      `#72 <https://github.com/DoubleML/doubleml-for-r/pull/72>`_
+    - Fix bug in IIVM model if the IV variable is not named ``z``
+      `#75 <https://github.com/DoubleML/doubleml-for-r/pull/75>`_
+    - Fix failing unit test `#71 <https://github.com/DoubleML/doubleml-for-r/pull/71>`_
+    - Added the package logo to the doc
+
+    **DoubleML 0.2.0**
+
+    - In the PLR one can now also specify classifiers for ``ml_m`` in case of a binary treatment variable with values 0 and 1
+    - Major refactoring of core-parts of the estimation and tuning of the ML estimators for the nuisance functions: All models now use central helper functions ``dml_cv_predict()`` and ``dml_tune()``
+    - Extensions to the unit test framework to improve upon test coverage
+    - Added unit test coverage via codecov: `https://app.codecov.io/gh/DoubleML/doubleml-for-r <https://app.codecov.io/gh/DoubleML/doubleml-for-r>`_
+    - Minor docu updates and adaptions: `#58 <https://github.com/DoubleML/doubleml-for-r/pull/58>`_, `#61 <https://github.com/DoubleML/doubleml-for-r/pull/61>`_ & `#70 <https://github.com/DoubleML/doubleml-for-r/pull/70>`_
 
     **DoubleML 0.1.2**
 

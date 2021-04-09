@@ -9,8 +9,8 @@ demonstrated in the following. We download the Bonus data set from the Pennsylva
 .. note::
     - In Python we use :py:class:`pandas.DataFrame` and :py:class:`numpy.ndarray`.
       The data can be fetched via :py:func:`doubleml.datasets.fetch_bonus`.
-    - In R we use `data.table::data.table()`, `data.frame()`, and `matrix()`.
-      The data can be fetched via `DoubleML::fetch_bonus()`.
+    - In R we use `data.table::data.table() <https://rdatatable.gitlab.io/data.table/reference/data.table.html>`_, `data.frame() <https://rdrr.io/r/base/data.frame.html>`_, and `matrix() <https://rdrr.io/r/base/matrix.html>`_.
+      The data can be fetched via `DoubleML::fetch_bonus() <https://docs.doubleml.org/r/stable/reference/fetch_bonus.html>`_
 
 .. tabbed:: Python
 
@@ -42,13 +42,13 @@ DoubleMLData from dataframes
 
 The ``DoubleMLData`` class serves as data-backend and can be initialized from a dataframe by
 specifying the column ``y_col='inuidur1'`` serving as outcome variable :math:`Y`, the column(s) ``d_cols = 'tg'``
-serving as treatment variable :math:`D` and the columns ``x_cols=`` specifying the confounders.
+serving as treatment variable :math:`D` and the columns ``x_cols`` specifying the confounders.
 
 .. note::
     * In Python we use :py:class:`pandas.DataFrame`
       and the API reference can be found here :py:class:`doubleml.DoubleMLData`.
-    * In R we use `data.table::data.table()` and the API reference can be found here `DoubleML::DoubleMLData`.
-    * For initialization from the R base class `data.frame()` the API reference can be found here `DoubleML::data_ml_from_data_frame()`.
+    * In R we use `data.table::data.table() <https://rdatatable.gitlab.io/data.table/reference/data.table.html>`_ and the API reference can be found here `DoubleML::DoubleMLData <https://docs.doubleml.org/r/stable/reference/DoubleMLData.html>`_.
+    * For initialization from the R base class `data.frame() <https://rdrr.io/r/base/data.frame.html>`_ the API reference can be found here `DoubleML::double_ml_data_from_data_frame() <https://docs.doubleml.org/r/stable/reference/double_ml_data_from_data_frame.html>`_.
 
 .. tabbed:: Python
 
@@ -109,8 +109,8 @@ variable ``y`` and a treatment variable ``d``
 .. note::
     * In python we use :py:class:`numpy.ndarray`.
       and the API reference can be found here :py:func:`doubleml.DoubleMLData.from_arrays`.
-    * In R we use the R base class `matrix()`
-      and the API reference can be found here `DoubleML::double_ml_data_from_matrix()`.
+    * In R we use the R base class `matrix() <https://rdrr.io/r/base/matrix.html>`_
+      and the API reference can be found here `DoubleML::double_ml_data_from_matrix() <https://docs.doubleml.org/r/stable/reference/double_ml_data_from_matrix.html>`_.
 
 .. tabbed:: Python
 
