@@ -107,7 +107,7 @@ Contents
     Install <intro/install>
     Getting started <intro/intro>
     User guide <guide/guide>
-    Examples <auto_examples/index>
+    Examples <examples/index>
     Python API <api/api>
     R API <https://docs.doubleml.org/r/stable/>
     Release notes <release/release>

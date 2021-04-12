@@ -41,7 +41,8 @@ extensions = [
     'IPython.sphinxext.ipython_console_highlighting',
     'IPython.sphinxext.ipython_directive',
     'matplotlib.sphinxext.plot_directive',
-    'sphinx_gallery.gen_gallery',
+    'nbsphinx',
+    'sphinx_gallery.load_style',
     'sphinx_copybutton',
     'sphinx_panels',
     'jupyter_sphinx',
@@ -91,11 +92,20 @@ copybutton_prompt_text = r'>>> |\.\.\. |\$ |In \[\d*\]: | {2,5}\.\.\.: | {5,8}: 
 copybutton_prompt_is_regexp = True
 
 # config of sphinx gallery for examples
-sphinx_gallery_conf = {
-     'examples_dirs': '../examples',   # path to your example scripts
-     'gallery_dirs': 'auto_examples',  # path to where to save gallery generated output
-     'filename_pattern': '/double_ml_',     # example .py files starting with double_ml_ are executed during build
-}
+nbsphinx_prolog = r"""
+.. raw:: html
+    {% raw %}
+        <div class="admonition note">
+        <p class="admonition-title">Note</p>
+        <ul class="simple">
+    {% endraw %}
+    Download Jupyter notebook:
+    {{ '<' }}a class={{ '"' }}reference external{{ '"' }} href={{ '"' }}https://docs.doubleml.org/stable/{{ env.doc2path(env.docname, base=None) }}{{ '"' }}{{ '>' }}https://docs.doubleml.org/stable/{{ env.doc2path(env.docname, base=None) }}{{ '</a>' }}.
+    {% raw %}
+        </ul>
+        </div>
+    {% endraw %}
+"""
 
 # intersphinx configuration
 intersphinx_mapping = {
