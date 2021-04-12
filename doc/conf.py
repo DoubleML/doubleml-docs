@@ -78,7 +78,7 @@ html_extra_path = ['../img/logo.png']
 html_favicon = '../img/favicon.ico'
 
 html_sidebars = {'**': ['logo.html',
-                        'sidebar-search-bs.html',
+                        'search-field.html',
                         'sidebar-nav-bs.html']}
 
 # Add any paths that contain custom static files (such as style sheets) here,
