@@ -10,6 +10,6 @@ nbsphinx
 sphinx-gallery
 sphinx-panels
 jupyter-sphinx
-pydata-sphinx-theme
+pydata-sphinx-theme>=0.6.0
 matplotlib
 seaborn
