@@ -6,7 +6,7 @@ Examples
 
 |start-h3| R: Case studies |end-h3|
 
-These are case studies with the R-package :ref:`DoubleML <doubleml_package>`.
+These are case studies with the R package :ref:`DoubleML <doubleml_package>`.
 
 .. nbgallery::
     :name: case-studies-r
@@ -16,7 +16,7 @@ These are case studies with the R-package :ref:`DoubleML <doubleml_package>`.
 
 |start-h3| Python: Case studies |end-h3|
 
-These are case studies with the Python-package :ref:`DoubleML <doubleml_package>`.
+These are case studies with the Python package :ref:`DoubleML <doubleml_package>`.
 
 |start-h3| Sandbox |end-h3|
 
