@@ -18,6 +18,12 @@ These are case studies with the R package :ref:`DoubleML <doubleml_package>`.
 
 These are case studies with the Python package :ref:`DoubleML <doubleml_package>`.
 
+.. nbgallery::
+    :name: case-studies-py
+    :glob:
+
+    py_double_ml_pension.ipynb
+
 |start-h3| Sandbox |end-h3|
 
 These are examples which are work-in-progress and/or not yet fully documented.
