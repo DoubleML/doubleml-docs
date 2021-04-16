@@ -5,6 +5,27 @@ Release notes
 
 .. tabbed:: Python
 
+    **DoubleML 0.2.2**
+
+    - IIVM model: Added a subgroups option to adapt to cases with and without the subgroups of always-takers and
+      never-takers (`#96 <https://github.com/DoubleML/doubleml-for-py/pull/96>`_).
+    - Add checks for the intersections of ``y_col``, ``d_cols``, ``x_cols``, ``z_cols``
+      (`#84 <https://github.com/DoubleML/doubleml-for-py/pull/84>`_,
+      `#97 <https://github.com/DoubleML/doubleml-for-py/pull/97>`_).
+      This also fixes `#83 <https://github.com/DoubleML/doubleml-for-py/pull/83>`_ (with intersection
+      between ``x_cols`` and ``d_cols`` a column could have been added multiple times to the covariate matrix).
+    - Added checks and exception handling for duplicate entries in ``d_cols``, ``x_cols`` or ``z_cols``
+      (`#100 <https://github.com/DoubleML/doubleml-for-py/pull/100>`_).
+    - Check the datatype of ``data`` when initializing ``DoubleMLData`` objects. Also check for duplicate column names
+      (`#100 <https://github.com/DoubleML/doubleml-for-py/pull/100>`_).
+    - Fix bug `#95 <https://github.com/DoubleML/doubleml-for-py/pull/95>`_
+      in `#97 <https://github.com/DoubleML/doubleml-for-py/pull/97>`_: It occured when ``x_cols`` where inferred via
+      setdiff and ``y_col`` was a string with multiple characters.
+    - We updated the citation info to refer to the arXiv paper
+      (`#98 <https://github.com/DoubleML/doubleml-for-py/pull/98>`_):
+      Bach, P., Chernozhukov, V., Kurz, M. S., and Spindler, M. (2021), DoubleML - An Object-Oriented Implementation of
+      Double Machine Learning in Python, `arXiv:2104.03220 <https://arxiv.org/abs/2104.03220)>`_.
+
     **DoubleML 0.2.1**
 
     - Provide an option to store & export the first-stage predictions
