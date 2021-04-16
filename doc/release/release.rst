@@ -19,7 +19,7 @@ Release notes
     - Check the datatype of ``data`` when initializing ``DoubleMLData`` objects. Also check for duplicate column names
       (`#100 <https://github.com/DoubleML/doubleml-for-py/pull/100>`_).
     - Fix bug `#95 <https://github.com/DoubleML/doubleml-for-py/pull/95>`_
-      in `#97 <https://github.com/DoubleML/doubleml-for-py/pull/97>`_: It occured when ``x_cols`` where inferred via
+      in `#97 <https://github.com/DoubleML/doubleml-for-py/pull/97>`_: It occurred when ``x_cols`` where inferred via
       setdiff and ``y_col`` was a string with multiple characters.
     - We updated the citation info to refer to the arXiv paper
       (`#98 <https://github.com/DoubleML/doubleml-for-py/pull/98>`_):
