@@ -24,7 +24,7 @@ Release notes
     - We updated the citation info to refer to the arXiv paper
       (`#98 <https://github.com/DoubleML/doubleml-for-py/pull/98>`_):
       Bach, P., Chernozhukov, V., Kurz, M. S., and Spindler, M. (2021), DoubleML - An Object-Oriented Implementation of
-      Double Machine Learning in Python, `arXiv:2104.03220 <https://arxiv.org/abs/2104.03220)>`_.
+      Double Machine Learning in Python, `arXiv:2104.03220 <https://arxiv.org/abs/2104.03220>`_.
 
     **DoubleML 0.2.1**
 
