@@ -27,7 +27,7 @@ Second, the relationship between the treatment variable :math:`D_j` and the rema
 
     D_j = m_{0,j}([D_k, X]) + V_j, \quad \mathbb{E}(V_j | D_k, X) = 0,
 
-For further details, we refer to Belloni et al. (2018). Simultaneous inference can be based on a multiplier bootstrap procedure introduced in Belloni et al. (2014a, 2014b).
+For further details, we refer to Belloni et al. (2018). Simultaneous inference can be based on a multiplier bootstrap procedure introduced in Chernozhukov et al. (2013, 2014).
 Alternatively, traditional correction approaches, for example the Bonferroni correction, can be used to adjust p-values.
 
 Multiplier bootstrap and joint confidence intervals
@@ -128,8 +128,8 @@ via the option ``method``.
 References
 ++++++++++
 
-* Belloni, A., Chernozhukov, V., Kato, K. (2014a), Gaussian approximation of suprema of empirical processes. The Annals of Statistics 42 (4): 1564-97, `doi: 10.1214/14-AOS1230 <https://dx.doi.org/10.1214/14-AOS1230>`_.
-
-* Belloni, A., Chernozhukov, V., Kato, K. (2014b). Gaussian approximations and multiplier bootstrap for maxima of sums of high-dimensional random vectors. The Annals of Statistics 41 (6): 2786-2819, `doi: 10.1214/13-AOS1161 <https://dx.doi.org/10.1214/13-AOS1161>`_.
-
 * Belloni, A., Chernozhukov, V., Chetverikov, D., Wei, Y. (2018), Uniformly valid post-regularization confidence regions for many functional parameters in z-estimation framework. Annals of Statistics, 46 (6B): 3643-75,  `doi: 10.1214/17-AOS1671 <https://dx.doi.org/10.1214%2F17-AOS1671>`_.
+
+* Chernozhukov, V., Chetverikov, D., Kato, K. (2013). Gaussian approximations and multiplier bootstrap for maxima of sums of high-dimensional random vectors. The Annals of Statistics 41 (6): 2786-2819, `doi: 10.1214/13-AOS1161 <https://dx.doi.org/10.1214/13-AOS1161>`_.
+
+* Chernozhukov, V., Chetverikov, D., Kato, K. (2014), Gaussian approximation of suprema of empirical processes. The Annals of Statistics 42 (4): 1564-97, `doi: 10.1214/14-AOS1230 <https://dx.doi.org/10.1214/14-AOS1230>`_.
