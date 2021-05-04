@@ -198,7 +198,7 @@ and the asymptotic standard error :math:`\hat{\sigma}/\sqrt{N}` in ``se``.
         print(dml_plr_obj$se)
 
 The parameter estimates :math:`(\tilde{\theta}_{0,m})_{m \in [M]}` and asymptotic standard errors
-:math:`(\hat{\sigma}_m)_{m \in [M]}` for each of the :math:`M` partitions are stored in the attributes
+:math:`(\hat{\sigma}_m/\sqrt{N})_{m \in [M]}` for each of the :math:`M` partitions are stored in the attributes
 ``_all_coef`` and ``_all_se``, respectively.
 
 .. tabbed:: Python
