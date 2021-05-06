@@ -146,8 +146,8 @@ It results in :math:`M` random :math:`K`-fold partitions being drawn.
 For each of the :math:`M` partitions, the nuisance ML models are estimated and score functions computed as described
 in :ref:`k-fold-cross-fitting`.
 The resulting values of the score functions are stored in 3-dimensional arrays ``psi_a`` and ``psi_b``, where the
-row index corresponds the observation index :math:`i \in [N] = \lbrace 1, \ldots, N]`
-and the column index to the partition :math:`m \in [M] = \lbrace 1, \ldots, M]`.
+row index corresponds the observation index :math:`i \in [N] = \lbrace 1, \ldots, N\rbrace`
+and the column index to the partition :math:`m \in [M] = \lbrace 1, \ldots, M\rbrace`.
 The third dimension refers to the treatment variable and becomes non-singleton in case of multiple treatment variables.
 
 .. TODO: decide whether we always place hints with regards to the multiple treatment case or whether we always refer to the case of one treatment variable and the multiple treatment case is handled in one section of the documentation which is solely discussing the multiple treatment case.
@@ -178,7 +178,7 @@ The aggregation of the estimates of the causal parameter and its standard errors
     .. math::
         \tilde{\theta}_{0} &= \text{Median}\big((\tilde{\theta}_{0,m})_{m \in [M]}\big),
 
-        \hat{\sigma} &= \sqrt{\text{Median}\big(\hat{\sigma}_m^2 + (\tilde{\theta}_{0,m} - \tilde{\theta}_{0})^2\big)}.
+        \hat{\sigma} &= \sqrt{\text{Median}\big((\hat{\sigma}_m^2 + (\tilde{\theta}_{0,m} - \tilde{\theta}_{0})^2)_{m \in [M]}\big)}.
 
 The estimate of the causal parameter :math:`\tilde{\theta}_{0}` is stored in the ``coef`` attribute
 and the asymptotic standard error :math:`\hat{\sigma}/\sqrt{N}` in ``se``.
@@ -198,7 +198,7 @@ and the asymptotic standard error :math:`\hat{\sigma}/\sqrt{N}` in ``se``.
         print(dml_plr_obj$se)
 
 The parameter estimates :math:`(\tilde{\theta}_{0,m})_{m \in [M]}` and asymptotic standard errors
-:math:`(\hat{\sigma}_m)_{m \in [M]}` for each of the :math:`M` partitions are stored in the attributes
+:math:`(\hat{\sigma}_m/\sqrt{N})_{m \in [M]}` for each of the :math:`M` partitions are stored in the attributes
 ``_all_coef`` and ``_all_se``, respectively.
 
 .. tabbed:: Python
