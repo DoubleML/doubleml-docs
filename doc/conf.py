@@ -48,6 +48,10 @@ extensions = [
     'jupyter_sphinx',
 ]
 
+# sphinx-panels shouldn't add bootstrap css since the pydata-sphinx-theme
+# already loads it
+panels_add_bootstrap_css = False
+
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']
 
