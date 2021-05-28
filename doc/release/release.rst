@@ -5,6 +5,23 @@ Release notes
 
 .. tabbed:: Python
 
+    **DoubleML 0.2.3**
+
+    - Always use the same bootstrap algorithm independent of ``dml1`` vs ``dml2`` and consistent with docu and paper
+      (`#101 <https://github.com/DoubleML/doubleml-for-py/pull/101>`_,
+       `#102 <https://github.com/DoubleML/doubleml-for-py/pull/102>`_)
+    - Added an exception handling to assure that an IV variable is specified when using a PLIV or IIVM model
+      (`#107 <https://github.com/DoubleML/doubleml-for-py/pull/107>`_)
+    - Improve exception handling for externally provided sample splitting
+      (`#110 <https://github.com/DoubleML/doubleml-for-py/pull/110>`_)
+    - Minor update of the str representation of DoubleMLData objects
+      (`#112 <https://github.com/DoubleML/doubleml-for-py/pull/112>`_)
+    - Code refactorings and unit test extensions
+      (`#103 <https://github.com/DoubleML/doubleml-for-py/pull/103>`_,
+       `#105 <https://github.com/DoubleML/doubleml-for-py/pull/105>`_,
+       `#106 <https://github.com/DoubleML/doubleml-for-py/pull/106>`_,
+       `#111 <https://github.com/DoubleML/doubleml-for-py/pull/111>`_)
+
     **DoubleML 0.2.2**
 
     - IIVM model: Added a subgroups option to adapt to cases with and without the subgroups of always-takers and
