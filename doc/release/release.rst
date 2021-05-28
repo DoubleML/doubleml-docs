@@ -5,7 +5,7 @@ Release notes
 
 .. tabbed:: Python
 
-    **DoubleML 0.2.3**
+    **DoubleML 0.3.0**
 
     - Always use the same bootstrap algorithm independent of ``dml1`` vs ``dml2`` and consistent with docu and paper
       `#101 <https://github.com/DoubleML/doubleml-for-py/pull/101>`_ &
