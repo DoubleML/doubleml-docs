@@ -19,82 +19,90 @@ and the R package on top of `mlr3 <https://mlr3.mlr-org.com/>`_ and the `mlr3
 ecosystem <https://github.com/mlr-org/mlr3/wiki/Extension-Packages>`_ (Lang et al., 2019).
 
 
-Contents
---------
-
 .. panels::
+    :column: col-lg-4 col-md-4 col-sm-6 col-xs-12 p-2
+    :card: text-center
+    :img-top-cls: pl-5 pr-5 pt-5 pb-5
+    :header: font-weight-bold border-0 h5
 
-    .. link-button:: intro/install
-        :type: ref
-        :text: Install
-        :classes: btn-outline-primary btn-block
     ---
+    :img-top: _static/logo.png
+
+    Getting started
+    ^^^^^^^^^^^^^^^
+
+    Lorem ipsum dolor sit amet, consetetur sadipscing elitr.
+
     .. link-button:: intro/intro
         :type: ref
-        :text: Getting started
-        :classes: btn-outline-primary btn-block
+        :text: To the getting started guide
+        :classes: btn-block btn-dark stretched-link btn-sm
+
     ---
+    :img-top: _static/logo.png
+
+    User guide
+    ^^^^^^^^^^
+
+    Lorem ipsum dolor sit amet, consetetur sadipscing elitr.
+
+    .. link-button:: guide/guide
+        :type: ref
+        :text: To the user guide
+        :classes: btn-block btn-dark stretched-link btn-sm
+
+    ---
+    :img-top: _static/logo.png
+
+    DoubleML workflow
+    ^^^^^^^^^^^^^^^^^
+
+    Lorem ipsum dolor sit amet, consetetur sadipscing elitr.
+
+    .. link-button:: guide/guide
+        :type: ref
+        :text: To the DoubleML workflow
+        :classes: btn-block btn-dark stretched-link btn-sm
+
+    ---
+    :img-top: _static/logo.png
+
+    Python API
+    ^^^^^^^^^^
+
+    Lorem ipsum dolor sit amet, consetetur sadipscing elitr.
+
     .. link-button:: api/api
         :type: ref
-        :text: Python API
-        :classes: btn-outline-primary btn-block
+        :text: To the Python API
+        :classes: btn-block btn-dark stretched-link btn-sm
+
     ---
+    :img-top: _static/logo.png
+
+    R API
+    ^^^^^
+
+    Lorem ipsum dolor sit amet, consetetur sadipscing elitr.
+
     .. link-button:: https://docs.doubleml.org/r/stable/
         :type: url
-        :text: R API
-        :classes: btn-outline-primary btn-block
+        :text: To the R API
+        :classes: btn-block btn-dark stretched-link btn-sm
 
-.. dropdown:: User guide
-    :title: bg-white text-primary text-center font-weight-bold
+    ---
+    :img-top: _static/logo.png
 
-    .. panels::
-        :column: col-lg-12
+    Example gallery
+    ^^^^^^^^^^^^^^^
 
-        ---
-        .. link-button:: guide/basics
-            :type: ref
-            :text: 1. The basics of double/debiased machine learning
-            :classes: btn-outline-primary btn-block
-        ---
-        .. link-button:: guide/data_backend
-            :type: ref
-            :text: 2. The data-backend DoubleMLData
-            :classes: btn-outline-primary btn-block
-        ---
-        .. link-button:: guide/models
-            :type: ref
-            :text: 3. Models
-            :classes: btn-outline-primary btn-block
-        ---
-        .. link-button:: guide/scores
-            :type: ref
-            :text: 4. Score functions
-            :classes: btn-outline-primary btn-block
-        ---
-        .. link-button:: guide/algorithms
-            :type: ref
-            :text: 5. Double machine learning algorithms
-            :classes: btn-outline-primary btn-block
-        ---
-        .. link-button:: guide/learners
-            :type: ref
-            :text: 6. Learners, hyperparameters and hyperparameter tuning
-            :classes: btn-outline-primary btn-block
-        ---
-        .. link-button:: guide/se_confint
-            :type: ref
-            :text: 7. Variance estimation and confidence intervals for a causal parameter of interest
-            :classes: btn-outline-primary btn-block
-        ---
-        .. link-button:: guide/sim_inf
-            :type: ref
-            :text: 8. Confidence bands and multiplier bootstrap for valid simultaneous inference
-            :classes: btn-outline-primary btn-block
-        ---
-        .. link-button:: guide/resampling
-            :type: ref
-            :text: 9. Sample-splitting, cross-fitting and repeated cross-fitting
-            :classes: btn-outline-primary btn-block
+    Lorem ipsum dolor sit amet, consetetur sadipscing elitr.
+
+    .. link-button:: examples/index
+        :type: ref
+        :text: To the example gallery
+        :classes: btn-block btn-dark stretched-link btn-sm
+
 
 .. toctree::
    :hidden:
