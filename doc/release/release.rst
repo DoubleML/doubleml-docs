@@ -143,6 +143,8 @@ Release notes
       `#78 <https://github.com/DoubleML/doubleml-for-r/pull/78>`_,
       `#79 <https://github.com/DoubleML/doubleml-for-r/pull/79>`_ &
       `#86 <https://github.com/DoubleML/doubleml-for-r/pull/86>`_
+    - Added a short version of and a reference to the arXiv paper as vignette
+      `#110 <https://github.com/DoubleML/doubleml-for-r/pull/110>`_
     - Prevent using the subclassed methods check_score and check_data when constructing DoubleML objects
       `#107 <https://github.com/DoubleML/doubleml-for-r/pull/107>`_
     - Other refactoring and minor adaptions
