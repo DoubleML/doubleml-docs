@@ -26,7 +26,7 @@ ecosystem <https://github.com/mlr-org/mlr3/wiki/Extension-Packages>`_ (Lang et a
     :header: font-weight-bold border-0 h5
 
     ---
-    :img-top: _static/logo.png
+    :img-top: _static/gettingstarted.png
 
     Getting started
     ^^^^^^^^^^^^^^^
@@ -39,7 +39,7 @@ ecosystem <https://github.com/mlr-org/mlr3/wiki/Extension-Packages>`_ (Lang et a
         :classes: btn-block btn-dark stretched-link btn-sm
 
     ---
-    :img-top: _static/logo.png
+    :img-top: _static/userguide.png
 
     User guide
     ^^^^^^^^^^
@@ -52,7 +52,7 @@ ecosystem <https://github.com/mlr-org/mlr3/wiki/Extension-Packages>`_ (Lang et a
         :classes: btn-block btn-dark stretched-link btn-sm
 
     ---
-    :img-top: _static/logo.png
+    :img-top: _static/workflow.png
 
     DoubleML workflow
     ^^^^^^^^^^^^^^^^^
@@ -65,7 +65,7 @@ ecosystem <https://github.com/mlr-org/mlr3/wiki/Extension-Packages>`_ (Lang et a
         :classes: btn-block btn-dark stretched-link btn-sm
 
     ---
-    :img-top: _static/logo.png
+    :img-top: _static/pythonapi.png
 
     Python API
     ^^^^^^^^^^
@@ -78,7 +78,7 @@ ecosystem <https://github.com/mlr-org/mlr3/wiki/Extension-Packages>`_ (Lang et a
         :classes: btn-block btn-dark stretched-link btn-sm
 
     ---
-    :img-top: _static/logo.png
+    :img-top: _static/rapi.png
 
     R API
     ^^^^^
@@ -91,7 +91,7 @@ ecosystem <https://github.com/mlr-org/mlr3/wiki/Extension-Packages>`_ (Lang et a
         :classes: btn-block btn-dark stretched-link btn-sm
 
     ---
-    :img-top: _static/logo.png
+    :img-top: _static/examplegallery.png
 
     Example gallery
     ^^^^^^^^^^^^^^^
