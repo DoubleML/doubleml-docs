@@ -18,11 +18,11 @@ sys.path.insert(0, os.path.abspath('..'))
 # -- Project information -----------------------------------------------------
 
 project = 'DoubleML'
-copyright = '2020, Bach, P., Chernozhukov, V., Kurz, M. S., and Spindler, M.'
+copyright = '2021, Bach, P., Chernozhukov, V., Kurz, M. S., and Spindler, M.'
 author = 'Bach, P., Chernozhukov, V., Kurz, M. S., and Spindler, M.'
 
 # The full version, including alpha/beta/rc tags
-release = '0.2.dev0'
+# release = '0.2.dev0'
 
 
 # -- General configuration ---------------------------------------------------
