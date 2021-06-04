@@ -125,8 +125,8 @@ Release notes
     - Fixes in the exception handling and extension of the unit tests for the score function choice
       `#82 <https://github.com/DoubleML/doubleml-for-r/pull/82>`_
     - Prevent overwriting parameters from initialization when calling set_ml_nuisance_params
-      `#83 <https://github.com/DoubleML/doubleml-for-r/pull/87>`_ &
-      `#84 <https://github.com/DoubleML/doubleml-for-r/pull/89>`_
+      `#87 <https://github.com/DoubleML/doubleml-for-r/pull/87>`_ &
+      `#89 <https://github.com/DoubleML/doubleml-for-r/pull/89>`_
     - Major refactoring and cleanup and extension of the unit test framework
       `#101 <https://github.com/DoubleML/doubleml-for-r/pull/101>`_
     - Extension and reorganization of exception handling for ``DoubleMLData`` objects
@@ -149,7 +149,7 @@ Release notes
       `#107 <https://github.com/DoubleML/doubleml-for-r/pull/107>`_
     - Other refactoring and minor adaptions
       `#91 <https://github.com/DoubleML/doubleml-for-r/pull/91>`_,
-      `#91 <https://github.com/DoubleML/doubleml-for-r/pull/92>`_,
+      `#92 <https://github.com/DoubleML/doubleml-for-r/pull/92>`_,
       `#102 <https://github.com/DoubleML/doubleml-for-r/pull/102>`_ &
       `#108 <https://github.com/DoubleML/doubleml-for-r/pull/108>`_
 
