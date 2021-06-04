@@ -131,7 +131,7 @@ Release notes
     - Major refactoring and cleanup and extension of the unit test framework
       `#101 <https://github.com/DoubleML/doubleml-for-r/pull/101>`_
     - Extension and reorganization of exception handling for ``DoubleMLData`` objects
-      `#63 <https://github.com/DoubleML/doubleml-for-r/pull/63>`_,
+      `#63 <https://github.com/DoubleML/doubleml-for-r/pull/63>`_ &
       `#90 <https://github.com/DoubleML/doubleml-for-r/pull/90>`_
     - Introduce style guide and clean up code
       `#80 <https://github.com/DoubleML/doubleml-for-r/pull/80>`_ &
@@ -145,7 +145,8 @@ Release notes
       `#79 <https://github.com/DoubleML/doubleml-for-r/pull/79>`_ &
       `#86 <https://github.com/DoubleML/doubleml-for-r/pull/86>`_
     - Added a short version of and a reference to the arXiv paper as vignette
-      `#110 <https://github.com/DoubleML/doubleml-for-r/pull/110>`_
+      `#110 <https://github.com/DoubleML/doubleml-for-r/pull/110>`_ &
+      `#113 <https://github.com/DoubleML/doubleml-for-r/pull/113>`_
     - Prevent using the subclassed methods check_score and check_data when constructing DoubleML objects
       `#107 <https://github.com/DoubleML/doubleml-for-r/pull/107>`_
     - Other refactoring and minor adaptions
