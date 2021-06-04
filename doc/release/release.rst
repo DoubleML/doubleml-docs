@@ -116,10 +116,10 @@ Release notes
     - Always use the same bootstrap algorithm independent of ``dml1`` vs ``dml2`` and consistent with docu and paper
       `#98 <https://github.com/DoubleML/doubleml-for-r/pull/98>`_ &
       `#99 <https://github.com/DoubleML/doubleml-for-r/pull/99>`_
-    - Initialize predictions with NA and make sure that there are no missleading entries in the evaluated score
+    - Initialize predictions with NA and make sure that there are no misleading entries in the evaluated score
       functions `#96 <https://github.com/DoubleML/doubleml-for-r/pull/96>`_ &
       `#105 <https://github.com/DoubleML/doubleml-for-r/pull/105>`_
-    - Avoid overriding learner parameters during turing
+    - Avoid overriding learner parameters during tuning
       `#83 <https://github.com/DoubleML/doubleml-for-r/pull/83>`_ &
       `#84 <https://github.com/DoubleML/doubleml-for-r/pull/84>`_
     - Fixes in the exception handling and extension of the unit tests for the score function choice
