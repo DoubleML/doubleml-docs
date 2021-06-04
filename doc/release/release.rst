@@ -14,7 +14,7 @@ Release notes
       `#107 <https://github.com/DoubleML/doubleml-for-py/pull/107>`_
     - Improve exception handling for externally provided sample splitting
       `#110 <https://github.com/DoubleML/doubleml-for-py/pull/110>`_
-    - Minor update of the str representation of DoubleMLData objects
+    - Minor update of the str representation of ``DoubleMLData`` objects
       `#112 <https://github.com/DoubleML/doubleml-for-py/pull/112>`_
     - Code refactorings and unit test extensions
       `#103 <https://github.com/DoubleML/doubleml-for-py/pull/103>`_,
