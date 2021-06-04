@@ -19,8 +19,9 @@ Release notes
     - Code refactorings and unit test extensions
       `#103 <https://github.com/DoubleML/doubleml-for-py/pull/103>`_,
       `#105 <https://github.com/DoubleML/doubleml-for-py/pull/105>`_,
-      `#106 <https://github.com/DoubleML/doubleml-for-py/pull/106>`_ &
-      `#111 <https://github.com/DoubleML/doubleml-for-py/pull/111>`_
+      `#106 <https://github.com/DoubleML/doubleml-for-py/pull/106>`_,
+      `#111 <https://github.com/DoubleML/doubleml-for-py/pull/111>`_ &
+      `#113 <https://github.com/DoubleML/doubleml-for-py/pull/113>`_
 
     **DoubleML 0.2.2**
 
