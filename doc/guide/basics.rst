@@ -299,7 +299,7 @@ orthogonalized regressor :math:`V = D - m(X)`. We then use the final estimate
 
 .. math::
 
-    \check{\theta} = \left(\frac{1}{n} \sum_{i\in I} \hat{V}_i D_i\right)^{-1} \frac{1}{n} \sum_{i\in I} \hat{V}_i (Y_i - \hat{g}_0(X_i)).
+    \check{\theta} = \left(\frac{1}{n} \sum_{i\in I} \hat{V}_i D_i\right)^{-1} \frac{1}{n} \sum_{i\in I} \hat{V}_i D_i(Y_i - \hat{g}_0(X_i)).
 
 .. tabbed:: Python
 
