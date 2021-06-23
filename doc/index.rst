@@ -106,6 +106,7 @@ Contents
 
     Install <intro/install>
     Getting started <intro/intro>
+    DoubleML Workflow <workflow/workflow>
     User guide <guide/guide>
     Examples <examples/index>
     Python API <api/api>
