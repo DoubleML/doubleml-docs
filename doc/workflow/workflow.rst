@@ -3,14 +3,17 @@
 DoubleML Workflow
 =================
 
-TODO: Highlight of General vs. Example-Specific Part
+TODO: Format: Highlight of General vs. Example-Specific Part
+TODO: Check & polish formulations
+TODO: Run and polish format in code blocks
 
 The following steps, which we call the DoubleML workflow, are intended to provide a rough structure for causal analyses
 with the :ref:`DoubleML <doubleml_package>`. After a short explanation of the idea of each step, we illustrate their meaning in the 401(k)
-example. In case you are interested in more details of the 401(k) example, you can visit the Python and R Notebooks that
+example. In case you are interested in more details of the 401(k) example, you can visit the Python [link] and R [link]
+Notebooks that
 are available online.
 
-TODO: insert links to notebooks
+TODO: insert links to notebooks in entire file!
 
 0. Problem Formulation
 ----------------------
@@ -23,35 +26,41 @@ argumentation and discussion of the research question is crucial.
 
 TODO: Set up and insert a DAG for the 401(k) Example: IV-based argumentation (eligibility - participation - outcome)
 
-In the 401(k) study, we are interested in estimating the causal effect of participation in so-called 401(k) pension
-plans on employees' net financial assets. To do so, we use observational data. Thus, we cannot rely on a properly conducted
-randomized control study and have to argue that the treatment (= an employee's participation in a 401(k) plan)
-is as good as randomly assigned once we credibly control for observable characteristics. A complication that arises
-in the 401(k) example is due to so-called endogeneity of the treatment assignment: Participation is a decision made by employees and
-unobservable effects may generally affect this decision. However, it is possible to justify that eligibility, in other words
-access to the treatment, can be considered as exogenous, once we control for confounding variables. Earlier studies in this context
-argue that if characteristics that are related to saving preferences are taken into account, eligibility can be considered
-as good as randomly assigned. For example, is seems reasonable that persons with higher income have a stronger preference
-to save and also to participate in a pension plan. Rather than focusing on the instrumental variable analysis for the sake of brevity,
-we will focus on a so-called intent-to-treat effect. This quantity corresponds to the causal effect of eligibility on participation
-and is of great interest in many applications.
+In the 401(k) study, we are interested in estimating the average treatment effect of participation in so-called 401(k) pension
+plans on employees' net financial assets. Because we cannot rely on a properly conducted randomized control study in this
+example, we have to base our analysis on observational data. Hence, we have to use an identification strategy that is based
+on appropriately controlling for potential confounders.
+A complication that arises in the 401(k) example is due to so-called endogeneity of the treatment assignment. The treatment
+variable is an employee's participation in a 401(k) pension plan which is a decision made by employees and likely
+to be affected by unobservable effects. For example, is seems reasonable that persons with higher income have a stronger
+preference to save and also to participate in a pension plan. If our analysis does not account for this self-selection into
+treatment, the estimated effect is likely to be biased.
 
-TODO: Polish formulations
+To circumvent the endogenous treatment problem, it is possible to exploit randomness in eligibility for 401(k) plans.
+In other words, the access to the treatment can be considered as randomly assigned once we control for confounding variables.
+Earlier studies in this context argue that if characteristics that are related to saving preferences are taken into account,
+eligibility can be considered as good as randomly assigned (at the time 401(k) plans were introduced).
+The conditional exogeneity in the access to treatment makes it possible to estimate the causal effect of interest by using
+an instrumental variable (IV) approach. However, for the sake of brevity, we will focus on the so-called intent-to-treat effect in the following.
+This effect corresponds to the average treatment effect of eligibility (= the instrument) on net financial assets (= the outcome) and
+is of great interest in many applications. The IV analysis is available in the Python [link] and R [link] Notebooks that are available online.
 
-pension plan participation
-**Description of the Case Study and Data**
-
-* 401(k) plans are pension accounts sponsored by employers
-* **Estimate the effect of 401(k) eligibility and participation on accumulated assets**
-* Problems: **Saver heterogeneity** and the fact that the **decision to enroll** in a 401(k) **is non-random**
-* **Conventional estimates** that do not account for saver heterogeneity and endogeneity of participation **will be biased**
-
-TO BE CONTINUED
+The previous discussion focuses on the causal problem. Let's also talk about the statistical methods used for estimation.
+For identification of the average treatment effect of participation or eligibility on assets, it is crucial that we appropriately
+account for the confounding factors. That's where the machine learning tools come into play. Of course we could simply estimate
+the causal effect by using a linear (IV) regression model. In these models, the researcher have to manually pick and, perhaps,
+transform variables. However, machine learning techniques offer greater flexibility in terms of a more data-driven specification
+of the main regression equation and the propensity score.
 
 1. Data-Backend
 ---------------
 
-We use data from the 1991 Survey of Income and Program Participation which is available via ...
+In step 1., we initialize the data-backend and thereby declare the role of the outcome, the treatment and the confounding variables.
+
+We use data from the 1991 Survey of Income and Program Participation which is available via the function fetch_401k [link to docu].
+The data-backend can be initialized from various data frame objects in Python and R. To estimate the intent-to-treat effect in the
+401(k) example, we use eligibility (``e401``) as the treatment variable of interest. The outcome variable is ``net_tfa`` and we
+control for confounding variables ``['age', 'inc', 'educ', 'fsize', 'marr', 'twoearn', 'db', 'pira', 'hown']``.
 
 .. tabbed:: Python
 
@@ -91,18 +100,203 @@ We use data from the 1991 Survey of Income and Program Participation which is av
 2. Causal Model
 ---------------
 
+In Step 2. we choose a causal model. There are several models currently implemented in :ref:`DoubleML <doubleml_package>` which
+differ in terms of the underlying causal structure (e.g., including IV variables or not) and the underlying assumptions.
+
+[TODO]: Include Figure with causal models
+
+According to the previous discussion, we are interested in estimation of the effect of eligibility on net financial assets.
+Hence, we do not need to use a model with both a treatment and instrumental variable. There are two potential models,
+the partially linear regression model (PLR) [link to docu] and the interactive regression model (IRM) [link to docu]. These models differ
+in terms of the type of the treatment variable (continuous vs. binary treatment) and the assumptions underlying the regression
+equation. For example, the PLR assumes a partially linear structure, whereas the IRM allows for heterogeneous treatment effects across
+individuals.
+
+In Step 2. we can precisely discuss the identification strategy using a DAG.
+
+[TODO]: prepare DAG Figure and include together with caption
 
 3. ML Methods
 -------------
+
+In Step 3. we can specify the machine learning tools used for estimation of the nuisance parts.
+We can generally choose any learner from scikit learn [link] in Python and from the mlr3 [link] ecosystem in R.
+
+There are two nuisance parts in the PLR, :math:`g_0(X)=\mathbb{E}(Y|X)` and  :math:`m_0(X)=\mathbb{E}(D|X)`.
+In this example, let us specify a random forest and an xgboost learner for both prediction problems.
+We can directly pass the parameters during initialization of the learner objects.
+Because we have a binary treatment variable, we can use a classification learner for the corresponding nuisance part.
+We use a regression learner for the outcome variable net financial assets.
+
+.. tabbed:: Python
+
+    .. ipython:: python
+
+        # Random forest learners
+        from sklearn.ensemble import RandomForestClassifier, RandomForestRegressor
+        ml_g_rf = RandomForestRegressor(n_estimators = 500, max_depth = 7,
+                                        max_features = 3, min_samples_leaf = 3)
+        ml_m_rf = RandomForestClassifier(n_estimators = 500, max_depth = 5,
+                                        max_features = 4, min_samples_leaf = 7)
+
+        # Xgboost learners
+        from xgboost import XGBClassifier, XGBRegressor
+        ml_g_xgb = XGBRegressor(objective = "reg:squarederror", eta = 0.1,
+                                n_estimators =35)
+        ml_m_xgb = XGBClassifier(use_label_encoder = False ,
+                                objective = "binary:logistic",
+                                eval_metric = "logloss",
+                                eta = 0.1, n_estimators = 34)
+
+.. tabbed:: R
+
+    .. jupyter-execute::
+
+        library(mlr3learners)
+        # Random forest learners
+        ml_g_rf = lrn("regr.ranger", max.depth = 7,
+                    mtry = 3, min.node.size =3)
+        ml_m_rf = lrn("classif.ranger", max.depth = 5,
+                    mtry = 4, min.node.size = 7)
+
+        # Xgboost learners
+        ml_g_xgb = lrn("regr.xgboost", objective = "reg:squarederror",
+                        eta = 0.1, nrounds = 35)
+        ml_m_xgb = lrn("classif.xgboost", objective = "binary:logistic",
+                        eval_metric = "logloss",
+                        eta = 0.1, nrounds = 34)
 
 
 4. DML Specifications
 ---------------------
 
+In Step 4., we initialize and parametrize the model object which will later be used to perform the estimation.
+
+We initialize a DoubleMLPLR [link to docu] using the previously generated data-backend. Moreover, we specify the resampling
+(= the number of repetitions and folds for repeated cross-fitting [link to user guide section resampling]),
+the dml algorithm (DML1 vs. DML2 [link to algorithm section in user guide]) and the score function ("partialling out" or
+"IV-type") [link to user guide section on score].
+
+.. tabbed:: Python
+
+    .. ipython:: python
+
+        from DoubleML import DoubleMLPLR
+        np.random.seed(123)
+        # Default values
+        dml_plr_tree = DoubleMLPLR(dml_data,
+                                    ml_g = ml_g_rf,
+                                    ml_m = ml_m_rf)
+
+        np.random.seed(123)
+        # Parametrized by user
+        dml_plr_tree = DoubleMLPLR(dml_data,
+                                    ml_g = ml_g_rf,
+                                    n_folds = 3, n_rep = 1,
+                                    score = 'parialling out',
+                                    dml_procedure = 'dml2')
+
+.. tabbed:: R
+
+    .. jupyter-execute::
+
+        set.seed(123)
+        # Default values
+        dml_plr_forest = DoubleMLPLR$new(dml_data,
+                                        ml_g = ml_g_rf,
+                                        ml_m = ml_m_rf)
+
+        set.seed(123)
+        # Parametrized by user
+        dml_plr_forest = DoubleMLPLR$new(dml_data,
+                                        ml_g = ml_g_rf,
+                                        ml_m = ml_m_rf,
+                                        n_folds = 3,
+                                        score = 'partialling out',
+                                        dml_procedure = 'dml2')
+
+
 5. Estimation
 -------------
+
+We perform estimation in Step 5. In this step, the cross-fitting algorithm is executed such that the predictions
+in the score are computed. As an output, users can access the coefficient estimates and standard errors either via the
+corresponding fields or via a summary.
+
+.. tabbed:: Python
+
+    .. ipython:: python
+
+        # Estimation
+        dml_plr_tree.fit()
+
+        # Coefficient estimate
+        dml_plr_tree.coef
+
+        # Stndard error
+        dml_plr_tree.se
+
+        # Summary
+        dml_plr_tree.summary
+
+.. tabbed:: R
+
+    .. jupyter-execute::
+
+        # Estimation
+        dml_plr_forest$fit()
+
+        # Coefficient estimate
+        dml_plr_forest$coef
+
+        # Stndard error
+        dml_plr_forest$se
+
+        # Summary
+        dml_plr_forest$summary()
 
 
 6. Inference
 ------------
 
+In Step 6. we can perform further inference methods and finally interpret our findings. For example, we can set up confidence intervals
+or, in case multiple causal parameters are estimated, adjust the analysis for multiple testing. :ref:`DoubleML <doubleml_package>`
+supports various approaches to perform valid simultaneous inference [link to user guide section on simultaneous inference]
+which are partly based on a multiplier bootstrap.
+
+To conclude analysis on the average treatment effect of eligibility for 401(k) pension plans on net financial assets, we find a
+positive and significant effect: Being eligible for such a pension plan increases the amount of net financial assets by
+approximately $9,000. This estimate is much smaller than the unconditional effect of elegibility on net financial assets:
+If we did not control for the confounding variables, the average treatment effect would correspond to $19,559.
+
+.. tabbed:: Python
+
+    .. ipython:: python
+
+        # Summary
+        dml_plr_tree.summary
+
+        # Confidence intervals
+        dml_plr_tree.confint()
+
+        # Multiplier bootstrap (relevant in case with multiple treatment variables)
+        dml_plr_tree.bootstrap()
+
+        # Simultaneous confidence bands
+        dml_plr_tree.confint(joint = True)
+
+.. tabbed:: R
+
+    .. jupyter-execute::
+
+        # Summary
+        dml_plr_forest$summary()
+
+        # Confidence intervals
+        dml_plr_forest$confint()
+
+        # Multiplier bootstrap (relevant in case with multiple treatment variables)
+        dml_plr_forest$bootstrap()
+
+        # Simultaneous confidence bands
+        dml_plr_forest$confint(joint = True)
