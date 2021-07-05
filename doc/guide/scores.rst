@@ -125,6 +125,8 @@ In the attribute ``psi`` the values of the score function :math:`\psi(W_i; \tild
 Implemented Neyman orthogonal score functions
 +++++++++++++++++++++++++++++++++++++++++++++
 
+.. _plr-score:
+
 Partially linear regression model (PLR)
 ***************************************
 

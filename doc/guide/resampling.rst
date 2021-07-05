@@ -121,6 +121,8 @@ stored in the attributes ``psi_a`` and ``psi_b``.
         print(dml_plr_obj$psi_a[1:5, ,1])
         print(dml_plr_obj$psi_b[1:5, ,1])
 
+.. _repeated-cross-fitting:
+
 Repeated cross-fitting with :math:`K` folds and :math:`M` repetition
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
