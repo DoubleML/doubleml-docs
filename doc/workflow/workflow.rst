@@ -254,7 +254,7 @@ corresponding fields or via a summary.
         # Coefficient estimate
         dml_plr_tree.coef
 
-        # Stndard error
+        # Standard error
         dml_plr_tree.se
 
         # Summary
@@ -270,7 +270,7 @@ corresponding fields or via a summary.
         # Coefficient estimate
         dml_plr_forest$coef
 
-        # Stndard error
+        # Standard error
         dml_plr_forest$se
 
         # Summary
@@ -285,9 +285,9 @@ or, in case multiple causal parameters are estimated, adjust the analysis for mu
 supports various approaches to perform :ref:`valid simultaneous inference <sim_inf>`
 which are partly based on a multiplier bootstrap.
 
-To conclude analysis on the average treatment effect of eligibility for 401(k) pension plans on net financial assets, we find a
-positive and significant effect: Being eligible for such a pension plan increases the amount of net financial assets by
-approximately :math:`$9,000`. This estimate is much smaller than the unconditional effect of elegibility on net financial assets:
+To conclude the analysis on the intent-to-treat effect in the 401(k) example, i.e., the average treatment effect of eligibility for 401(k) pension plans
+on net financial assets, we find a positive and significant effect: Being eligible for such a pension plan increases the amount of net financial assets by
+approximately :math:`$9,000`. This estimate is much smaller than the unconditional effect of eligibility on net financial assets:
 If we did not control for the confounding variables, the average treatment effect would correspond to :math:`$19,559`.
 
 .. tabbed:: Python
