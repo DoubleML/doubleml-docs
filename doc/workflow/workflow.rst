@@ -3,9 +3,10 @@
 DoubleML Workflow
 =================
 
-TODO: Format: Highlight of General vs. Example-Specific Part
-TODO: Check & polish formulations
-TODO: Run and polish format in code blocks
+..
+   TODO: Format: Highlight of General vs. Example-Specific Part
+   TODO: Check & polish formulations
+   TODO: Run and polish format in code blocks
 
 The following steps, which we call the DoubleML workflow, are intended to provide a rough structure for causal analyses
 with the :ref:`DoubleML <doubleml_package>`. After a short explanation of the idea of each step, we illustrate their meaning in the 401(k)
@@ -22,6 +23,9 @@ analysis, we have to explicitly state the conditions required for a causal inter
 be computed later. In many cases, directed acyclical graphs (DAGs) are helpful to formulate the causal problem,
 illustrate the involved causal channels and the critical parts of the inferential framework. At this stage, a precise
 argumentation and discussion of the research question is crucial.
+
+..
+   TODO: Set up and insert a DAG for the 401(k) Example: IV-based argumentation (eligibility - participation - outcome)
 
 .. image:: causal_graph.svg
   :width: 800
@@ -108,7 +112,8 @@ control for confounding variables ``['age', 'inc', 'educ', 'fsize', 'marr', 'two
 In Step 2. we choose a causal model. There are several models currently implemented in :ref:`DoubleML <doubleml_package>` which
 differ in terms of the underlying causal structure (e.g., including IV variables or not) and the underlying assumptions.
 
-[TODO]: Include Figure with causal models
+..
+   [TODO]: Include Figure with causal models
 
 According to the previous discussion, we are interested in estimation of the effect of eligibility on net financial assets.
 Hence, we do not need to use a model with both a treatment and instrumental variable. There are two potential models,
@@ -117,9 +122,9 @@ in terms of the type of the treatment variable (continuous vs. binary treatment)
 equation. For example, the PLR assumes a partially linear structure, whereas the IRM allows for heterogeneous treatment effects across
 individuals.
 
-In Step 2. we can precisely discuss the identification strategy using a DAG.
-
-[TODO]: prepare DAG Figure and include together with caption
+..
+   In Step 2. we can precisely discuss the identification strategy using a DAG.
+   [TODO]: prepare DAG Figure and include together with caption
 
 3. ML Methods
 -------------
