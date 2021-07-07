@@ -19,82 +19,103 @@ and the R package on top of `mlr3 <https://mlr3.mlr-org.com/>`_ and the `mlr3
 ecosystem <https://github.com/mlr-org/mlr3/wiki/Extension-Packages>`_ (Lang et al., 2019).
 
 
-Contents
---------
-
 .. panels::
+    :column: col-lg-4 col-md-4 col-sm-6 col-xs-12 p-2
+    :card: text-center
+    :img-top-cls: pl-5 pr-5 pt-5 pb-5
+    :header: font-weight-bold border-0 h4
+    :footer: border-0
 
-    .. link-button:: intro/install
-        :type: ref
-        :text: Install
-        :classes: btn-outline-primary btn-block
     ---
+    :img-top: _static/gettingstarted.png
+
+    Getting started
+    ^^^^^^^^^^^^^^^
+
+    New to **DoubleML**? Then check out how to get started!
+
+    +++
+
     .. link-button:: intro/intro
         :type: ref
-        :text: Getting started
-        :classes: btn-outline-primary btn-block
+        :text: To the getting started guide
+        :classes: btn-block btn-dark stretched-link btn-sm
+
     ---
+    :img-top: _static/userguide.png
+
+    User guide
+    ^^^^^^^^^^
+
+    Want to learn everything about **DoubleML**? Then you should visit our extensive user guide with detailed explanations and further references.
+
+    +++
+
+    .. link-button:: guide/guide
+        :type: ref
+        :text: To the user guide
+        :classes: btn-block btn-dark stretched-link btn-sm
+
+    ---
+    :img-top: _static/workflow.png
+
+    Workflow
+    ^^^^^^^^^^^^^^^^^
+
+    The **DoubleML** workflow demonstrates the typical steps to consider when using **DoubleML** in applied analysis.
+
+    +++
+
+    .. link-button:: workflow/workflow
+        :type: ref
+        :text: To the DoubleML workflow
+        :classes: btn-block btn-dark stretched-link btn-sm
+
+    ---
+    :img-top: _static/pythonapi.png
+
+    Python API
+    ^^^^^^^^^^
+
+    The Python API documentation.
+
+    +++
+
     .. link-button:: api/api
         :type: ref
-        :text: Python API
-        :classes: btn-outline-primary btn-block
+        :text: To the Python API
+        :classes: btn-block btn-dark stretched-link btn-sm
+
     ---
+    :img-top: _static/rapi.png
+
+    R API
+    ^^^^^
+
+    The R API documentation.
+
+    +++
+
     .. link-button:: https://docs.doubleml.org/r/stable/
         :type: url
-        :text: R API
-        :classes: btn-outline-primary btn-block
+        :text: To the R API
+        :classes: btn-block btn-dark stretched-link btn-sm
 
-.. dropdown:: User guide
-    :title: bg-white text-primary text-center font-weight-bold
+    ---
+    :img-top: _static/examplegallery.png
 
-    .. panels::
-        :column: col-lg-12
+    Example gallery
+    ^^^^^^^^^^^^^^^
 
-        ---
-        .. link-button:: guide/basics
-            :type: ref
-            :text: 1. The basics of double/debiased machine learning
-            :classes: btn-outline-primary btn-block
-        ---
-        .. link-button:: guide/data_backend
-            :type: ref
-            :text: 2. The data-backend DoubleMLData
-            :classes: btn-outline-primary btn-block
-        ---
-        .. link-button:: guide/models
-            :type: ref
-            :text: 3. Models
-            :classes: btn-outline-primary btn-block
-        ---
-        .. link-button:: guide/scores
-            :type: ref
-            :text: 4. Score functions
-            :classes: btn-outline-primary btn-block
-        ---
-        .. link-button:: guide/algorithms
-            :type: ref
-            :text: 5. Double machine learning algorithms
-            :classes: btn-outline-primary btn-block
-        ---
-        .. link-button:: guide/learners
-            :type: ref
-            :text: 6. Learners, hyperparameters and hyperparameter tuning
-            :classes: btn-outline-primary btn-block
-        ---
-        .. link-button:: guide/se_confint
-            :type: ref
-            :text: 7. Variance estimation and confidence intervals for a causal parameter of interest
-            :classes: btn-outline-primary btn-block
-        ---
-        .. link-button:: guide/sim_inf
-            :type: ref
-            :text: 8. Confidence bands and multiplier bootstrap for valid simultaneous inference
-            :classes: btn-outline-primary btn-block
-        ---
-        .. link-button:: guide/resampling
-            :type: ref
-            :text: 9. Sample-splitting, cross-fitting and repeated cross-fitting
-            :classes: btn-outline-primary btn-block
+    A gallery with examples demonstrating the functionalities of **DoubleML**.
+
+    +++
+
+    .. link-button:: examples/index
+        :type: ref
+        :text: To the example gallery
+        :classes: btn-block btn-dark stretched-link btn-sm
+
 
 .. toctree::
    :hidden:
@@ -107,9 +128,10 @@ Contents
     Install <intro/install>
     Getting started <intro/intro>
     User guide <guide/guide>
-    Examples <examples/index>
+    Workflow <workflow/workflow>
     Python API <api/api>
     R API <https://docs.doubleml.org/r/stable/>
+    Examples <examples/index>
     Release notes <release/release>
 
 Main Features

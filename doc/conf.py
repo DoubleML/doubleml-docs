@@ -83,12 +83,16 @@ html_favicon = '../img/favicon.ico'
 
 html_sidebars = {'**': ['logo.html',
                         'search-field.html',
-                        'sidebar-nav-bs.html']}
+                        'sidebar-nav-bs.html'],
+                 'workflow/workflow': ['logo.html',
+                                       'search-field.html',
+                                       'sidebar-nav-bs.html',
+                                       'sidebar-doubleml-workflow.html']}
 
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,
 # so a file named "default.css" will overwrite the builtin "default.css".
-# html_static_path = ['_static']
+html_static_path = ['_static']
 
 # -- Extension configuration -------------------------------------------------
 
