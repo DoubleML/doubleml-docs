@@ -142,7 +142,7 @@ There are two nuisance parts in the PLR, :math:`g_0(X)=\mathbb{E}(Y|X)` and  :ma
 In this example, let us specify a random forest and an xgboost learner for both prediction problems.
 We can directly pass the parameters during initialization of the learner objects.
 Because we have a binary treatment variable, we can use a classification learner for the corresponding nuisance part.
-We use a regression learner for the outcome variable net financial assets.
+We use a regression learner for the continuous outcome variable net financial assets.
 
 .. tabbed:: Python
 
