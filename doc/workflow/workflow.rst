@@ -9,11 +9,10 @@ TODO: Run and polish format in code blocks
 
 The following steps, which we call the DoubleML workflow, are intended to provide a rough structure for causal analyses
 with the :ref:`DoubleML <doubleml_package>`. After a short explanation of the idea of each step, we illustrate their meaning in the 401(k)
-example. In case you are interested in more details of the 401(k) example, you can visit the Python [link] and R [link]
-Notebooks that
-are available online.
+example. In case you are interested in more details of the 401(k) example, you can visit the 
+`Python <https://docs.doubleml.org/stable/examples/py_double_ml_pension.html>`_ and `R <https://docs.doubleml.org/stable/examples/R_double_ml_pension.html>`_
+Notebooks that are available online.
 
-TODO: insert links to notebooks in entire file!
 
 0. Problem Formulation
 ----------------------
@@ -43,21 +42,24 @@ eligibility can be considered as good as randomly assigned (at the time 401(k) p
 The conditional exogeneity in the access to treatment makes it possible to estimate the causal effect of interest by using
 an instrumental variable (IV) approach. However, for the sake of brevity, we will focus on the so-called intent-to-treat effect in the following.
 This effect corresponds to the average treatment effect of eligibility (= the instrument) on net financial assets (= the outcome) and
-is of great interest in many applications. The IV analysis is available in the Python [link] and R [link] Notebooks that are available online.
+is of great interest in many applications. The IV analysis is available in the `Python <https://docs.doubleml.org/stable/examples/py_double_ml_pension.html>`_
+and `R <https://docs.doubleml.org/stable/examples/R_double_ml_pension.html>`_ Notebooks that are available online.
 
 The previous discussion focuses on the causal problem. Let's also talk about the statistical methods used for estimation.
 For identification of the average treatment effect of participation or eligibility on assets, it is crucial that we appropriately
-account for the confounding factors. That's where the machine learning tools come into play. Of course we could simply estimate
-the causal effect by using a linear (IV) regression model. In these models, the researcher have to manually pick and, perhaps,
+account for the confounding factors. That's where the machine learning tools come into play. Of course, we could simply estimate
+the causal effect by using a linear (IV) regression model. In these models, the researcher has to manually pick and, perhaps,
 transform variables. However, machine learning techniques offer greater flexibility in terms of a more data-driven specification
 of the main regression equation and the propensity score.
 
 1. Data-Backend
 ---------------
 
-In step 1., we initialize the data-backend and thereby declare the role of the outcome, the treatment and the confounding variables.
+In step 1., we initialize the data-backend and thereby declare the role of the outcome, the treatment, and the confounding variables.
 
-We use data from the 1991 Survey of Income and Program Participation which is available via the function fetch_401k [link to docu].
+We use data from the 1991 Survey of Income and Program Participation which is available via the function 
+`fetch_401k (Python)<https://docs.doubleml.org/stable/api/generated/doubleml.datasets.fetch_401K.html>`_
+or `fetch_401k (R)<https://docs.doubleml.org/r/stable/reference/fetch_401k.html>`_.
 The data-backend can be initialized from various data frame objects in Python and R. To estimate the intent-to-treat effect in the
 401(k) example, we use eligibility (``e401``) as the treatment variable of interest. The outcome variable is ``net_tfa`` and we
 control for confounding variables ``['age', 'inc', 'educ', 'fsize', 'marr', 'twoearn', 'db', 'pira', 'hown']``.
@@ -107,7 +109,7 @@ differ in terms of the underlying causal structure (e.g., including IV variables
 
 According to the previous discussion, we are interested in estimation of the effect of eligibility on net financial assets.
 Hence, we do not need to use a model with both a treatment and instrumental variable. There are two potential models,
-the partially linear regression model (PLR) [link to docu] and the interactive regression model (IRM) [link to docu]. These models differ
+the :ref:`partially linear regression model (PLR) <plr-model>` and the :ref:`interactive regression model (IRM) <irm-model>`. These models differ
 in terms of the type of the treatment variable (continuous vs. binary treatment) and the assumptions underlying the regression
 equation. For example, the PLR assumes a partially linear structure, whereas the IRM allows for heterogeneous treatment effects across
 individuals.
@@ -120,7 +122,7 @@ In Step 2. we can precisely discuss the identification strategy using a DAG.
 -------------
 
 In Step 3. we can specify the machine learning tools used for estimation of the nuisance parts.
-We can generally choose any learner from scikit learn [link] in Python and from the mlr3 [link] ecosystem in R.
+We can generally choose any learner from `scikit learn <https://scikit-learn.org>`_ in Python and from the `mlr3 <https://mlr3.mlr-org.com>`_ ecosystem in R.
 
 There are two nuisance parts in the PLR, :math:`g_0(X)=\mathbb{E}(Y|X)` and  :math:`m_0(X)=\mathbb{E}(D|X)`.
 In this example, let us specify a random forest and an xgboost learner for both prediction problems.
@@ -172,16 +174,18 @@ We use a regression learner for the outcome variable net financial assets.
 
 In Step 4., we initialize and parametrize the model object which will later be used to perform the estimation.
 
-We initialize a DoubleMLPLR [link to docu] using the previously generated data-backend. Moreover, we specify the resampling
-(= the number of repetitions and folds for repeated cross-fitting [link to user guide section resampling]),
-the dml algorithm (DML1 vs. DML2 [link to algorithm section in user guide]) and the score function ("partialling out" or
-"IV-type") [link to user guide section on score].
+We initialize a `DoubleMLPLR (Python)<https://docs.doubleml.org/stable/api/generated/doubleml.DoubleMLPLR.html>`_ /
+`DoubleMLPLR (R)<https://docs.doubleml.org/r/stable/reference/DoubleMLPLR.html>`_
+using the previously generated data-backend. Moreover, we specify the resampling
+(= the number of repetitions and folds for :ref:`repeated cross-fitting <repeated-cross-fitting>`),
+the dml algorithm (:ref:`DML1 vs. DML2 <algorithms>`) and the score function (:ref:`"partialling out" or
+"IV-type" <plr-score>`).
 
 .. tabbed:: Python
 
     .. ipython:: python
 
-        from DoubleML import DoubleMLPLR
+        from doubleml import DoubleMLPLR
         np.random.seed(123)
         # Default values
         dml_plr_tree = DoubleMLPLR(dml_data,
@@ -192,8 +196,10 @@ the dml algorithm (DML1 vs. DML2 [link to algorithm section in user guide]) and 
         # Parametrized by user
         dml_plr_tree = DoubleMLPLR(dml_data,
                                     ml_g = ml_g_rf,
-                                    n_folds = 3, n_rep = 1,
-                                    score = 'parialling out',
+                                    ml_m = ml_m_rf,
+                                    n_folds = 3,
+                                    n_rep = 1,
+                                    score = 'partialling out',
                                     dml_procedure = 'dml2')
 
 .. tabbed:: R
@@ -261,13 +267,13 @@ corresponding fields or via a summary.
 
 In Step 6. we can perform further inference methods and finally interpret our findings. For example, we can set up confidence intervals
 or, in case multiple causal parameters are estimated, adjust the analysis for multiple testing. :ref:`DoubleML <doubleml_package>`
-supports various approaches to perform valid simultaneous inference [link to user guide section on simultaneous inference]
+supports various approaches to perform :ref:`valid simultaneous inference <sim_inf>`
 which are partly based on a multiplier bootstrap.
 
 To conclude analysis on the average treatment effect of eligibility for 401(k) pension plans on net financial assets, we find a
 positive and significant effect: Being eligible for such a pension plan increases the amount of net financial assets by
-approximately $9,000. This estimate is much smaller than the unconditional effect of elegibility on net financial assets:
-If we did not control for the confounding variables, the average treatment effect would correspond to $19,559.
+approximately :math:`$9,000`. This estimate is much smaller than the unconditional effect of elegibility on net financial assets:
+If we did not control for the confounding variables, the average treatment effect would correspond to :math:`$19,559`.
 
 .. tabbed:: Python
 
@@ -299,4 +305,4 @@ If we did not control for the confounding variables, the average treatment effec
         dml_plr_forest$bootstrap()
 
         # Simultaneous confidence bands
-        dml_plr_forest$confint(joint = True)
+        dml_plr_forest$confint(joint = TRUE)
