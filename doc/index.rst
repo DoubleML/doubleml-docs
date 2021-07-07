@@ -114,6 +114,7 @@ ecosystem <https://github.com/mlr-org/mlr3/wiki/Extension-Packages>`_ (Lang et a
 
     Install <intro/install>
     Getting started <intro/intro>
+    DoubleML Workflow <workflow/workflow>
     User guide <guide/guide>
     Examples <examples/index>
     Python API <api/api>

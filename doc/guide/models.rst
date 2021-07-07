@@ -3,6 +3,8 @@
 Models
 ----------
 
+.. _plr-model:
+
 Partially linear regression model (PLR)
 +++++++++++++++++++++++++++++++++++++++
 
@@ -104,6 +106,8 @@ Estimation is conducted via its ``fit()`` method:
         dml_pliv_obj$fit()
         print(dml_pliv_obj)
 
+
+.. _irm-model:
 
 Interactive regression model (IRM)
 ++++++++++++++++++++++++++++++++++
