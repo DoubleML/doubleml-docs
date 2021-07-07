@@ -127,11 +127,11 @@ ecosystem <https://github.com/mlr-org/mlr3/wiki/Extension-Packages>`_ (Lang et a
 
     Install <intro/install>
     Getting started <intro/intro>
-    DoubleML Workflow <workflow/workflow>
     User guide <guide/guide>
-    Examples <examples/index>
+    Workflow <workflow/workflow>
     Python API <api/api>
     R API <https://docs.doubleml.org/r/stable/>
+    Examples <examples/index>
     Release notes <release/release>
 
 Main Features
