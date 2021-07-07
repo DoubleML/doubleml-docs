@@ -125,7 +125,7 @@ According to the previous discussion, we are interested in estimation of the eff
 Hence, we do not need to use a model with both a treatment and instrumental variable. There are two potential models,
 the :ref:`partially linear regression model (PLR) <plr-model>` and the :ref:`interactive regression model (IRM) <irm-model>`. These models differ
 in terms of the type of the treatment variable (continuous vs. binary treatment) and the assumptions underlying the regression
-equation. For example, the PLR assumes a partially linear structure, whereas the IRM allows for heterogeneous treatment effects across
+equation. For example, the PLR assumes a partially linear structure, whereas the IRM allows treatment effects to be heterogeneous across
 individuals.
 
 ..
