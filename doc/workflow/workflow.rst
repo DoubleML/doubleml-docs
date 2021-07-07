@@ -55,8 +55,9 @@ and `R <https://docs.doubleml.org/stable/examples/R_double_ml_pension.html>`_ No
 The previous discussion focuses on the causal problem. Let's also talk about the statistical methods used for estimation.
 For identification of the average treatment effect of participation or eligibility on assets, it is crucial that we appropriately
 account for the confounding factors. That's where the machine learning tools come into play. Of course, we could simply estimate
-the causal effect by using a classical linear (IV) regression model. In these models, the researcher has to manually pick and, perhaps,
-transform variables. However, machine learning techniques offer greater flexibility in terms of a more data-driven specification
+the causal effect by using a classical linear (IV) regression model: The researcher has to manually pick and, perhaps,
+transform the confounding variables in the regression model.
+However, machine learning techniques offer greater flexibility in terms of a more data-driven specification
 of the main regression equation and the propensity score.
 
 1. Data-Backend
