@@ -38,8 +38,8 @@ example, we have to base our analysis on observational data. Hence, we have to u
 on appropriately controlling for potential confounders.
 A complication that arises in the 401(k) example is due to so-called endogeneity of the treatment assignment. The treatment
 variable is an employee's participation in a 401(k) pension plan which is a decision made by employees and likely
-to be affected by unobservable effects. For example, is seems reasonable that persons with higher income have a stronger
-preference to save and also to participate in a pension plan. If our analysis does not account for this self-selection into
+to be affected by unobservable effects. For example, is seems reasonable that persons with higher income have stronger
+preferences to save and also to participate in a pension plan. If our analysis does not account for this self-selection into
 treatment, the estimated effect is likely to be biased.
 
 To circumvent the endogenous treatment problem, it is possible to exploit randomness in eligibility for 401(k) plans.
