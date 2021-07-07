@@ -14,7 +14,7 @@ example. In case you are interested in more details of the 401(k) example, you c
 Notebooks that are available online.
 
 
-1. Problem Formulation
+0. Problem Formulation
 ----------------------
 
 The initial step of the DoubleML workflow is to formulate the causal problem at hand. Before we start our statistical
@@ -47,15 +47,15 @@ and `R <https://docs.doubleml.org/stable/examples/R_double_ml_pension.html>`_ No
 
 The previous discussion focuses on the causal problem. Let's also talk about the statistical methods used for estimation.
 For identification of the average treatment effect of participation or eligibility on assets, it is crucial that we appropriately
-account for the confounding factors. That's where the machine learning tools come into play. Of course we could simply estimate
-the causal effect by using a linear (IV) regression model. In these models, the researcher have to manually pick and, perhaps,
+account for the confounding factors. That's where the machine learning tools come into play. Of course, we could simply estimate
+the causal effect by using a linear (IV) regression model. In these models, the researcher has to manually pick and, perhaps,
 transform variables. However, machine learning techniques offer greater flexibility in terms of a more data-driven specification
 of the main regression equation and the propensity score.
 
 1. Data-Backend
 ---------------
 
-In step 1., we initialize the data-backend and thereby declare the role of the outcome, the treatment and the confounding variables.
+In step 1., we initialize the data-backend and thereby declare the role of the outcome, the treatment, and the confounding variables.
 
 We use data from the 1991 Survey of Income and Program Participation which is available via the function `fetch_401k <https://docs.doubleml.org/stable/api/generated/doubleml.datasets.fetch_401K.html>`_.
 The data-backend can be initialized from various data frame objects in Python and R. To estimate the intent-to-treat effect in the
@@ -97,7 +97,7 @@ control for confounding variables ``['age', 'inc', 'educ', 'fsize', 'marr', 'two
                                                               'db', 'pira',
                                                               'hown'))
 
-1. Causal Model
+2. Causal Model
 ---------------
 
 In Step 2. we choose a causal model. There are several models currently implemented in :ref:`DoubleML <doubleml_package>` which
@@ -116,7 +116,7 @@ In Step 2. we can precisely discuss the identification strategy using a DAG.
 
 [TODO]: prepare DAG Figure and include together with caption
 
-1. ML Methods
+3. ML Methods
 -------------
 
 In Step 3. we can specify the machine learning tools used for estimation of the nuisance parts.
@@ -167,7 +167,7 @@ We use a regression learner for the outcome variable net financial assets.
                         eta = 0.1, nrounds = 34)
 
 
-1. DML Specifications
+4. DML Specifications
 ---------------------
 
 In Step 4., we initialize and parametrize the model object which will later be used to perform the estimation.
@@ -218,7 +218,7 @@ the dml algorithm (:ref:`DML1 vs. DML2 <algorithms>`) and the score function (:r
                                         dml_procedure = 'dml2')
 
 
-1. Estimation
+5. Estimation
 -------------
 
 We perform estimation in Step 5. In this step, the cross-fitting algorithm is executed such that the predictions
@@ -268,8 +268,8 @@ which are partly based on a multiplier bootstrap.
 
 To conclude analysis on the average treatment effect of eligibility for 401(k) pension plans on net financial assets, we find a
 positive and significant effect: Being eligible for such a pension plan increases the amount of net financial assets by
-approximately \$9,000. This estimate is much smaller than the unconditional effect of elegibility on net financial assets:
-If we did not control for the confounding variables, the average treatment effect would correspond to \$19,559.
+approximately :math:`$9,000`. This estimate is much smaller than the unconditional effect of elegibility on net financial assets:
+If we did not control for the confounding variables, the average treatment effect would correspond to :math:`$19,559`.
 
 .. tabbed:: Python
 
