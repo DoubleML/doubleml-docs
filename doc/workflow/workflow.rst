@@ -61,8 +61,8 @@ of the main regression equation and the propensity score.
 In step 1., we initialize the data-backend and thereby declare the role of the outcome, the treatment, and the confounding variables.
 
 We use data from the 1991 Survey of Income and Program Participation which is available via the function 
-`fetch_401K (Python)<https://docs.doubleml.org/stable/api/generated/doubleml.datasets.fetch_401K.html>`_
-or `fetch_401k (R)<https://docs.doubleml.org/r/stable/reference/fetch_401k.html>`_.
+`fetch_401K (Python) <https://docs.doubleml.org/stable/api/generated/doubleml.datasets.fetch_401K.html>`_
+or `fetch_401k (R) <https://docs.doubleml.org/r/stable/reference/fetch_401k.html>`_.
 The data-backend can be initialized from various data frame objects in Python and R. To estimate the intent-to-treat effect in the
 401(k) example, we use eligibility (``e401``) as the treatment variable of interest. The outcome variable is ``net_tfa`` and we
 control for confounding variables ``['age', 'inc', 'educ', 'fsize', 'marr', 'twoearn', 'db', 'pira', 'hown']``.
@@ -178,8 +178,8 @@ We use a regression learner for the outcome variable net financial assets.
 
 In Step 4., we initialize and parametrize the model object which will later be used to perform the estimation.
 
-We initialize a `DoubleMLPLR (Python)<https://docs.doubleml.org/stable/api/generated/doubleml.DoubleMLPLR.html>`_ /
-`DoubleMLPLR (R)<https://docs.doubleml.org/r/stable/reference/DoubleMLPLR.html>`_
+We initialize a `DoubleMLPLR (Python) <https://docs.doubleml.org/stable/api/generated/doubleml.DoubleMLPLR.html>`_ /
+`DoubleMLPLR (R) <https://docs.doubleml.org/r/stable/reference/DoubleMLPLR.html>`_
 using the previously generated data-backend. Moreover, we specify the resampling
 (= the number of repetitions and folds for :ref:`repeated cross-fitting <repeated-cross-fitting>`),
 the dml algorithm (:ref:`DML1 vs. DML2 <algorithms>`) and the score function (:ref:`"partialling out" or
