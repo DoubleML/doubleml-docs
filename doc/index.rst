@@ -23,7 +23,8 @@ ecosystem <https://github.com/mlr-org/mlr3/wiki/Extension-Packages>`_ (Lang et a
     :column: col-lg-4 col-md-4 col-sm-6 col-xs-12 p-2
     :card: text-center
     :img-top-cls: pl-5 pr-5 pt-5 pb-5
-    :header: font-weight-bold border-0 h5
+    :header: font-weight-bold border-0 h4
+    :footer: border-0
 
     ---
     :img-top: _static/gettingstarted.png
@@ -31,7 +32,9 @@ ecosystem <https://github.com/mlr-org/mlr3/wiki/Extension-Packages>`_ (Lang et a
     Getting started
     ^^^^^^^^^^^^^^^
 
-    Lorem ipsum dolor sit amet, consetetur sadipscing elitr.
+    New to **DoubleML**? Then check out our getting started guide!
+
+    +++
 
     .. link-button:: intro/intro
         :type: ref
@@ -44,7 +47,9 @@ ecosystem <https://github.com/mlr-org/mlr3/wiki/Extension-Packages>`_ (Lang et a
     User guide
     ^^^^^^^^^^
 
-    Lorem ipsum dolor sit amet, consetetur sadipscing elitr.
+    Want to learn everything about **DoubleML**? Then you should visit our extensive user guide where you will find detailed explanations and further references.
+
+    +++
 
     .. link-button:: guide/guide
         :type: ref
@@ -57,9 +62,11 @@ ecosystem <https://github.com/mlr-org/mlr3/wiki/Extension-Packages>`_ (Lang et a
     DoubleML workflow
     ^^^^^^^^^^^^^^^^^
 
-    Lorem ipsum dolor sit amet, consetetur sadipscing elitr.
+    The **DoubleML** workflow demonstrates the typical steps to consider when using **DoubleML** in applied analysis.
 
-    .. link-button:: guide/guide
+    +++
+
+    .. link-button:: workflow/workflow
         :type: ref
         :text: To the DoubleML workflow
         :classes: btn-block btn-dark stretched-link btn-sm
@@ -70,7 +77,9 @@ ecosystem <https://github.com/mlr-org/mlr3/wiki/Extension-Packages>`_ (Lang et a
     Python API
     ^^^^^^^^^^
 
-    Lorem ipsum dolor sit amet, consetetur sadipscing elitr.
+    The Python API documentation.
+
+    +++
 
     .. link-button:: api/api
         :type: ref
@@ -83,7 +92,9 @@ ecosystem <https://github.com/mlr-org/mlr3/wiki/Extension-Packages>`_ (Lang et a
     R API
     ^^^^^
 
-    Lorem ipsum dolor sit amet, consetetur sadipscing elitr.
+    The R API documentation.
+
+    +++
 
     .. link-button:: https://docs.doubleml.org/r/stable/
         :type: url
@@ -96,7 +107,9 @@ ecosystem <https://github.com/mlr-org/mlr3/wiki/Extension-Packages>`_ (Lang et a
     Example gallery
     ^^^^^^^^^^^^^^^
 
-    Lorem ipsum dolor sit amet, consetetur sadipscing elitr.
+    A gallery with examples demonstrating the functionalities of **DoubleML**.
+
+    +++
 
     .. link-button:: examples/index
         :type: ref
