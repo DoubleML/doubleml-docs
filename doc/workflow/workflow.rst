@@ -9,7 +9,7 @@ DoubleML Workflow
    TODO: Run and polish format in code blocks
 
 The following steps, which we call the DoubleML workflow, are intended to provide a rough structure for causal analyses
-with the :ref:`DoubleML <doubleml_package>`. After a short explanation of the idea of each step, we illustrate their meaning in the 401(k)
+with :ref:`DoubleML <doubleml_package>`. After a short explanation of the idea of each step, we illustrate their meaning in the 401(k)
 example. In case you are interested in more details of the 401(k) example, you can visit the 
 `Python <https://docs.doubleml.org/stable/examples/py_double_ml_pension.html>`_ and `R <https://docs.doubleml.org/stable/examples/R_double_ml_pension.html>`_
 Notebooks that are available online.
