@@ -115,6 +115,11 @@ differ in terms of the underlying causal structure (e.g., including IV variables
 ..
    [TODO]: Include Figure with causal models
 
+.. image:: doubleml_models.svg
+  :width: 800
+  :alt: DoubleML Models
+  :align: center
+
 According to the previous discussion, we are interested in estimation of the effect of eligibility on net financial assets.
 Hence, we do not need to use a model with both a treatment and instrumental variable. There are two potential models,
 the :ref:`partially linear regression model (PLR) <plr-model>` and the :ref:`interactive regression model (IRM) <irm-model>`. These models differ
