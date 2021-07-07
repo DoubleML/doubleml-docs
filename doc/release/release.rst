@@ -5,6 +5,24 @@ Release notes
 
 .. tabbed:: Python
 
+    **DoubleML 0.3.0**
+
+    - Always use the same bootstrap algorithm independent of ``dml1`` vs ``dml2`` and consistent with docu and paper
+      `#101 <https://github.com/DoubleML/doubleml-for-py/pull/101>`_ &
+      `#102 <https://github.com/DoubleML/doubleml-for-py/pull/102>`_
+    - Added an exception handling to assure that an IV variable is specified when using a PLIV or IIVM model
+      `#107 <https://github.com/DoubleML/doubleml-for-py/pull/107>`_
+    - Improve exception handling for externally provided sample splitting
+      `#110 <https://github.com/DoubleML/doubleml-for-py/pull/110>`_
+    - Minor update of the str representation of ``DoubleMLData`` objects
+      `#112 <https://github.com/DoubleML/doubleml-for-py/pull/112>`_
+    - Code refactorings and unit test extensions
+      `#103 <https://github.com/DoubleML/doubleml-for-py/pull/103>`_,
+      `#105 <https://github.com/DoubleML/doubleml-for-py/pull/105>`_,
+      `#106 <https://github.com/DoubleML/doubleml-for-py/pull/106>`_,
+      `#111 <https://github.com/DoubleML/doubleml-for-py/pull/111>`_ &
+      `#113 <https://github.com/DoubleML/doubleml-for-py/pull/113>`_
+
     **DoubleML 0.2.2**
 
     - IIVM model: Added a subgroups option to adapt to cases with and without the subgroups of always-takers and
@@ -87,6 +105,55 @@ Release notes
       learning are implemented.
 
 .. tabbed:: R
+
+    **DoubleML 0.3.0**
+
+    - Use active bindings in the R6 OOP implementation
+      `#106 <https://github.com/DoubleML/doubleml-for-r/pull/106>`_ &
+      `#93 <https://github.com/DoubleML/doubleml-for-r/pull/93>`_
+    - Fix the aggregation formula for standard errors from repeated cross-fitting
+      `#94 <https://github.com/DoubleML/doubleml-for-r/pull/94>`_ &
+      `#95 <https://github.com/DoubleML/doubleml-for-r/pull/95>`_
+    - Always use the same bootstrap algorithm independent of ``dml1`` vs ``dml2`` and consistent with docu and paper
+      `#98 <https://github.com/DoubleML/doubleml-for-r/pull/98>`_ &
+      `#99 <https://github.com/DoubleML/doubleml-for-r/pull/99>`_
+    - Initialize predictions with NA and make sure that there are no misleading entries in the evaluated score
+      functions `#96 <https://github.com/DoubleML/doubleml-for-r/pull/96>`_ &
+      `#105 <https://github.com/DoubleML/doubleml-for-r/pull/105>`_
+    - Avoid overriding learner parameters during tuning
+      `#83 <https://github.com/DoubleML/doubleml-for-r/pull/83>`_ &
+      `#84 <https://github.com/DoubleML/doubleml-for-r/pull/84>`_
+    - Fixes in the exception handling and extension of the unit tests for the score function choice
+      `#82 <https://github.com/DoubleML/doubleml-for-r/pull/82>`_
+    - Prevent overwriting parameters from initialization when calling set_ml_nuisance_params
+      `#87 <https://github.com/DoubleML/doubleml-for-r/pull/87>`_ &
+      `#89 <https://github.com/DoubleML/doubleml-for-r/pull/89>`_
+    - Major refactoring and cleanup and extension of the unit test framework
+      `#101 <https://github.com/DoubleML/doubleml-for-r/pull/101>`_
+    - Extension and reorganization of exception handling for ``DoubleMLData`` objects
+      `#63 <https://github.com/DoubleML/doubleml-for-r/pull/63>`_ &
+      `#90 <https://github.com/DoubleML/doubleml-for-r/pull/90>`_
+    - Introduce style guide and clean up code
+      `#80 <https://github.com/DoubleML/doubleml-for-r/pull/80>`_ &
+      `#81 <https://github.com/DoubleML/doubleml-for-r/pull/81>`_
+    - Adaption to be compatible with an API change in the next ``mlr3`` release
+      `#103 <https://github.com/DoubleML/doubleml-for-r/pull/103>`_
+    - Run unit tests with mlr3 in dev version on github actions
+      `#104 <https://github.com/DoubleML/doubleml-for-r/pull/104>`_
+    - Updated the citation info
+      `#78 <https://github.com/DoubleML/doubleml-for-r/pull/78>`_,
+      `#79 <https://github.com/DoubleML/doubleml-for-r/pull/79>`_ &
+      `#86 <https://github.com/DoubleML/doubleml-for-r/pull/86>`_
+    - Added a short version of and a reference to the arXiv paper as vignette
+      `#110 <https://github.com/DoubleML/doubleml-for-r/pull/110>`_ &
+      `#113 <https://github.com/DoubleML/doubleml-for-r/pull/113>`_
+    - Prevent using the subclassed methods check_score and check_data when constructing DoubleML objects
+      `#107 <https://github.com/DoubleML/doubleml-for-r/pull/107>`_
+    - Other refactoring and minor adaptions
+      `#91 <https://github.com/DoubleML/doubleml-for-r/pull/91>`_,
+      `#92 <https://github.com/DoubleML/doubleml-for-r/pull/92>`_,
+      `#102 <https://github.com/DoubleML/doubleml-for-r/pull/102>`_ &
+      `#108 <https://github.com/DoubleML/doubleml-for-r/pull/108>`_
 
     **DoubleML 0.2.1**
 
