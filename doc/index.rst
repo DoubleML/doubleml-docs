@@ -32,7 +32,7 @@ ecosystem <https://github.com/mlr-org/mlr3/wiki/Extension-Packages>`_ (Lang et a
     Getting started
     ^^^^^^^^^^^^^^^
 
-    New to **DoubleML**? Then check out our getting started guide!
+    New to **DoubleML**? Then check out how to get started!
 
     +++
 
@@ -47,7 +47,7 @@ ecosystem <https://github.com/mlr-org/mlr3/wiki/Extension-Packages>`_ (Lang et a
     User guide
     ^^^^^^^^^^
 
-    Want to learn everything about **DoubleML**? Then you should visit our extensive user guide where you will find detailed explanations and further references.
+    Want to learn everything about **DoubleML**? Then you should visit our extensive user guide with detailed explanations and further references.
 
     +++
 
@@ -59,7 +59,7 @@ ecosystem <https://github.com/mlr-org/mlr3/wiki/Extension-Packages>`_ (Lang et a
     ---
     :img-top: _static/workflow.png
 
-    DoubleML workflow
+    Workflow
     ^^^^^^^^^^^^^^^^^
 
     The **DoubleML** workflow demonstrates the typical steps to consider when using **DoubleML** in applied analysis.
@@ -127,11 +127,11 @@ ecosystem <https://github.com/mlr-org/mlr3/wiki/Extension-Packages>`_ (Lang et a
 
     Install <intro/install>
     Getting started <intro/intro>
-    DoubleML Workflow <workflow/workflow>
     User guide <guide/guide>
-    Examples <examples/index>
+    Workflow <workflow/workflow>
     Python API <api/api>
     R API <https://docs.doubleml.org/r/stable/>
+    Examples <examples/index>
     Release notes <release/release>
 
 Main Features
