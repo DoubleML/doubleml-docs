@@ -191,7 +191,7 @@ In Step 4., we initialize and parametrize the model object which will later be u
 
 We initialize a `DoubleMLPLR (Python) <https://docs.doubleml.org/stable/api/generated/doubleml.DoubleMLPLR.html>`_ /
 `DoubleMLPLR (R) <https://docs.doubleml.org/r/stable/reference/DoubleMLPLR.html>`_
-using the previously generated data-backend. Moreover, we specify the resampling
+object using the previously generated data-backend. Moreover, we specify the resampling
 (= the number of repetitions and folds for :ref:`repeated cross-fitting <repeated-cross-fitting>`),
 the dml algorithm (:ref:`DML1 vs. DML2 <algorithms>`) and the score function (:ref:`"partialling out" or
 "IV-type" <plr-score>`).
