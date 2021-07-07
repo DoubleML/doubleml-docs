@@ -23,7 +23,10 @@ be computed later. In many cases, directed acyclical graphs (DAGs) are helpful t
 illustrate the involved causal channels and the critical parts of the inferential framework. At this stage, a precise
 argumentation and discussion of the research question is crucial.
 
-TODO: Set up and insert a DAG for the 401(k) Example: IV-based argumentation (eligibility - participation - outcome)
+.. image:: causal_graph.svg
+  :width: 800
+  :alt: DAG for the 401(k) Example
+  :align: center
 
 In the 401(k) study, we are interested in estimating the average treatment effect of participation in so-called 401(k) pension
 plans on employees' net financial assets. Because we cannot rely on a properly conducted randomized control study in this
@@ -58,7 +61,7 @@ of the main regression equation and the propensity score.
 In step 1., we initialize the data-backend and thereby declare the role of the outcome, the treatment, and the confounding variables.
 
 We use data from the 1991 Survey of Income and Program Participation which is available via the function 
-`fetch_401k (Python)<https://docs.doubleml.org/stable/api/generated/doubleml.datasets.fetch_401K.html>`_
+`fetch_401K (Python)<https://docs.doubleml.org/stable/api/generated/doubleml.datasets.fetch_401K.html>`_
 or `fetch_401k (R)<https://docs.doubleml.org/r/stable/reference/fetch_401k.html>`_.
 The data-backend can be initialized from various data frame objects in Python and R. To estimate the intent-to-treat effect in the
 401(k) example, we use eligibility (``e401``) as the treatment variable of interest. The outcome variable is ``net_tfa`` and we
@@ -154,6 +157,7 @@ We use a regression learner for the outcome variable net financial assets.
 
     .. jupyter-execute::
 
+        library(mlr3)
         library(mlr3learners)
         # Random forest learners
         ml_g_rf = lrn("regr.ranger", max.depth = 7,
