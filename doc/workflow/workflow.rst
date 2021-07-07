@@ -58,7 +58,7 @@ account for the confounding factors. That's where the machine learning tools com
 the causal effect by using a classical linear (IV) regression model: The researcher has to manually pick and, perhaps,
 transform the confounding variables in the regression model.
 However, machine learning techniques offer greater flexibility in terms of a more data-driven specification
-of the main regression equation and the propensity score.
+of the main regression equation and the first stage.
 
 1. Data-Backend
 ---------------
