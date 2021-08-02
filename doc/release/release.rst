@@ -106,6 +106,11 @@ Release notes
 
 .. tabbed:: R
 
+    **DoubleML 0.3.1**
+
+    - Initialize all numeric matrices, vectors and arrays with the correct data type by using ``NA_real_`` instead of
+      ``NA`` and replace a ``print()`` call with ``cat()`` `#115 <https://github.com/DoubleML/doubleml-for-r/pull/115>`_
+
     **DoubleML 0.3.0**
 
     - Use active bindings in the R6 OOP implementation
