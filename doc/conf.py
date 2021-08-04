@@ -128,4 +128,4 @@ intersphinx_mapping = {
 # https://github.com/IRkernel/IRkernel
 
 jupyter_execute_default_kernel = 'ir'
-jupyter_sphinx_linenos = True
+jupyter_sphinx_linenos = False
