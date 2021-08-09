@@ -108,7 +108,7 @@ jobs:
       run: |
         install.packages('remotes')
         remotes::install_github('DoubleML/doubleml-for-r@${{ github.event.inputs.doubleml-r-branch }}', dependencies = TRUE)
-        install.packages(c('ggplot2', 'IRkernel', 'xgboost'))
+        install.packages(c('ggplot2', 'IRkernel', 'xgboost', 'hdm', 'reshape2', 'gridExtra'))
         IRkernel::installspec()
       shell: Rscript {0}
 
