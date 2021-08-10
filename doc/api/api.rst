@@ -11,6 +11,7 @@ Double machine learning data class
     :template: class.rst
 
     DoubleMLData
+    DoubleMLClusterData
 
 Double machine learning models
 ------------------------------
