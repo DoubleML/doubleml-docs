@@ -184,12 +184,12 @@ The minimum requirement for a learner to be used for nuisance models in the :ref
     * The implementation as a learner for regression or classification in the `mlr3 <https://mlr3.mlr-org.com/>`_ package
       or its extension packages `mlr3learners <https://mlr3learners.mlr-org.com/>`_ and
       `mlr3extralearners <https://mlr3extralearners.mlr-org.com/>`_ . A guide on how to add a learner is provided in the
-      `chapter on extending learners in the mlr3 book <https://mlr3book.mlr-org.com/extending-learners.html>`_ .
+      `chapter on extending learners in the mlr3 book <https://mlr3book.mlr-org.com/extending.html#extending-learners>`_ .
     * The `mlr3 <https://mlr3.mlr-org.com/>`_ package makes sure that the learners satisfy some core functionalities.
       To specify a specific learner in :ref:`DoubleML <doubleml_package>` users can pass objects of the class
       `Learner <https://mlr3.mlr-org.com/reference/Learner.html>`_. A fast way to construct these objects is to use the
       `mlr3 <https://mlr3.mlr-org.com/>`_  function `lrn() <https://mlr3.mlr-org.com/reference/mlr_sugar.html>`_.
-      An introduction to learners in `mlr3 <https://mlr3.mlr-org.com/>`_  is provided in the `chapter on learners of the mlr3 book <https://mlr3book.mlr-org.com/learners.html>`_.
+      An introduction to learners in `mlr3 <https://mlr3.mlr-org.com/>`_  is provided in the `chapter on learners of the mlr3 book <https://mlr3book.mlr-org.com/basics.html#learners>`_.
     * The models `DoubleML::DoubleMLIRM <https://docs.doubleml.org/r/stable/reference/DoubleMLIRM.html>`_ and
       `DoubleML::DoubleMLIIVM <https://docs.doubleml.org/r/stable/reference/DoubleMLIIVM.html>`_ require classifiers.
     * Hyperparameters of learners can either be set at instantiation in mlr3 or after instantiation using the
@@ -362,7 +362,7 @@ The entries in the list specify options during parameter tuning with `mlr3tuning
       Alternatively, ``algorithm`` can be a ``character()`` that is used as an argument in the wrapper
       `mlr3tuning <https://mlr3tuning.mlr-org.com/>`_ call
       `tnr(algorithm) <https://mlr3tuning.mlr-org.com/reference/tnr.html>`_.
-      `The corresponding chapter in the mlr3book <https://mlr3book.mlr-org.com/tuning.html#the-tuner-class>`_ illustrates
+      `The corresponding chapter in the mlr3book <https://mlr3book.mlr-org.com/optimization.html#tuning-algorithms>`_ illustrates
       how the `Tuner <https://mlr3tuning.mlr-org.com/reference/Tuner.html>`_ class supports grid search, random search,
       generalized simulated annealing and non-linear optimization.
     * ``rsmp_tune`` is an object of class `mlr3 resampling <https://mlr3.mlr-org.com/reference/Resampling.html>`_
