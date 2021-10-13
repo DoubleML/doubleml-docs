@@ -106,6 +106,20 @@ Release notes
 
 .. tabbed:: R
 
+    **DoubleML 0.4.0**
+
+    - **Release highlight:** Clustered standard errors for double machine learning models
+      `#119 <https://github.com/DoubleML/doubleml-for-r/pull/119>`_
+    - Apply styler as described in the wiki (https://github.com/DoubleML/doubleml-for-r/wiki/Style-Guidelines) and add a
+      corresponding CI on github actions `#120 <https://github.com/DoubleML/doubleml-for-r/pull/120>`_
+      `#122 <https://github.com/DoubleML/doubleml-for-r/pull/122>`_
+    - Other refactoring, bug fixes and documentation updates
+      `#127 <https://github.com/DoubleML/doubleml-for-r/pull/127>`_
+      `#129 <https://github.com/DoubleML/doubleml-for-r/pull/129>`_
+      `#130 <https://github.com/DoubleML/doubleml-for-r/pull/130>`_
+      `#131 <https://github.com/DoubleML/doubleml-for-r/pull/131>`_
+
+
     **DoubleML 0.3.1**
 
     - Initialize all numeric matrices, vectors and arrays with the correct data type by using ``NA_real_`` instead of
