@@ -130,6 +130,7 @@ Release notes
       `#129 <https://github.com/DoubleML/doubleml-for-r/pull/129>`_
       `#130 <https://github.com/DoubleML/doubleml-for-r/pull/130>`_
       `#131 <https://github.com/DoubleML/doubleml-for-r/pull/131>`_
+      `#132 <https://github.com/DoubleML/doubleml-for-r/pull/132>`_
 
 
     **DoubleML 0.3.1**
