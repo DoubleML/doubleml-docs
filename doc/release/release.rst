@@ -5,6 +5,18 @@ Release notes
 
 .. tabbed:: Python
 
+    **DoubleML 0.4.0**
+
+    - **Release highlight:** Clustered standard errors for double machine learning models
+      `#116 <https://github.com/DoubleML/doubleml-for-py/pull/116>`_
+    - Improve exception handling for missings and infinite values in the confounders, predictions, etc.
+      (fixes `#120 <https://github.com/DoubleML/doubleml-for-py/issues/120>`_ by allowing null confounder values)
+      `#122 <https://github.com/DoubleML/doubleml-for-py/pull/122>`_
+    - Clean up dev requirements and use dev requirements on github actions
+      `#121 <https://github.com/DoubleML/doubleml-for-py/pull/121>`_
+    - Other updates
+      `#123 <https://github.com/DoubleML/doubleml-for-py/pull/123>`_
+
     **DoubleML 0.3.0**
 
     - Always use the same bootstrap algorithm independent of ``dml1`` vs ``dml2`` and consistent with docu and paper
@@ -105,6 +117,22 @@ Release notes
       learning are implemented.
 
 .. tabbed:: R
+
+    **DoubleML 0.4.0**
+
+    - **Release highlight:** Clustered standard errors for double machine learning models
+      `#119 <https://github.com/DoubleML/doubleml-for-r/pull/119>`_
+    - Apply styler as described in the wiki (https://github.com/DoubleML/doubleml-for-r/wiki/Style-Guidelines) and add a
+      corresponding CI on github actions `#120 <https://github.com/DoubleML/doubleml-for-r/pull/120>`_
+      `#122 <https://github.com/DoubleML/doubleml-for-r/pull/122>`_
+    - Other refactoring, bug fixes and documentation updates
+      `#127 <https://github.com/DoubleML/doubleml-for-r/pull/127>`_
+      `#129 <https://github.com/DoubleML/doubleml-for-r/pull/129>`_
+      `#130 <https://github.com/DoubleML/doubleml-for-r/pull/130>`_
+      `#131 <https://github.com/DoubleML/doubleml-for-r/pull/131>`_
+      `#132 <https://github.com/DoubleML/doubleml-for-r/pull/132>`_
+      `#133 <https://github.com/DoubleML/doubleml-for-r/pull/133>`_
+
 
     **DoubleML 0.3.1**
 
