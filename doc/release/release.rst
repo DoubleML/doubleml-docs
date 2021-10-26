@@ -118,6 +118,13 @@ Release notes
 
 .. tabbed:: R
 
+    **DoubleML 0.4.1**
+
+    - Prevent usage of `glmnet` learner for unit testing as recommended by CRAN (failing tests on Solaris)
+      `#137 <https://github.com/DoubleML/doubleml-for-r/pull/137>`_
+    - Prepare for the upcoming release of `checkmate` which is not backward compatible with our unit tests
+      `#134 <https://github.com/DoubleML/doubleml-for-r/pull/134>`_
+
     **DoubleML 0.4.0**
 
     - **Release highlight:** Clustered standard errors for double machine learning models
@@ -132,7 +139,6 @@ Release notes
       `#131 <https://github.com/DoubleML/doubleml-for-r/pull/131>`_
       `#132 <https://github.com/DoubleML/doubleml-for-r/pull/132>`_
       `#133 <https://github.com/DoubleML/doubleml-for-r/pull/133>`_
-
 
     **DoubleML 0.3.1**
 
