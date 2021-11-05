@@ -237,3 +237,32 @@ mlr3: A modern object-oriented machine learing framework in R. Journal of Open S
 
 Pedregosa, F., Varoquaux, G., Gramfort, A., Michel, V., Thirion, B., Grisel, O., Blondel, M., Prettenhofer, P., Weiss, R., Dubourg, V., Vanderplas, J., Passos, A., Cournapeau, D., Brucher, M., Perrot, M. and Duchesnay, E. (2011),
 Scikit-learn: Machine Learning in Python. Journal of Machine Learning Research, 12: 2825--2830, `https://jmlr.csail.mit.edu/papers/v12/pedregosa11a.html <https://jmlr.csail.mit.edu/papers/v12/pedregosa11a.html>`_.
+
+.. dropdown:: Main References
+    :open:
+
+    Main References https://doi.org/10.1111/ectj.12097
+
+.. dropdown:: Software for Double Machine Learning
+
+    - DoubleML in Python: https://arxiv.org/abs/2104.03220
+    - DoubleML in R: https://arxiv.org/abs/2103.09603
+    - DoubleMLServerless: https://dl.acm.org/doi/10.1145/3447545.3451181
+    - EconML https://github.com/microsoft/EconML
+    - Szitas J (2019). “postDoubleR: Post Double Selection with Double Machine Learning.” https://CRAN.R-project.org/package=postDoubleR
+    - Knaus MC (2020). “Double Machine Learning based Program Evaluation under Unconfoundedness.” arXiv preprint arXiv:2003.03191. URL https://github.com/MCKnaus/causalDML
+    - Knaus MC (2021). “A Double Machine Learning Approach to Estimate the Effects of Musical Practice on Student’s Skills.” Journal of the Royal Statistical Society A, 184(1), 282–300. URL https://github.com/MCKnaus/dmlmt.
+
+.. dropdown:: Double Machine Learning Models and Methodological Extensions
+
+    - difference-in-differences: https://academic.oup.com/ectj/article/23/2/177/5722119
+    - clustering https://www.tandfonline.com/doi/abs/10.1080/07350015.2021.1895815
+    - reinforcement learning 1: https://jmlr.org/papers/volume21/19-827/19-827.pdf
+    - reinforcement learning 2: https://arxiv.org/abs/2002.08536
+    - Orthogonal Machine Learning: Power and Limitations https://arxiv.org/abs/1711.00342
+    - Heterogenous Treatment Effects: https://arxiv.org/abs/1712.09988
+
+.. dropdown:: Debiased Sparsity-Based Inference / Theoretical Foundations
+
+    - Belloni et al. 2011, 2014b; Javanmard and Montanari 2014; van de Geer et al. 2014; Zhang and Zhang 2014; Chernozhukov et al. 2015b --> See Remark 4 in https://arxiv.org/pdf/2103.09603.pdf
+    - Neyman (1959) --> also from https://arxiv.org/pdf/2103.09603.pdf
