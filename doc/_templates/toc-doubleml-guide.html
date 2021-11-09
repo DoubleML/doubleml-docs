@@ -1,7 +1,7 @@
 <style>
     /* Border radius parameter */
     :root {
-      --main-border-radius: 0px
+      --main-border-radius: 15px
     }
 
     .toctree-wrapper > ul {
@@ -19,7 +19,6 @@
     .item-header {
       display: grid;
       grid-template-columns: 15% 85%;
-      border-bottom: 1px #1F4184 solid;
       background-color: #1F4184;
       align-items: center;
       border-top-right-radius: var(--main-border-radius);
@@ -62,6 +61,7 @@
     }
 
     .toctree-wrapper .item {
+      box-shadow:inset 0px 0px 0px 1px #1F4184;
       filter: drop-shadow(2px 2px 2px rgb(184, 184, 184));
       background-color: white;
       border-radius: var(--main-border-radius);
