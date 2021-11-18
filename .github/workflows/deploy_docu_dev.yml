@@ -99,7 +99,7 @@ jobs:
       run: |
         install.packages('remotes')
         remotes::install_github('DoubleML/doubleml-for-r', dependencies = TRUE)
-        install.packages(c('ggplot2', 'IRkernel', 'xgboost', 'hdm', 'reshape2', 'gridExtra', "igraph"))
+        install.packages(c('ggplot2', 'IRkernel', 'xgboost', 'hdm', 'reshape2', 'gridExtra', "mlr3filters"))
         IRkernel::installspec()
       shell: Rscript {0}
 
@@ -108,7 +108,7 @@ jobs:
       run: |
         install.packages('remotes')
         remotes::install_github('DoubleML/doubleml-for-r@${{ github.event.inputs.doubleml-r-branch }}', dependencies = TRUE)
-        install.packages(c('ggplot2', 'IRkernel', 'xgboost', 'hdm', 'reshape2', 'gridExtra', "igraph"))
+        install.packages(c('ggplot2', 'IRkernel', 'xgboost', 'hdm', 'reshape2', 'gridExtra', "igraph", "mlr3filters"))
         IRkernel::installspec()
       shell: Rscript {0}
 
