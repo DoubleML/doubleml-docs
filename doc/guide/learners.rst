@@ -190,10 +190,14 @@ The minimum requirement for a learner to be used for nuisance models in the :ref
       `Learner <https://mlr3.mlr-org.com/reference/Learner.html>`_. A fast way to construct these objects is to use the
       `mlr3 <https://mlr3.mlr-org.com/>`_  function `lrn() <https://mlr3.mlr-org.com/reference/mlr_sugar.html>`_.
       An introduction to learners in `mlr3 <https://mlr3.mlr-org.com/>`_  is provided in the `chapter on learners of the mlr3 book <https://mlr3book.mlr-org.com/basics.html#learners>`_.
+    * It is also possible to pass learners that have been constructed from a pipeline with the `mlr3pipelines <https://mlr3pipelines.mlr-org.com/>`_
+      package.
     * The models `DoubleML::DoubleMLIRM <https://docs.doubleml.org/r/stable/reference/DoubleMLIRM.html>`_ and
       `DoubleML::DoubleMLIIVM <https://docs.doubleml.org/r/stable/reference/DoubleMLIIVM.html>`_ require classifiers.
-    * Hyperparameters of learners can either be set at instantiation in mlr3 or after instantiation using the
-      ``set_ml_nuisance_params()`` method.
+      Users can also specify classifiers in the `DoubleML::DoubleMLPLR <https://docs.doubleml.org/r/stable/reference/DoubleMLPLR.html>`_
+      in cases with binary treatment variables.
+    * Hyperparameters of learners can either be set at instantiation in `mlr3 <https://mlr3.mlr-org.com/>`_ or after
+      instantiation using the ``set_ml_nuisance_params()`` method.
 
 
 An interactive list of provided learners in the `mlr3 <https://mlr3.mlr-org.com/>`_ and extension packages can be found on the
@@ -323,6 +327,67 @@ The following example illustrates how to set parameters for each fold.
         dml_plr_obj$fit()
         dml_plr_obj$summary()
 
+
+Using pipelines to construct learners
+#####################################
+
+Users can also specify learners that have been constructed from a pipeline using the `mlr3pipelines <https://mlr3pipelines.mlr-org.com/>`_
+package. In general, pipelines can be used to perform data preprocessing, feature selection, combine learners and even
+to perform hyperparameter tuning. In the following, we provide two examples on how to construct a single learner and how
+to stack different learners via a pipeline. For a more detailed introduction to `mlr3pipelines <https://mlr3pipelines.mlr-org.com/>`_,
+we refer to the `Pipelines Chapter in the mlr3book <https://mlr3book.mlr-org.com/pipelines.html>`_. Moreover, a
+notebook on how to use `mlr3pipelines <https://mlr3pipelines.mlr-org.com/>`_ in combination with :ref:`DoubleML <doubleml_package>`
+is available in the example gallery.
+
+.. tabbed:: R
+
+    .. jupyter-execute::
+
+        library(mlr3pipelines)
+
+        set.seed(3141)
+        # Define random forest learner in a pipeline
+        single_learner_pipeline = po("learner", lrn("regr.ranger", num.trees = 10))
+
+        # Use pipeline to create a new instance of a learner
+        ml_g = as_learner(single_learner_pipeline)
+        ml_m = as_learner(single_learner_pipeline)
+
+        obj_dml_data = DoubleMLData$new(data, y_col="y", d_cols="d")
+
+        n_rep = 2
+        n_folds = 3
+        dml_plr_obj = DoubleMLPLR$new(obj_dml_data, ml_g, ml_m, n_rep=n_rep, n_folds=n_folds)
+        dml_plr_obj$learner
+        dml_plr_obj$fit()
+        dml_plr_obj$summary()
+
+.. tabbed:: R
+
+    .. jupyter-execute::
+
+        library(mlr3pipelines)
+
+        set.seed(3141)
+        # Define random forest learner in a pipeline
+        ensemble_learner_pipeline = gunion(list(
+                po("learner", lrn("regr.cv_glmnet", s = "lambda.min")),
+                po("learner", lrn("regr.ranger")),
+                po("learner", lrn("regr.rpart", cp = 0.01)))) %>>%
+            po("regravg", 3)
+
+        # Use pipeline to create a new instance of a learner
+        ml_g = as_learner(ensemble_learner_pipeline)
+        ml_m = as_learner(ensemble_learner_pipeline)
+
+        obj_dml_data = DoubleMLData$new(data, y_col="y", d_cols="d")
+
+        n_rep = 2
+        n_folds = 3
+        dml_plr_obj = DoubleMLPLR$new(obj_dml_data, ml_g, ml_m, n_rep=n_rep, n_folds=n_folds)
+        dml_plr_obj$learner
+        dml_plr_obj$fit()
+        dml_plr_obj$summary()
 
 
 Hyperparameter tuning
@@ -495,7 +560,6 @@ parameters ``mtry`` and ``max.depth`` of a random forest. Evaluation is based on
 
         dml_plr_obj$fit()
         dml_plr_obj$summary()
-
 
 
 References
