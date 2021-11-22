@@ -362,14 +362,8 @@ is available in the example gallery.
         dml_plr_obj$fit()
         dml_plr_obj$summary()
 
-.. tabbed:: R
-
-    .. jupyter-execute::
-
-        library(mlr3pipelines)
-
         set.seed(3141)
-        # Define random forest learner in a pipeline
+        # Define ensemble learner in a pipeline
         ensemble_learner_pipeline = gunion(list(
                 po("learner", lrn("regr.cv_glmnet", s = "lambda.min")),
                 po("learner", lrn("regr.ranger")),
@@ -560,6 +554,53 @@ parameters ``mtry`` and ``max.depth`` of a random forest. Evaluation is based on
 
         dml_plr_obj$fit()
         dml_plr_obj$summary()
+
+
+Hyperparameter tuning with pipelines
+####################################
+
+As an alternative to the previously presented tuning approach, it is possible to base the parameter tuning on a pipeline
+as provided by the `mlr3pipelines <https://mlr3pipelines.mlr-org.com/>`_ package. The basic idea of this approach is to
+define a learner via a pipeline and then perform the tuning via the ``tune()``. We will shortly repeat the lasso example
+from above. In general, the pipeline-based approach can be used to find optimal values not only for the parameters of
+one or multiple learners, but also for other parameters, which are, for example, involved in the data preprocessing. We
+refer to more details provided in the `Pipelines Chapter in the mlr3book <https://mlr3book.mlr-org.com/pipelines.html>`_.
+
+.. tabbed:: R
+
+    .. jupyter-execute::
+
+        library(DoubleML)
+        library(mlr3)
+        library(mlr3tuning)
+        library(mlr3pipelines)
+        lgr::get_logger("mlr3")$set_threshold("warn")
+        lgr::get_logger("bbotk")$set_threshold("warn")
+
+        # Define learner in a pipeline
+        set.seed(1234)
+        lasso_pipe = po("learner",
+            learner = lrn("regr.glmnet"))
+        ml_g = as_learner(lasso_pipe)
+        ml_m = as_learner(lasso_pipe)
+
+        # Instantiate a DoubleML object
+        dml_plr_obj = DoubleMLPLR$new(dml_data, ml_g, ml_m)
+
+        # Parameter grid for lambda
+        par_grids = ps(regr.glmnet.lambda = p_dbl(lower = 0.05, upper = 0.1))
+
+        tune_settings = list(terminator = trm("evals", n_evals = 100),
+                             algorithm = tnr("grid_search", resolution = 10),
+                             rsmp_tune = rsmp("cv", folds = 5),
+                             measure = list("ml_g" = msr("regr.mse"),
+                                            "ml_m" = msr("regr.mse")))
+        dml_plr_obj$tune(param_set = list("ml_g" = par_grids,
+                                          "ml_m" = par_grids),
+                                          tune_settings=tune_settings)
+        dml_plr_obj$fit()
+        dml_plr_obj$summary()
+
 
 
 References
