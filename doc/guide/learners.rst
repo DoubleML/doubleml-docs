@@ -597,7 +597,8 @@ refer to more details provided in the `Pipelines Chapter in the mlr3book <https:
                                             "ml_m" = msr("regr.mse")))
         dml_plr_obj$tune(param_set = list("ml_g" = par_grids,
                                           "ml_m" = par_grids),
-                                          tune_settings=tune_settings)
+                                          tune_settings=tune_settings,
+                                          tune_on_fold=TRUE)
         dml_plr_obj$fit()
         dml_plr_obj$summary()
 
