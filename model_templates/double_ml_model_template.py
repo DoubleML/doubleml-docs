@@ -127,7 +127,8 @@ class DoubleMLNewModel(DoubleML):  # TODO change DoubleMLNewModel to your model 
         return psi_a, psi_b, preds
 
     def _score_elements(self, y, d, g_hat, m_hat, smpls):  # TODO may needs adaption
-        # TODO here the score elements psi_a and psi_b should be computed
+        # TODO Here the score elements psi_a and psi_b of a linear score psi = psi_a * theta + psi_b should be computed
+        # TODO See also https://docs.doubleml.org/stable/guide/scores.html
         # return psi_a, psi_b
         pass
 
