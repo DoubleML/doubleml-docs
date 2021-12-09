@@ -238,31 +238,74 @@ mlr3: A modern object-oriented machine learing framework in R. Journal of Open S
 Pedregosa, F., Varoquaux, G., Gramfort, A., Michel, V., Thirion, B., Grisel, O., Blondel, M., Prettenhofer, P., Weiss, R., Dubourg, V., Vanderplas, J., Passos, A., Cournapeau, D., Brucher, M., Perrot, M. and Duchesnay, E. (2011),
 Scikit-learn: Machine Learning in Python. Journal of Machine Learning Research, 12: 2825--2830, `https://jmlr.csail.mit.edu/papers/v12/pedregosa11a.html <https://jmlr.csail.mit.edu/papers/v12/pedregosa11a.html>`_.
 
-.. dropdown:: Main References
-    :open:
+.. panels::
+    :column: col-lg
 
-    Main References https://doi.org/10.1111/ectj.12097
+    .. dropdown:: Main References
+        :open:
+        :container: + reference-dropdown
+        :title: bg-primary text-white text-center font-weight-bold
 
-.. dropdown:: Software for Double Machine Learning
+        Main References https://doi.org/10.1111/ectj.12097
 
-    - DoubleML in Python: https://arxiv.org/abs/2104.03220
-    - DoubleML in R: https://arxiv.org/abs/2103.09603
-    - DoubleMLServerless: https://dl.acm.org/doi/10.1145/3447545.3451181
-    - EconML https://github.com/microsoft/EconML
-    - Szitas J (2019). “postDoubleR: Post Double Selection with Double Machine Learning.” https://CRAN.R-project.org/package=postDoubleR
-    - Knaus MC (2020). “Double Machine Learning based Program Evaluation under Unconfoundedness.” arXiv preprint arXiv:2003.03191. URL https://github.com/MCKnaus/causalDML
-    - Knaus MC (2021). “A Double Machine Learning Approach to Estimate the Effects of Musical Practice on Student’s Skills.” Journal of the Royal Statistical Society A, 184(1), 282–300. URL https://github.com/MCKnaus/dmlmt.
+    .. dropdown:: Software for Double Machine Learning
+        :title: bg-primary text-white text-center font-weight-bold
+        :body: bg-light text-left font-italic list-group
 
-.. dropdown:: Double Machine Learning Models and Methodological Extensions
+        - DoubleML in Python: https://arxiv.org/abs/2104.03220
+        - DoubleML in R: https://arxiv.org/abs/2103.09603
+        - DoubleMLServerless: https://dl.acm.org/doi/10.1145/3447545.3451181
+        - EconML https://github.com/microsoft/EconML
+        - Szitas J (2019). “postDoubleR: Post Double Selection with Double Machine Learning.” https://CRAN.R-project.org/package=postDoubleR
+        - Knaus MC (2020). “Double Machine Learning based Program Evaluation under Unconfoundedness.” arXiv preprint arXiv:2003.03191. URL https://github.com/MCKnaus/causalDML
+        - Knaus MC (2021). “A Double Machine Learning Approach to Estimate the Effects of Musical Practice on Student’s Skills.” Journal of the Royal Statistical Society A, 184(1), 282–300. URL https://github.com/MCKnaus/dmlmt.
 
-    - difference-in-differences: https://academic.oup.com/ectj/article/23/2/177/5722119
-    - clustering https://www.tandfonline.com/doi/abs/10.1080/07350015.2021.1895815
-    - reinforcement learning 1: https://jmlr.org/papers/volume21/19-827/19-827.pdf
-    - reinforcement learning 2: https://arxiv.org/abs/2002.08536
-    - Orthogonal Machine Learning: Power and Limitations https://arxiv.org/abs/1711.00342
-    - Heterogenous Treatment Effects: https://arxiv.org/abs/1712.09988
+    .. dropdown:: Double Machine Learning Models and Methodological Extensions
+        :title: bg-primary text-white text-center font-weight-bold
 
-.. dropdown:: Debiased Sparsity-Based Inference / Theoretical Foundations
+        - Neng-Chieh Chang |br|
+          **Double/debiased machine learning for difference-in-differences models** |br|
+          The Econometrics Journal, Volume 23, Issue 2, May 2020, Pages 177–191 |br|
+          `[link] <https://academic.oup.com/ectj/article/23/2/177/5722119>`_
+        - Harold D. Chiang, Kengo Kato, Yukun Ma, Yuya Sasaki |br|
+          **Multiway Cluster Robust Double/Debiased Machine Learning** |br|
+          Journal of Business & Economic Statistics, 2021/03/03 |br|
+          `[link] <https://www.tandfonline.com/doi/abs/10.1080/07350015.2021.1895815>`_
+        - reinforcement learning 1: `[link] <https://jmlr.org/papers/volume21/19-827/19-827.pdf>`_
+        - reinforcement learning 2: `[link] <https://arxiv.org/abs/2002.08536>`_
+        - Orthogonal Machine Learning: Power and Limitations `[link] <https://arxiv.org/abs/1711.00342>`_
+        - Heterogenous Treatment Effects: `[link] <https://arxiv.org/abs/1712.09988>`_
 
-    - Belloni et al. 2011, 2014b; Javanmard and Montanari 2014; van de Geer et al. 2014; Zhang and Zhang 2014; Chernozhukov et al. 2015b --> See Remark 4 in https://arxiv.org/pdf/2103.09603.pdf
-    - Neyman (1959) --> also from https://arxiv.org/pdf/2103.09603.pdf
+    .. dropdown:: Debiased Sparsity-Based Inference / Theoretical Foundations
+        :title: bg-primary text-white text-center font-weight-bold
+
+        - Belloni et al. 2011, 2014b; Javanmard and Montanari 2014; van de Geer et al. 2014; Zhang and Zhang 2014; Chernozhukov et al. 2015b --> See Remark 4 in https://arxiv.org/pdf/2103.09603.pdf
+        - Neyman (1959) --> also from https://arxiv.org/pdf/2103.09603.pdf
+
+
+.. panels::
+    :column: col-lg-12
+    :header: text-center text-white
+    :card: text-center text-white
+    :body: text-center text-white
+
+    **Want to add or update a reference in the literature overview?**
+    ^^^
+
+    .. link-button:: intro/intro
+        :type: ref
+        :text: Edit this file and propose the change via a pull request
+        :classes: btn-block btn-dark stretched-link btn-sm pr-button fw-bold
+
+.. raw:: html
+
+    <script>
+    // add the GitHub Mark icon to the pull request button
+        var pr_button = document.getElementsByClassName('pr-button')[0]
+        var svg = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" style="padding-left: 7px" width="20" height="16"><path fill="white" fill-rule="evenodd" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"></path></svg>';
+        pr_button.innerHTML += svg
+    </script>
+
+.. |br| raw:: html
+
+    <br/>
