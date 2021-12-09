@@ -243,69 +243,117 @@ Scikit-learn: Machine Learning in Python. Journal of Machine Learning Research, 
 
     .. dropdown:: Main References
         :open:
-        :container: + reference-dropdown
-        :title: bg-primary text-white text-center font-weight-bold
+        :title: bg-primary text-white text-center font-weight-bold reference-dropdown
 
-        Main References https://doi.org/10.1111/ectj.12097
+        - Victor Chernozhukov, Denis Chetverikov, Mert Demirer, Esther Duflo, Christian Hansen, Whitney Newey, James Robins |br|
+          **Double/debiased machine learning for treatment and structural parameters** |br|
+          *The Econometrics Journal, Volume 21, Issue 1, 1 February 2018, Pages C1–C68* |br| 
+          :opticon:`link` `[link] <https://doi.org/10.1111/ectj.12097>`_
 
     .. dropdown:: Software for Double Machine Learning
-        :title: bg-primary text-white text-center font-weight-bold
-        :body: bg-light text-left font-italic list-group
+        :title: bg-primary text-white text-center font-weight-bold reference-dropdown
+        :body: bg-light text-left
 
-        - DoubleML in Python: https://arxiv.org/abs/2104.03220
-        - DoubleML in R: https://arxiv.org/abs/2103.09603
-        - DoubleMLServerless: https://dl.acm.org/doi/10.1145/3447545.3451181
-        - EconML https://github.com/microsoft/EconML
-        - Szitas J (2019). “postDoubleR: Post Double Selection with Double Machine Learning.” https://CRAN.R-project.org/package=postDoubleR
-        - Knaus MC (2020). “Double Machine Learning based Program Evaluation under Unconfoundedness.” arXiv preprint arXiv:2003.03191. URL https://github.com/MCKnaus/causalDML
-        - Knaus MC (2021). “A Double Machine Learning Approach to Estimate the Effects of Musical Practice on Student’s Skills.” Journal of the Royal Statistical Society A, 184(1), 282–300. URL https://github.com/MCKnaus/dmlmt.
+        - Philipp Bach, Victor Chernozhukov, Malte S. Kurz, Martin Spindler |br|
+          **DoubleML -- An Object-Oriented Implementation of Double Machine Learning in Python** |br|
+          *arXiv preprint arXiv:2103.09603, 2021* |br| 
+          :opticon:`link` `[link] <https://arxiv.org/abs/2104.03220>`_ |hr|
+        - Philipp Bach |br|
+          **DoubleML -- An Object-Oriented Implementation of Double Machine Learning in R** |br|
+          *arXiv preprint arXiv:2103.09603, 2021* |br| 
+          :opticon:`link` `[link] <https://arxiv.org/abs/2103.09603>`_ |hr|
+        - Malte S. Kurz |br|
+          **Distributed Double Machine Learning with a Serverless Architecture** |br|
+          *Association for Computing Machinery, 2021* |br| 
+          :opticon:`link` `[link] <https://dl.acm.org/doi/10.1145/3447545.3451181>`_ |hr|
+        - **EconML** :opticon:`mark-github` `[link] <https://github.com/microsoft/EconML>`_ |hr|
+        - Juraj Szitas |br|
+          **postDoubleR: Post Double Selection with Double Machine Learning** |br|
+          *2019* |br|
+          :opticon:`link` `[link] <https://www.r-pkg.org/pkg/postDoubleR>`_ & :opticon:`mark-github` `[link] <https://github.com/JSzitas/postDoubleR>`_ |hr|
+        - Michael C. Knaus |br|
+          **Double Machine Learning based Program Evaluation under Unconfoundedness** |br|
+          *arXiv preprint arXiv:2003.03191, 2020* |br|
+          :opticon:`mark-github` `[link] <https://github.com/MCKnaus/causalDML>`_ |hr|
+        - Michael C. Knaus |br|
+          **A Double Machine Learning Approach to Estimate the Effects of Musical Practice on Student’s Skills** |br|
+          *Journal of the Royal Statistical Society A, 184(1), 2021, 282–300* |br|
+          :opticon:`mark-github` `[link] <https://github.com/MCKnaus/dmlmt>`_
 
     .. dropdown:: Double Machine Learning Models and Methodological Extensions
-        :title: bg-primary text-white text-center font-weight-bold
+        :title: bg-primary text-white text-center font-weight-bold reference-dropdown
+        :body: bg-light text-left
 
         - Neng-Chieh Chang |br|
           **Double/debiased machine learning for difference-in-differences models** |br|
-          The Econometrics Journal, Volume 23, Issue 2, May 2020, Pages 177–191 |br|
-          `[link] <https://academic.oup.com/ectj/article/23/2/177/5722119>`_
+          *The Econometrics Journal, Volume 23, Issue 2, 2020, Pages 177–191* |br|
+          :opticon:`link` `[link] <https://academic.oup.com/ectj/article/23/2/177/5722119>`_ |hr|
         - Harold D. Chiang, Kengo Kato, Yukun Ma, Yuya Sasaki |br|
           **Multiway Cluster Robust Double/Debiased Machine Learning** |br|
-          Journal of Business & Economic Statistics, 2021/03/03 |br|
-          `[link] <https://www.tandfonline.com/doi/abs/10.1080/07350015.2021.1895815>`_
-        - reinforcement learning 1: `[link] <https://jmlr.org/papers/volume21/19-827/19-827.pdf>`_
-        - reinforcement learning 2: `[link] <https://arxiv.org/abs/2002.08536>`_
-        - Orthogonal Machine Learning: Power and Limitations `[link] <https://arxiv.org/abs/1711.00342>`_
-        - Heterogenous Treatment Effects: `[link] <https://arxiv.org/abs/1712.09988>`_
+          *Journal of Business & Economic Statistics, 2021* |br|
+          :opticon:`link` `[link] <https://www.tandfonline.com/doi/abs/10.1080/07350015.2021.1895815>`_ |hr|
+        - Nathan Kallus, Masatoshi Uehara |br|
+          **Double Reinforcement Learning for Efficient Off-Policy Evaluation in Markov Decision Processes** |br|
+          *Journal of Machine Learning Research 21, 2020, 1-63* |br|
+          :opticon:`link` `[link] <https://jmlr.org/papers/volume21/19-827/19-827.pdf>`_ |hr|
+        - Yusuke Narita, Shota Yasui, Kohei Yata |br|
+          **Debiased Off-Policy Evaluation for Recommendation Systems** |br|
+          *RecSys '21: Fifteenth ACM Conference on Recommender Systems, 2021, 372–379* |br|
+          :opticon:`link` `[link] <https://arxiv.org/abs/2002.08536>`_ |hr|
+        - Lester Mackey, Vasilis Syrgkanis, Ilias Zadik |br|
+          **Orthogonal Machine Learning: Power and Limitations** |br|
+          *Proceedings of the 35th International Conference on Machine Learning, 2018* |br|
+          :opticon:`link` `[link] <https://arxiv.org/abs/1711.00342>`_ |hr|
+        - Vira Semenova, Matt Goldman, Victor Chernozhukov, Matt Taddy |br|
+          **Estimation and Inference on Heterogeneous Treatment Effects in High-Dimensional Dynamic Panels** |br|
+          *arXiv preprint arXiv:1712.09988, 2017* |br|
+          :opticon:`link` `[link] <https://arxiv.org/abs/1712.09988>`_
 
     .. dropdown:: Debiased Sparsity-Based Inference / Theoretical Foundations
-        :title: bg-primary text-white text-center font-weight-bold
+        :title: bg-primary text-white text-center font-weight-bold reference-dropdown
 
-        - Belloni et al. 2011, 2014b; Javanmard and Montanari 2014; van de Geer et al. 2014; Zhang and Zhang 2014; Chernozhukov et al. 2015b --> See Remark 4 in https://arxiv.org/pdf/2103.09603.pdf
+        - Belloni et al. 2011, 2014b; Javanmard and Montanari 2014; van de Geer et al. 2014; Zhang and Zhang 2014; Chernozhukov et al. 2015b --> See Remark 4 in https://arxiv.org/pdf/2103.09603.pdf |hr|
         - Neyman (1959) --> also from https://arxiv.org/pdf/2103.09603.pdf
 
 
 .. panels::
     :column: col-lg-12
-    :header: text-center text-white
-    :card: text-center text-white
-    :body: text-center text-white
+    :header: text-center
+    :card: text-center
+    :body: text-center
 
     **Want to add or update a reference in the literature overview?**
     ^^^
 
-    .. link-button:: intro/intro
+    .. link-button:: https://github.com/FrederikBornemann/doubleml-docs/compare/master...my-branch?quick_pull=1&template=pull_request_template.md
         :type: ref
         :text: Edit this file and propose the change via a pull request
-        :classes: btn-block btn-dark stretched-link btn-sm pr-button fw-bold
+        :classes: btn-block btn-dark stretched-link btn-sm pr-button
 
 .. raw:: html
+    
+    <style>
+        .reference-dropdown {
+            background-color: #1f4184 !important;
+        }
+        .reference-dropdown:hover {
+            background-color: #003166 !important;
+        }
+    </style>
 
     <script>
     // add the GitHub Mark icon to the pull request button
         var pr_button = document.getElementsByClassName('pr-button')[0]
-        var svg = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" style="padding-left: 7px" width="20" height="16"><path fill="white" fill-rule="evenodd" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"></path></svg>';
+        var svg = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" style="padding-left: 7px;margin: auto;padding-bottom: 3px;" width="20" height="16"><path fill="white" fill-rule="evenodd" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"></path></svg>';
         pr_button.innerHTML += svg
     </script>
 
 .. |br| raw:: html
 
+    .. replaces |br| with a new line
     <br/>
+
+.. |hr| raw:: html
+
+    .. replaces |hr| with a vertical line
+    <hr>
