@@ -325,8 +325,7 @@ Scikit-learn: Machine Learning in Python. Journal of Machine Learning Research, 
     **Want to add or update a reference in the literature overview?**
     ^^^
 
-    .. link-button:: https://github.com/FrederikBornemann/doubleml-docs/compare/master...my-branch?quick_pull=1&template=pull_request_template.md
-        :type: ref
+    .. link-button:: https://github.com/FrederikBornemann/doubleml-docs/issues/new?labels=reference+edit&template=reference-edit-template.md&title=%5BADD%2FEDIT%5D+Reference+in+literature+overview
         :text: Edit this file and propose the change via a pull request
         :classes: btn-block btn-dark stretched-link btn-sm pr-button
 
@@ -348,12 +347,12 @@ Scikit-learn: Machine Learning in Python. Journal of Machine Learning Research, 
         pr_button.innerHTML += svg
     </script>
 
+.. replaces |br| with a new line
 .. |br| raw:: html
 
-    .. replaces |br| with a new line
     <br/>
 
+.. replaces |hr| with a vertical line
 .. |hr| raw:: html
 
-    .. replaces |hr| with a vertical line
     <hr>
