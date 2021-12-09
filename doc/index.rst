@@ -325,8 +325,8 @@ Scikit-learn: Machine Learning in Python. Journal of Machine Learning Research, 
     **Want to add or update a reference in the literature overview?**
     ^^^
 
-    .. link-button:: https://github.com/FrederikBornemann/doubleml-docs/issues/new?labels=reference+edit&template=reference-edit-template.md&title=%5BADD%2FEDIT%5D+Reference+in+literature+overview
-        :text: Edit this file and propose the change via a pull request
+    .. link-button:: https://github.com/DoubleML/doubleml-docs/issues/new?labels=reference+edit&template=reference-edit-template.md&title=%5BADD%2FEDIT%5D+Reference+in+literature+overview
+        :text: Edit this file and propose the change via an issue
         :classes: btn-block btn-dark stretched-link btn-sm pr-button
 
 .. raw:: html
