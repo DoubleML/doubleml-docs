@@ -278,7 +278,11 @@ Scikit-learn: Machine Learning in Python. Journal of Machine Learning Research, 
         - Michael C. Knaus |br|
           **A Double Machine Learning Approach to Estimate the Effects of Musical Practice on Student’s Skills** |br|
           *Journal of the Royal Statistical Society A, 184(1), 2021, 282–300* |br|
-          :opticon:`mark-github` `[link] <https://github.com/MCKnaus/dmlmt>`_
+          :opticon:`mark-github` `[link] <https://github.com/MCKnaus/dmlmt>`_ |hr|
+        - Hugo Bodory, Martin Huber |br|
+          **The causalweight package for causal inference in R** |br|
+          *Working Papers SES 493, Faculty of Economics and Social Science, University of Fribourg, 2018* |br|
+          :opticon:`link` `[link] <https://folia.unifr.ch/global/documents/306524>`_
 
     .. dropdown:: Double Machine Learning Models and Methodological Extensions
         :title: bg-primary text-white text-center font-weight-bold reference-dropdown
