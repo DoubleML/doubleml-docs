@@ -6,50 +6,88 @@ Double machine learning literature
 .. panels::
     :column: col-lg
 
-    .. dropdown:: Main References
+    .. dropdown:: Main Reference
         :open:
         :title: bg-primary text-white text-center font-weight-bold reference-dropdown
 
         - Victor Chernozhukov, Denis Chetverikov, Mert Demirer, Esther Duflo, Christian Hansen, Whitney Newey, James Robins |br|
           **Double/debiased machine learning for treatment and structural parameters** |br|
-          *The Econometrics Journal, Volume 21, Issue 1, 1 February 2018, Pages C1–C68* |br| 
-          :opticon:`link` `[link] <https://doi.org/10.1111/ectj.12097>`_
+          *The Econometrics Journal, 21(1), C1-C68, 2018* |br|
+          :opticon:`link` :link-badge:`https://doi.org/10.1111/ectj.12097,"URL",cls=badge-dark`
+          :link-badge:`https://arxiv.org/abs/1608.00060,"arXiv",cls=badge-dark`
 
-    .. dropdown:: Software for Double Machine Learning
+    .. dropdown:: Software for double machine learning
         :title: bg-primary text-white text-center font-weight-bold reference-dropdown
         :body: bg-light text-left
 
         - Philipp Bach, Victor Chernozhukov, Malte S. Kurz, Martin Spindler |br|
           **DoubleML -- An Object-Oriented Implementation of Double Machine Learning in Python** |br|
-          *arXiv preprint arXiv:2103.09603, 2021* |br| 
-          :opticon:`link` `[link] <https://arxiv.org/abs/2104.03220>`_ |hr|
-        - Philipp Bach |br|
+          *arXiv preprint arXiv:2104.03220 [stat.ML], 2021* |br|
+          :badge:`Python Package DoubleML,badge-info` |br|
+          :opticon:`link` :link-badge:`https://arxiv.org/abs/2104.03220,"arXiv",cls=badge-dark`
+          :opticon:`mark-github` :link-badge:`https://github.com/DoubleML/doubleml-for-py,"GitHub",cls=badge-dark`
+          :link-badge:`https://pypi.org/project/DoubleML,"PyPI",cls=badge-dark`
+          :link-badge:`https://anaconda.org/conda-forge/doubleml,"conda-forge",cls=badge-dark`
+          |hr|
+
+        - Philipp Bach, Victor Chernozhukov, Malte S. Kurz, Martin Spindler |br|
           **DoubleML -- An Object-Oriented Implementation of Double Machine Learning in R** |br|
-          *arXiv preprint arXiv:2103.09603, 2021* |br| 
-          :opticon:`link` `[link] <https://arxiv.org/abs/2103.09603>`_ |hr|
-        - Malte S. Kurz |br|
-          **Distributed Double Machine Learning with a Serverless Architecture** |br|
-          *Association for Computing Machinery, 2021* |br| 
-          :opticon:`link` `[link] <https://dl.acm.org/doi/10.1145/3447545.3451181>`_ |hr|
-        - **EconML** :opticon:`mark-github` `[link] <https://github.com/microsoft/EconML>`_ |hr|
-        - Juraj Szitas |br|
-          **postDoubleR: Post Double Selection with Double Machine Learning** |br|
+          *arXiv preprint arXiv:2103.09603 [stat.ML], 2021* |br|
+          :badge:`R Package DoubleML,badge-info` |br|
+          :opticon:`link` :link-badge:`https://arxiv.org/abs/2103.09603,"arXiv",cls=badge-dark`
+          :opticon:`mark-github` :link-badge:`https://github.com/DoubleML/doubleml-for-r,"GitHub",cls=badge-dark`
+          :link-badge:`https://cran.r-project.org/package=DoubleML,"CRAN",cls=badge-dark`
+          |hr|
+
+        - Keith Battocchi, Eleanor Dillon, Maggie Hei, Greg Lewis, Paul Oka, Miruna Oprescu, Vasilis Syrgkanis |br|
+          **EconML: A Python Package for ML-Based Heterogeneous Treatment Effects Estimation** |br|
           *2019* |br|
-          :opticon:`link` `[link] <https://www.r-pkg.org/pkg/postDoubleR>`_ & :opticon:`mark-github` `[link] <https://github.com/JSzitas/postDoubleR>`_ |hr|
-        - Michael C. Knaus |br|
-          **Double Machine Learning based Program Evaluation under Unconfoundedness** |br|
-          *arXiv preprint arXiv:2003.03191, 2020* |br|
-          :opticon:`mark-github` `[link] <https://github.com/MCKnaus/causalDML>`_ |hr|
-        - Michael C. Knaus |br|
-          **A Double Machine Learning Approach to Estimate the Effects of Musical Practice on Student’s Skills** |br|
-          *Journal of the Royal Statistical Society A, 184(1), 2021, 282–300* |br|
-          :opticon:`mark-github` `[link] <https://github.com/MCKnaus/dmlmt>`_ |hr|
+          :badge:`Python Package EconML,badge-info` |br|
+          :opticon:`mark-github` :link-badge:`https://github.com/microsoft/EconML,"GitHub",cls=badge-dark`
+          |hr|
+
         - Hugo Bodory, Martin Huber |br|
           **The causalweight package for causal inference in R** |br|
           *Working Papers SES 493, Faculty of Economics and Social Science, University of Fribourg, 2018* |br|
-          :opticon:`link` `[link] <https://folia.unifr.ch/global/documents/306524>`_
+          :badge:`R Package causalweight,badge-info` |br|
+          :opticon:`link` :link-badge:`https://folia.unifr.ch/global/documents/306524,"URL",cls=badge-dark`
+          :link-badge:`https://cran.r-project.org/package=causalweight,"CRAN",cls=badge-dark`
+          |hr|
 
-    .. dropdown:: Double Machine Learning Models and Methodological Extensions
+        - Michael C. Knaus |br|
+          **Double Machine Learning based Program Evaluation under Unconfoundedness** |br|
+          *arXiv preprint arXiv:2003.03191 [econ.EM], 2020* |br|
+          :badge:`R Package causalDML,badge-info` |br|
+          :opticon:`link` :link-badge:`https://arxiv.org/abs/2003.03191,"arXiv",cls=badge-dark`
+          :opticon:`mark-github` :link-badge:`https://github.com/MCKnaus/causalDML,"GitHub",cls=badge-dark`
+          |hr|
+
+        - Michael C. Knaus |br|
+          **A Double Machine Learning Approach to Estimate the Effects of Musical Practice on Student’s Skills** |br|
+          *Journal of the Royal Statistical Society A, 184(1), 282-300, 2021* |br|
+          :badge:`R Package dmlmt,badge-info` |br|
+          :opticon:`link` :link-badge:`https://doi.org/10.1111/rssa.12623,"URL",cls=badge-dark`
+          :link-badge:`https://arxiv.org/abs/1805.10300,"arXiv",cls=badge-dark`
+          :opticon:`mark-github` :link-badge:`https://github.com/MCKnaus/dmlmt,"GitHub",cls=badge-dark`
+          |hr|
+
+        - Malte S. Kurz |br|
+          **Distributed Double Machine Learning with a Serverless Architecture** |br|
+          *In Companion of the ACM/SPEC International Conference on Performance Engineering (ICPE ‘21). Association for
+          Computing Machinery, New York, NY, USA, 27-33, 2021* |br|
+          :badge:`Python Package DoubleML-Serverless,badge-info` |br|
+          :opticon:`link` :link-badge:`https://dl.acm.org/doi/10.1145/3447545.3451181,"URL",cls=badge-dark`
+          :link-badge:`https://arxiv.org/abs/2101.04025,"arXiv",cls=badge-dark`
+          :opticon:`mark-github` :link-badge:`https://github.com/DoubleML/doubleml-serverless,"GitHub",cls=badge-dark`
+          |hr|
+
+        - Juraj Szitas |br|
+          **postDoubleR: Post Double Selection with Double Machine Learning** |br|
+          *2019* |br|
+          :badge:`R Package postDoubleR,badge-info` |br|
+          :opticon:`mark-github` :link-badge:`https://github.com/JSzitas/postDoubleR,"GitHub",cls=badge-dark`
+
+    .. dropdown:: Double machine learning models and methodological extensions
         :title: bg-primary text-white text-center font-weight-bold reference-dropdown
         :body: bg-light text-left
 
@@ -78,7 +116,7 @@ Double machine learning literature
           *arXiv preprint arXiv:1712.09988, 2017* |br|
           :opticon:`link` `[link] <https://arxiv.org/abs/1712.09988>`_
 
-    .. dropdown:: Debiased Sparsity-Based Inference / Theoretical Foundations
+    .. dropdown:: Debiased sparsity-based inference / theoretical foundations
         :title: bg-primary text-white text-center font-weight-bold reference-dropdown
 
         - Belloni et al. 2011, 2014b; Javanmard and Montanari 2014; van de Geer et al. 2014; Zhang and Zhang 2014; Chernozhukov et al. 2015b --> See Remark 4 in https://arxiv.org/pdf/2103.09603.pdf |hr|
