@@ -35,6 +35,7 @@ These are examples which are work-in-progress and/or not yet fully documented.
     :glob:
     :maxdepth: 1
 
+    R_double_ml_pipeline.ipynb
     double_ml_bonus_data.ipynb
 
 .. |start-h3| raw:: html

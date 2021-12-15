@@ -64,7 +64,7 @@ jobs:
       run: |
         install.packages('remotes')
         remotes::install_cran('DoubleML', dependencies = TRUE)
-        install.packages(c('ggplot2', 'IRkernel', 'xgboost', 'hdm', 'reshape2', 'gridExtra'))
+        install.packages(c('ggplot2', 'IRkernel', 'xgboost', 'hdm', 'reshape2', 'gridExtra', "igraph", "mlr3filters"))
         IRkernel::installspec()
       shell: Rscript {0}
 
