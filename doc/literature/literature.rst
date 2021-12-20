@@ -93,34 +93,88 @@ Double machine learning literature
 
         - Neng-Chieh Chang |br|
           **Double/debiased machine learning for difference-in-differences models** |br|
-          *The Econometrics Journal, Volume 23, Issue 2, 2020, Pages 177–191* |br|
-          :opticon:`link` `[link] <https://academic.oup.com/ectj/article/23/2/177/5722119>`_ |hr|
+          *The Econometrics Journal, 23(2), Pages 177–191, 2020* |br|
+          :opticon:`link` :link-badge:`https://academic.oup.com/ectj/article/23/2/177/5722119,"URL",cls=badge-dark`
+          |hr|
+
         - Harold D. Chiang, Kengo Kato, Yukun Ma, Yuya Sasaki |br|
           **Multiway Cluster Robust Double/Debiased Machine Learning** |br|
-          *Journal of Business & Economic Statistics, 2021* |br|
-          :opticon:`link` `[link] <https://www.tandfonline.com/doi/abs/10.1080/07350015.2021.1895815>`_ |hr|
+          *Journal of Business & Economic Statistics, forthcoming, 2021* |br|
+          :opticon:`link` :link-badge:`https://doi.org/10.1080/07350015.2021.1895815,"URL",cls=badge-dark`
+          :link-badge:`https://arxiv.org/abs/1909.03489,"arXiv",cls=badge-dark`
+          |hr|
+
         - Nathan Kallus, Masatoshi Uehara |br|
           **Double Reinforcement Learning for Efficient Off-Policy Evaluation in Markov Decision Processes** |br|
-          *Journal of Machine Learning Research 21, 2020, 1-63* |br|
-          :opticon:`link` `[link] <https://jmlr.org/papers/volume21/19-827/19-827.pdf>`_ |hr|
+          *Journal of Machine Learning Research 21, 1-63, 2020* |br|
+          :opticon:`link` :link-badge:`https://jmlr.org/papers/volume21/19-827/19-827.pdf,"URL",cls=badge-dark`
+          |hr|
+
         - Yusuke Narita, Shota Yasui, Kohei Yata |br|
           **Debiased Off-Policy Evaluation for Recommendation Systems** |br|
-          *RecSys '21: Fifteenth ACM Conference on Recommender Systems, 2021, 372–379* |br|
-          :opticon:`link` `[link] <https://arxiv.org/abs/2002.08536>`_ |hr|
+          *RecSys '21: Fifteenth ACM Conference on Recommender Systems, 372–379, 2021* |br|
+          :opticon:`link` :link-badge:`https://doi.org/10.1145/3460231.3474231,"URL",cls=badge-dark`
+          :link-badge:`https://arxiv.org/abs/2002.08536,"arXiv",cls=badge-dark`
+          |hr|
+
         - Lester Mackey, Vasilis Syrgkanis, Ilias Zadik |br|
           **Orthogonal Machine Learning: Power and Limitations** |br|
           *Proceedings of the 35th International Conference on Machine Learning, 2018* |br|
-          :opticon:`link` `[link] <https://arxiv.org/abs/1711.00342>`_ |hr|
+          :opticon:`link` :link-badge:`http://proceedings.mlr.press/v80/mackey18a/mackey18a.pdf,"URL",cls=badge-dark`
+          :link-badge:`https://arxiv.org/abs/1711.00342,"arXiv",cls=badge-dark`
+          |hr|
+
         - Vira Semenova, Matt Goldman, Victor Chernozhukov, Matt Taddy |br|
           **Estimation and Inference on Heterogeneous Treatment Effects in High-Dimensional Dynamic Panels** |br|
-          *arXiv preprint arXiv:1712.09988, 2017* |br|
-          :opticon:`link` `[link] <https://arxiv.org/abs/1712.09988>`_
+          *arXiv preprint arXiv:1712.09988 [stat.ML], 2017* |br|
+          :opticon:`link` :link-badge:`https://arxiv.org/abs/1712.09988,"arXiv",cls=badge-dark`
 
     .. dropdown:: Debiased sparsity-based inference / theoretical foundations
         :title: bg-primary text-white text-center font-weight-bold reference-dropdown
 
-        - Belloni et al. 2011, 2014b; Javanmard and Montanari 2014; van de Geer et al. 2014; Zhang and Zhang 2014; Chernozhukov et al. 2015b --> See Remark 4 in https://arxiv.org/pdf/2103.09603.pdf |hr|
-        - Neyman (1959) --> also from https://arxiv.org/pdf/2103.09603.pdf
+        - A. Belloni, V. Chernozhukov, C. Hansen |br|
+          **Inference for High-Dimensional Sparse Econometric Models** |br|
+          *In D. Acemoglu, M. Arellano, & E. Dekel (Eds.), Advances in Economics and Econometrics: Tenth World Congress,
+          245-295, 2013* |br|
+          :opticon:`link` :link-badge:`https://doi.org/10.1017/CBO9781139060035.008,"URL",cls=badge-dark`
+          :link-badge:`https://arxiv.org/abs/1201.0220,"arXiv",cls=badge-dark`
+          |hr|
+
+        - Alexandre Belloni, Victor Chernozhukov, Lie Wang |br|
+          **Pivotal estimation via square-root Lasso in nonparametric regression** |br|
+          *The Annals of Statistics, 42(2), 757-788, 2014* |br|
+          :opticon:`link` :link-badge:`https://doi.org/10.1214/14-AOS1204,"URL",cls=badge-dark`
+          |hr|
+
+        - Victor Chernozhukov, Christian Hansen, Martin Spindler |br|
+          **Valid Post-Selection and Post-Regularization Inference: An Elementary, General Approach**
+          *Annual Review of Economics 7(1), 649-688, 2015* |br|
+          :opticon:`link` :link-badge:`https://doi.org/10.1146/annurev-economics-012315-015826,"URL",cls=badge-dark`
+          |hr|
+
+        - Adel Javanmard, Andrea Montanari |br|
+          **Hypothesis Testing in High-Dimensional Regression Under the Gaussian Random Design Model: Asymptotic Theory** |br|
+          *IEEE Transactions on Information Theory, 60(10):6522–6554, 2014* |br|
+          :opticon:`link` :link-badge:`https://doi.org/10.1109/TIT.2014.2343629,"URL",cls=badge-dark`
+          :link-badge:`https://arxiv.org/abs/1301.4240,"arXiv",cls=badge-dark`
+          |hr|
+
+        - Jerzy Neyman |br|
+          **Optimal asymptotic tests of composite hypotheses** |br|
+          *In Ulf Grenander (Eds.), Probability and Statistics, Almqvist & Wiksell, 213–234, 1959* |br|
+          |hr|
+
+        - Sara van de Geer, Peter Bühlmann, Ya’acov Ritov, Ruben Dezeure |br|
+          **On asymptotically optimal confidence regions and tests for high-dimensional models** |br|
+          *The Annals of Statistics, 42(3), 1166-1202, 2014* |br|
+          :opticon:`link` :link-badge:`https://doi.org/10.1214/14-AOS1221,"URL",cls=badge-dark`
+          |hr|
+
+        - C.-H. Zhang, S.S. Zhang |br|
+          **Confidence intervals for low dimensional parameters in high dimensional linear models** |br|
+          *Journal of the Royal Statistical Society: Series B, 76, 217-242, 2014* |br|
+          :opticon:`link` :link-badge:`https://doi.org/10.1111/rssb.12026,"URL",cls=badge-dark`
+          |hr|
 
 
 .. panels::
