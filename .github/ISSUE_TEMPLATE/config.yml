@@ -8,3 +8,4 @@ contact_links:
     about: Suggest an improvement for the API documentation [R Package DoubleML]
   - name: Blank Issue
     url: https://github.com/DoubleML/doubleml-for-py/issues/new
+    about: Open a blank issue
