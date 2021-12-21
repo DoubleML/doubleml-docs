@@ -7,5 +7,5 @@ contact_links:
     url: https://github.com/DoubleML/doubleml-for-r/issues/new?assignees=&labels=documentation&template=api_docu.yml&title=%5BAPI+Documentation%5D%3A+
     about: Suggest an improvement for the API documentation [R Package DoubleML]
   - name: Blank Issue
-    url: https://github.com/DoubleML/doubleml-for-py/issues/new
+    url: https://github.com/DoubleML/doubleml-docs/issues/new
     about: Open a blank issue
