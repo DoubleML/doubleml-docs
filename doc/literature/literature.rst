@@ -188,11 +188,11 @@ Double machine learning literature
 
     .. link-button:: https://github.com/DoubleML/doubleml-docs/edit/master/doc/literature/literature.rst
         :text: Edit this file to propose a change or addition
-        :classes: btn-block btn-dark stretched-link btn-sm edit-button
+        :classes: btn-block btn-dark btn-sm edit-button
 
     .. link-button:: https://github.com/DoubleML/doubleml-docs/issues/new?assignees=FrederikBornemann&labels=literature&template=literature.yml&title=%5BADD%2FEDIT%5D+Reference+in+literature+overview
         :text: Discuss a change or addition via an issue
-        :classes: btn-block btn-dark stretched-link btn-sm issue-button
+        :classes: btn-block btn-dark btn-sm issue-button
 
 .. raw:: html
     
