@@ -6,9 +6,10 @@ Release notes
 .. tabbed:: Python
 
     **DoubleML 0.4.1**
-    - We added `Contribution Guidelines <https://github.com/DoubleML/doubleml-for-py/blob/master/CONTRIBUTING.md>_`,
+
+    - We added `Contribution Guidelines <https://github.com/DoubleML/doubleml-for-py/blob/master/CONTRIBUTING.md>`_,
       issue templates, a pull request template and a
-      `discussion forum <https://github.com/DoubleML/doubleml-for-py/discussions>_` to the Python package repository
+      `discussion forum <https://github.com/DoubleML/doubleml-for-py/discussions>`_ to the Python package repository
       `#132 <https://github.com/DoubleML/doubleml-for-py/pull/132>`_
     - Code refactorings, docu updates, unit test extensions and continuous integration
       `#126 <https://github.com/DoubleML/doubleml-for-py/pull/126>`_
