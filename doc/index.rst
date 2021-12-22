@@ -132,6 +132,7 @@ ecosystem <https://github.com/mlr-org/mlr3/wiki/Extension-Packages>`_ (Lang et a
     Python API <api/api>
     R API <https://docs.doubleml.org/r/stable/>
     Examples <examples/index>
+    Literature <literature/literature>
     Release notes <release/release>
 
 Main Features
