@@ -1,0 +1,41 @@
+name: Double Machine Learning Literature Overview
+description: Issues related to the double machine learning literature overview
+title: "[ADD/EDIT] Reference in literature overview"
+labels: ["literature"]
+assignees:
+  - FrederikBornemann
+
+body:
+- type: checkboxes
+  attributes:
+    label: Type of the issue
+    options:
+      - label: "add reference"
+        required: false
+      - label: "edit reference"
+        required: false
+- type: textarea
+  attributes:
+    label: Proposed change or addition
+    description: |
+      Propose a change or addition for the [double machine learning literature overview](https://docs.doubleml.org/stable/literature/literature.html).
+      In case of a change request, please also copy the existing entry below here.
+  validations:
+    required: true
+- type: checkboxes
+  attributes:
+    label: Checklist
+    description: |
+      Your reference should contain the [Core Components of an APA Reference](https://www.mendeley.com/guides/apa-citation-guide/).
+      Don't worry about formatting!
+    options:
+      - label: "Author(s)"
+        required: false
+      - label: "Date"
+        required: false
+      - label: "Title"
+        required: false
+      - label: "Publisher"
+        required: false
+      - label: "URL"
+        required: false
