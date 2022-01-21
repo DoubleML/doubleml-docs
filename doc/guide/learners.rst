@@ -501,7 +501,7 @@ parameters ``mtry`` and ``max.depth`` of a random forest. Evaluation is based on
 References
 ++++++++++
 
-* Lang, M., Binder, M., Richter, J., Schratz, P., Pfisterer, F., Coors, S., Au, Q., Casalicchio, G., Kotthoff, L., Bischl, B. (2019), mlr3: A modern object-oriented machine learing framework in R. Journal of Open Source Software, `doi:10.21105/joss.01903 <(doi:10.21105/joss.01903)[10.21105/joss.01903]>`_.
+* Lang, M., Binder, M., Richter, J., Schratz, P., Pfisterer, F., Coors, S., Au, Q., Casalicchio, G., Kotthoff, L., Bischl, B. (2019), mlr3: A modern object-oriented machine learing framework in R. Journal of Open Source Software, `doi:10.21105/joss.01903 <https://doi.org/10.21105/joss.01903>`_.
 
 * Becker, M., Binder, M., Bischl, B., Lang, M., Pfisterer, F., Reich, N.G., Richter, J., Schratz, P., Sonabend, R. (2020), mlr3 book, available at `https://mlr3book.mlr-org.com <https://mlr3book.mlr-org.com>`_.
 
