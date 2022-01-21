@@ -75,6 +75,10 @@ jobs:
       run: |
         make -C doc html # build docu
 
+    - name: Check for broken links / URLs
+      run: |
+        make linkcheck
+
     - name: Upload html artifacts
       uses: actions/upload-artifact@v2
       with:
