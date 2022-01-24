@@ -116,7 +116,7 @@ jobs:
 
     - name: Check for broken links / URLs
       run: |
-        make -b linkcheck
+        make -C doc linkcheck
 
     - name: Upload html artifacts
       uses: actions/upload-artifact@v2
