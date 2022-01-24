@@ -147,6 +147,7 @@ We use a regression learner for the continuous outcome variable net financial as
 .. tabbed:: Python
 
     .. ipython:: python
+        :okwarning:
 
         # Random forest learners
         from sklearn.ensemble import RandomForestClassifier, RandomForestRegressor
