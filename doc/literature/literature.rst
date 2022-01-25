@@ -94,7 +94,7 @@ Double machine learning literature
         - Neng-Chieh Chang |br|
           **Double/debiased machine learning for difference-in-differences models** |br|
           *The Econometrics Journal, 23(2), Pages 177–191, 2020* |br|
-          :opticon:`link` :link-badge:`https://academic.oup.com/ectj/article/23/2/177/5722119,"URL",cls=badge-dark`
+          :opticon:`link` :link-badge:`https://doi.org/10.1093/ectj/utaa001,"URL",cls=badge-dark`
           |hr|
 
         - Harold D. Chiang, Kengo Kato, Yukun Ma, Yuya Sasaki |br|
