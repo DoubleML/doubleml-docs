@@ -22,8 +22,9 @@ Double machine learning literature
 
         - Philipp Bach, Victor Chernozhukov, Malte S. Kurz, Martin Spindler |br|
           **DoubleML -- An Object-Oriented Implementation of Double Machine Learning in Python** |br|
-          *arXiv preprint arXiv:2104.03220 [stat.ML], 2021* |br|
+          *Journal of Machine Learning Research, 23(53): 1-6, 2022* |br|
           :badge:`Python Package DoubleML,badge-info` |br|
+          :opticon:`link` :link-badge:`https://www.jmlr.org/papers/v23/21-0862.html,"URL",cls=badge-dark`
           :opticon:`link` :link-badge:`https://arxiv.org/abs/2104.03220,"arXiv",cls=badge-dark`
           :opticon:`mark-github` :link-badge:`https://github.com/DoubleML/doubleml-for-py,"GitHub",cls=badge-dark`
           :link-badge:`https://pypi.org/project/DoubleML,"PyPI",cls=badge-dark`
@@ -94,7 +95,7 @@ Double machine learning literature
         - Neng-Chieh Chang |br|
           **Double/debiased machine learning for difference-in-differences models** |br|
           *The Econometrics Journal, 23(2), Pages 177–191, 2020* |br|
-          :opticon:`link` :link-badge:`https://academic.oup.com/ectj/article/23/2/177/5722119,"URL",cls=badge-dark`
+          :opticon:`link` :link-badge:`https://doi.org/10.1093/ectj/utaa001,"URL",cls=badge-dark`
           |hr|
 
         - Harold D. Chiang, Kengo Kato, Yukun Ma, Yuya Sasaki |br|

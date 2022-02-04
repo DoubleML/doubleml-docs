@@ -130,7 +130,7 @@ Python: Installing the latest release from pip or conda
     .. dropdown:: pip with virtual environment
         :open:
 
-        Install Python 3 using ``brew install python`` or from `<https://www.python.org/downloads/mac-osx/>`_.
+        Install Python 3 using ``brew install python`` or from `<https://www.python.org/downloads/macos/>`_.
 
         To avoid potential conflicts with other packages it is recommended to use a virtual environment.
         We setup a virtual environment named ``dml-venv`` and activate it
