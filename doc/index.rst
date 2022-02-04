@@ -195,7 +195,7 @@ If you use the DoubleML package a citation is highly appreciated:
 Bach, P., Chernozhukov, V., Kurz, M. S., and Spindler, M. (2022), DoubleML - An
 Object-Oriented Implementation of Double Machine Learning in Python,
 Journal of Machine Learning Research, 23(53): 1-6,
-[https://www.jmlr.org/papers/v23/21-0862.html](https://www.jmlr.org/papers/v23/21-0862.html).
+`https://www.jmlr.org/papers/v23/21-0862.html  <https://www.jmlr.org/papers/v23/21-0862.html>`_.
 
 
 Bach, P., Chernozhukov, V., Kurz, M. S., and Spindler, M. (2021),
