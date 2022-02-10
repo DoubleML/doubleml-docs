@@ -476,14 +476,13 @@ The third term :math:`c^*` vanishes in probability if sample splitting is applie
 
     .. ipython:: python
 
-        ax = sns.kdeplot(theta_ols, shade=True)
-        sns.kdeplot(theta_nonorth, shade=True, ax=ax);
-        sns.kdeplot(theta_orth_nosplit, shade=True);
-        sns.kdeplot(theta_dml, shade=True);
-        labels = ['True $\\theta$', 'OLS', 'Non-orthogonal ML', 'Double ML (no sample splitting)', 'Double ML with cross-fitting']
-        ax.axvline(0.5, color='k', label='True theta');
+        ax = sns.kdeplot(theta_ols, shade=True, label='OLS')
+        sns.kdeplot(theta_nonorth, shade=True, ax=ax, label='Non-orthogonal ML');
+        sns.kdeplot(theta_orth_nosplit, shade=True, label='Double ML (no sample splitting)');
+        sns.kdeplot(theta_dml, shade=True, label='Double ML with cross-fitting');
+        ax.axvline(0.5, color='k', label='True $\\theta$');
         @savefig comparison.png width=5in
-        ax.legend(labels);
+        ax.legend();
 
 .. tabbed:: R
 
