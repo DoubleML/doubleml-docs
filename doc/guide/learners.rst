@@ -257,7 +257,7 @@ Without further specification of the hyperparameters, default values are used. T
         set.seed(3141)
         ml_g = lrn("regr.ranger")
         dml_plr_obj = DoubleMLPLR$new(obj_dml_data, ml_g , ml_m)
-        dml_plr_obj$set_ml_nuisance_params("ml_g", "d", list("num.trees"=10))
+        dml_plr_obj$set_ml_nuisance_params("ml_l", "d", list("num.trees"=10))
         dml_plr_obj$fit()
         dml_plr_obj$summary()
 
@@ -293,7 +293,7 @@ Setting treatment-variable-specific or fold-specific hyperparameters:
 
         # Set globally
         params = list("num.trees"=10)
-        dml_plr_obj$set_ml_nuisance_params("ml_g", "d", params=params)
+        dml_plr_obj$set_ml_nuisance_params("ml_l", "d", params=params)
         dml_plr_obj$set_ml_nuisance_params("ml_m", "d", params=params)
         dml_plr_obj$learner
         dml_plr_obj$params
@@ -314,7 +314,7 @@ The following example illustrates how to set parameters for each fold.
 
         # Set values for each fold
         params_exact = rep(list(rep(list(params), n_folds)), n_rep)
-        dml_plr_obj$set_ml_nuisance_params("ml_g", "d", params=params_exact,
+        dml_plr_obj$set_ml_nuisance_params("ml_l", "d", params=params_exact,
                                              set_fold_specific=TRUE)
         dml_plr_obj$set_ml_nuisance_params("ml_m", "d", params=params_exact,
                                              set_fold_specific=TRUE)
