@@ -81,7 +81,7 @@ Without further specification of the hyperparameters, default values are used. T
         dml_plr_obj = dml.DoubleMLPLR(obj_dml_data,
                                       RandomForestRegressor(),
                                       RandomForestRegressor())
-        dml_plr_obj.set_ml_nuisance_params('ml_g', 'd', {'n_estimators': 10});
+        dml_plr_obj.set_ml_nuisance_params('ml_l', 'd', {'n_estimators': 10});
         print(dml_plr_obj.fit().summary)
 
 Setting treatment-variable-specific or fold-specific hyperparameters:
@@ -163,7 +163,7 @@ In this case the tuning should be done externally and the parameters can then be
         ml_g = Lasso()
         ml_m = Lasso()
         dml_plr_obj = dml.DoubleMLPLR(dml_data, ml_g, ml_m)
-        dml_plr_obj.set_ml_nuisance_params('ml_g', 'd', {'alpha': ml_g_tune.alpha_});
+        dml_plr_obj.set_ml_nuisance_params('ml_l', 'd', {'alpha': ml_g_tune.alpha_});
         dml_plr_obj.set_ml_nuisance_params('ml_m', 'd', {'alpha': ml_m_tune.alpha_});
         print(dml_plr_obj.params)
         print(dml_plr_obj.fit().summary)

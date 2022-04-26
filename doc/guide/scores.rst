@@ -280,7 +280,7 @@ can be obtained with
 
         import numpy as np
 
-        def non_orth_score(y, d, g_hat, m_hat, smpls):
+        def non_orth_score(y, d, l_hat, g_hat, m_hat, smpls):
             u_hat = y - g_hat
             psi_a = -np.multiply(d, d)
             psi_b = np.multiply(d, u_hat)
@@ -290,7 +290,7 @@ can be obtained with
 
     .. jupyter-execute::
 
-        non_orth_score = function(y, d, g_hat, m_hat, smpls) {
+        non_orth_score = function(y, d, l_hat, g_hat, m_hat, smpls) {
             u_hat = y - g_hat
             psi_a = -1*d*d
             psi_b = d*u_hat
