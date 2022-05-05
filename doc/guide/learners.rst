@@ -53,11 +53,11 @@ for example :py:class:`sklearn.ensemble.RandomForestRegressor`.
         from sklearn.ensemble import RandomForestRegressor
 
         np.random.seed(1234)
-        ml_g = RandomForestRegressor()
+        ml_l = RandomForestRegressor()
         ml_m = RandomForestRegressor()
         data = make_plr_CCDDHNR2018(alpha=0.5, return_type='DataFrame')
         obj_dml_data = dml.DoubleMLData(data, 'y', 'd')
-        dml_plr_obj = dml.DoubleMLPLR(obj_dml_data, ml_g, ml_m)
+        dml_plr_obj = dml.DoubleMLPLR(obj_dml_data, ml_l, ml_m)
         dml_plr_obj.fit().summary
 
 Without further specification of the hyperparameters, default values are used. To set hyperparameters:
@@ -128,17 +128,17 @@ implemented in :class:`sklearn.model_selection.GridSearchCV` or via a randomized
         import doubleml as dml
         from sklearn.linear_model import Lasso
 
-        ml_g = Lasso()
+        ml_l = Lasso()
         ml_m = Lasso()
-        dml_plr_obj = dml.DoubleMLPLR(dml_data, ml_g, ml_m)
-        par_grids = {'ml_g': {'alpha': np.arange(0.05, 1., 0.1)},
+        dml_plr_obj = dml.DoubleMLPLR(dml_data, ml_l, ml_m)
+        par_grids = {'ml_l': {'alpha': np.arange(0.05, 1., 0.1)},
                      'ml_m': {'alpha': np.arange(0.05, 1., 0.1)}}
         dml_plr_obj.tune(par_grids, search_mode='grid_search');
         print(dml_plr_obj.params)
         print(dml_plr_obj.fit().summary)
 
         np.random.seed(1234)
-        par_grids = {'ml_g': {'alpha': np.arange(0.05, 1., 0.01)},
+        par_grids = {'ml_l': {'alpha': np.arange(0.05, 1., 0.01)},
                      'ml_m': {'alpha': np.arange(0.05, 1., 0.01)}}
         dml_plr_obj.tune(par_grids, search_mode='randomized_search', n_iter_randomized_search=20);
         print(dml_plr_obj.params)
@@ -157,13 +157,13 @@ In this case the tuning should be done externally and the parameters can then be
         from sklearn.linear_model import LassoCV
 
         np.random.seed(1234)
-        ml_g_tune = LassoCV().fit(dml_data.x, dml_data.y)
+        ml_l_tune = LassoCV().fit(dml_data.x, dml_data.y)
         ml_m_tune = LassoCV().fit(dml_data.x, dml_data.d)
 
-        ml_g = Lasso()
+        ml_l = Lasso()
         ml_m = Lasso()
-        dml_plr_obj = dml.DoubleMLPLR(dml_data, ml_g, ml_m)
-        dml_plr_obj.set_ml_nuisance_params('ml_l', 'd', {'alpha': ml_g_tune.alpha_});
+        dml_plr_obj = dml.DoubleMLPLR(dml_data, ml_l, ml_m)
+        dml_plr_obj.set_ml_nuisance_params('ml_l', 'd', {'alpha': ml_l_tune.alpha_});
         dml_plr_obj.set_ml_nuisance_params('ml_m', 'd', {'alpha': ml_m_tune.alpha_});
         print(dml_plr_obj.params)
         print(dml_plr_obj.fit().summary)
@@ -227,12 +227,12 @@ package for R.
 
         # set up a mlr3 learner
         learner = lrn("regr.ranger")
-        ml_g = learner$clone()
+        ml_l = learner$clone()
         ml_m = learner$clone()
         set.seed(3141)
         data = make_plr_CCDDHNR2018(alpha=0.5, return_type='data.table')
         obj_dml_data = DoubleMLData$new(data, y_col="y", d_cols="d")
-        dml_plr_obj = DoubleMLPLR$new(obj_dml_data, ml_g, ml_m)
+        dml_plr_obj = DoubleMLPLR$new(obj_dml_data, ml_l, ml_m)
         dml_plr_obj$fit()
         dml_plr_obj$summary()
 
@@ -247,16 +247,16 @@ Without further specification of the hyperparameters, default values are used. T
     .. jupyter-execute::
 
         set.seed(3141)
-        ml_g = lrn("regr.ranger", num.trees=10)
+        ml_l = lrn("regr.ranger", num.trees=10)
         ml_m = lrn("regr.ranger")
         obj_dml_data = DoubleMLData$new(data, y_col="y", d_cols="d")
-        dml_plr_obj = DoubleMLPLR$new(obj_dml_data, ml_g, ml_m)
+        dml_plr_obj = DoubleMLPLR$new(obj_dml_data, ml_l, ml_m)
         dml_plr_obj$fit()
         dml_plr_obj$summary()
 
         set.seed(3141)
-        ml_g = lrn("regr.ranger")
-        dml_plr_obj = DoubleMLPLR$new(obj_dml_data, ml_g , ml_m)
+        ml_l = lrn("regr.ranger")
+        dml_plr_obj = DoubleMLPLR$new(obj_dml_data, ml_l , ml_m)
         dml_plr_obj$set_ml_nuisance_params("ml_l", "d", list("num.trees"=10))
         dml_plr_obj$fit()
         dml_plr_obj$summary()
@@ -283,13 +283,13 @@ Setting treatment-variable-specific or fold-specific hyperparameters:
     .. jupyter-execute::
 
         set.seed(3141)
-        ml_g = lrn("regr.ranger")
+        ml_l = lrn("regr.ranger")
         ml_m = lrn("regr.ranger")
         obj_dml_data = DoubleMLData$new(data, y_col="y", d_cols="d")
 
         n_rep = 2
         n_folds = 3
-        dml_plr_obj = DoubleMLPLR$new(obj_dml_data, ml_g, ml_m, n_rep=n_rep, n_folds=n_folds)
+        dml_plr_obj = DoubleMLPLR$new(obj_dml_data, ml_l, ml_m, n_rep=n_rep, n_folds=n_folds)
 
         # Set globally
         params = list("num.trees"=10)
@@ -308,9 +308,9 @@ The following example illustrates how to set parameters for each fold.
     .. jupyter-execute::
 
         learner = lrn("regr.ranger")
-        ml_g = learner$clone()
+        ml_l = learner$clone()
         ml_m = learner$clone()
-        dml_plr_obj = DoubleMLPLR$new(obj_dml_data, ml_g, ml_m, n_rep=n_rep, n_folds=n_folds)
+        dml_plr_obj = DoubleMLPLR$new(obj_dml_data, ml_l, ml_m, n_rep=n_rep, n_folds=n_folds)
 
         # Set values for each fold
         params_exact = rep(list(rep(list(params), n_folds)), n_rep)
@@ -403,11 +403,11 @@ for tuning, each of the two folds would be split up into 5 subfolds and the erro
         lgr::get_logger("bbotk")$set_threshold("warn")
 
         set.seed(1234)
-        ml_g = lrn("regr.glmnet")
+        ml_l = lrn("regr.glmnet")
         ml_m = lrn("regr.glmnet")
-        dml_plr_obj = DoubleMLPLR$new(dml_data, ml_g, ml_m)
+        dml_plr_obj = DoubleMLPLR$new(dml_data, ml_l, ml_m)
 
-        par_grids = list("ml_g" = ParamSet$new(list(
+        par_grids = list("ml_l" = ParamSet$new(list(
                                           ParamDbl$new("lambda", lower = 0.05, upper = 0.1))),
                          "ml_m" =  ParamSet$new(list(
                                           ParamDbl$new("lambda", lower = 0.05, upper = 0.1))))
@@ -415,7 +415,7 @@ for tuning, each of the two folds would be split up into 5 subfolds and the erro
         tune_settings = list(terminator = trm("evals", n_evals = 100),
                               algorithm = tnr("grid_search", resolution = 10),
                               rsmp_tune = rsmp("cv", folds = 5),
-                              measure = list("ml_g" = msr("regr.mse"),
+                              measure = list("ml_l" = msr("regr.mse"),
                                              "ml_m" = msr("regr.mse")))
         dml_plr_obj$tune(param_set=par_grids, tune_settings=tune_settings, tune_on_fold=TRUE)
         dml_plr_obj$params
@@ -444,9 +444,9 @@ external parameter tuning of the nuisance parts. The optimally chosen parameters
         lgr::get_logger("bbotk")$set_threshold("warn")
 
         set.seed(1234)
-        ml_g = lrn("regr.cv_glmnet", s="lambda.min")
+        ml_l = lrn("regr.cv_glmnet", s="lambda.min")
         ml_m = lrn("regr.cv_glmnet", s="lambda.min")
-        dml_plr_obj = DoubleMLPLR$new(dml_data, ml_g, ml_m)
+        dml_plr_obj = DoubleMLPLR$new(dml_data, ml_l, ml_m)
 
         dml_plr_obj$fit()
         dml_plr_obj$summary()
@@ -471,15 +471,15 @@ parameters ``mtry`` and ``max.depth`` of a random forest. Evaluation is based on
 
         # set up a mlr3 learner
         learner = lrn("regr.ranger")
-        ml_g = learner$clone()
+        ml_l = learner$clone()
         ml_m = learner$clone()
 
         set.seed(3141)
         obj_dml_data = make_plr_CCDDHNR2018(alpha=0.5)
-        dml_plr_obj = DoubleMLPLR$new(obj_dml_data, ml_g, ml_m)
+        dml_plr_obj = DoubleMLPLR$new(obj_dml_data, ml_l, ml_m)
 
         # set up a list of parameter grids
-        param_grid = list("ml_g" = ParamSet$new(list(
+        param_grid = list("ml_l" = ParamSet$new(list(
                                           ParamInt$new("mtry", lower = 2 , upper = 20),
                                           ParamInt$new("max.depth", lower = 2, upper = 5))),
                           "ml_m" = ParamSet$new(list(
@@ -488,7 +488,7 @@ parameters ``mtry`` and ``max.depth`` of a random forest. Evaluation is based on
         tune_settings = list(terminator = mlr3tuning::trm("evals", n_evals = 20),
                               algorithm = tnr("random_search"),
                               rsmp_tune = rsmp("cv", folds = 3),
-                              measure = list("ml_g" = msr("regr.mse"),
+                              measure = list("ml_l" = msr("regr.mse"),
                                              "ml_m" = msr("regr.mse")))
         dml_plr_obj$tune(param_set=param_grid, tune_settings=tune_settings, tune_on_folds=FALSE)
         dml_plr_obj$params

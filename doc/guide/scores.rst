@@ -62,11 +62,11 @@ implemented in ``DoubleMLPLR``.
 
         np.random.seed(3141)
         learner = RandomForestRegressor(n_estimators=100, max_features=20, max_depth=5, min_samples_leaf=2)
-        ml_g = clone(learner)
+        ml_l = clone(learner)
         ml_m = clone(learner)
         data = make_plr_CCDDHNR2018(alpha=0.5, return_type='DataFrame')
         obj_dml_data = dml.DoubleMLData(data, 'y', 'd')
-        dml_plr_obj = dml.DoubleMLPLR(obj_dml_data, ml_g, ml_m)
+        dml_plr_obj = dml.DoubleMLPLR(obj_dml_data, ml_l, ml_m)
         dml_plr_obj.fit();
         print(dml_plr_obj)
 
@@ -81,12 +81,12 @@ implemented in ``DoubleMLPLR``.
         lgr::get_logger("mlr3")$set_threshold("warn")
 
         learner = lrn("regr.ranger", num.trees = 100, mtry = 20, min.node.size = 2, max.depth = 5)
-        ml_g = learner$clone()
+        ml_l = learner$clone()
         ml_m = learner$clone()
         set.seed(3141)
         data = make_plr_CCDDHNR2018(alpha=0.5, return_type='data.table')
         obj_dml_data = DoubleMLData$new(data, y_col="y", d_cols="d")
-        dml_plr_obj = DoubleMLPLR$new(obj_dml_data, ml_g, ml_m)
+        dml_plr_obj = DoubleMLPLR$new(obj_dml_data, ml_l, ml_m)
         dml_plr_obj$fit()
         print(dml_plr_obj)
 
@@ -131,25 +131,7 @@ Partially linear regression model (PLR)
 ***************************************
 
 For the PLR model implemented in ``DoubleMLPLR`` one can choose between
-``score='IV-type'`` and ``score='partialling out'``.
-
-``score='IV-type'`` implements the score function:
-
-.. math::
-
-    \psi(W; \theta, \eta) &:= [Y - D \theta - g(X)] [D - m(X)]
-
-    &= - D (D - m(X)) \theta + (Y - g(X)) (D - m(X))
-
-    &= \psi_a(W; \eta) \theta + \psi_b(W; \eta)
-
-with :math:`\eta=(g,m)` and where the components of the linear score are
-
-.. math::
-
-    \psi_a(W; \eta) &=  - D (D - m(X)),
-
-    \psi_b(W; \eta) &= (Y - g(X)) (D - m(X)).
+``score='partialling out'`` and ``score='IV-type'``.
 
 ``score='partialling out'`` implements the score function:
 
@@ -169,12 +151,33 @@ with :math:`\eta=(\ell,m)` and where the components of the linear score are
 
     \psi_b(W; \eta) &= (Y - \ell(X)) (D - m(X)).
 
+``score='IV-type'`` implements the score function:
+
+.. math::
+
+    \psi(W; \theta, \eta) &:= [Y - D \theta - g(X)] [D - m(X)]
+
+    &= - D (D - m(X)) \theta + (Y - g(X)) (D - m(X))
+
+    &= \psi_a(W; \eta) \theta + \psi_b(W; \eta)
+
+with :math:`\eta=(g,m)` and where the components of the linear score are
+
+.. math::
+
+    \psi_a(W; \eta) &=  - D (D - m(X)),
+
+    \psi_b(W; \eta) &= (Y - g(X)) (D - m(X)).
+
 
 Partially linear IV regression model (PLIV)
 *******************************************
 
-For the PLIV model implemented in ``DoubleMLPLIV``
-we employ for ``score='partialling out'`` the score function:
+
+For the PLIV model implemented in ``DoubleMLPLIV`` one can choose between
+``score='IV-type'`` and ``score='partialling out'``.
+
+``score='partialling out'`` implements the score function:
 
 .. math::
 
@@ -191,6 +194,25 @@ with :math:`\eta=(\ell, m, r)` and where the components of the linear score are
     \psi_a(W; \eta) &=  - (D - r(X)) (Z - m(X)),
 
     \psi_b(W; \eta) &= (Y - \ell(X)) (Z - m(X)).
+
+``score='IV-type'`` implements the score function:
+
+.. math::
+
+    \psi(W; \theta, \eta) &:= [Y - D \theta - g(X)] [Z - m(X)]
+
+    &= - D (Z - m(X)) \theta + (Y - g(X)) (Z - m(X))
+
+    &= \psi_a(W; \eta) \theta + \psi_b(W; \eta)
+
+with :math:`\eta=(g,m)` and where the components of the linear score are
+
+.. math::
+
+    \psi_a(W; \eta) &=  - D (Z - m(X)),
+
+    \psi_b(W; \eta) &= (Y - g(X)) (Z - m(X)).
+
 
 Interactive regression model (IRM)
 **********************************
@@ -280,7 +302,7 @@ can be obtained with
 
         import numpy as np
 
-        def non_orth_score(y, d, l_hat, g_hat, m_hat, smpls):
+        def non_orth_score(y, d, l_hat, m_hat, g_hat, smpls):
             u_hat = y - g_hat
             psi_a = -np.multiply(d, d)
             psi_b = np.multiply(d, u_hat)
@@ -290,7 +312,7 @@ can be obtained with
 
     .. jupyter-execute::
 
-        non_orth_score = function(y, d, l_hat, g_hat, m_hat, smpls) {
+        non_orth_score = function(y, d, l_hat, m_hat, g_hat, smpls) {
             u_hat = y - g_hat
             psi_a = -1*d*d
             psi_b = d*u_hat
