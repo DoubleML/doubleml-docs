@@ -1,0 +1,16 @@
+name: Documentation and User Guide
+description: Issues related to the documentation and user guide on docs.doubleml.org
+labels: ["documentation"]
+
+body:
+- type: textarea
+  attributes:
+    label: Description of the issue or change proposal
+    description: |
+      Please provide a clear and concise discription of the issue and if relevant give links to the affected pages
+      on docs.doubleml.org
+  validations:
+    required: true
+- type: textarea
+  attributes:
+    label: Comments, context or references

@@ -132,6 +132,7 @@ ecosystem <https://github.com/mlr-org/mlr3/wiki/Extension-Packages>`_ (Lang et a
     Python API <api/api>
     R API <https://docs.doubleml.org/r/stable/>
     Examples <examples/index>
+    Literature <literature/literature>
     Release notes <release/release>
 
 Main Features
@@ -191,9 +192,10 @@ Citation
 
 If you use the DoubleML package a citation is highly appreciated:
 
-Bach, P., Chernozhukov, V., Kurz, M. S., and Spindler, M. (2021),
-DoubleML - An Object-Oriented Implementation of Double Machine Learning in Python,
-arXiv:`2104.03220 <https://arxiv.org/abs/2104.03220>`_.
+Bach, P., Chernozhukov, V., Kurz, M. S., and Spindler, M. (2022), DoubleML - An
+Object-Oriented Implementation of Double Machine Learning in Python,
+Journal of Machine Learning Research, 23(53): 1-6,
+`https://www.jmlr.org/papers/v23/21-0862.html  <https://www.jmlr.org/papers/v23/21-0862.html>`_.
 
 
 Bach, P., Chernozhukov, V., Kurz, M. S., and Spindler, M. (2021),
@@ -204,15 +206,16 @@ Bibtex-entries:
 
 .. code-block:: TeX
 
-    @misc{DoubleML2021Python,
-      title={{DoubleML} -- {A}n Object-Oriented Implementation of Double Machine Learning in {P}ython},
-      author={Philipp Bach and Victor Chernozhukov and Malte S. Kurz and Martin Spindler},
-      year={2021},
-      eprint={2104.03220},
-      archivePrefix={arXiv},
-      primaryClass={stat.ML},
-      note={arXiv:\href{https://arxiv.org/abs/2104.03220}{2104.03220} [stat.ML]}
-    }
+    @article{DoubleML2022Python,
+      title   = {{DoubleML} -- {A}n Object-Oriented Implementation of Double Machine Learning in {P}ython},
+      author  = {Philipp Bach and Victor Chernozhukov and Malte S. Kurz and Martin Spindler},
+      journal = {Journal of Machine Learning Research},
+      year    = {2022},
+      volume  = {23},
+      number  = {53},
+      pages   = {1--6},
+      url     = {http://jmlr.org/papers/v23/21-0862.html}
+}
 
 .. code-block:: TeX
 
@@ -233,7 +236,7 @@ Chernozhukov, V., Chetverikov, D., Demirer, M., Duflo, E., Hansen, C., Newey, W.
 Double/debiased machine learning for treatment and structural parameters. The Econometrics Journal, 21: C1-C68, doi:`10.1111/ectj.12097 <https://doi.org/10.1111/ectj.12097>`_.
 
 Lang, M., Binder, M., Richter, J., Schratz, P., Pfisterer, F., Coors, S., Au, Q., Casalicchio, G., Kotthoff, L. and Bischl, B. (2019),
-mlr3: A modern object-oriented machine learing framework in R. Journal of Open Source Software, doi:`10.21105/joss.01903 <https://10.21105/joss.01903>`_.
+mlr3: A modern object-oriented machine learing framework in R. Journal of Open Source Software, doi:`10.21105/joss.01903 <https://doi.org/10.21105/joss.01903>`_.
 
 Pedregosa, F., Varoquaux, G., Gramfort, A., Michel, V., Thirion, B., Grisel, O., Blondel, M., Prettenhofer, P., Weiss, R., Dubourg, V., Vanderplas, J., Passos, A., Cournapeau, D., Brucher, M., Perrot, M. and Duchesnay, E. (2011),
 Scikit-learn: Machine Learning in Python. Journal of Machine Learning Research, 12: 2825--2830, `https://jmlr.csail.mit.edu/papers/v12/pedregosa11a.html <https://jmlr.csail.mit.edu/papers/v12/pedregosa11a.html>`_.

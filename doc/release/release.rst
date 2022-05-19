@@ -5,6 +5,19 @@ Release notes
 
 .. tabbed:: Python
 
+    **DoubleML 0.4.1**
+
+    - We added `Contribution Guidelines <https://github.com/DoubleML/doubleml-for-py/blob/master/CONTRIBUTING.md>`_,
+      issue templates, a pull request template and a
+      `discussion forum <https://github.com/DoubleML/doubleml-for-py/discussions>`_ to the Python package repository
+      `#132 <https://github.com/DoubleML/doubleml-for-py/pull/132>`_
+    - Code refactorings, docu updates, unit test extensions and continuous integration
+      `#126 <https://github.com/DoubleML/doubleml-for-py/pull/126>`_
+      `#127 <https://github.com/DoubleML/doubleml-for-py/pull/127>`_
+      `#128 <https://github.com/DoubleML/doubleml-for-py/pull/128>`_
+      `#130 <https://github.com/DoubleML/doubleml-for-py/pull/130>`_
+      `#131 <https://github.com/DoubleML/doubleml-for-py/pull/131>`_
+
     **DoubleML 0.4.0**
 
     - **Release highlight:** Clustered standard errors for double machine learning models
@@ -20,7 +33,7 @@ Release notes
     **DoubleML 0.3.0**
 
     - Always use the same bootstrap algorithm independent of ``dml1`` vs ``dml2`` and consistent with docu and paper
-      `#101 <https://github.com/DoubleML/doubleml-for-py/pull/101>`_ &
+      `#101 <https://github.com/DoubleML/doubleml-for-py/issues/101>`_ &
       `#102 <https://github.com/DoubleML/doubleml-for-py/pull/102>`_
     - Added an exception handling to assure that an IV variable is specified when using a PLIV or IIVM model
       `#107 <https://github.com/DoubleML/doubleml-for-py/pull/107>`_
@@ -40,15 +53,15 @@ Release notes
     - IIVM model: Added a subgroups option to adapt to cases with and without the subgroups of always-takers and
       never-takers (`#96 <https://github.com/DoubleML/doubleml-for-py/pull/96>`_).
     - Add checks for the intersections of ``y_col``, ``d_cols``, ``x_cols``, ``z_cols``
-      (`#84 <https://github.com/DoubleML/doubleml-for-py/pull/84>`_,
+      (`#84 <https://github.com/DoubleML/doubleml-for-py/issues/84>`_,
       `#97 <https://github.com/DoubleML/doubleml-for-py/pull/97>`_).
-      This also fixes `#83 <https://github.com/DoubleML/doubleml-for-py/pull/83>`_ (with intersection
+      This also fixes `#83 <https://github.com/DoubleML/doubleml-for-py/issues/83>`_ (with intersection
       between ``x_cols`` and ``d_cols`` a column could have been added multiple times to the covariate matrix).
     - Added checks and exception handling for duplicate entries in ``d_cols``, ``x_cols`` or ``z_cols``
       (`#100 <https://github.com/DoubleML/doubleml-for-py/pull/100>`_).
     - Check the datatype of ``data`` when initializing ``DoubleMLData`` objects. Also check for duplicate column names
       (`#100 <https://github.com/DoubleML/doubleml-for-py/pull/100>`_).
-    - Fix bug `#95 <https://github.com/DoubleML/doubleml-for-py/pull/95>`_
+    - Fix bug `#95 <https://github.com/DoubleML/doubleml-for-py/issues/95>`_
       in `#97 <https://github.com/DoubleML/doubleml-for-py/pull/97>`_: It occurred when ``x_cols`` where inferred via
       setdiff and ``y_col`` was a string with multiple characters.
     - We updated the citation info to refer to the arXiv paper
@@ -149,28 +162,28 @@ Release notes
 
     - Use active bindings in the R6 OOP implementation
       `#106 <https://github.com/DoubleML/doubleml-for-r/pull/106>`_ &
-      `#93 <https://github.com/DoubleML/doubleml-for-r/pull/93>`_
+      `#93 <https://github.com/DoubleML/doubleml-for-r/issues/93>`_
     - Fix the aggregation formula for standard errors from repeated cross-fitting
-      `#94 <https://github.com/DoubleML/doubleml-for-r/pull/94>`_ &
+      `#94 <https://github.com/DoubleML/doubleml-for-r/issues/94>`_ &
       `#95 <https://github.com/DoubleML/doubleml-for-r/pull/95>`_
     - Always use the same bootstrap algorithm independent of ``dml1`` vs ``dml2`` and consistent with docu and paper
-      `#98 <https://github.com/DoubleML/doubleml-for-r/pull/98>`_ &
+      `#98 <https://github.com/DoubleML/doubleml-for-r/issues/98>`_ &
       `#99 <https://github.com/DoubleML/doubleml-for-r/pull/99>`_
     - Initialize predictions with NA and make sure that there are no misleading entries in the evaluated score
-      functions `#96 <https://github.com/DoubleML/doubleml-for-r/pull/96>`_ &
+      functions `#96 <https://github.com/DoubleML/doubleml-for-r/issues/96>`_ &
       `#105 <https://github.com/DoubleML/doubleml-for-r/pull/105>`_
     - Avoid overriding learner parameters during tuning
-      `#83 <https://github.com/DoubleML/doubleml-for-r/pull/83>`_ &
+      `#83 <https://github.com/DoubleML/doubleml-for-r/issues/83>`_ &
       `#84 <https://github.com/DoubleML/doubleml-for-r/pull/84>`_
     - Fixes in the exception handling and extension of the unit tests for the score function choice
       `#82 <https://github.com/DoubleML/doubleml-for-r/pull/82>`_
     - Prevent overwriting parameters from initialization when calling set_ml_nuisance_params
-      `#87 <https://github.com/DoubleML/doubleml-for-r/pull/87>`_ &
+      `#87 <https://github.com/DoubleML/doubleml-for-r/issues/87>`_ &
       `#89 <https://github.com/DoubleML/doubleml-for-r/pull/89>`_
     - Major refactoring and cleanup and extension of the unit test framework
       `#101 <https://github.com/DoubleML/doubleml-for-r/pull/101>`_
     - Extension and reorganization of exception handling for ``DoubleMLData`` objects
-      `#63 <https://github.com/DoubleML/doubleml-for-r/pull/63>`_ &
+      `#63 <https://github.com/DoubleML/doubleml-for-r/issues/63>`_ &
       `#90 <https://github.com/DoubleML/doubleml-for-r/pull/90>`_
     - Introduce style guide and clean up code
       `#80 <https://github.com/DoubleML/doubleml-for-r/pull/80>`_ &
@@ -185,7 +198,7 @@ Release notes
       `#86 <https://github.com/DoubleML/doubleml-for-r/pull/86>`_
     - Added a short version of and a reference to the arXiv paper as vignette
       `#110 <https://github.com/DoubleML/doubleml-for-r/pull/110>`_ &
-      `#113 <https://github.com/DoubleML/doubleml-for-r/pull/113>`_
+      `#113 <https://github.com/DoubleML/doubleml-for-r/issues/113>`_
     - Prevent using the subclassed methods check_score and check_data when constructing DoubleML objects
       `#107 <https://github.com/DoubleML/doubleml-for-r/pull/107>`_
     - Other refactoring and minor adaptions
