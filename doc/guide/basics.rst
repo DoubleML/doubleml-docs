@@ -140,7 +140,7 @@ other half of observations indexed with :math:`i \in I`
             (x, y, d) = data[i_rep]
             obj_dml_data = DoubleMLData.from_arrays(x, y, d)
             obj_dml_plr_nonorth = DoubleMLPLR(obj_dml_data,
-                                              ml_m, ml_l, ml_g,
+                                              ml_l, ml_m, ml_g,
                                               n_folds=2,
                                               apply_cross_fitting=False,
                                               score=non_orth_score)
