@@ -231,7 +231,7 @@ other half of observations indexed with :math:`i \in I`
                         scale_color_manual(name='',
                              breaks=c("Non-orthogonal ML", "N(0, 1)"),
                              values=c("Non-orthogonal ML"="dark blue", "N(0, 1)"='black')) +
-                        scale_fill_manual(name='',,
+                        scale_fill_manual(name='',
                              breaks=c("Non-orthogonal ML", "N(0, 1)"),
                              values=c("Non-orthogonal ML"="dark blue", "N(0, 1)"=NA)) +
                         xlim(c(-6.0, 6.0)) + xlab("") + ylab("") + theme_minimal()
@@ -355,7 +355,7 @@ orthogonalized regressor :math:`V = D - m(X)`. We then use the final estimate
                         scale_color_manual(name='',
                              breaks=c("Double ML (no sample splitting)", "N(0, 1)"),
                              values=c("Double ML (no sample splitting)"="dark orange", "N(0, 1)"='black')) +
-                        scale_fill_manual(name='',,
+                        scale_fill_manual(name='',
                              breaks=c("Double ML (no sample splitting)", "N(0, 1)"),
                              values=c("Double ML (no sample splitting)"="dark orange", "N(0, 1)"=NA)) +
                         xlim(c(-6.0, 6.0)) + xlab("") + ylab("") + theme_minimal()
@@ -459,7 +459,7 @@ Cross-fitting performs well empirically because the entire sample can be used fo
                         scale_color_manual(name='',
                              breaks=c("Double ML with cross-fitting", "N(0, 1)"),
                              values=c("Double ML with cross-fitting"="dark green", "N(0, 1)"='black')) +
-                        scale_fill_manual(name='',,
+                        scale_fill_manual(name='',
                              breaks=c("Double ML with cross-fitting", "N(0, 1)"),
                              values=c("Double ML with cross-fitting"="dark green", "N(0, 1)"=NA)) +
                         xlim(c(-6.0, 6.0)) + xlab("") + ylab("") + theme_minimal()
