@@ -28,7 +28,7 @@ implemented in ``DoubleMLPLR``.
         from sklearn.base import clone
 
         learner = RandomForestRegressor(n_estimators=100, max_features=20, max_depth=5, min_samples_leaf=2)
-        ml_g = clone(learner)
+        ml_l = clone(learner)
         ml_m = clone(learner)
         np.random.seed(1234)
         obj_dml_data = make_plr_CCDDHNR2018(alpha=0.5, n_obs=100)
@@ -44,7 +44,7 @@ implemented in ``DoubleMLPLR``.
         library(data.table)
 
         learner = lrn("regr.ranger", num.trees = 100, mtry = 20, min.node.size = 2, max.depth = 5)
-        ml_g = learner
+        ml_l = learner
         ml_m = learner
         data = make_plr_CCDDHNR2018(alpha=0.5, n_obs=100, return_type = "data.table")
         obj_dml_data = DoubleMLData$new(data,
@@ -63,7 +63,7 @@ The default setting is ``n_folds = 5`` and ``n_rep = 1``, i.e.,
 
     .. ipython:: python
 
-        dml_plr_obj = dml.DoubleMLPLR(obj_dml_data, ml_g, ml_m, n_folds = 5, n_rep = 1)
+        dml_plr_obj = dml.DoubleMLPLR(obj_dml_data, ml_l, ml_m, n_folds = 5, n_rep = 1)
         print(dml_plr_obj.n_folds)
         print(dml_plr_obj.n_rep)
 
@@ -71,7 +71,7 @@ The default setting is ``n_folds = 5`` and ``n_rep = 1``, i.e.,
 
     .. jupyter-execute::
 
-        dml_plr_obj = DoubleMLPLR$new(obj_dml_data, ml_g, ml_m, n_folds = 5, n_rep = 1)
+        dml_plr_obj = DoubleMLPLR$new(obj_dml_data, ml_l, ml_m, n_folds = 5, n_rep = 1)
         print(dml_plr_obj$n_folds)
         print(dml_plr_obj$n_rep)
 
@@ -133,7 +133,7 @@ It results in :math:`M` random :math:`K`-fold partitions being drawn.
 
     .. ipython:: python
 
-        dml_plr_obj = dml.DoubleMLPLR(obj_dml_data, ml_g, ml_m, n_folds = 5, n_rep = 10)
+        dml_plr_obj = dml.DoubleMLPLR(obj_dml_data, ml_l, ml_m, n_folds = 5, n_rep = 10)
         print(dml_plr_obj.n_folds)
         print(dml_plr_obj.n_rep)
 
@@ -141,7 +141,7 @@ It results in :math:`M` random :math:`K`-fold partitions being drawn.
 
     .. jupyter-execute::
 
-        dml_plr_obj = DoubleMLPLR$new(obj_dml_data, ml_g, ml_m, n_folds = 5, n_rep = 10)
+        dml_plr_obj = DoubleMLPLR$new(obj_dml_data, ml_l, ml_m, n_folds = 5, n_rep = 10)
         print(dml_plr_obj$n_folds)
         print(dml_plr_obj$n_rep)
 
@@ -234,7 +234,7 @@ initialization of the ``DoubleMLPLR`` object.
     .. ipython:: python
 
         np.random.seed(314)
-        dml_plr_obj_internal = dml.DoubleMLPLR(obj_dml_data, ml_g, ml_m, n_folds = 4)
+        dml_plr_obj_internal = dml.DoubleMLPLR(obj_dml_data, ml_l, ml_m, n_folds = 4)
         print(dml_plr_obj_internal.fit().summary)
 
 .. tabbed:: R
@@ -242,7 +242,7 @@ initialization of the ``DoubleMLPLR`` object.
     .. jupyter-execute::
 
         set.seed(314)
-        dml_plr_obj_internal = DoubleMLPLR$new(obj_dml_data, ml_g, ml_m, n_folds = 4)
+        dml_plr_obj_internal = DoubleMLPLR$new(obj_dml_data, ml_l, ml_m, n_folds = 4)
         dml_plr_obj_internal$fit()
         dml_plr_obj_internal$summary()
 
@@ -253,7 +253,7 @@ and set the partition via the ``set_sample_splitting()`` method.
 
     .. ipython:: python
 
-        dml_plr_obj_external = dml.DoubleMLPLR(obj_dml_data, ml_g, ml_m, draw_sample_splitting = False)
+        dml_plr_obj_external = dml.DoubleMLPLR(obj_dml_data, ml_l, ml_m, draw_sample_splitting = False)
 
         from sklearn.model_selection import KFold
         np.random.seed(314)
@@ -267,7 +267,7 @@ and set the partition via the ``set_sample_splitting()`` method.
 
     .. jupyter-execute::
 
-        dml_plr_obj_external = DoubleMLPLR$new(obj_dml_data, ml_g, ml_m, draw_sample_splitting = FALSE)
+        dml_plr_obj_external = DoubleMLPLR$new(obj_dml_data, ml_l, ml_m, draw_sample_splitting = FALSE)
 
         set.seed(314)
         # set up a task and cross-validation resampling scheme in mlr3
@@ -297,7 +297,7 @@ Note that cross-fitting performs well empirically and is recommended to remove b
     .. ipython:: python
 
         np.random.seed(314)
-        dml_plr_obj_external = dml.DoubleMLPLR(obj_dml_data, ml_g, ml_m,
+        dml_plr_obj_external = dml.DoubleMLPLR(obj_dml_data, ml_l, ml_m,
                                                n_folds = 2, apply_cross_fitting = False)
         print(dml_plr_obj_external.fit().summary)
 
@@ -305,7 +305,7 @@ Note that cross-fitting performs well empirically and is recommended to remove b
 
     .. jupyter-execute::
 
-        dml_plr_obj_external = DoubleMLPLR$new(obj_dml_data, ml_g, ml_m,
+        dml_plr_obj_external = DoubleMLPLR$new(obj_dml_data, ml_l, ml_m,
                                                n_folds = 2, apply_cross_fitting = FALSE)
         dml_plr_obj_external$fit()
         dml_plr_obj_external$summary()
@@ -318,7 +318,7 @@ via ``set_sample_splitting()`` needs to be applied, like for example:
     .. ipython:: python
 
         np.random.seed(314)
-        dml_plr_obj_external = dml.DoubleMLPLR(obj_dml_data, ml_g, ml_m,
+        dml_plr_obj_external = dml.DoubleMLPLR(obj_dml_data, ml_l, ml_m,
                                                n_folds = 2, apply_cross_fitting = False, draw_sample_splitting = False)
 
         from sklearn.model_selection import train_test_split
@@ -331,7 +331,7 @@ via ``set_sample_splitting()`` needs to be applied, like for example:
 
     .. jupyter-execute::
 
-        dml_plr_obj_external = DoubleMLPLR$new(obj_dml_data, ml_g, ml_m,
+        dml_plr_obj_external = DoubleMLPLR$new(obj_dml_data, ml_l, ml_m,
                                                 n_folds = 2, apply_cross_fitting = FALSE,
                                                 draw_sample_splitting = FALSE)
 
@@ -363,7 +363,7 @@ justification, see also :ref:`bias_overfitting`.
     .. ipython:: python
 
         np.random.seed(314)
-        dml_plr_no_split = dml.DoubleMLPLR(obj_dml_data, ml_g, ml_m,
+        dml_plr_no_split = dml.DoubleMLPLR(obj_dml_data, ml_l, ml_m,
                                            n_folds = 1, apply_cross_fitting = False)
 
         print(dml_plr_obj_external.fit().summary)
@@ -372,7 +372,7 @@ justification, see also :ref:`bias_overfitting`.
 
     .. jupyter-execute::
 
-        dml_plr_no_split = DoubleMLPLR$new(obj_dml_data, ml_g, ml_m,
+        dml_plr_no_split = DoubleMLPLR$new(obj_dml_data, ml_l, ml_m,
                                            n_folds = 1, apply_cross_fitting = FALSE)
 
         set.seed(314)

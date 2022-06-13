@@ -87,9 +87,9 @@ via the option ``method``.
         dml_data = dml.DoubleMLData.from_arrays(X[:, 10:], y, X[:, :10])
 
         learner = LassoCV()
-        ml_g = clone(learner)
+        ml_l = clone(learner)
         ml_m = clone(learner)
-        dml_plr = dml.DoubleMLPLR(dml_data, ml_g, ml_m)
+        dml_plr = dml.DoubleMLPLR(dml_data, ml_l, ml_m)
 
         print(dml_plr.fit().bootstrap().confint(joint=True))
         print(dml_plr.p_adjust())
@@ -114,9 +114,9 @@ via the option ``method``.
         dml_data = double_ml_data_from_matrix(X = X[, 11:n_vars], y = y, d = X[,1:10])
 
         learner = lrn("regr.cv_glmnet", s="lambda.min")
-        ml_g = learner$clone()
+        ml_l = learner$clone()
         ml_m = learner$clone()
-        dml_plr = DoubleMLPLR$new(dml_data, ml_g, ml_m)
+        dml_plr = DoubleMLPLR$new(dml_data, ml_l, ml_m)
 
         dml_plr$fit()
         dml_plr$bootstrap()

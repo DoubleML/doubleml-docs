@@ -26,12 +26,12 @@ Estimation is conducted via its ``fit()`` method:
         from sklearn.base import clone
 
         learner = RandomForestRegressor(n_estimators=100, max_features=20, max_depth=5, min_samples_leaf=2)
-        ml_g = clone(learner)
+        ml_l = clone(learner)
         ml_m = clone(learner)
         np.random.seed(1111)
         data = make_plr_CCDDHNR2018(alpha=0.5, n_obs=500, dim_x=20, return_type='DataFrame')
         obj_dml_data = dml.DoubleMLData(data, 'y', 'd')
-        dml_plr_obj = dml.DoubleMLPLR(obj_dml_data, ml_g, ml_m)
+        dml_plr_obj = dml.DoubleMLPLR(obj_dml_data, ml_l, ml_m)
         print(dml_plr_obj.fit())
 
 .. tabbed:: R
@@ -45,12 +45,12 @@ Estimation is conducted via its ``fit()`` method:
         lgr::get_logger("mlr3")$set_threshold("warn")
 
         learner = lrn("regr.ranger", num.trees = 100, mtry = 20, min.node.size = 2, max.depth = 5)
-        ml_g = learner$clone()
+        ml_l = learner$clone()
         ml_m = learner$clone()
         set.seed(1111)
         data = make_plr_CCDDHNR2018(alpha=0.5, n_obs=500, dim_x=20, return_type='data.table')
         obj_dml_data = DoubleMLData$new(data, y_col="y", d_cols="d")
-        dml_plr_obj = DoubleMLPLR$new(obj_dml_data, ml_g, ml_m)
+        dml_plr_obj = DoubleMLPLR$new(obj_dml_data, ml_l, ml_m)
         dml_plr_obj$fit()
         print(dml_plr_obj)
 
@@ -77,13 +77,13 @@ Estimation is conducted via its ``fit()`` method:
         from sklearn.base import clone
 
         learner = RandomForestRegressor(n_estimators=100, max_features=20, max_depth=5, min_samples_leaf=2)
-        ml_g = clone(learner)
+        ml_l = clone(learner)
         ml_m = clone(learner)
         ml_r = clone(learner)
         np.random.seed(2222)
         data = make_pliv_CHS2015(alpha=0.5, n_obs=500, dim_x=20, dim_z=1, return_type='DataFrame')
         obj_dml_data = dml.DoubleMLData(data, 'y', 'd', z_cols='Z1')
-        dml_pliv_obj = dml.DoubleMLPLIV(obj_dml_data, ml_g, ml_m, ml_r)
+        dml_pliv_obj = dml.DoubleMLPLIV(obj_dml_data, ml_l, ml_m, ml_r)
         print(dml_pliv_obj.fit())
 
 .. tabbed:: R
@@ -96,13 +96,13 @@ Estimation is conducted via its ``fit()`` method:
         library(data.table)
 
         learner = lrn("regr.ranger", num.trees = 100, mtry = 20, min.node.size = 2, max.depth = 5)
-        ml_g = learner$clone()
+        ml_l = learner$clone()
         ml_m = learner$clone()
         ml_r = learner$clone()
         set.seed(2222)
         data = make_pliv_CHS2015(alpha=0.5, n_obs=500, dim_x=20, dim_z=1, return_type="data.table")
         obj_dml_data = DoubleMLData$new(data, y_col="y", d_col = "d", z_cols= "Z1")
-        dml_pliv_obj = DoubleMLPLIV$new(obj_dml_data, ml_g, ml_m, ml_r)
+        dml_pliv_obj = DoubleMLPLIV$new(obj_dml_data, ml_l, ml_m, ml_r)
         dml_pliv_obj$fit()
         print(dml_pliv_obj)
 
