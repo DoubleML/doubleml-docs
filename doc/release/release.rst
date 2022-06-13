@@ -7,17 +7,17 @@ Release notes
 
     **DoubleML 0.5.0**
 
-    - Implement a new score function (``'IV-type'``) for the PLIV model (for details see
+    - Implement a new score function ``score = 'IV-type'`` for the PLIV model (for details see
       `#151 <https://github.com/DoubleML/doubleml-for-py/pull/151>`_)
-      --> API changed from ``DoubleMLPLIV(obj_dml_data, ml_g, ml_m, ml_r [, ...])``
+      --> **API change** from ``DoubleMLPLIV(obj_dml_data, ml_g, ml_m, ml_r [, ...])``
       to ``DoubleMLPLIV(obj_dml_data, ml_g, ml_m, ml_r, ml_g [, ...])``
     - Adapt the nuisance estimation for the ``'IV-type'`` score for the PLR model (for details see
       `#151 <https://github.com/DoubleML/doubleml-for-py/pull/151>`_)
-      --> API changed from ``DoubleMLPLR(obj_dml_data, ml_g, ml_m [, ...])``
+      --> **API change** from ``DoubleMLPLR(obj_dml_data, ml_g, ml_m [, ...])``
       to ``DoubleMLPLR(obj_dml_data, ml_l, ml_m, ml_g [, ...])``
     - Allow the usage of classifiers for binary outcome variables in the model classes IRM and IIVM
       `#134 <https://github.com/DoubleML/doubleml-for-py/pull/134>`_
-    - Published in JMLR: DoubleML - An Object-Oriented Implementation of Double Machine Learning in Python (citation
+    - **Published in JMLR: DoubleML - An Object-Oriented Implementation of Double Machine Learning in Python** (citation
       info updated in `#138 <https://github.com/DoubleML/doubleml-for-py/pull/138>`_)
     - Maintenance
       `#143 <https://github.com/DoubleML/doubleml-for-py/pull/143>`_
@@ -155,13 +155,13 @@ Release notes
 
     **DoubleML 0.5.0**
 
-    - Implement a new score function (``'IV-type'``) for the PLIV model (for details see
+    - Implement a new score function ``score = 'IV-type'`` for the PLIV model (for details see
       `#161 <https://github.com/DoubleML/doubleml-for-r/pull/161>`_)
-      --> API changed from ``DoubleMLPLIV$new(obj_dml_data, ml_g, ml_m, ml_r [, ...])``
+      --> **API change** from ``DoubleMLPLIV$new(obj_dml_data, ml_g, ml_m, ml_r [, ...])``
       to ``DoubleMLPLIV$new(obj_dml_data, ml_g, ml_m, ml_r, ml_g [, ...])``
     - Adapt the nuisance estimation for the ``'IV-type'`` score for the PLR model (for details see
       `#161 <https://github.com/DoubleML/doubleml-for-r/pull/161>`_)
-      --> API changed from ``DoubleMLPLR$new(obj_dml_data, ml_g, ml_m [, ...])``
+      --> **API change** from ``DoubleMLPLR$new(obj_dml_data, ml_g, ml_m [, ...])``
       to ``DoubleMLPLR$new(obj_dml_data, ml_l, ml_m, ml_g [, ...])``
     - Use ``task_type`` instead of ``learner_class`` to identify whether a learner is meant to regress or classify (this
       change makes it possible to easily integrate pipelines from ``mlr3pipelines`` as learner for the nuisance functions)
