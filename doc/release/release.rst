@@ -158,6 +158,7 @@ Release notes
       `#157 <https://github.com/DoubleML/doubleml-for-r/issues/157>`_
       `#158 <https://github.com/DoubleML/doubleml-for-r/issues/158>`_
       `#160 <https://github.com/DoubleML/doubleml-for-r/pull/160>`_
+      `#163 <https://github.com/DoubleML/doubleml-for-r/pull/163>`_
 
 
     **DoubleML 0.4.1**
