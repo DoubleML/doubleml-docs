@@ -5,6 +5,28 @@ Release notes
 
 .. tabbed:: Python
 
+    **DoubleML 0.5.0**
+
+    - Implement a new score function (``'IV-type'``) for the PLIV model (for details see
+      `#151 <https://github.com/DoubleML/doubleml-for-py/pull/151>`_)
+      --> API changed from ``DoubleMLPLIV(obj_dml_data, ml_g, ml_m, ml_r [, ...])``
+      to ``DoubleMLPLIV(obj_dml_data, ml_g, ml_m, ml_r, ml_g [, ...])``
+    - Adapt the nuisance estimation for the ``'IV-type'`` score for the PLR model (for details see
+      `#151 <https://github.com/DoubleML/doubleml-for-py/pull/151>`_)
+      --> API changed from ``DoubleMLPLR(obj_dml_data, ml_g, ml_m [, ...])``
+      to ``DoubleMLPLR(obj_dml_data, ml_l, ml_m, ml_g [, ...])``
+    - Allow the usage of classifiers for binary outcome variables in the model classes IRM and IIVM
+      `#134 <https://github.com/DoubleML/doubleml-for-py/pull/134>`_
+    - Published in JMLR: DoubleML - An Object-Oriented Implementation of Double Machine Learning in Python (citation
+      info updated in `#138 <https://github.com/DoubleML/doubleml-for-py/pull/138>`_)
+    - Maintenance
+      `#143 <https://github.com/DoubleML/doubleml-for-py/pull/143>`_
+      `#148 <https://github.com/DoubleML/doubleml-for-py/pull/148>`_
+      `#149 <https://github.com/DoubleML/doubleml-for-py/pull/149>`_
+      `#152 <https://github.com/DoubleML/doubleml-for-py/issues/152>`_
+      `#153 <https://github.com/DoubleML/doubleml-for-py/pull/153>`_
+
+
     **DoubleML 0.4.1**
 
     - We added `Contribution Guidelines <https://github.com/DoubleML/doubleml-for-py/blob/master/CONTRIBUTING.md>`_,
