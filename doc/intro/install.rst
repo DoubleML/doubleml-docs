@@ -320,7 +320,7 @@ After setting up python and pip as described above use
 
 .. code-block:: Bash
 
-    $ pip install -U DoubleML-0.4.0-py3-none-any.whl
+    $ pip install -U DoubleML-0.5.0-py3-none-any.whl
 
 Python: Building the package from source
 ----------------------------------------
