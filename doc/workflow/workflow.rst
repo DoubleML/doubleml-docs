@@ -151,14 +151,14 @@ We use a regression learner for the continuous outcome variable net financial as
 
         # Random forest learners
         from sklearn.ensemble import RandomForestClassifier, RandomForestRegressor
-        ml_g_rf = RandomForestRegressor(n_estimators = 500, max_depth = 7,
+        ml_l_rf = RandomForestRegressor(n_estimators = 500, max_depth = 7,
                                         max_features = 3, min_samples_leaf = 3)
         ml_m_rf = RandomForestClassifier(n_estimators = 500, max_depth = 5,
                                         max_features = 4, min_samples_leaf = 7)
 
         # Xgboost learners
         from xgboost import XGBClassifier, XGBRegressor
-        ml_g_xgb = XGBRegressor(objective = "reg:squarederror", eta = 0.1,
+        ml_l_xgb = XGBRegressor(objective = "reg:squarederror", eta = 0.1,
                                 n_estimators =35)
         ml_m_xgb = XGBClassifier(use_label_encoder = False ,
                                 objective = "binary:logistic",
@@ -172,13 +172,13 @@ We use a regression learner for the continuous outcome variable net financial as
         library(mlr3)
         library(mlr3learners)
         # Random forest learners
-        ml_g_rf = lrn("regr.ranger", max.depth = 7,
+        ml_l_rf = lrn("regr.ranger", max.depth = 7,
                     mtry = 3, min.node.size =3)
         ml_m_rf = lrn("classif.ranger", max.depth = 5,
                     mtry = 4, min.node.size = 7)
 
         # Xgboost learners
-        ml_g_xgb = lrn("regr.xgboost", objective = "reg:squarederror",
+        ml_l_xgb = lrn("regr.xgboost", objective = "reg:squarederror",
                         eta = 0.1, nrounds = 35)
         ml_m_xgb = lrn("classif.xgboost", objective = "binary:logistic",
                         eval_metric = "logloss",
@@ -205,13 +205,13 @@ the dml algorithm (:ref:`DML1 vs. DML2 <algorithms>`) and the score function (:r
         np.random.seed(123)
         # Default values
         dml_plr_tree = DoubleMLPLR(dml_data,
-                                    ml_g = ml_g_rf,
+                                    ml_l = ml_l_rf,
                                     ml_m = ml_m_rf)
 
         np.random.seed(123)
         # Parametrized by user
         dml_plr_tree = DoubleMLPLR(dml_data,
-                                    ml_g = ml_g_rf,
+                                    ml_l = ml_l_rf,
                                     ml_m = ml_m_rf,
                                     n_folds = 3,
                                     n_rep = 1,
@@ -225,13 +225,13 @@ the dml algorithm (:ref:`DML1 vs. DML2 <algorithms>`) and the score function (:r
         set.seed(123)
         # Default values
         dml_plr_forest = DoubleMLPLR$new(dml_data,
-                                        ml_g = ml_g_rf,
+                                        ml_l = ml_l_rf,
                                         ml_m = ml_m_rf)
 
         set.seed(123)
         # Parametrized by user
         dml_plr_forest = DoubleMLPLR$new(dml_data,
-                                        ml_g = ml_g_rf,
+                                        ml_l = ml_l_rf,
                                         ml_m = ml_m_rf,
                                         n_folds = 3,
                                         score = 'partialling out',
