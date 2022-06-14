@@ -5,6 +5,28 @@ Release notes
 
 .. tabbed:: Python
 
+    **DoubleML 0.5.0**
+
+    - Implement a new score function ``score = 'IV-type'`` for the PLIV model (for details see
+      `#151 <https://github.com/DoubleML/doubleml-for-py/pull/151>`_)
+      --> **API change** from ``DoubleMLPLIV(obj_dml_data, ml_g, ml_m, ml_r [, ...])``
+      to ``DoubleMLPLIV(obj_dml_data, ml_g, ml_m, ml_r, ml_g [, ...])``
+    - Adapt the nuisance estimation for the ``'IV-type'`` score for the PLR model (for details see
+      `#151 <https://github.com/DoubleML/doubleml-for-py/pull/151>`_)
+      --> **API change** from ``DoubleMLPLR(obj_dml_data, ml_g, ml_m [, ...])``
+      to ``DoubleMLPLR(obj_dml_data, ml_l, ml_m, ml_g [, ...])``
+    - Allow the usage of classifiers for binary outcome variables in the model classes IRM and IIVM
+      `#134 <https://github.com/DoubleML/doubleml-for-py/pull/134>`_
+    - **Published in JMLR: DoubleML - An Object-Oriented Implementation of Double Machine Learning in Python** (citation
+      info updated in `#138 <https://github.com/DoubleML/doubleml-for-py/pull/138>`_)
+    - Maintenance
+      `#143 <https://github.com/DoubleML/doubleml-for-py/pull/143>`_
+      `#148 <https://github.com/DoubleML/doubleml-for-py/pull/148>`_
+      `#149 <https://github.com/DoubleML/doubleml-for-py/pull/149>`_
+      `#152 <https://github.com/DoubleML/doubleml-for-py/issues/152>`_
+      `#153 <https://github.com/DoubleML/doubleml-for-py/pull/153>`_
+
+
     **DoubleML 0.4.1**
 
     - We added `Contribution Guidelines <https://github.com/DoubleML/doubleml-for-py/blob/master/CONTRIBUTING.md>`_,
@@ -131,11 +153,41 @@ Release notes
 
 .. tabbed:: R
 
+    **DoubleML 0.5.0**
+
+    - Implement a new score function ``score = 'IV-type'`` for the PLIV model (for details see
+      `#161 <https://github.com/DoubleML/doubleml-for-r/pull/161>`_)
+      --> **API change** from ``DoubleMLPLIV$new(obj_dml_data, ml_g, ml_m, ml_r [, ...])``
+      to ``DoubleMLPLIV$new(obj_dml_data, ml_g, ml_m, ml_r, ml_g [, ...])``
+    - Adapt the nuisance estimation for the ``'IV-type'`` score for the PLR model (for details see
+      `#161 <https://github.com/DoubleML/doubleml-for-r/pull/161>`_)
+      --> **API change** from ``DoubleMLPLR$new(obj_dml_data, ml_g, ml_m [, ...])``
+      to ``DoubleMLPLR$new(obj_dml_data, ml_l, ml_m, ml_g [, ...])``
+    - Use ``task_type`` instead of ``learner_class`` to identify whether a learner is meant to regress or classify (this
+      change makes it possible to easily integrate pipelines from ``mlr3pipelines`` as learner for the nuisance functions)
+      `#141 <https://github.com/DoubleML/doubleml-for-r/pull/141>`_
+    - Add `Contribution Guidelines <https://github.com/DoubleML/doubleml-for-r/blob/master/CONTRIBUTING.md>`_,
+      issue templates, a pull request template and a
+      `discussion forum <https://github.com/DoubleML/doubleml-for-r/discussions>`_ to the R package repository
+      `#142 <https://github.com/DoubleML/doubleml-for-r/pull/142>`_
+      `#146 <https://github.com/DoubleML/doubleml-for-r/pull/146>`_
+      `#147 <https://github.com/DoubleML/doubleml-for-r/pull/147>`_
+    - Allow the usage of classifiers for binary outcome variables in the model classes IRM and IIVM
+      `#114 <https://github.com/DoubleML/doubleml-for-r/pull/114>`_
+    - Bug fixes and maintenance
+      `#155 <https://github.com/DoubleML/doubleml-for-r/issues/155>`_
+      `#156 <https://github.com/DoubleML/doubleml-for-r/issues/156>`_
+      `#157 <https://github.com/DoubleML/doubleml-for-r/issues/157>`_
+      `#158 <https://github.com/DoubleML/doubleml-for-r/issues/158>`_
+      `#160 <https://github.com/DoubleML/doubleml-for-r/pull/160>`_
+      `#163 <https://github.com/DoubleML/doubleml-for-r/pull/163>`_
+
+
     **DoubleML 0.4.1**
 
-    - Prevent usage of `glmnet` learner for unit testing as recommended by CRAN (failing tests on Solaris)
+    - Prevent usage of ``glmnet`` learner for unit testing as recommended by CRAN (failing tests on Solaris)
       `#137 <https://github.com/DoubleML/doubleml-for-r/pull/137>`_
-    - Prepare for the upcoming release of `checkmate` which is not backward compatible with our unit tests
+    - Prepare for the upcoming release of ``checkmate`` which is not backward compatible with our unit tests
       `#134 <https://github.com/DoubleML/doubleml-for-r/pull/134>`_
 
     **DoubleML 0.4.0**
