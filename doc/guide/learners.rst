@@ -53,11 +53,11 @@ for example :py:class:`sklearn.ensemble.RandomForestRegressor`.
         from sklearn.ensemble import RandomForestRegressor
 
         np.random.seed(1234)
-        ml_g = RandomForestRegressor()
+        ml_l = RandomForestRegressor()
         ml_m = RandomForestRegressor()
         data = make_plr_CCDDHNR2018(alpha=0.5, return_type='DataFrame')
         obj_dml_data = dml.DoubleMLData(data, 'y', 'd')
-        dml_plr_obj = dml.DoubleMLPLR(obj_dml_data, ml_g, ml_m)
+        dml_plr_obj = dml.DoubleMLPLR(obj_dml_data, ml_l, ml_m)
         dml_plr_obj.fit().summary
 
 Without further specification of the hyperparameters, default values are used. To set hyperparameters:
@@ -81,7 +81,7 @@ Without further specification of the hyperparameters, default values are used. T
         dml_plr_obj = dml.DoubleMLPLR(obj_dml_data,
                                       RandomForestRegressor(),
                                       RandomForestRegressor())
-        dml_plr_obj.set_ml_nuisance_params('ml_g', 'd', {'n_estimators': 10});
+        dml_plr_obj.set_ml_nuisance_params('ml_l', 'd', {'n_estimators': 10});
         print(dml_plr_obj.fit().summary)
 
 Setting treatment-variable-specific or fold-specific hyperparameters:
@@ -128,17 +128,17 @@ implemented in :class:`sklearn.model_selection.GridSearchCV` or via a randomized
         import doubleml as dml
         from sklearn.linear_model import Lasso
 
-        ml_g = Lasso()
+        ml_l = Lasso()
         ml_m = Lasso()
-        dml_plr_obj = dml.DoubleMLPLR(dml_data, ml_g, ml_m)
-        par_grids = {'ml_g': {'alpha': np.arange(0.05, 1., 0.1)},
+        dml_plr_obj = dml.DoubleMLPLR(dml_data, ml_l, ml_m)
+        par_grids = {'ml_l': {'alpha': np.arange(0.05, 1., 0.1)},
                      'ml_m': {'alpha': np.arange(0.05, 1., 0.1)}}
         dml_plr_obj.tune(par_grids, search_mode='grid_search');
         print(dml_plr_obj.params)
         print(dml_plr_obj.fit().summary)
 
         np.random.seed(1234)
-        par_grids = {'ml_g': {'alpha': np.arange(0.05, 1., 0.01)},
+        par_grids = {'ml_l': {'alpha': np.arange(0.05, 1., 0.01)},
                      'ml_m': {'alpha': np.arange(0.05, 1., 0.01)}}
         dml_plr_obj.tune(par_grids, search_mode='randomized_search', n_iter_randomized_search=20);
         print(dml_plr_obj.params)
@@ -157,13 +157,13 @@ In this case the tuning should be done externally and the parameters can then be
         from sklearn.linear_model import LassoCV
 
         np.random.seed(1234)
-        ml_g_tune = LassoCV().fit(dml_data.x, dml_data.y)
+        ml_l_tune = LassoCV().fit(dml_data.x, dml_data.y)
         ml_m_tune = LassoCV().fit(dml_data.x, dml_data.d)
 
-        ml_g = Lasso()
+        ml_l = Lasso()
         ml_m = Lasso()
-        dml_plr_obj = dml.DoubleMLPLR(dml_data, ml_g, ml_m)
-        dml_plr_obj.set_ml_nuisance_params('ml_g', 'd', {'alpha': ml_g_tune.alpha_});
+        dml_plr_obj = dml.DoubleMLPLR(dml_data, ml_l, ml_m)
+        dml_plr_obj.set_ml_nuisance_params('ml_l', 'd', {'alpha': ml_l_tune.alpha_});
         dml_plr_obj.set_ml_nuisance_params('ml_m', 'd', {'alpha': ml_m_tune.alpha_});
         print(dml_plr_obj.params)
         print(dml_plr_obj.fit().summary)
@@ -184,12 +184,12 @@ The minimum requirement for a learner to be used for nuisance models in the :ref
     * The implementation as a learner for regression or classification in the `mlr3 <https://mlr3.mlr-org.com/>`_ package
       or its extension packages `mlr3learners <https://mlr3learners.mlr-org.com/>`_ and
       `mlr3extralearners <https://mlr3extralearners.mlr-org.com/>`_ . A guide on how to add a learner is provided in the
-      `chapter on extending learners in the mlr3 book <https://mlr3book.mlr-org.com/extending.html#extending-learners>`_ .
+      `chapter on extending learners in the mlr3 book <https://mlr3book.mlr-org.com/07-extending-learners.html>`_ .
     * The `mlr3 <https://mlr3.mlr-org.com/>`_ package makes sure that the learners satisfy some core functionalities.
       To specify a specific learner in :ref:`DoubleML <doubleml_package>` users can pass objects of the class
       `Learner <https://mlr3.mlr-org.com/reference/Learner.html>`_. A fast way to construct these objects is to use the
       `mlr3 <https://mlr3.mlr-org.com/>`_  function `lrn() <https://mlr3.mlr-org.com/reference/mlr_sugar.html>`_.
-      An introduction to learners in `mlr3 <https://mlr3.mlr-org.com/>`_  is provided in the `chapter on learners of the mlr3 book <https://mlr3book.mlr-org.com/basics.html#learners>`_.
+      An introduction to learners in `mlr3 <https://mlr3.mlr-org.com/>`_  is provided in the `chapter on learners of the mlr3 book <https://mlr3book.mlr-org.com/02-basics-learners.html>`_.
     * It is also possible to pass learners that have been constructed from a pipeline with the `mlr3pipelines <https://mlr3pipelines.mlr-org.com/>`_
       package.
     * The models `DoubleML::DoubleMLIRM <https://docs.doubleml.org/r/stable/reference/DoubleMLIRM.html>`_ and
@@ -231,12 +231,12 @@ package for R.
 
         # set up a mlr3 learner
         learner = lrn("regr.ranger")
-        ml_g = learner$clone()
+        ml_l = learner$clone()
         ml_m = learner$clone()
         set.seed(3141)
         data = make_plr_CCDDHNR2018(alpha=0.5, return_type='data.table')
         obj_dml_data = DoubleMLData$new(data, y_col="y", d_cols="d")
-        dml_plr_obj = DoubleMLPLR$new(obj_dml_data, ml_g, ml_m)
+        dml_plr_obj = DoubleMLPLR$new(obj_dml_data, ml_l, ml_m)
         dml_plr_obj$fit()
         dml_plr_obj$summary()
 
@@ -251,17 +251,17 @@ Without further specification of the hyperparameters, default values are used. T
     .. jupyter-execute::
 
         set.seed(3141)
-        ml_g = lrn("regr.ranger", num.trees=10)
+        ml_l = lrn("regr.ranger", num.trees=10)
         ml_m = lrn("regr.ranger")
         obj_dml_data = DoubleMLData$new(data, y_col="y", d_cols="d")
-        dml_plr_obj = DoubleMLPLR$new(obj_dml_data, ml_g, ml_m)
+        dml_plr_obj = DoubleMLPLR$new(obj_dml_data, ml_l, ml_m)
         dml_plr_obj$fit()
         dml_plr_obj$summary()
 
         set.seed(3141)
-        ml_g = lrn("regr.ranger")
-        dml_plr_obj = DoubleMLPLR$new(obj_dml_data, ml_g , ml_m)
-        dml_plr_obj$set_ml_nuisance_params("ml_g", "d", list("num.trees"=10))
+        ml_l = lrn("regr.ranger")
+        dml_plr_obj = DoubleMLPLR$new(obj_dml_data, ml_l , ml_m)
+        dml_plr_obj$set_ml_nuisance_params("ml_l", "d", list("num.trees"=10))
         dml_plr_obj$fit()
         dml_plr_obj$summary()
 
@@ -287,17 +287,17 @@ Setting treatment-variable-specific or fold-specific hyperparameters:
     .. jupyter-execute::
 
         set.seed(3141)
-        ml_g = lrn("regr.ranger")
+        ml_l = lrn("regr.ranger")
         ml_m = lrn("regr.ranger")
         obj_dml_data = DoubleMLData$new(data, y_col="y", d_cols="d")
 
         n_rep = 2
         n_folds = 3
-        dml_plr_obj = DoubleMLPLR$new(obj_dml_data, ml_g, ml_m, n_rep=n_rep, n_folds=n_folds)
+        dml_plr_obj = DoubleMLPLR$new(obj_dml_data, ml_l, ml_m, n_rep=n_rep, n_folds=n_folds)
 
         # Set globally
         params = list("num.trees"=10)
-        dml_plr_obj$set_ml_nuisance_params("ml_g", "d", params=params)
+        dml_plr_obj$set_ml_nuisance_params("ml_l", "d", params=params)
         dml_plr_obj$set_ml_nuisance_params("ml_m", "d", params=params)
         dml_plr_obj$learner
         dml_plr_obj$params
@@ -312,13 +312,13 @@ The following example illustrates how to set parameters for each fold.
     .. jupyter-execute::
 
         learner = lrn("regr.ranger")
-        ml_g = learner$clone()
+        ml_l = learner$clone()
         ml_m = learner$clone()
-        dml_plr_obj = DoubleMLPLR$new(obj_dml_data, ml_g, ml_m, n_rep=n_rep, n_folds=n_folds)
+        dml_plr_obj = DoubleMLPLR$new(obj_dml_data, ml_l, ml_m, n_rep=n_rep, n_folds=n_folds)
 
         # Set values for each fold
         params_exact = rep(list(rep(list(params), n_folds)), n_rep)
-        dml_plr_obj$set_ml_nuisance_params("ml_g", "d", params=params_exact,
+        dml_plr_obj$set_ml_nuisance_params("ml_l", "d", params=params_exact,
                                              set_fold_specific=TRUE)
         dml_plr_obj$set_ml_nuisance_params("ml_m", "d", params=params_exact,
                                              set_fold_specific=TRUE)
@@ -390,7 +390,7 @@ Hyperparameter tuning
 Parameter tuning of learners for the nuisance functions of :ref:`DoubleML <doubleml_package>` models can be done via the ``tune()`` method.
 The ``tune()`` method passes various options and parameters to the tuning interface provided by the
 `mlr3tuning <https://mlr3tuning.mlr-org.com/>`_ package. The `mlr3 book <https://mlr3book.mlr-org.com/>`_ provides a
-`step-by-step introduction to parameter tuning <https://mlr3book.mlr-org.com/optimization.html>`_.
+`step-by-step introduction to parameter tuning <https://mlr3book.mlr-org.com/04-optimization.html>`_.
 
 To illustrate the parameter tuning, we generate data from a sparse partially linear regression model.
 
@@ -421,7 +421,7 @@ The entries in the list specify options during parameter tuning with `mlr3tuning
       Alternatively, ``algorithm`` can be a ``character()`` that is used as an argument in the wrapper
       `mlr3tuning <https://mlr3tuning.mlr-org.com/>`_ call
       `tnr(algorithm) <https://mlr3tuning.mlr-org.com/reference/tnr.html>`_.
-      `The corresponding chapter in the mlr3book <https://mlr3book.mlr-org.com/optimization.html#tuning-algorithms>`_ illustrates
+      `The corresponding chapter in the mlr3book <https://mlr3book.mlr-org.com/04-optimization-tuning.html>`_ illustrates
       how the `Tuner <https://mlr3tuning.mlr-org.com/reference/Tuner.html>`_ class supports grid search, random search,
       generalized simulated annealing and non-linear optimization.
     * ``rsmp_tune`` is an object of class `mlr3 resampling <https://mlr3.mlr-org.com/reference/Resampling.html>`_
@@ -462,11 +462,11 @@ for tuning, each of the two folds would be split up into 5 subfolds and the erro
         lgr::get_logger("bbotk")$set_threshold("warn")
 
         set.seed(1234)
-        ml_g = lrn("regr.glmnet")
+        ml_l = lrn("regr.glmnet")
         ml_m = lrn("regr.glmnet")
-        dml_plr_obj = DoubleMLPLR$new(dml_data, ml_g, ml_m)
+        dml_plr_obj = DoubleMLPLR$new(dml_data, ml_l, ml_m)
 
-        par_grids = list("ml_g" = ParamSet$new(list(
+        par_grids = list("ml_l" = ParamSet$new(list(
                                           ParamDbl$new("lambda", lower = 0.05, upper = 0.1))),
                          "ml_m" =  ParamSet$new(list(
                                           ParamDbl$new("lambda", lower = 0.05, upper = 0.1))))
@@ -474,7 +474,7 @@ for tuning, each of the two folds would be split up into 5 subfolds and the erro
         tune_settings = list(terminator = trm("evals", n_evals = 100),
                               algorithm = tnr("grid_search", resolution = 10),
                               rsmp_tune = rsmp("cv", folds = 5),
-                              measure = list("ml_g" = msr("regr.mse"),
+                              measure = list("ml_l" = msr("regr.mse"),
                                              "ml_m" = msr("regr.mse")))
         dml_plr_obj$tune(param_set=par_grids, tune_settings=tune_settings, tune_on_fold=TRUE)
         dml_plr_obj$params
@@ -503,9 +503,9 @@ external parameter tuning of the nuisance parts. The optimally chosen parameters
         lgr::get_logger("bbotk")$set_threshold("warn")
 
         set.seed(1234)
-        ml_g = lrn("regr.cv_glmnet", s="lambda.min")
+        ml_l = lrn("regr.cv_glmnet", s="lambda.min")
         ml_m = lrn("regr.cv_glmnet", s="lambda.min")
-        dml_plr_obj = DoubleMLPLR$new(dml_data, ml_g, ml_m)
+        dml_plr_obj = DoubleMLPLR$new(dml_data, ml_l, ml_m)
 
         dml_plr_obj$fit()
         dml_plr_obj$summary()
@@ -530,15 +530,15 @@ parameters ``mtry`` and ``max.depth`` of a random forest. Evaluation is based on
 
         # set up a mlr3 learner
         learner = lrn("regr.ranger")
-        ml_g = learner$clone()
+        ml_l = learner$clone()
         ml_m = learner$clone()
 
         set.seed(3141)
         obj_dml_data = make_plr_CCDDHNR2018(alpha=0.5)
-        dml_plr_obj = DoubleMLPLR$new(obj_dml_data, ml_g, ml_m)
+        dml_plr_obj = DoubleMLPLR$new(obj_dml_data, ml_l, ml_m)
 
         # set up a list of parameter grids
-        param_grid = list("ml_g" = ParamSet$new(list(
+        param_grid = list("ml_l" = ParamSet$new(list(
                                           ParamInt$new("mtry", lower = 2 , upper = 20),
                                           ParamInt$new("max.depth", lower = 2, upper = 5))),
                           "ml_m" = ParamSet$new(list(
@@ -547,7 +547,7 @@ parameters ``mtry`` and ``max.depth`` of a random forest. Evaluation is based on
         tune_settings = list(terminator = mlr3tuning::trm("evals", n_evals = 20),
                               algorithm = tnr("random_search"),
                               rsmp_tune = rsmp("cv", folds = 3),
-                              measure = list("ml_g" = msr("regr.mse"),
+                              measure = list("ml_l" = msr("regr.mse"),
                                              "ml_m" = msr("regr.mse")))
         dml_plr_obj$tune(param_set=param_grid, tune_settings=tune_settings, tune_on_folds=FALSE)
         dml_plr_obj$params
@@ -607,7 +607,7 @@ refer to more details provided in the `Pipelines Chapter in the mlr3book <https:
 References
 ++++++++++
 
-* Lang, M., Binder, M., Richter, J., Schratz, P., Pfisterer, F., Coors, S., Au, Q., Casalicchio, G., Kotthoff, L., Bischl, B. (2019), mlr3: A modern object-oriented machine learing framework in R. Journal of Open Source Software, `doi:10.21105/joss.01903 <(doi:10.21105/joss.01903)[10.21105/joss.01903]>`_.
+* Lang, M., Binder, M., Richter, J., Schratz, P., Pfisterer, F., Coors, S., Au, Q., Casalicchio, G., Kotthoff, L., Bischl, B. (2019), mlr3: A modern object-oriented machine learing framework in R. Journal of Open Source Software, `doi:10.21105/joss.01903 <https://doi.org/10.21105/joss.01903>`_.
 
 * Becker, M., Binder, M., Bischl, B., Lang, M., Pfisterer, F., Reich, N.G., Richter, J., Schratz, P., Sonabend, R. (2020), mlr3 book, available at `https://mlr3book.mlr-org.com <https://mlr3book.mlr-org.com>`_.
 

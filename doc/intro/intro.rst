@@ -138,11 +138,11 @@ For details on the specification of learners and their hyperparameters we refer 
         from sklearn.linear_model import LassoCV
 
         learner = RandomForestRegressor(n_estimators = 500, max_features = 'sqrt', max_depth= 5)
-        ml_g_bonus = clone(learner)
+        ml_l_bonus = clone(learner)
         ml_m_bonus = clone(learner)
 
         learner = LassoCV()
-        ml_g_sim = clone(learner)
+        ml_l_sim = clone(learner)
         ml_m_sim = clone(learner)
 
 .. tabbed:: R
@@ -155,11 +155,11 @@ For details on the specification of learners and their hyperparameters we refer 
         lgr::get_logger("mlr3")$set_threshold("warn")
 
         learner = lrn("regr.ranger", num.trees=500, mtry=floor(sqrt(n_vars)), max.depth=5, min.node.size=2)
-        ml_g_bonus = learner$clone()
+        ml_l_bonus = learner$clone()
         ml_m_bonus = learner$clone()
 
         learner = lrn("regr.cv_glmnet", s="lambda.min")
-        ml_g_sim = learner$clone()
+        ml_l_sim = learner$clone()
         ml_m_sim = learner$clone()
 
 
@@ -194,11 +194,11 @@ statistical inference like ``bootstrap()``, ``confint()`` and ``p_adjust()``, fo
 
         from doubleml import DoubleMLPLR
         np.random.seed(3141)
-        obj_dml_plr_bonus = DoubleMLPLR(dml_data_bonus, ml_g_bonus, ml_m_bonus)
+        obj_dml_plr_bonus = DoubleMLPLR(dml_data_bonus, ml_l_bonus, ml_m_bonus)
         obj_dml_plr_bonus.fit();
         print(obj_dml_plr_bonus)
 
-        obj_dml_plr_sim = DoubleMLPLR(dml_data_sim, ml_g_sim, ml_m_sim)
+        obj_dml_plr_sim = DoubleMLPLR(dml_data_sim, ml_l_sim, ml_m_sim)
         obj_dml_plr_sim.fit();
         print(obj_dml_plr_sim)
 
@@ -207,17 +207,17 @@ statistical inference like ``bootstrap()``, ``confint()`` and ``p_adjust()``, fo
     .. jupyter-execute::
 
         set.seed(3141)
-        obj_dml_plr_bonus = DoubleMLPLR$new(dml_data_bonus, ml_g=ml_g_bonus, ml_m=ml_m_bonus)
+        obj_dml_plr_bonus = DoubleMLPLR$new(dml_data_bonus, ml_l=ml_l_bonus, ml_m=ml_m_bonus)
         obj_dml_plr_bonus$fit()
         print(obj_dml_plr_bonus)
 
-        obj_dml_plr_sim = DoubleMLPLR$new(dml_data_sim, ml_g=ml_g_sim, ml_m=ml_m_sim)
+        obj_dml_plr_sim = DoubleMLPLR$new(dml_data_sim, ml_l=ml_l_sim, ml_m=ml_m_sim)
         obj_dml_plr_sim$fit()
         print(obj_dml_plr_sim)
 
 References
 ++++++++++
 
-* Lang, M., Binder, M., Richter, J., Schratz, P., Pfisterer, F., Coors, S., Au, Q., Casalicchio, G., Kotthoff, L., Bischl, B. (2019), mlr3: A modern object-oriented machine learing framework in R. Journal of Open Source Software, `doi:10.21105/joss.01903 <(doi:10.21105/joss.01903)[10.21105/joss.01903]>`_.
+* Lang, M., Binder, M., Richter, J., Schratz, P., Pfisterer, F., Coors, S., Au, Q., Casalicchio, G., Kotthoff, L., Bischl, B. (2019), mlr3: A modern object-oriented machine learing framework in R. Journal of Open Source Software, `doi:10.21105/joss.01903 <https://doi.org/10.21105/joss.01903>`_.
 * Pedregosa, F., Varoquaux, G., Gramfort, A., Michel, V., Thirion, B., Grisel, O., Blondel, M., Prettenhofer, P., Weiss, R., Dubourg, V., Vanderplas, J., Passos, A., Cournapeau, D., Brucher, M., Perrot, M. and Duchesnay, E. (2011), Scikit-learn: Machine Learning in Python. Journal of Machine Learning Research, 12: 2825--2830, `https://jmlr.csail.mit.edu/papers/v12/pedregosa11a.html <https://jmlr.csail.mit.edu/papers/v12/pedregosa11a.html>`_.
 
