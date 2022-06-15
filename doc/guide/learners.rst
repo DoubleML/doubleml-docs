@@ -335,7 +335,7 @@ Users can also specify learners that have been constructed from a pipeline using
 package. In general, pipelines can be used to perform data preprocessing, feature selection, combine learners and even
 to perform hyperparameter tuning. In the following, we provide two examples on how to construct a single learner and how
 to stack different learners via a pipeline. For a more detailed introduction to `mlr3pipelines <https://mlr3pipelines.mlr-org.com/>`_,
-we refer to the `Pipelines Chapter in the mlr3book <https://mlr3book.mlr-org.com/pipelines.html>`_. Moreover, a
+we refer to the `Pipelines Chapter in the mlr3book <https://mlr3book.mlr-org.com/05-pipelines.html>`_. Moreover, a
 notebook on how to use `mlr3pipelines <https://mlr3pipelines.mlr-org.com/>`_ in combination with :ref:`DoubleML <doubleml_package>`
 is available in the example gallery.
 
@@ -564,7 +564,7 @@ as provided by the `mlr3pipelines <https://mlr3pipelines.mlr-org.com/>`_ package
 define a learner via a pipeline and then perform the tuning via the ``tune()``. We will shortly repeat the lasso example
 from above. In general, the pipeline-based approach can be used to find optimal values not only for the parameters of
 one or multiple learners, but also for other parameters, which are, for example, involved in the data preprocessing. We
-refer to more details provided in the `Pipelines Chapter in the mlr3book <https://mlr3book.mlr-org.com/pipelines.html>`_.
+refer to more details provided in the `Pipelines Chapter in the mlr3book <https://mlr3book.mlr-org.com/05-pipelines.html>`_.
 
 .. tabbed:: R
 
