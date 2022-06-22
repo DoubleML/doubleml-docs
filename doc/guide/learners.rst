@@ -190,10 +190,14 @@ The minimum requirement for a learner to be used for nuisance models in the :ref
       `Learner <https://mlr3.mlr-org.com/reference/Learner.html>`_. A fast way to construct these objects is to use the
       `mlr3 <https://mlr3.mlr-org.com/>`_  function `lrn() <https://mlr3.mlr-org.com/reference/mlr_sugar.html>`_.
       An introduction to learners in `mlr3 <https://mlr3.mlr-org.com/>`_  is provided in the `chapter on learners of the mlr3 book <https://mlr3book.mlr-org.com/02-basics-learners.html>`_.
+    * It is also possible to pass learners that have been constructed from a pipeline with the `mlr3pipelines <https://mlr3pipelines.mlr-org.com/>`_
+      package.
     * The models `DoubleML::DoubleMLIRM <https://docs.doubleml.org/r/stable/reference/DoubleMLIRM.html>`_ and
       `DoubleML::DoubleMLIIVM <https://docs.doubleml.org/r/stable/reference/DoubleMLIIVM.html>`_ require classifiers.
-    * Hyperparameters of learners can either be set at instantiation in mlr3 or after instantiation using the
-      ``set_ml_nuisance_params()`` method.
+      Users can also specify classifiers in the `DoubleML::DoubleMLPLR <https://docs.doubleml.org/r/stable/reference/DoubleMLPLR.html>`_
+      in cases with binary treatment variables.
+    * Hyperparameters of learners can either be set at instantiation in `mlr3 <https://mlr3.mlr-org.com/>`_ or after
+      instantiation using the ``set_ml_nuisance_params()`` method.
 
 
 An interactive list of provided learners in the `mlr3 <https://mlr3.mlr-org.com/>`_ and extension packages can be found on the
@@ -323,6 +327,61 @@ The following example illustrates how to set parameters for each fold.
         dml_plr_obj$fit()
         dml_plr_obj$summary()
 
+
+Using pipelines to construct learners
+#####################################
+
+Users can also specify learners that have been constructed from a pipeline using the `mlr3pipelines <https://mlr3pipelines.mlr-org.com/>`_
+package. In general, pipelines can be used to perform data preprocessing, feature selection, combine learners and even
+to perform hyperparameter tuning. In the following, we provide two examples on how to construct a single learner and how
+to stack different learners via a pipeline. For a more detailed introduction to `mlr3pipelines <https://mlr3pipelines.mlr-org.com/>`_,
+we refer to the `Pipelines Chapter in the mlr3book <https://mlr3book.mlr-org.com/05-pipelines.html>`_. Moreover, a
+notebook on how to use `mlr3pipelines <https://mlr3pipelines.mlr-org.com/>`_ in combination with :ref:`DoubleML <doubleml_package>`
+is available in the example gallery.
+
+.. tabbed:: R
+
+    .. jupyter-execute::
+
+        library(mlr3pipelines)
+
+        set.seed(3141)
+        # Define random forest learner in a pipeline
+        single_learner_pipeline = po("learner", lrn("regr.ranger", num.trees = 10))
+
+        # Use pipeline to create a new instance of a learner
+        ml_g = as_learner(single_learner_pipeline)
+        ml_m = as_learner(single_learner_pipeline)
+
+        obj_dml_data = DoubleMLData$new(data, y_col="y", d_cols="d")
+
+        n_rep = 2
+        n_folds = 3
+        dml_plr_obj = DoubleMLPLR$new(obj_dml_data, ml_g, ml_m, n_rep=n_rep, n_folds=n_folds)
+        dml_plr_obj$learner
+        dml_plr_obj$fit()
+        dml_plr_obj$summary()
+
+        set.seed(3141)
+        # Define ensemble learner in a pipeline
+        ensemble_learner_pipeline = gunion(list(
+                po("learner", lrn("regr.cv_glmnet", s = "lambda.min")),
+                po("learner", lrn("regr.ranger")),
+                po("learner", lrn("regr.rpart", cp = 0.01)))) %>>%
+            po("regravg", 3)
+
+        # Use pipeline to create a new instance of a learner
+        ml_g = as_learner(ensemble_learner_pipeline)
+        ml_m = as_learner(ensemble_learner_pipeline)
+
+        obj_dml_data = DoubleMLData$new(data, y_col="y", d_cols="d")
+
+        n_rep = 2
+        n_folds = 3
+        dml_plr_obj = DoubleMLPLR$new(obj_dml_data, ml_g, ml_m, n_rep=n_rep, n_folds=n_folds)
+        dml_plr_obj$learner
+        dml_plr_obj$fit()
+        dml_plr_obj$summary()
 
 
 Hyperparameter tuning
@@ -493,6 +552,53 @@ parameters ``mtry`` and ``max.depth`` of a random forest. Evaluation is based on
         dml_plr_obj$tune(param_set=param_grid, tune_settings=tune_settings, tune_on_folds=FALSE)
         dml_plr_obj$params
 
+        dml_plr_obj$fit()
+        dml_plr_obj$summary()
+
+
+Hyperparameter tuning with pipelines
+####################################
+
+As an alternative to the previously presented tuning approach, it is possible to base the parameter tuning on a pipeline
+as provided by the `mlr3pipelines <https://mlr3pipelines.mlr-org.com/>`_ package. The basic idea of this approach is to
+define a learner via a pipeline and then perform the tuning via the ``tune()``. We will shortly repeat the lasso example
+from above. In general, the pipeline-based approach can be used to find optimal values not only for the parameters of
+one or multiple learners, but also for other parameters, which are, for example, involved in the data preprocessing. We
+refer to more details provided in the `Pipelines Chapter in the mlr3book <https://mlr3book.mlr-org.com/05-pipelines.html>`_.
+
+.. tabbed:: R
+
+    .. jupyter-execute::
+
+        library(DoubleML)
+        library(mlr3)
+        library(mlr3tuning)
+        library(mlr3pipelines)
+        lgr::get_logger("mlr3")$set_threshold("warn")
+        lgr::get_logger("bbotk")$set_threshold("warn")
+
+        # Define learner in a pipeline
+        set.seed(1234)
+        lasso_pipe = po("learner",
+            learner = lrn("regr.glmnet"))
+        ml_g = as_learner(lasso_pipe)
+        ml_m = as_learner(lasso_pipe)
+
+        # Instantiate a DoubleML object
+        dml_plr_obj = DoubleMLPLR$new(dml_data, ml_g, ml_m)
+
+        # Parameter grid for lambda
+        par_grids = ps(regr.glmnet.lambda = p_dbl(lower = 0.05, upper = 0.1))
+
+        tune_settings = list(terminator = trm("evals", n_evals = 100),
+                             algorithm = tnr("grid_search", resolution = 10),
+                             rsmp_tune = rsmp("cv", folds = 5),
+                             measure = list("ml_g" = msr("regr.mse"),
+                                            "ml_m" = msr("regr.mse")))
+        dml_plr_obj$tune(param_set = list("ml_g" = par_grids,
+                                          "ml_m" = par_grids),
+                                          tune_settings=tune_settings,
+                                          tune_on_fold=TRUE)
         dml_plr_obj$fit()
         dml_plr_obj$summary()
 
