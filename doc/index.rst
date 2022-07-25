@@ -215,7 +215,7 @@ Bibtex-entries:
       number  = {53},
       pages   = {1--6},
       url     = {http://jmlr.org/papers/v23/21-0862.html}
-}
+    }
 
 .. code-block:: TeX
 
