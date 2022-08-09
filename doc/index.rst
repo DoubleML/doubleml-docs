@@ -18,16 +18,30 @@ The Python package is built on top of `scikit-learn <https://scikit-learn.org/>`
 and the R package on top of `mlr3 <https://mlr3.mlr-org.com/>`_ and the `mlr3
 ecosystem <https://github.com/mlr-org/mlr3/wiki/Extension-Packages>`_ (Lang et al., 2019).
 
+.. raw:: html
+
+    <script type="text/javascript">
+        // Change icons to light or dark mode icons when theme-switch occures
+        var panel_icons = document.getElementsByClassName('panel-icon');
+        var observer = new MutationObserver(function(mutations) {
+            const dark = document.documentElement.dataset.theme == 'dark';
+            for (let i = 0; i < panel_icons.length; i++) {
+                var filename = panel_icons[i].src.split('/').slice(-1)[0].split('_')[1];
+                panel_icons[i].src = dark ? '_static/dark_' + filename : '_static/light_' + filename;
+            }
+        });
+    observer.observe(document.documentElement, {attributes: true, attributeFilter: ['data-theme']});
+  </script>
 
 .. panels::
     :column: col-lg-4 col-md-4 col-sm-6 col-xs-12 p-2
     :card: text-center
-    :img-top-cls: pl-5 pr-5 pt-5 pb-5
+    :img-top-cls: pl-5 pr-5 pt-5 pb-5 panel-icon
     :header: font-weight-bold border-0 h4
     :footer: border-0
 
     ---
-    :img-top: _static/gettingstarted.png
+    :img-top: _static/light_gettingstarted.png
 
     Getting started
     ^^^^^^^^^^^^^^^
@@ -42,7 +56,7 @@ ecosystem <https://github.com/mlr-org/mlr3/wiki/Extension-Packages>`_ (Lang et a
         :classes: btn-block btn-dark stretched-link btn-sm
 
     ---
-    :img-top: _static/userguide.png
+    :img-top: _static/light_userguide.png
 
     User guide
     ^^^^^^^^^^
@@ -57,7 +71,7 @@ ecosystem <https://github.com/mlr-org/mlr3/wiki/Extension-Packages>`_ (Lang et a
         :classes: btn-block btn-dark stretched-link btn-sm
 
     ---
-    :img-top: _static/workflow.png
+    :img-top: _static/light_workflow.png
 
     Workflow
     ^^^^^^^^^^^^^^^^^
@@ -72,7 +86,7 @@ ecosystem <https://github.com/mlr-org/mlr3/wiki/Extension-Packages>`_ (Lang et a
         :classes: btn-block btn-dark stretched-link btn-sm
 
     ---
-    :img-top: _static/pythonapi.png
+    :img-top: _static/light_pythonapi.png
 
     Python API
     ^^^^^^^^^^
@@ -87,7 +101,7 @@ ecosystem <https://github.com/mlr-org/mlr3/wiki/Extension-Packages>`_ (Lang et a
         :classes: btn-block btn-dark stretched-link btn-sm
 
     ---
-    :img-top: _static/rapi.png
+    :img-top: _static/light_rapi.png
 
     R API
     ^^^^^
@@ -102,7 +116,7 @@ ecosystem <https://github.com/mlr-org/mlr3/wiki/Extension-Packages>`_ (Lang et a
         :classes: btn-block btn-dark stretched-link btn-sm
 
     ---
-    :img-top: _static/examplegallery.png
+    :img-top: _static/light_examplegallery.png
 
     Example gallery
     ^^^^^^^^^^^^^^^
