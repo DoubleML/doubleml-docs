@@ -256,8 +256,7 @@
   });
   resizeAllGridItems();
 </script>
-<script>
-  console.log("test");
+<script defer>
   var observer = new MutationObserver(function (mutations) {
     const dark = document.documentElement.dataset.theme == "dark";
     var toc_wrapper = document.getElementsByClassName("toctree-wrapper")[0];
