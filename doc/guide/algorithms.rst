@@ -59,6 +59,13 @@ The algorithm ``dml_procedure='dml2'`` can be summarized as
 
 4. **Outputs:** The estimate of the causal parameter :math:`\tilde{\theta}_0` as well as the values of the evaluate score function are returned.
 
+.. raw:: html
+
+    <p align="center">
+        <iframe width="400" height="300" src="https://www.youtube.com/embed/BMAr27rp4uA" title="Cross-Fitting Animation" frameborder="0" allowfullscreen></iframe>
+    </p>
+    
+
 Implementation of the double machine learning algorithms
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
