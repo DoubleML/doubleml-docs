@@ -21,7 +21,7 @@ User guide
 
 
 .. raw:: html
-
+   
    <style>
   /* Border radius parameter */
   :root {
@@ -296,4 +296,5 @@ User guide
       attributes: true,
       attributeFilter: ["data-theme"],
    });
+   setTimeout(function () {resizeAllGridItems();}, 500);
    </script>
