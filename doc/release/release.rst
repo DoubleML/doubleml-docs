@@ -153,6 +153,13 @@ Release notes
 
 .. tabbed:: R
 
+    **DoubleML 0.1.0**
+
+    - Fix a CRAN issue (html checks) by regenerating ``.Rd``-files with the newest version of ``roxygen2``.
+      `#166 <https://github.com/DoubleML/doubleml-for-r/issues/166>`_
+      `#167 <https://github.com/DoubleML/doubleml-for-r/pull/167>`_
+      `#168 <https://github.com/DoubleML/doubleml-for-r/pull/168>`_
+
     **DoubleML 0.5.0**
 
     - Implement a new score function ``score = 'IV-type'`` for the PLIV model (for details see
