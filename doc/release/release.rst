@@ -153,7 +153,7 @@ Release notes
 
 .. tabbed:: R
 
-    **DoubleML 0.1.0**
+    **DoubleML 0.5.1**
 
     - Fix a CRAN issue (html checks) by regenerating ``.Rd``-files with the newest version of ``roxygen2``.
       `#166 <https://github.com/DoubleML/doubleml-for-r/issues/166>`_
