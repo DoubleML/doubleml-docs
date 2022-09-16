@@ -21,12 +21,8 @@ and that obey the **Neyman orthogonality condition**
 
     \partial_{\eta} \mathbb{E}[ \psi(W; \theta_0, \eta)] \bigg|_{\eta=\eta_0} = 0.
 
-An integral component for the object-oriented (OOP) implementation of
-``DoubleMLPLR``,
-``DoubleMLPLIV``,
-``DoubleMLIRM``,
-and ``DoubleMLIIVM``
-is the linearity of the score function in the parameter :math:`\theta`
+The score functions of many double machine learning models (PLR, PLIV, IRM, IIVM) are linear in the parameter
+:math:`\theta`, i.e.,
 
 .. math::
 
@@ -43,7 +39,14 @@ general way.
 The methods and algorithms to estimate the causal parameters, to estimate their standard errors, to perform a multiplier
 bootstrap, to obtain confidence intervals and many more are implemented in the abstract base class ``DoubleML``.
 The object-oriented architecture therefore allows for easy extension to new model classes for double machine learning.
-This is doable with very minor effort whenever the linearity of the score function is satisfied.
+This is doable with very minor effort.
+
+If the linearity of the score function is not satisfied, the computations are more involved.
+In the Python package ``DoubleML``, the functionality around the score functions is implemented in mixin classes called
+``LinearScoreMixin`` and ``NonLinearScoreMixin``.
+The R package currently only comes with an implementation for linear score functions.
+In case of a non-linear score function, the parameter estimate :math:`\tilde{\theta}_0` is obtained via numerical root
+search of the empirical analog of the moment condition :math:`\mathbb{E}[ \psi(W; \theta_0, \eta_0)] = 0`.
 
 Implementation of the score function and the estimate of the causal parameter
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -106,7 +109,8 @@ stores the estimate :math:`\tilde{\theta}_0` in its ``coef`` attribute.
         print(dml_plr_obj$coef)
 
 The values of the score function components :math:`\psi_a(W_i; \hat{\eta}_0)` and :math:`\psi_b(W_i; \hat{\eta}_0)`
-are stored in the attributes ``psi_a`` and ``psi_b``.
+are stored in the attributes ``psi_elements['psi_a']`` and ``psi_elements['psi_b']`` (Python package ``DoubleML``)
+and ``psi_a`` and ``psi_b`` (R package ``DoubleML``).
 In the attribute ``psi`` the values of the score function :math:`\psi(W_i; \tilde{\theta}_0, \hat{\eta}_0)` are stored.
 
 .. tabbed:: Python
