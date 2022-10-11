@@ -149,6 +149,16 @@ ecosystem <https://github.com/mlr-org/mlr3/wiki/Extension-Packages>`_ (Lang et a
     Literature <literature/literature>
     Release notes <release/release>
 
+Double Machine Learning Algorithm
+---------------------------------
+
+.. raw:: html
+
+    <p align="center">
+        <iframe width="500" height="400" src="https://www.youtube.com/embed/BMAr27rp4uA" title="Cross-Fitting Animation" frameborder="0" allowfullscreen></iframe>
+    </p>
+
+
 Main Features
 -------------
 
