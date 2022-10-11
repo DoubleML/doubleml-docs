@@ -87,8 +87,7 @@ html_sidebars = {'**': ['logo.html',
                                        'sidebar-doubleml-workflow.html'],
                  'guide/guide': ['logo.html',
                                  'search-field.html',
-                                 'sidebar-nav-bs.html',
-                                 'toc-doubleml-guide.html']}
+                                 'sidebar-nav-bs.html']}
 
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,
