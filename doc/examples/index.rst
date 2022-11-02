@@ -25,6 +25,8 @@ These are case studies with the Python package :ref:`DoubleML <doubleml_package>
 
     py_double_ml_pension.ipynb
     py_double_ml_multiway_cluster.ipynb
+    py_double_ml_gate.ipynb
+    py_double_ml_cate.ipynb
 
 |start-h3| Sandbox |end-h3|
 
