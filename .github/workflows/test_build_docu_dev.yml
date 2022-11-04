@@ -5,20 +5,20 @@ name: Test Docu Build (with dev pkgs)
 on:
   push:
     branches:
-      - master
+      - main
   pull_request:
     branches:
-      - master
+      - main
   workflow_dispatch:
     inputs:
       doubleml-py-branch:
         description: 'Branch in https://github.com/DoubleML/doubleml-for-py'
         required: true
-        default: 'master'
+        default: 'main'
       doubleml-r-branch:
         description: 'Branch in https://github.com/DoubleML/doubleml-for-r'
         required: true
-        default: 'master'
+        default: 'main'
   schedule:
     - cron: "0 9 * * 1,3,5"
 
