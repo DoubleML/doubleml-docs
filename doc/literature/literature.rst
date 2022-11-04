@@ -185,7 +185,7 @@ Double machine learning literature
     **Want to add or update a reference in the literature overview?**
     ^^^
 
-    .. link-button:: https://github.com/DoubleML/doubleml-docs/edit/master/doc/literature/literature.rst
+    .. link-button:: https://github.com/DoubleML/doubleml-docs/edit/main/doc/literature/literature.rst
         :text: Edit this file to propose a change or addition
         :classes: btn-block btn-dark btn-sm edit-button
 
