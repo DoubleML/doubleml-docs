@@ -128,7 +128,7 @@
     margin: auto;
   }
 </style>
-<script>
+<script defer>
   // resizes grid item for masonry grid structure
   function resizeGridItem(item) {
     grid = document.querySelector("div.toctree-wrapper ul");
@@ -254,9 +254,9 @@
     window.onload = resizeAllGridItems();
     window.addEventListener("resize", resizeAllGridItems);
   });
+  resizeAllGridItems();
 </script>
-<script>
-  console.log("test");
+<script defer>
   var observer = new MutationObserver(function (mutations) {
     const dark = document.documentElement.dataset.theme == "dark";
     var toc_wrapper = document.getElementsByClassName("toctree-wrapper")[0];

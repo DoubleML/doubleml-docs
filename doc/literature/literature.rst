@@ -18,7 +18,6 @@ Double machine learning literature
 
     .. dropdown:: Software for double machine learning
         :title: bg-primary text-white text-center font-weight-bold reference-dropdown
-        :body: bg-light text-left
 
         - Philipp Bach, Victor Chernozhukov, Malte S. Kurz, Martin Spindler |br|
           **DoubleML -- An Object-Oriented Implementation of Double Machine Learning in Python** |br|
@@ -90,7 +89,6 @@ Double machine learning literature
 
     .. dropdown:: Double machine learning models and methodological extensions
         :title: bg-primary text-white text-center font-weight-bold reference-dropdown
-        :body: bg-light text-left
 
         - Neng-Chieh Chang |br|
           **Double/debiased machine learning for difference-in-differences models** |br|
@@ -187,7 +185,7 @@ Double machine learning literature
     **Want to add or update a reference in the literature overview?**
     ^^^
 
-    .. link-button:: https://github.com/DoubleML/doubleml-docs/edit/master/doc/literature/literature.rst
+    .. link-button:: https://github.com/DoubleML/doubleml-docs/edit/main/doc/literature/literature.rst
         :text: Edit this file to propose a change or addition
         :classes: btn-block btn-dark btn-sm edit-button
 

@@ -149,6 +149,16 @@ ecosystem <https://github.com/mlr-org/mlr3/wiki/Extension-Packages>`_ (Lang et a
     Literature <literature/literature>
     Release notes <release/release>
 
+Double Machine Learning Algorithm
+---------------------------------
+
+.. raw:: html
+
+    <p align="center">
+        <iframe width="500" height="400" src="https://www.youtube.com/embed/BMAr27rp4uA" title="Cross-Fitting Animation" frameborder="0" allowfullscreen></iframe>
+    </p>
+
+
 Main Features
 -------------
 
@@ -243,8 +253,23 @@ Bibtex-entries:
       note={arXiv:\href{https://arxiv.org/abs/2103.09603}{2103.09603} [stat.ML]}
     }
 
+Acknowledgements
+----------------
+
+Funding by the Deutsche Forschungsgemeinschaft (DFG, German Research
+Foundation) is acknowledged – Project Number 431701914.
+
 References
 ----------
+
+Bach, P., Chernozhukov, V., Kurz, M. S., and Spindler, M. (2022), DoubleML - An
+Object-Oriented Implementation of Double Machine Learning in Python,
+Journal of Machine Learning Research, 23(53): 1-6,
+`https://www.jmlr.org/papers/v23/21-0862.html  <https://www.jmlr.org/papers/v23/21-0862.html>`_.
+
+Bach, P., Chernozhukov, V., Kurz, M. S., and Spindler, M. (2021),
+DoubleML - An Object-Oriented Implementation of Double Machine Learning in R,
+arXiv:`2103.09603 <https://arxiv.org/abs/2103.09603>`_.
 
 Chernozhukov, V., Chetverikov, D., Demirer, M., Duflo, E., Hansen, C., Newey, W. and Robins, J. (2018),
 Double/debiased machine learning for treatment and structural parameters. The Econometrics Journal, 21: C1-C68, doi:`10.1111/ectj.12097 <https://doi.org/10.1111/ectj.12097>`_.
