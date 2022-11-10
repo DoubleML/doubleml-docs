@@ -166,6 +166,16 @@ Release notes
 
 .. tabbed:: R
 
+    **DoubleML 0.5.2**
+
+    - Store estimated models for nuisance parameters
+      `#169 <https://github.com/DoubleML/doubleml-for-r/pull/169>`_
+    - Maintenance
+      `#170 <https://github.com/DoubleML/doubleml-for-r/pull/170>`_
+      `#173 <https://github.com/DoubleML/doubleml-for-r/pull/173>`_
+      `#174 <https://github.com/DoubleML/doubleml-for-r/pull/174>`_
+
+
     **DoubleML 0.5.1**
 
     - Fix a CRAN issue (html checks) by regenerating ``.Rd``-files with the newest version of ``roxygen2``.
