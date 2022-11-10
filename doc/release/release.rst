@@ -5,6 +5,19 @@ Release notes
 
 .. tabbed:: Python
 
+    **DoubleML 0.5.1**
+
+    - Store estimated models for nuisance parameters
+      `#159 <https://github.com/DoubleML/doubleml-for-py/pull/159>`_
+    - Bug fix: Overwrite for tune method (introduced for depreciation warning) did not return the tune result
+      `#160 <https://github.com/DoubleML/doubleml-for-py/pull/160>`_
+      `#162 <https://github.com/DoubleML/doubleml-for-py/issues/162>`_
+    - Maintenance
+      `#166 <https://github.com/DoubleML/doubleml-for-py/pull/166>`_
+      `#167 <https://github.com/DoubleML/doubleml-for-py/pull/167>`_
+      `#168 <https://github.com/DoubleML/doubleml-for-py/pull/168>`_
+      `#170 <https://github.com/DoubleML/doubleml-for-py/pull/170>`_
+
     **DoubleML 0.5.0**
 
     - Implement a new score function ``score = 'IV-type'`` for the PLIV model (for details see
