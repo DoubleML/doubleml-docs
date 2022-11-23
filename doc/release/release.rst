@@ -180,6 +180,7 @@ Release notes
       `#173 <https://github.com/DoubleML/doubleml-for-r/pull/173>`_
       `#174 <https://github.com/DoubleML/doubleml-for-r/pull/174>`_
       `#177 <https://github.com/DoubleML/doubleml-for-r/pull/177>`_
+      `#178 <https://github.com/DoubleML/doubleml-for-r/pull/178>`_
 
 
     **DoubleML 0.5.1**
