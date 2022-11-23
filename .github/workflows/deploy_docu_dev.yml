@@ -18,10 +18,10 @@ jobs:
 
     steps:
     - name: Check out the repo containing the docu source
-      uses: actions/checkout@v2
+      uses: actions/checkout@v3
 
     - name: Check out the repo containing the python pkg DoubleML (dev)
-      uses: actions/checkout@v2
+      uses: actions/checkout@v3
       with:
         repository: DoubleML/doubleml-for-py
         path: doubleml-for-py
@@ -35,7 +35,7 @@ jobs:
       run: sudo apt-get install graphviz
 
     - name: Install python
-      uses: actions/setup-python@v2
+      uses: actions/setup-python@v4
       with:
         python-version: '3.8'
     - name: Install dependencies and the python package

@@ -13,7 +13,7 @@ jobs:
 
     steps:
     - name: Check out the repo containing the docu source
-      uses: actions/checkout@v2
+      uses: actions/checkout@v3
 
     - name: Install SSH Client for deploying the docu to github pages
       uses: webfactory/ssh-agent@v0.4.1
@@ -24,7 +24,7 @@ jobs:
       run: sudo apt-get install graphviz
 
     - name: Install python
-      uses: actions/setup-python@v2
+      uses: actions/setup-python@v4
       with:
         python-version: '3.8'
     - name: Install dependencies and the python package
