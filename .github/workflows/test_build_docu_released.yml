@@ -58,7 +58,7 @@ jobs:
       shell: Rscript {0}
 
     - name: Cache R packages
-      uses: actions/cache@v2
+      uses: actions/cache@v3
       with:
         path: ${{ env.R_LIBS_USER }}
         key: doubleml-test-build-stable-${{ hashFiles('.github/R-version') }}
@@ -80,7 +80,7 @@ jobs:
         make -C doc linkcheck
 
     - name: Upload html artifacts
-      uses: actions/upload-artifact@v2
+      uses: actions/upload-artifact@v3
       with:
         name: build_html
         path: doc/_build/html/

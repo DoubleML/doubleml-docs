@@ -15,11 +15,6 @@ jobs:
     - name: Check out the repo containing the docu source
       uses: actions/checkout@v3
 
-    - name: Install SSH Client for deploying the docu to github pages
-      uses: webfactory/ssh-agent@v0.4.1
-      with:
-        ssh-private-key: ${{ secrets.DEPLOY_KEY }}
-
     - name: Install graphviz
       run: sudo apt-get install graphviz
 
@@ -55,7 +50,7 @@ jobs:
       shell: Rscript {0}
 
     - name: Cache R packages
-      uses: actions/cache@v2
+      uses: actions/cache@v3
       with:
         path: ${{ env.R_LIBS_USER }}
         key: doubleml-user-guide-stable-${{ hashFiles('.github/R-version') }}
@@ -73,13 +68,13 @@ jobs:
         make -C doc html # build docu
 
     - name: Deploy to stable
-      uses: JamesIves/github-pages-deploy-action@3.7.1
+      uses: JamesIves/github-pages-deploy-action@v4
       with:
-        REPOSITORY_NAME: DoubleML/doubleml.github.io
-        BRANCH: main
-        FOLDER: doc/_build/html
-        TARGET_FOLDER: stable
-        GIT_CONFIG_NAME: DoubleML Deploy Bot
-        GIT_CONFIG_EMAIL: DoubleML@users.noreply.github.com
-        CLEAN: true
-        SSH: true
+        repository-name: DoubleML/doubleml.github.io
+        branch: main
+        folder: doc/_build/html
+        target-folder: stable
+        git-config-name: DoubleML Deploy Bot
+        git-config-email: DoubleML@users.noreply.github.com
+        clean: true
+        ssh-key: ${{ secrets.DEPLOY_KEY }}
