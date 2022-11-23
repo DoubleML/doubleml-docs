@@ -174,10 +174,12 @@ Release notes
 
     - Store estimated models for nuisance parameters
       `#169 <https://github.com/DoubleML/doubleml-for-r/pull/169>`_
+    - New maintainer of the CRAN package DoubleML `@PhilippBach <https://github.com/PhilippBach>`_
     - Maintenance
       `#170 <https://github.com/DoubleML/doubleml-for-r/pull/170>`_
       `#173 <https://github.com/DoubleML/doubleml-for-r/pull/173>`_
       `#174 <https://github.com/DoubleML/doubleml-for-r/pull/174>`_
+      `#177 <https://github.com/DoubleML/doubleml-for-r/pull/177>`_
 
 
     **DoubleML 0.5.1**
