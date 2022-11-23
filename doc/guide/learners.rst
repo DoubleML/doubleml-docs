@@ -420,7 +420,7 @@ The entries in the list specify options during parameter tuning with `mlr3tuning
       `Tuner <https://mlr3tuning.mlr-org.com/reference/Tuner.html>`_ and specifies the tuning algorithm.
       Alternatively, ``algorithm`` can be a ``character()`` that is used as an argument in the wrapper
       `mlr3tuning <https://mlr3tuning.mlr-org.com/>`_ call
-      `tnr(algorithm) <https://mlr3tuning.mlr-org.com/reference/mlr_sugar.html>`_.
+      `tnr(algorithm) <https://mlr3tuning.mlr-org.com/reference/tnr.html>`_.
       `The corresponding chapter in the mlr3book <https://mlr3book.mlr-org.com/optimization.html#sec-model-tuning>`_ illustrates
       how the `Tuner <https://mlr3tuning.mlr-org.com/reference/Tuner.html>`_ class supports grid search, random search,
       generalized simulated annealing and non-linear optimization.
