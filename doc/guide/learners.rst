@@ -182,7 +182,7 @@ Minimum requirements for learners
 The minimum requirement for a learner to be used for nuisance models in the :ref:`DoubleML <doubleml_package>` package is
 
     * The implementation as a learner for regression or classification in the `mlr3 <https://mlr3.mlr-org.com/>`_ package
-      or its extension packages `mlr3learners <https://mlr3learners.mlr-org.com/>`_ and
+      or its extension packages `mlr3learners <https://mlr-org.com/learners.html>`_ and
       `mlr3extralearners <https://mlr3extralearners.mlr-org.com/>`_ . A guide on how to add a learner is provided in the
       `chapter on extending learners in the mlr3 book <https://mlr3book.mlr-org.com/extending.html#sec-extending-learners>`_ .
     * The `mlr3 <https://mlr3.mlr-org.com/>`_ package makes sure that the learners satisfy some core functionalities.
