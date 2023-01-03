@@ -215,7 +215,7 @@ The learners are set during initialization of the :ref:`DoubleML <doubleml_packa
 and `DoubleML::DoubleMLIIVM <https://docs.doubleml.org/r/stable/reference/DoubleMLIIVM.html>`_.
 Lets simulate some data and consider the partially linear regression model.
 We need to specify learners for the nuisance functions :math:`g_0(X) = E[Y|X]` and :math:`m_0(X) = E[D|X]`,
-for example `LearnerRegrRanger <https://mlr3learners.mlr-org.com/reference/mlr_learners_regr.ranger.html>`_
+for example `LearnerRegrRanger <https://mlr-org.com/learners.html>`_
 (``lrn("regr.ranger")``) for regression with random forests based on the  `ranger <https://github.com/imbs-hl/ranger>`_
 package for R.
 
@@ -484,7 +484,7 @@ for tuning, each of the two folds would be split up into 5 subfolds and the erro
 
 
 Hyperparameter tuning can also be done with more sophisticated methods, for example by using built-in tuning
-paths of learners. For example, the learner `regr.cv_glmnet <https://mlr3learners.mlr-org.com/reference/mlr_learners_regr.cv_glmnet.html>`_
+paths of learners. For example, the learner `regr.cv_glmnet <https://mlr-org.com/learners.html>`_
 performs an internal cross-validated choice of the parameter ``lambda``.
 Alternatively, the powerful functionalities of the `mlr3tuning <https://mlr3tuning.mlr-org.com/>`_ package can be used for
 external parameter tuning of the nuisance parts. The optimally chosen parameters can then be passed to the
