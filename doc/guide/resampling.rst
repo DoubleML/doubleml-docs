@@ -161,8 +161,8 @@ The third dimension refers to the treatment variable and becomes non-singleton i
     .. ipython:: python
 
         dml_plr_obj.fit();
-        print(dml_plr_obj.psi_a[:5, :, 0])
-        print(dml_plr_obj.psi_b[:5, :, 0])
+        print(dml_plr_obj.psi_elements['psi_a'][:5, :, 0])
+        print(dml_plr_obj.psi_elements['psi_b'][:5, :, 0])
 
 .. tabbed:: R
 
