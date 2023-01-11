@@ -110,8 +110,8 @@ stored in the attributes ``psi_a`` and ``psi_b``.
     .. ipython:: python
 
         dml_plr_obj.fit();
-        print(dml_plr_obj.psi_a[:5])
-        print(dml_plr_obj.psi_b[:5])
+        print(dml_plr_obj.psi_elements['psi_a'][:5])
+        print(dml_plr_obj.psi_elements['psi_b'][:5])
 
 .. tabbed:: R
 
