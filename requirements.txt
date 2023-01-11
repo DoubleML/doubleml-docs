@@ -5,7 +5,7 @@ pytest
 rpy2
 
 # doc
-sphinx
+sphinx==4.5.0
 sphinx-copybutton
 nbsphinx
 sphinx-gallery
