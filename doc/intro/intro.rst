@@ -176,7 +176,7 @@ For the PLR model the default ``score`` is ``'partialling out'``, i.e.,
 
 .. math::
 
-    \psi(W; \theta, \eta) &:= [Y - \ell(X) - \theta (D - m(X))] [D - m(X)].
+    \psi(W; \theta, \eta) := [Y - \ell(X) - \theta (D - m(X))] [D - m(X)].
 
 
 
