@@ -154,7 +154,7 @@ For details on the specification of learners and their hyperparameters we refer 
         # surpress messages from mlr3 package during fitting
         lgr::get_logger("mlr3")$set_threshold("warn")
 
-        learner = lrn("regr.ranger", num.trees=500, mtry=floor(sqrt(n_vars)), max.depth=5, min.node.size=2)
+        learner = lrn("regr.ranger", num.trees=500, max.depth=5, min.node.size=2)
         ml_l_bonus = learner$clone()
         ml_m_bonus = learner$clone()
 
@@ -172,9 +172,15 @@ of repetitions when applying repeated cross-fitting ``n_rep`` (defaults to ``n_r
 Additionally, one can choose between the algorithms ``'dml1'`` and  ``'dml2'`` via ``dml_procedure`` (defaults to
 ``'dml2'``).
 Depending on the causal model, one can further choose between different Neyman-orthogonal score / moment functions.
-For the PLR model the default ``score`` is ``'partialling out'``.
+For the PLR model the default ``score`` is ``'partialling out'``, i.e., 
 
-The user guide provides details about the :ref:`resampling`, the :ref:`algorithms`
+.. math::
+
+    \psi(W; \theta, \eta) &:= [Y - \ell(X) - \theta (D - m(X))] [D - m(X)].
+
+
+
+Note that with this score, we do not estimate $g_0(X)$ directly, but the conditional expectation of :math:`Y` given :math:`X`, :math:`\ell = \mathbb{E}[Y|X]`. The user guide provides details about the :ref:`resampling`, the :ref:`algorithms`
 and the :ref:`scores`.
 
 Estimate double/debiased machine learning models
