@@ -25,10 +25,10 @@ These are case studies with the Python package :ref:`DoubleML <doubleml_package>
 
     py_double_ml_pension.ipynb
     py_double_ml_pension_qte.ipynb
-    py_double_ml_multiway_cluster.ipynb
-    py_double_ml_multiway_pq.ipynb
-    py_double_ml_multiway_lpq.ipynb
-    py_double_ml_multiway_cvar.ipynb
+    py_double_ml_cluster.ipynb
+    py_double_ml_pq.ipynb
+    py_double_ml_lpq.ipynb
+    py_double_ml_cvar.ipynb
 
 |start-h3| Sandbox |end-h3|
 
