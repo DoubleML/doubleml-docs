@@ -224,7 +224,7 @@ other half of observations indexed with :math:`i \in I`
         }
 
         g_nonorth = ggplot(data.frame(theta_rescaled=(theta_nonorth - alpha)/se_nonorth)) +
-                        geom_histogram(aes(y=..density.., x=theta_rescaled, colour = "Non-orthogonal ML", fill="Non-orthogonal ML"),
+                        geom_histogram(aes(y=after_stat(density), x=theta_rescaled, colour = "Non-orthogonal ML", fill="Non-orthogonal ML"),
                                        bins = 30, alpha = 0.3) +
                         geom_vline(aes(xintercept = 0), col = "black") +
                         suppressWarnings(geom_function(fun = dnorm, aes(colour = "N(0, 1)", fill="N(0, 1)"))) +
@@ -348,7 +348,7 @@ orthogonalized regressor :math:`V = D - m(X)`. We then use the final estimate
         }
 
         g_nosplit = ggplot(data.frame(theta_rescaled=(theta_orth_nosplit - alpha)/se_orth_nosplit), aes(x = theta_rescaled)) +
-                        geom_histogram(aes(y=..density.., x=theta_rescaled, colour = "Double ML (no sample splitting)", fill="Double ML (no sample splitting)"),
+                        geom_histogram(aes(y=after_stat(density), x=theta_rescaled, colour = "Double ML (no sample splitting)", fill="Double ML (no sample splitting)"),
                                        bins = 30, alpha = 0.3) +
                         geom_vline(aes(xintercept = 0), col = "black") +
                         suppressWarnings(geom_function(fun = dnorm, aes(colour = "N(0, 1)", fill="N(0, 1)"))) +
@@ -452,7 +452,7 @@ Cross-fitting performs well empirically because the entire sample can be used fo
         }
 
         g_dml = ggplot(data.frame(theta_rescaled=(theta_dml - alpha)/se_dml), aes(x = theta_rescaled)) +
-                        geom_histogram(aes(y=..density.., x=theta_rescaled, colour = "Double ML with cross-fitting", fill="Double ML with cross-fitting"),
+                        geom_histogram(aes(y=after_stat(density), x=theta_rescaled, colour = "Double ML with cross-fitting", fill="Double ML with cross-fitting"),
                                        bins = 30, alpha = 0.3) +
                         geom_vline(aes(xintercept = 0), col = "black") +
                         suppressWarnings(geom_function(fun = dnorm, aes(colour = "N(0, 1)", fill="N(0, 1)"))) +
@@ -525,11 +525,11 @@ The third term :math:`c^*` vanishes in probability if sample splitting is applie
         g_all = ggplot(data.frame(t_nonorth=(theta_nonorth - alpha)/se_nonorth,
                                   t_orth_nosplit=(theta_orth_nosplit - alpha)/se_orth_nosplit,
                                   t_dml=(theta_dml - alpha)/se_dml)) +
-                        geom_histogram(aes(x = t_nonorth, y=..density.., colour = "Non-orthogonal ML", fill="Non-orthogonal ML"),
+                        geom_histogram(aes(x = t_nonorth, y=after_stat(density), colour = "Non-orthogonal ML", fill="Non-orthogonal ML"),
                                            bins = 30, alpha = 0.3) +
-                        geom_histogram(aes(x = t_orth_nosplit, y=..density.., colour = "Double ML (no sample splitting)", fill="Double ML (no sample splitting)"),
+                        geom_histogram(aes(x = t_orth_nosplit, y=after_stat(density), colour = "Double ML (no sample splitting)", fill="Double ML (no sample splitting)"),
                                            bins = 30, alpha = 0.3) +
-                        geom_histogram(aes(x = t_dml, y=..density.., colour = "Double ML with cross-fitting", fill="Double ML with cross-fitting"),
+                        geom_histogram(aes(x = t_dml, y=after_stat(density), colour = "Double ML with cross-fitting", fill="Double ML with cross-fitting"),
                                            bins = 30, alpha = 0.3) +
                         geom_vline(aes(xintercept = 0), col = "black") +
                         suppressWarnings(geom_function(fun = dnorm, aes(colour = "N(0, 1)", fill="N(0, 1)"))) +
@@ -643,7 +643,7 @@ estimate :math:`\theta_0` without sample splitting. Again we observe a bias from
         }
 
         g_nosplit = ggplot(data.frame(theta_rescaled=(theta_orth_po_nosplit - alpha)/se_orth_po_nosplit), aes(x = theta_rescaled)) +
-                        geom_histogram(aes(y=..density.., x=theta_rescaled, colour = "Double ML (no sample splitting)", fill="Double ML (no sample splitting)"),
+                        geom_histogram(aes(y=after_stat(density), x=theta_rescaled, colour = "Double ML (no sample splitting)", fill="Double ML (no sample splitting)"),
                                        bins = 30, alpha = 0.3) +
                         geom_vline(aes(xintercept = 0), col = "black") +
                         suppressWarnings(geom_function(fun = dnorm, aes(colour = "N(0, 1)", fill="N(0, 1)"))) +
@@ -735,7 +735,7 @@ Using sample splitting, overcomes the bias induced by overfitting.
         }
 
         g_dml = ggplot(data.frame(theta_rescaled=(theta_dml_po - alpha)/se_dml_po), aes(x = theta_rescaled)) +
-                        geom_histogram(aes(y=..density.., x=theta_rescaled, colour = "Double ML with cross-fitting", fill="Double ML with cross-fitting"),
+                        geom_histogram(aes(y=after_stat(density), x=theta_rescaled, colour = "Double ML with cross-fitting", fill="Double ML with cross-fitting"),
                                        bins = 30, alpha = 0.3) +
                         geom_vline(aes(xintercept = 0), col = "black") +
                         suppressWarnings(geom_function(fun = dnorm, aes(colour = "N(0, 1)", fill="N(0, 1)"))) +
@@ -780,11 +780,11 @@ Using sample splitting, overcomes the bias induced by overfitting.
         g_all = ggplot(data.frame(t_nonorth=(theta_nonorth - alpha)/se_nonorth,
                                   t_orth_nosplit=(theta_orth_po_nosplit - alpha)/se_orth_po_nosplit,
                                   t_dml=(theta_dml_po - alpha)/se_dml_po)) +
-                        geom_histogram(aes(x = t_nonorth, y=..density.., colour = "Non-orthogonal ML", fill="Non-orthogonal ML"),
+                        geom_histogram(aes(x = t_nonorth, y=after_stat(density), colour = "Non-orthogonal ML", fill="Non-orthogonal ML"),
                                            bins = 30, alpha = 0.3) +
-                        geom_histogram(aes(x = t_orth_nosplit, y=..density.., colour = "Double ML (no sample splitting)", fill="Double ML (no sample splitting)"),
+                        geom_histogram(aes(x = t_orth_nosplit, y=after_stat(density), colour = "Double ML (no sample splitting)", fill="Double ML (no sample splitting)"),
                                            bins = 30, alpha = 0.3) +
-                        geom_histogram(aes(x = t_dml, y=..density.., colour = "Double ML with cross-fitting", fill="Double ML with cross-fitting"),
+                        geom_histogram(aes(x = t_dml, y=after_stat(density), colour = "Double ML with cross-fitting", fill="Double ML with cross-fitting"),
                                            bins = 30, alpha = 0.3) +
                         geom_vline(aes(xintercept = 0), col = "black") +
                         suppressWarnings(geom_function(fun = dnorm, aes(colour = "N(0, 1)", fill="N(0, 1)"))) +

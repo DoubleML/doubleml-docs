@@ -5,7 +5,7 @@ pytest
 rpy2
 
 # doc
-sphinx
+sphinx==4.5.0
 sphinx-copybutton
 nbsphinx
 sphinx-gallery
@@ -13,5 +13,6 @@ sphinx-panels
 jupyter-sphinx
 pydata-sphinx-theme==0.9.0
 matplotlib
+plotly
 seaborn
 xgboost

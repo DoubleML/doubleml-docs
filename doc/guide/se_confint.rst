@@ -19,7 +19,9 @@ with mean zero and variance given by
 
     \sigma^2 := J_0^{-2} \mathbb{E}(\psi^2(W; \theta_0, \eta_0)),
 
-    J_0 = \mathbb{E}(\psi_a(W; \eta_0)).
+where :math:`J_0 = \mathbb{E}(\psi_a(W; \eta_0))`, if the score function is linear in the parameter :math:`\theta`.
+If the score is not linear in the parameter :math:`\theta`, then
+:math:`J_0 = \partial_\theta\mathbb{E}(\psi(W; \theta, \eta_0)) \big|_{\theta=\theta_0}`.
 
 Estimates of the variance are obtained by
 
@@ -27,7 +29,15 @@ Estimates of the variance are obtained by
 
     \hat{\sigma}^2 &= \hat{J}_0^{-2} \frac{1}{N} \sum_{k=1}^{K} \sum_{i \in I_k} \big[\psi(W_i; \tilde{\theta}_0, \hat{\eta}_{0,k})\big]^2,
 
-    \hat{J}_0 &= \frac{1}{N} \sum_{k=1}^{K} \sum_{i \in I_k} \psi_a(W_i; \hat{\eta}_{0,k}).
+    \hat{J}_0 &= \frac{1}{N} \sum_{k=1}^{K} \sum_{i \in I_k} \psi_a(W_i; \hat{\eta}_{0,k}),
+
+for score functions being linear in the parameter :math:`\theta`.
+For non-linear score functions, the implementation assumes that derivatives and expectations are interchangeable, so
+that
+
+.. math::
+
+    \hat{J}_0 = \frac{1}{N} \sum_{k=1}^{K} \sum_{i \in I_k} \partial_\theta \psi(W_i; \tilde{\theta}_0, \hat{\eta}_{0,k}).
 
 An approximate confidence interval is given by
 
