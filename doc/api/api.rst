@@ -26,7 +26,10 @@ Double machine learning models
     DoubleMLPLIV
     DoubleMLIRM
     DoubleMLIIVM
-
+    DoubleMLPQ
+    DoubleMLLPQ
+    DoubleMLCVAR
+    DoubleMLQTE
 
 Datasets module
 ---------------
