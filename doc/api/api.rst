@@ -26,7 +26,10 @@ Double machine learning models
     DoubleMLPLIV
     DoubleMLIRM
     DoubleMLIIVM
-
+    DoubleMLPQ
+    DoubleMLLPQ
+    DoubleMLCVAR
+    DoubleMLQTE
 
 Datasets module
 ---------------
@@ -57,3 +60,15 @@ Dataset generators
    datasets.make_iivm_data
    datasets.make_plr_turrell2018
    datasets.make_pliv_multiway_cluster_CKMS2021
+
+Score mixin classes for double machine learning models
+------------------------------------------------------
+
+.. currentmodule:: doubleml
+
+.. autosummary::
+    :toctree: generated/
+    :template: class.rst
+
+    double_ml_score_mixins.LinearScoreMixin
+    double_ml_score_mixins.NonLinearScoreMixin
