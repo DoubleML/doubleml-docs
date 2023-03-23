@@ -6,6 +6,7 @@ Release notes
 .. tabbed:: Python
 
     **DoubleML 0.5.2**
+
     - Fix / adapted unit tests which failed in the release of 0.5.1 to conda-forge
       `#172 <https://github.com/DoubleML/doubleml-for-py/pull/172>`_
 
