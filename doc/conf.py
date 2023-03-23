@@ -14,6 +14,8 @@ import os
 import sys
 sys.path.insert(0, os.path.abspath('..'))
 
+import doubleml
+
 
 # -- Project information -----------------------------------------------------
 
@@ -69,14 +71,37 @@ autosummary_generate = True
 #
 html_theme = 'pydata_sphinx_theme'
 
-html_theme_options = {
-    'github_url': 'https://github.com/DoubleML/doubleml-for-py',
-    'navigation_with_keys': False,
-}
-
 # html_logo = '../img/logo.png'
 html_extra_path = ['../img/logo.png']
 html_favicon = '../img/favicon.ico'
+
+# Define the json_url for our version switcher.
+json_url = 'https://docs.doubleml.org/stable/_static/switcher.json'
+
+# Define the version we use for matching in the version switcher.
+version_match = os.environ.get("READTHEDOCS_VERSION")
+# If READTHEDOCS_VERSION doesn't exist, we're not on RTD
+# If it is an integer, we're in a PR build and the version isn't correct.
+if not version_match or version_match.isdigit():
+    # For local development, infer the version to match from the package.
+    release = doubleml.__version__
+    if "dev" in release or "rc" in release:
+        version_match = "latest"
+        # We want to keep the relative reference if we are in dev mode
+        # but we want the whole url if we are effectively in a released version
+        json_url = "_static/switcher.json"
+    else:
+        version_match = "v" + release
+
+html_theme_options = {
+    "navbar_start": ["navbar-logo", "version-switcher"],
+    'github_url': 'https://github.com/DoubleML/doubleml-for-py',
+    'navigation_with_keys': False,
+    'switcher': {
+        'json_url': json_url,
+        'version_match': version_match,
+    }
+}
 
 html_sidebars = {'**': ['logo.html',
                         'search-field.html',
