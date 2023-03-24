@@ -131,7 +131,7 @@ Double machine learning literature
 
         - Vira Semenova, Victor Chernozhukov |br|
           **Debiased machine learning of conditional average treatment effects and other causal functions** |br|
-          *The Econometrics Journal, 2021* |br|
+          *The Econometrics Journal, 24(2), Pages 264-289, 2021* |br|
           :opticon:`link` :link-badge:`https://doi.org/10.1093/ectj/utaa027,"URL",cls=badge-dark`
 
         - Vira Semenova, Matt Goldman, Victor Chernozhukov, Matt Taddy |br|
