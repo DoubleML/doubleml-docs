@@ -1,6 +1,8 @@
 
 :parenttoc: True
 
+.. _examplegallery:
+
 Examples
 ==========
 

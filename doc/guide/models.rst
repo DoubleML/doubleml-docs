@@ -3,6 +3,8 @@
 Models
 ----------
 
+The :ref:`DoubleML <doubleml-package>` includes the following models.
+
 .. _plr-model:
 
 Partially linear regression model (PLR)
@@ -54,6 +56,8 @@ Estimation is conducted via its ``fit()`` method:
         dml_plr_obj$fit()
         print(dml_plr_obj)
 
+
+.. _pliv-model:
 
 Partially linear IV regression model (PLIV)
 +++++++++++++++++++++++++++++++++++++++++++
@@ -155,6 +159,7 @@ Estimation is conducted via its ``fit()`` method:
         print(dml_irm_obj)
 
 
+.. _iivm-model:
 
 Interactive IV model (IIVM)
 +++++++++++++++++++++++++++
