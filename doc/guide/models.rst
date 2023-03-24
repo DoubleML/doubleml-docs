@@ -3,7 +3,7 @@
 Models
 ----------
 
-The :ref:`DoubleML <doubleml-package>` includes the following models.
+The :ref:`DoubleML <doubleml_package>` includes the following models.
 
 .. _plr-model:
 

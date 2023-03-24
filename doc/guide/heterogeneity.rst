@@ -13,6 +13,8 @@ via feature construction.
 Group Average Treatment Effects (GATEs)
 ++++++++++++++++++++++++++++++++++++++++++++++
 
+.. include:: ../shared/heterogeneity/gate.rst
+
 The ``DoubleMLIRM`` class contains the ``gate()`` method, which enables the estimation and construction of confidence intervals
 for GATEs after fitting the ``DoubleMLIRM`` object. To estimate GATEs, the user has to specify a pandas ``DataFrame`` containing
 the groups (dummy coded or one column with strings).
@@ -53,6 +55,8 @@ A more detailed notebook on GATEs is available in the :ref:`example gallery <exa
 
 Conditional Average Treatment Effects (CATEs)
 ++++++++++++++++++++++++++++++++++++++++++++++
+
+.. include:: ../shared/heterogeneity/cate.rst
 
 The ``DoubleMLIRM`` class contains the ``cate()`` method, which enables the estimation and construction of confidence intervals
 for CATEs after fitting the ``DoubleMLIRM`` object. To estimate CATEs, the user has to specify a pandas ``DataFrame`` containing
@@ -98,7 +102,7 @@ The examples also include the construction of a two-dimensional basis with B-spl
 Quantiles
 ++++++++++++++++++++++++++++++++++++++++++++++
 
-The :ref:`DoubleML <doubleml-package>` package includes (local) quantile estimation for potential outcomes for
+The :ref:`DoubleML <doubleml_package>` package includes (local) quantile estimation for potential outcomes for
 :ref:`IRM <irm-model>` and :ref:`IIVM <iivm-model>` models.
 
 Potential Quantiles (PQs)
@@ -124,7 +128,8 @@ Potential Quantiles (PQs)
         dml_pq_obj = dml.DoubleMLPQ(obj_dml_data, ml_g, ml_m, treatment=1, quantile=0.5)
         dml_pq_obj.fit().summary
 
-``DoubleMLLPQ`` implements local potential quantile estimation. Estimation is conducted via its ``fit()`` method: 
+``DoubleMLLPQ`` implements local potential quantile estimation, where the argument ``treatment`` indicates the potential outcome.
+Estimation is conducted via its ``fit()`` method: 
 
 .. tabbed:: Python
 
@@ -142,23 +147,89 @@ Potential Quantiles (PQs)
         dml_lpq_obj = dml.DoubleMLLPQ(obj_dml_data, ml_g, ml_m, treatment=1, quantile=0.5)
         dml_lpq_obj.fit().summary
 
+
 Quantile Treatment Effects (QTEs)
 *******************************************
 
+.. include:: ../shared/heterogeneity/qte.rst
+
+``DoubleMLQTE`` implements quantile treatment effect estimation. Estimation is conducted via its ``fit()`` method: 
+
+.. tabbed:: Python
+
+    .. ipython:: python
+
+        import numpy as np
+        import doubleml as dml
+        from doubleml.datasets import make_irm_data
+        from sklearn.ensemble import RandomForestClassifier
+        np.random.seed(3141)
+        ml_g = RandomForestClassifier(n_estimators=100, max_features=20, max_depth=10, min_samples_leaf=2)
+        ml_m = RandomForestClassifier(n_estimators=100, max_features=20, max_depth=10, min_samples_leaf=2)
+        data = make_irm_data(theta=0.5, n_obs=500, dim_x=20, return_type='DataFrame')
+        obj_dml_data = dml.DoubleMLData(data, 'y', 'd')
+        dml_qte_obj = dml.DoubleMLQTE(obj_dml_data, ml_g, ml_m, score='PQ', quantiles=[0.25, 0.5, 0.75])
+        dml_qte_obj.fit().summary
+
+To estimate local quantile effects the ``score`` argument has to be set to ``LPQ``.
 A detailed notebook on PQs and QTEs is available in the :ref:`example gallery <examplegallery>`. 
 
 Conditional Value at Risk (CVaR)
 ++++++++++++++++++++++++++++++++++++++++++++
 
-All implemented solutions focus on the :ref:`IRM <irm-model>` models
+The :ref:`DoubleML <doubleml_package>` package includes conditional value at risk estimation for
+:ref:`IRM <irm-model>` models.
 
 CVaR of Potential Outcomes
 *******************************************
 
+.. include:: ../shared/heterogeneity/cvar.rst
+
+``DoubleMLCVAR`` implements conditional value at risk estimation for potential outcomes, where the argument ``treatment`` indicates the potential outcome.
+Estimation is conducted via its ``fit()`` method: 
+
+.. tabbed:: Python
+
+    .. ipython:: python
+
+        import numpy as np
+        import doubleml as dml
+        from doubleml.datasets import make_irm_data
+        from sklearn.ensemble import RandomForestClassifier, RandomForestRegressor
+        np.random.seed(3141)
+        ml_g = RandomForestRegressor(n_estimators=100, max_features=20, max_depth=10, min_samples_leaf=2)
+        ml_m = RandomForestClassifier(n_estimators=100, max_features=20, max_depth=10, min_samples_leaf=2)
+        data = make_irm_data(theta=0.5, n_obs=500, dim_x=20, return_type='DataFrame')
+        obj_dml_data = dml.DoubleMLData(data, 'y', 'd')
+        dml_cvar_obj = dml.DoubleMLCVAR(obj_dml_data, ml_g, ml_m, treatment=1, quantile=0.5)
+        dml_cvar_obj.fit().summary
+
+
 CVaR Treatment Effect
 *******************************************
 
-A detailed notebook on conditional value at risk estimation
+.. include:: ../shared/heterogeneity/cvar_qte.rst
+
+``DoubleMLQTE`` implements CVaR treatment effect estimation, if the ``score`` argument has been set to ``CVaR`` (default is ``PQ``).
+Estimation is conducted via its ``fit()`` method: 
+
+.. tabbed:: Python
+
+    .. ipython:: python
+
+        import numpy as np
+        import doubleml as dml
+        from doubleml.datasets import make_irm_data
+        from sklearn.ensemble import RandomForestClassifier, RandomForestRegressor
+        np.random.seed(3141)
+        ml_g = RandomForestRegressor(n_estimators=100, max_features=20, max_depth=10, min_samples_leaf=2)
+        ml_m = RandomForestClassifier(n_estimators=100, max_features=20, max_depth=10, min_samples_leaf=2)
+        data = make_irm_data(theta=0.5, n_obs=500, dim_x=20, return_type='DataFrame')
+        obj_dml_data = dml.DoubleMLData(data, 'y', 'd')
+        dml_cvar_obj = dml.DoubleMLQTE(obj_dml_data, ml_g, ml_m, score='CVaR', quantiles=[0.25, 0.5, 0.75])
+        dml_cvar_obj.fit().summary
+
+A detailed notebook on CVaR estimation for potential outcomes and treatment effects
 is available in the :ref:`example gallery <examplegallery>`. 
 
 
