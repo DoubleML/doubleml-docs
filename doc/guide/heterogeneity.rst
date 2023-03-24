@@ -1,6 +1,6 @@
 .. _heterogeneity:
 
-Heterogeneous Treatment Effects
+Heterogeneous treatment effects
 ----------------------------------------
 
 All implemented solutions focus on the :ref:`IRM <irm-model>` or :ref:`IIVM <iivm-model>` models, as for 
@@ -10,7 +10,7 @@ via feature construction.
 
 .. _gates:
 
-Group Average Treatment Effects (GATEs)
+Group average treatment effects (GATEs)
 ++++++++++++++++++++++++++++++++++++++++++++++
 
 .. include:: ../shared/heterogeneity/gate.rst
@@ -53,7 +53,7 @@ A more detailed notebook on GATEs is available in the :ref:`example gallery <exa
 
 .. _cates:
 
-Conditional Average Treatment Effects (CATEs)
+Conditional average treatment effects (CATEs)
 ++++++++++++++++++++++++++++++++++++++++++++++
 
 .. include:: ../shared/heterogeneity/cate.rst
@@ -105,7 +105,7 @@ Quantiles
 The :ref:`DoubleML <doubleml_package>` package includes (local) quantile estimation for potential outcomes for
 :ref:`IRM <irm-model>` and :ref:`IIVM <iivm-model>` models.
 
-Potential Quantiles (PQs)
+Potential quantiles (PQs)
 *******************************************
 
 .. include:: ../shared/heterogeneity/pq.rst
@@ -148,7 +148,7 @@ Estimation is conducted via its ``fit()`` method:
         dml_lpq_obj.fit().summary
 
 
-Quantile Treatment Effects (QTEs)
+Quantile treatment effects (QTEs)
 *******************************************
 
 .. include:: ../shared/heterogeneity/qte.rst
@@ -171,16 +171,16 @@ Quantile Treatment Effects (QTEs)
         dml_qte_obj = dml.DoubleMLQTE(obj_dml_data, ml_g, ml_m, score='PQ', quantiles=[0.25, 0.5, 0.75])
         dml_qte_obj.fit().summary
 
-To estimate local quantile effects the ``score`` argument has to be set to ``LPQ``.
+To estimate local quantile effects the ``score`` argument has to be set to ``'LPQ'``.
 A detailed notebook on PQs and QTEs is available in the :ref:`example gallery <examplegallery>`. 
 
-Conditional Value at Risk (CVaR)
+Conditional value at risk (CVaR)
 ++++++++++++++++++++++++++++++++++++++++++++
 
 The :ref:`DoubleML <doubleml_package>` package includes conditional value at risk estimation for
 :ref:`IRM <irm-model>` models.
 
-CVaR of Potential Outcomes
+CVaR of potential outcomes
 *******************************************
 
 .. include:: ../shared/heterogeneity/cvar.rst
@@ -205,12 +205,12 @@ Estimation is conducted via its ``fit()`` method:
         dml_cvar_obj.fit().summary
 
 
-CVaR Treatment Effect
+CVaR treatment effects
 *******************************************
 
 .. include:: ../shared/heterogeneity/cvar_qte.rst
 
-``DoubleMLQTE`` implements CVaR treatment effect estimation, if the ``score`` argument has been set to ``CVaR`` (default is ``PQ``).
+``DoubleMLQTE`` implements CVaR treatment effect estimation, if the ``score`` argument has been set to ``'CVaR'`` (default is ``'PQ'``).
 Estimation is conducted via its ``fit()`` method: 
 
 .. tabbed:: Python
