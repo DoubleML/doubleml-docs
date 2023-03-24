@@ -103,6 +103,12 @@ Double machine learning literature
           :link-badge:`https://arxiv.org/abs/1909.03489,"arXiv",cls=badge-dark`
           |hr|
 
+        - Nathan Kallus, Xiaojie Mao, Masatoshi Uehara |br|
+          **Localized Debiased Machine Learning: Efficient Inference on Quantile Treatment Effects and Beyond** |br|
+          *arXiv preprint arXiv:1912.12945 [stat.ML], 2019* |br|
+          :opticon:`link` :link-badge:`https://doi.org/10.48550/arXiv.1912.12945,"arXiv",cls=badge-dark`
+          |hr|
+
         - Nathan Kallus, Masatoshi Uehara |br|
           **Double Reinforcement Learning for Efficient Off-Policy Evaluation in Markov Decision Processes** |br|
           *Journal of Machine Learning Research 21, 1-63, 2020* |br|
@@ -122,6 +128,11 @@ Double machine learning literature
           :opticon:`link` :link-badge:`http://proceedings.mlr.press/v80/mackey18a/mackey18a.pdf,"URL",cls=badge-dark`
           :link-badge:`https://arxiv.org/abs/1711.00342,"arXiv",cls=badge-dark`
           |hr|
+
+        - Vira Semenova, Victor Chernozhukov |br|
+          **Debiased machine learning of conditional average treatment effects and other causal functions** |br|
+          *The Econometrics Journal, 2021* |br|
+          :opticon:`link` :link-badge:`https://doi.org/10.1093/ectj/utaa027,"URL",cls=badge-dark`
 
         - Vira Semenova, Matt Goldman, Victor Chernozhukov, Matt Taddy |br|
           **Estimation and Inference on Heterogeneous Treatment Effects in High-Dimensional Dynamic Panels** |br|
