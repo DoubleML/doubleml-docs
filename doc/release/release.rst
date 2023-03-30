@@ -7,6 +7,7 @@ Release notes
 
     **DoubleML 0.6.0**
 
+    - **Release highlight:** Heterogeneous treatment effects (GATE, CATE, Quantile effects, ...)
     - Add out-of-sample RMSE and targets for nuisance elements and implement nuisance estimation 
       evaluation via ``evaluate_learners()``.
       `#182 <https://github.com/DoubleML/doubleml-for-py/pull/182>`_
