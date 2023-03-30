@@ -197,7 +197,7 @@ To illustrate the parameter tuning, we work with the following example.
         print(dml_plr_obj)
 
 The RMSEs of each learner are also stored in the ``rmses`` attribute.
-Further, the ``evaluate_learners()`` method is allows to evalute customized evaluation metrics as e.g. the mean absolute error. 
+Further, the ``evaluate_learners()`` method allows to evalute customized evaluation metrics as e.g. the mean absolute error. 
 The default option is still the RMSE for evaluation.
 
 .. tabbed:: Python
@@ -207,7 +207,7 @@ The default option is still the RMSE for evaluation.
         print(dml_plr_obj.rmses)
         print(dml_plr_obj.evaluate_learners())
 
-To evaluate a customized metric one hass to define a ``callable``. For some models (e.g. the IRM model) it is important that
+To evaluate a customized metric one has to define a ``callable``. For some models (e.g. the IRM model) it is important that
 the metric can handle ``nan`` values as not all target values are known.   
 
 .. tabbed:: Python
