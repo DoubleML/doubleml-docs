@@ -209,6 +209,15 @@ Release notes
 
 .. tabbed:: R
 
+    **DoubleML 0.5.3**
+
+    - Add documentation for estimated models for nuisance parameters
+      `#181 <https://github.com/DoubleML/doubleml-for-r/pull/181>`_
+    - New contributor `@SvenKlaassen <https://github.com/SvenKlaassen>`_
+    - Maintenance
+      `#179 <https://github.com/DoubleML/doubleml-for-r/pull/179>`_
+
+
     **DoubleML 0.5.2**
 
     - Store estimated models for nuisance parameters
