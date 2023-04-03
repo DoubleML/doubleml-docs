@@ -5,7 +5,46 @@ Release notes
 
 .. tabbed:: Python
 
+    **DoubleML 0.6.0**
+
+    - **Release highlight:** Heterogeneous treatment effects (GATE, CATE, Quantile effects, ...)
+    - Add out-of-sample RMSE and targets for nuisance elements and implement nuisance estimation 
+      evaluation via ``evaluate_learners()``.
+      `#182 <https://github.com/DoubleML/doubleml-for-py/pull/182>`_
+      `#188 <https://github.com/DoubleML/doubleml-for-py/pull/188>`_
+    - Implement ``gate()`` and ``cate()`` methods for ``DoubleMLIRM`` class. Both are 
+      based on the new ``DoubleMLBLP`` class.
+      `#169 <https://github.com/DoubleML/doubleml-for-py/pull/169>`_
+    - Implement different type of quantile models
+      `#179 <https://github.com/DoubleML/doubleml-for-py/pull/179>`_
+      
+        - Potential quantiles (PQ) in class ``DoubleMLPQ``
+        - Local potential quantiles (LPQ) in class ``DoubleMLLPQ``
+        - Conditional value at risk (CVaR) in class ``DoubleMLCVAR``
+        - Quantile treatment effects (QTE) in class ``DoubleMLQTE``
+
+    - Extend clustering to nonlinear scores
+      `#190 <https://github.com/DoubleML/doubleml-for-py/pull/190>`_
+    - Add ``ipw_normalization`` option to ``DoubleMLIRM`` and ``DoubleMLIIVM``
+      `#186 <https://github.com/DoubleML/doubleml-for-py/pull/186>`_
+    - Implement an abstract base class for data backends 
+      `#173 <https://github.com/DoubleML/doubleml-for-py/pull/173>`_
+    - Extend the guide in the documentation and add further examples
+      `#116 <https://github.com/DoubleML/doubleml-docs/pull/116>`_
+      `#125 <https://github.com/DoubleML/doubleml-docs/pull/125>`_
+      `#126 <https://github.com/DoubleML/doubleml-docs/pull/126>`_
+    - Code refactorings, bug fixes, docu updates, unit test extensions and continuous integration
+      `#183 <https://github.com/DoubleML/doubleml-for-py/pull/183>`_
+      `#192 <https://github.com/DoubleML/doubleml-for-py/pull/192>`_
+      `#195 <https://github.com/DoubleML/doubleml-for-py/pull/195>`_
+      `#196 <https://github.com/DoubleML/doubleml-for-py/pull/196>`_
+    - Maintenance
+      `#174 <https://github.com/DoubleML/doubleml-for-py/pull/174>`_
+      `#178 <https://github.com/DoubleML/doubleml-for-py/pull/178>`_
+      `#181 <https://github.com/DoubleML/doubleml-for-py/pull/181>`_
+
     **DoubleML 0.5.2**
+
     - Fix / adapted unit tests which failed in the release of 0.5.1 to conda-forge
       `#172 <https://github.com/DoubleML/doubleml-for-py/pull/172>`_
 
