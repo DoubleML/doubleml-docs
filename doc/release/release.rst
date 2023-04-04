@@ -39,6 +39,7 @@ Release notes
       `#195 <https://github.com/DoubleML/doubleml-for-py/pull/195>`_
       `#196 <https://github.com/DoubleML/doubleml-for-py/pull/196>`_
     - Change License to BSD 3-Clause
+      `#198 <https://github.com/DoubleML/doubleml-for-py/pull/198>`_
     - Maintenance
       `#174 <https://github.com/DoubleML/doubleml-for-py/pull/174>`_
       `#178 <https://github.com/DoubleML/doubleml-for-py/pull/178>`_
