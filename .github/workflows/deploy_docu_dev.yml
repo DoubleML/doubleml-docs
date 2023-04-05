@@ -3,9 +3,6 @@
 name: Deploy Docu (dev)
 
 on:
-  push:
-    branches:
-      - dev
   workflow_dispatch:
 
 
