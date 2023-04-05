@@ -18,8 +18,8 @@ sys.path.insert(0, os.path.abspath('..'))
 # -- Project information -----------------------------------------------------
 
 project = 'DoubleML'
-copyright = '2021, Bach, P., Chernozhukov, V., Kurz, M. S., and Spindler, M.'
-author = 'Bach, P., Chernozhukov, V., Kurz, M. S., and Spindler, M.'
+copyright = '2023, Bach, P., Chernozhukov, V., Klaassen, S., Kurz, M. S., and Spindler, M.'
+author = 'Bach, P., Chernozhukov, V., Klaassen, S., Kurz, M. S., and Spindler, M.'
 
 
 # -- General configuration ---------------------------------------------------
@@ -130,6 +130,9 @@ linkcheck_ignore = [
     'https://doi.org/10.2307/2171802',  # Valid DOI; Causes 403 Client Error: Forbidden for url:...
     'https://doi.org/10.2307/1912705',  # Valid DOI; Causes 403 Client Error: Forbidden for url:...
     'https://doi.org/10.1093/ectj/utaa027', # Valid DOI; Causes 403 Client Error: Forbidden for url:...
+    'https://doi.org/10.1111/rssb.12026', # Valid DOI; Causes 403 Client Error: Forbidden for url:...
+    'https://doi.org/10.1111/rssa.12623', # Valid DOI; Causes 403 Client Error: Forbidden for url:...
+    'https://doi.org/10.1146/annurev-economics-012315-015826', # Valid DOI; Causes 403 Client Error: Forbidden for url:...
 ]
 
 # To execute R code via jupyter-execute one needs to install the R kernel for jupyter
