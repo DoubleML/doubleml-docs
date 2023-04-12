@@ -200,8 +200,8 @@ Source code and maintenance
 Documentation and website: `https://docs.doubleml.org/ <https://docs.doubleml.org/>`_
 
 DoubleML is currently maintained by
-`@MalteKurz <https://github.com/MalteKurz>`_ and
-`@PhilippBach <https://github.com/PhilippBach>`_.
+`@MalteKurz <https://github.com/MalteKurz>`_, `@PhilippBach <https://github.com/PhilippBach>`_ and
+`@SvenKlaassen <https://github.com/SvenKlaassen>`_.
 
 The source code is available on GitHub: `Python source <https://github.com/DoubleML/doubleml-for-py>`_ and
 `R source <https://github.com/DoubleML/doubleml-for-r>`_.
