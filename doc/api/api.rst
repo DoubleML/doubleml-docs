@@ -26,6 +26,8 @@ Double machine learning models
     DoubleMLPLIV
     DoubleMLIRM
     DoubleMLIIVM
+    DoubleMLDID
+    DoubleMLDIDCS
     DoubleMLPQ
     DoubleMLLPQ
     DoubleMLCVAR

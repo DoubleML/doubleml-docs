@@ -210,3 +210,5 @@ Estimation is conducted via its ``fit()`` method:
         print(dml_iivm_obj)
 
 
+Difference-in-Differences Models (DID)
+++++++++++++++++++++++++++++++++++++++
