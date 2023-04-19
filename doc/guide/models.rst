@@ -242,8 +242,8 @@ Estimation is conducted via its ``fit()`` method:
     dml_did_obj = dml.DoubleMLDID(obj_dml_data, ml_g, ml_m)
     print(dml_did_obj.fit())
 
-Repeated cross-section data
-****************************
+Repeated cross-sections
+***********************
 
 For repeated cross-sections, the observations are assumed to be iid. of form :math:`(Y_{i}, D_i, X_i, T_i)`,
 where :math:`T_i` is a dummy variable if unit :math:`i` is observed pre- or post-treatment period, such 
