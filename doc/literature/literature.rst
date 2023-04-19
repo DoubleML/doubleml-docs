@@ -129,15 +129,28 @@ Double machine learning literature
           :link-badge:`https://arxiv.org/abs/1711.00342,"arXiv",cls=badge-dark`
           |hr|
 
+        - Pedro HC Sant'Anna, Jun Zhao |br|
+          **Doubly robust difference-in-differences estimators** |br|
+          *Journal of Econometrics, 219(1), Pages 101-122, 2020* |br|
+          :opticon:`link` :link-badge:`https://doi.org/10.1016/j.jeconom.2020.06.003,"URL",cls=badge-dark`
+          |hr|
+
         - Vira Semenova, Victor Chernozhukov |br|
           **Debiased machine learning of conditional average treatment effects and other causal functions** |br|
           *The Econometrics Journal, 24(2), Pages 264-289, 2021* |br|
           :opticon:`link` :link-badge:`https://doi.org/10.1093/ectj/utaa027,"URL",cls=badge-dark`
+          |hr|
 
         - Vira Semenova, Matt Goldman, Victor Chernozhukov, Matt Taddy |br|
           **Estimation and Inference on Heterogeneous Treatment Effects in High-Dimensional Dynamic Panels** |br|
           *arXiv preprint arXiv:1712.09988 [stat.ML], 2017* |br|
           :opticon:`link` :link-badge:`https://arxiv.org/abs/1712.09988,"arXiv",cls=badge-dark`
+          |hr|
+
+        - Michael Zimmert |br|
+          **Efficient Difference-in-Differences Estimation with High-Dimensional Common Trend Confounding** |br|
+          *arXiv preprint 	arXiv:1809.01643 [econ.EM], 2018* |br|
+          :opticon:`link` :link-badge:`https://arxiv.org/abs/1809.01643,"arXiv",cls=badge-dark`
 
     .. dropdown:: Debiased sparsity-based inference / theoretical foundations
         :title: bg-primary text-white text-center font-weight-bold reference-dropdown
