@@ -6,7 +6,7 @@ let :math:`Y_{it}` be the outcome of interest for unit :math:`i` at time :math:`
 if unit :math:`i` is treated before time :math:`t` (otherwise :math:`D_{it}=0`). Since all units start as untreated (:math:`D_{i0}=0`), define 
 :math:`D_{i}=D_{i1}.` Relying on the potential outcome notation, denote :math:`Y_{it}(0)` as the outcome of unit :math:`i` at time :math:`t` if the unit did not receive 
 treatment up until time :math:`t` and analogously for :math:`Y_{it}(1)` with treatment. Consequently, the observed outcome 
-for unit is :math:`i` at time :math:`t` is :math:`Y_{it}=D_i Y_{it}(1) + (1-D_i) Y_{it}(0)`. Further, let 
+for unit is :math:`i` at time :math:`t` is :math:`Y_{it}=D_{it} Y_{it}(1) + (1-D_{it}) Y_{it}(0)`. Further, let 
 :math:`X_i` be a vector of pre-treatment covariates.
 
 Target parameter of interest is the average treatment effect on the treated (ATTE)
