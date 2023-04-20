@@ -285,7 +285,7 @@ with :math:`\eta=(g, m, r)` and where the components of the linear score are
 Difference-in-Differences for Panel Data
 ****************************************
 
-For the difference-in-differences model implemented in ``DoubleMLDID``one can choose between
+For the difference-in-differences model implemented in ``DoubleMLDID`` one can choose between
 ``score='observational'`` and ``score='experimental'``.
 
 ``score='observational'`` implements the score function:
@@ -373,7 +373,7 @@ Remark that this will result in the same score, but just uses slightly different
 Difference-in-Differences for repeated cross-sections
 *****************************************************
 
-For the difference-in-differences model implemented in ``DoubleMLDIDCS``one can choose between
+For the difference-in-differences model implemented in ``DoubleMLDIDCS`` one can choose between
 ``score='observational'`` and ``score='experimental'``.
 
 ``score='observational'`` implements the score function:
