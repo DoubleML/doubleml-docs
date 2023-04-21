@@ -10,7 +10,6 @@ on:
   pull_request:
     branches:
       - main
-      - dev
   workflow_dispatch:
     inputs:
       doubleml-py-branch:
