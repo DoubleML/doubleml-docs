@@ -410,7 +410,7 @@ and the nuisance elements :math:`\eta=(g)` are defined as
 
 .. math::
 
-    g_{0}(d, t, X) &= \mathbb{E}[Y|D=d, T=t, X].
+    g_{0}(d, t, X) = \mathbb{E}[Y|D=d, T=t, X].
 
 If ``in_sample_normalization='False'``, the score is set to
 
