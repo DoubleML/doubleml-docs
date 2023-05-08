@@ -5,6 +5,21 @@ Release notes
 
 .. tabbed:: Python
 
+    **DoubleML 0.6.1**
+
+    - **Release highlight:** Difference-in-differences models for ATTE estimation
+      `#200 <https://github.com/DoubleML/doubleml-for-py/pull/200>`_
+      `#194 <https://github.com/DoubleML/doubleml-for-py/issues/194>`_
+
+       - Panel data ``DoubleMLDID``
+       - Repeated cross sections ``DoubleMLDIDCS``
+    
+    - Add a potential time variable to ``DoubleMLData`` (until now only used in ``DoubleMLDIDCS``)
+      `#200 <https://github.com/DoubleML/doubleml-for-py/pull/200>`_
+
+    - Maintenance
+      `#199 <https://github.com/DoubleML/doubleml-for-py/pull/199>`_
+
     **DoubleML 0.6.0**
 
     - **Release highlight:** Heterogeneous treatment effects (GATE, CATE, Quantile effects, ...)
