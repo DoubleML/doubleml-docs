@@ -17,8 +17,15 @@ Release notes
     - Add a potential time variable to ``DoubleMLData`` (until now only used in ``DoubleMLDIDCS``)
       `#200 <https://github.com/DoubleML/doubleml-for-py/pull/200>`_
 
+    - Extend the guide in the documentation and add further examples
+      `#132 <https://github.com/DoubleML/doubleml-docs/pull/132>`_
+      `#133 <https://github.com/DoubleML/doubleml-docs/pull/133>`_
+      `#135 <https://github.com/DoubleML/doubleml-docs/pull/135>`_
+
     - Maintenance
       `#199 <https://github.com/DoubleML/doubleml-for-py/pull/199>`_
+      `#134 <https://github.com/DoubleML/doubleml-docs/pull/134>`_
+      `#136 <https://github.com/DoubleML/doubleml-docs/pull/136>`_  
 
     **DoubleML 0.6.0**
 
