@@ -26,6 +26,8 @@ Double machine learning models
     DoubleMLPLIV
     DoubleMLIRM
     DoubleMLIIVM
+    DoubleMLDID
+    DoubleMLDIDCS
     DoubleMLPQ
     DoubleMLLPQ
     DoubleMLCVAR
@@ -61,6 +63,7 @@ Dataset generators
    datasets.make_iivm_data
    datasets.make_plr_turrell2018
    datasets.make_pliv_multiway_cluster_CKMS2021
+   datasets.make_did_SZ2020
 
 Score mixin classes for double machine learning models
 ------------------------------------------------------
