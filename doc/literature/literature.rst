@@ -135,6 +135,12 @@ Double machine learning literature
           :opticon:`link` :link-badge:`https://doi.org/10.1016/j.jeconom.2020.06.003,"URL",cls=badge-dark`
           |hr|
 
+        - Victor Chernozhukov, Carlos Cinelli, Whitney Newey, Amit Sharma, Vasilis Syrgkanis |br|
+          **Long Story Short: Omitted Variable Bias in Causal Machine Learning** |br|
+          *No. w30302. National Bureau of Economic Research, 2022* |br|
+          :opticon:`link` :link-badge:`https://doi.org/10.3386/w30302,"URL",cls=badge-dark`
+          |hr|
+
         - Vira Semenova, Victor Chernozhukov |br|
           **Debiased machine learning of conditional average treatment effects and other causal functions** |br|
           *The Econometrics Journal, 24(2), Pages 264-289, 2021* |br|

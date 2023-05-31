@@ -35,6 +35,7 @@ These are case studies with the Python package :ref:`DoubleML <doubleml_package>
     py_double_ml_pq.ipynb
     py_double_ml_cvar.ipynb
     py_double_ml_learner.ipynb
+    py_double_ml_sensitivity.ipynb
 
 |start-h3| Sandbox |end-h3|
 
