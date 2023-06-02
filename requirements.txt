@@ -5,14 +5,14 @@ pytest
 rpy2
 
 # doc
-sphinx==4.5.0
+sphinx
 sphinx-copybutton
 nbsphinx
 ipykernel
 sphinx-gallery
 sphinx-panels
 jupyter-sphinx
-pydata-sphinx-theme==0.9.0
+pydata-sphinx-theme
 matplotlib
 plotly
 seaborn
