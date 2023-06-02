@@ -9,7 +9,7 @@ html[data-theme="dark"] .bd-content img:not(.only-dark):not(.dark-light) {
 }
 
 html[data-theme="light"] {
-  --pst-color-primary: #0092ff;
+  --pst-color-primary: #0063BC;
 }
 
 html[data-theme="dark"] {
