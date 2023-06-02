@@ -36,7 +36,7 @@ ecosystem <https://github.com/mlr-org/mlr3/wiki/Extension-Packages>`_ (Lang et a
 .. panels::
     :column: col-lg-4 col-md-4 col-sm-6 col-xs-12 p-2
     :card: text-center
-    :img-top-cls: pl-5 pr-5 pt-5 pb-5 panel-icon
+    :img-top-cls: p-5 panel-icon
     :header: font-weight-bold border-0 h4
     :footer: border-0
 
