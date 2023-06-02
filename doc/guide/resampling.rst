@@ -53,7 +53,7 @@ implemented in ``DoubleMLPLR``.
 
 .. _k-fold-cross-fitting:
 
-Cross-fitting with :math:`K` folds
+Cross-fitting with *K* folds
 ++++++++++++++++++++++++++++++++++
 
 The default setting is ``n_folds = 5`` and ``n_rep = 1``, i.e.,
@@ -123,7 +123,7 @@ stored in the attributes ``psi_a`` and ``psi_b``.
 
 .. _repeated-cross-fitting:
 
-Repeated cross-fitting with :math:`K` folds and :math:`M` repetition
+Repeated cross-fitting with *K* folds and *M* repetitions
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 Repeated cross-fitting is obtained by choosing a value :math:`M>1` for the number of repetition ``n_rep``.

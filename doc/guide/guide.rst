@@ -7,7 +7,7 @@ User guide
 
 .. toctree::
    :numbered:
-   :maxdepth: 3
+   :maxdepth: 2
 
     The basics of double/debiased machine learning <basics>
     The data-backend DoubleMLData <data_backend>
