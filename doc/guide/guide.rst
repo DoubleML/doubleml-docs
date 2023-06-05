@@ -18,6 +18,7 @@ User guide
     Learners, hyperparameters and hyperparameter tuning <learners>
     Variance estimation and confidence intervals <se_confint>
     Sample-splitting, cross-fitting and repeated cross-fitting <resampling>
+    Sensitivity analysis <sensitivity>
 
 
 .. raw:: html
