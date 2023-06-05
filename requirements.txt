@@ -7,12 +7,12 @@ rpy2
 # doc
 sphinx
 sphinx-copybutton
-nbsphinx
+nbsphinx==0.9.1
 ipykernel
 sphinx-gallery
 sphinx-panels
 jupyter-sphinx
-pydata-sphinx-theme
+pydata-sphinx-theme==0.13.3
 matplotlib
 plotly
 seaborn
