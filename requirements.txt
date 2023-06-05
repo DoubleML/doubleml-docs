@@ -5,7 +5,7 @@ pytest
 rpy2
 
 # doc
-sphinx
+sphinx==7.0.1
 sphinx-copybutton
 nbsphinx==0.9.1
 ipykernel

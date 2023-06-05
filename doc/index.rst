@@ -30,8 +30,8 @@ ecosystem <https://github.com/mlr-org/mlr3/wiki/Extension-Packages>`_ (Lang et a
                 panel_icons[i].src = dark ? '_static/dark_' + filename : '_static/light_' + filename;
             }
         });
-    observer.observe(document.documentElement, {attributes: true, attributeFilter: ['data-theme']});
-  </script>
+        observer.observe(document.documentElement, {attributes: true, attributeFilter: ['data-theme']});
+    </script>
 
 .. panels::
     :column: col-lg-4 col-md-4 col-sm-6 col-xs-12 p-2
@@ -58,21 +58,6 @@ ecosystem <https://github.com/mlr-org/mlr3/wiki/Extension-Packages>`_ (Lang et a
     ---
     :img-top: _static/light_userguide.png
 
-    User guide
-    ^^^^^^^^^^
-
-    Want to learn everything about **DoubleML**? Then you should visit our extensive user guide with detailed explanations and further references.
-
-    +++
-
-    .. link-button:: guide/guide
-        :type: ref
-        :text: To the user guide
-        :classes: btn-block btn-dark stretched-link btn-sm
-
-    ---
-    :img-top: _static/light_workflow.png
-
     Workflow
     ^^^^^^^^^^^^^^^^^
 
@@ -87,6 +72,21 @@ ecosystem <https://github.com/mlr-org/mlr3/wiki/Extension-Packages>`_ (Lang et a
 
     ---
     :img-top: _static/light_pythonapi.png
+
+    User guide
+    ^^^^^^^^^^
+
+    Want to learn everything about **DoubleML**? Then you should visit our extensive user guide with detailed explanations and further references.
+
+    +++
+
+    .. link-button:: guide/guide
+        :type: ref
+        :text: To the user guide
+        :classes: btn-block btn-dark stretched-link btn-sm
+
+    ---
+    :img-top: _static/light_workflow.png
 
     Python API
     ^^^^^^^^^^
@@ -134,18 +134,13 @@ ecosystem <https://github.com/mlr-org/mlr3/wiki/Extension-Packages>`_ (Lang et a
 .. toctree::
    :hidden:
 
-   self
-
-.. toctree::
-   :hidden:
-
     Install <intro/install>
     Getting started <intro/intro>
-    User guide <guide/guide>
     Workflow <workflow/workflow>
+    User guide <guide/guide>
+    Examples <examples/index>
     Python API <api/api>
     R API <https://docs.doubleml.org/r/stable/>
-    Examples <examples/index>
     Literature <literature/literature>
     Release notes <release/release>
 

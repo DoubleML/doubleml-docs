@@ -72,6 +72,7 @@ html_theme = 'pydata_sphinx_theme'
 html_theme_options = {
     'github_url': 'https://github.com/DoubleML/doubleml-for-py',
     'navigation_with_keys': False,
+    "header_links_before_dropdown": 6,
 }
 
 # html_logo = '../img/logo.png'
