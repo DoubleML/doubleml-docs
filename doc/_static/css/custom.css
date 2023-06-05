@@ -18,5 +18,5 @@ html[data-theme="dark"] {
 
 /* BOOTSTRAP */
 .card {
-  --bs-card-bg: none !important;
+  background: none !important;
 }
