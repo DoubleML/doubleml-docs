@@ -67,62 +67,66 @@ the method ``p_adjust``. :ref:`DoubleML <doubleml_package>`  performs a version 
 which is based on the multiplier bootstrap, by default. Alternatively, ``p_adjust`` allows users to apply traditional corrections
 via the option ``method``.
 
-.. tabbed:: Python
+.. tab-set::
 
-    .. ipython:: python
+    .. tab-item:: Python
+        :sync: py
 
-        import doubleml as dml
-        import numpy as np
-        from sklearn.base import clone
-        from sklearn.linear_model import LassoCV
+        .. ipython:: python
 
-        # Simulate data
-        np.random.seed(1234)
-        n_obs = 500
-        n_vars = 100
-        X = np.random.normal(size=(n_obs, n_vars))
-        theta = np.array([3., 3., 3.])
-        y = np.dot(X[:, :3], theta) + np.random.standard_normal(size=(n_obs,))
+            import doubleml as dml
+            import numpy as np
+            from sklearn.base import clone
+            from sklearn.linear_model import LassoCV
 
-        dml_data = dml.DoubleMLData.from_arrays(X[:, 10:], y, X[:, :10])
+            # Simulate data
+            np.random.seed(1234)
+            n_obs = 500
+            n_vars = 100
+            X = np.random.normal(size=(n_obs, n_vars))
+            theta = np.array([3., 3., 3.])
+            y = np.dot(X[:, :3], theta) + np.random.standard_normal(size=(n_obs,))
 
-        learner = LassoCV()
-        ml_l = clone(learner)
-        ml_m = clone(learner)
-        dml_plr = dml.DoubleMLPLR(dml_data, ml_l, ml_m)
+            dml_data = dml.DoubleMLData.from_arrays(X[:, 10:], y, X[:, :10])
 
-        print(dml_plr.fit().bootstrap().confint(joint=True))
-        print(dml_plr.p_adjust())
-        print(dml_plr.p_adjust(method='bonferroni'))
+            learner = LassoCV()
+            ml_l = clone(learner)
+            ml_m = clone(learner)
+            dml_plr = dml.DoubleMLPLR(dml_data, ml_l, ml_m)
 
-.. tabbed:: R
+            print(dml_plr.fit().bootstrap().confint(joint=True))
+            print(dml_plr.p_adjust())
+            print(dml_plr.p_adjust(method='bonferroni'))
 
-    .. jupyter-execute::
+    .. tab-item:: R
+        :sync: r
 
-        library(DoubleML)
-        library(mlr3)
-        library(mlr3learners)
-        library(data.table)
-        lgr::get_logger("mlr3")$set_threshold("warn")
+        .. jupyter-execute::
 
-        set.seed(3141)
-        n_obs = 500
-        n_vars = 100
-        theta = rep(3, 3)
-        X = matrix(stats::rnorm(n_obs * n_vars), nrow = n_obs, ncol = n_vars)
-        y = X[, 1:3, drop = FALSE] %*% theta  + stats::rnorm(n_obs)
-        dml_data = double_ml_data_from_matrix(X = X[, 11:n_vars], y = y, d = X[,1:10])
+            library(DoubleML)
+            library(mlr3)
+            library(mlr3learners)
+            library(data.table)
+            lgr::get_logger("mlr3")$set_threshold("warn")
 
-        learner = lrn("regr.cv_glmnet", s="lambda.min")
-        ml_l = learner$clone()
-        ml_m = learner$clone()
-        dml_plr = DoubleMLPLR$new(dml_data, ml_l, ml_m)
+            set.seed(3141)
+            n_obs = 500
+            n_vars = 100
+            theta = rep(3, 3)
+            X = matrix(stats::rnorm(n_obs * n_vars), nrow = n_obs, ncol = n_vars)
+            y = X[, 1:3, drop = FALSE] %*% theta  + stats::rnorm(n_obs)
+            dml_data = double_ml_data_from_matrix(X = X[, 11:n_vars], y = y, d = X[,1:10])
 
-        dml_plr$fit()
-        dml_plr$bootstrap()
-        dml_plr$confint(joint=TRUE)
-        dml_plr$p_adjust()
-        dml_plr$p_adjust(method="bonferroni")
+            learner = lrn("regr.cv_glmnet", s="lambda.min")
+            ml_l = learner$clone()
+            ml_m = learner$clone()
+            dml_plr = DoubleMLPLR$new(dml_data, ml_l, ml_m)
+
+            dml_plr$fit()
+            dml_plr$bootstrap()
+            dml_plr$confint(joint=TRUE)
+            dml_plr$p_adjust()
+            dml_plr$p_adjust(method="bonferroni")
 
 
 References

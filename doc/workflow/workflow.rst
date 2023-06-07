@@ -72,40 +72,44 @@ The data-backend can be initialized from various data frame objects in Python an
 401(k) example, we use eligibility (``e401``) as the treatment variable of interest. The outcome variable is ``net_tfa`` and we
 control for confounding variables ``['age', 'inc', 'educ', 'fsize', 'marr', 'twoearn', 'db', 'pira', 'hown']``.
 
-.. tabbed:: Python
+.. tab-set::
 
-    .. ipython:: python
+    .. tab-item:: Python
+        :sync: py
 
-        from doubleml import DoubleMLData
-        from doubleml.datasets import fetch_401K
-        data = fetch_401K(return_type='DataFrame')
-        # Construct DoubleMLData object
-        dml_data = DoubleMLData(data, y_col='net_tfa', d_cols='e401',
-                                x_cols=['age', 'inc', 'educ', 'fsize', 'marr',
-                                        'twoearn', 'db', 'pira', 'hown'])
+        .. ipython:: python
 
-.. tabbed:: R
+            from doubleml import DoubleMLData
+            from doubleml.datasets import fetch_401K
+            data = fetch_401K(return_type='DataFrame')
+            # Construct DoubleMLData object
+            dml_data = DoubleMLData(data, y_col='net_tfa', d_cols='e401',
+                                    x_cols=['age', 'inc', 'educ', 'fsize', 'marr',
+                                            'twoearn', 'db', 'pira', 'hown'])
 
-    .. jupyter-execute::
+    .. tab-item:: R
+        :sync: r
 
-        library(DoubleML)
-        data = fetch_401k(return_type='data.table')
-        # Construct DoubleMLData object from data.table
-        dml_data = DoubleMLData$new(data, y_col='net_tfa', d_cols='e401',
-                                x_cols=c('age', 'inc', 'educ', 'fsize',
-                                         'marr', 'twoearn', 'db', 'pira',
-                                         'hown'))
+        .. jupyter-execute::
 
-        data_frame = fetch_401k(return_type='data.frame')
-        # Construct DoubleMLData object from data.frame
-        dml_data_df = double_ml_data_from_data_frame(data_frame,
-                                                     y_col='net_tfa',
-                                                     d_cols='e401',
-                                                     x_cols=c('age', 'inc',
-                                                              'educ', 'fsize',
-                                                              'marr', 'twoearn',
-                                                              'db', 'pira',
-                                                              'hown'))
+            library(DoubleML)
+            data = fetch_401k(return_type='data.table')
+            # Construct DoubleMLData object from data.table
+            dml_data = DoubleMLData$new(data, y_col='net_tfa', d_cols='e401',
+                                    x_cols=c('age', 'inc', 'educ', 'fsize',
+                                            'marr', 'twoearn', 'db', 'pira',
+                                            'hown'))
+
+            data_frame = fetch_401k(return_type='data.frame')
+            # Construct DoubleMLData object from data.frame
+            dml_data_df = double_ml_data_from_data_frame(data_frame,
+                                                        y_col='net_tfa',
+                                                        d_cols='e401',
+                                                        x_cols=c('age', 'inc',
+                                                                'educ', 'fsize',
+                                                                'marr', 'twoearn',
+                                                                'db', 'pira',
+                                                                'hown'))
 
 2. Causal Model
 ---------------
@@ -144,46 +148,49 @@ We can directly pass the parameters during initialization of the learner objects
 Because we have a binary treatment variable, we can use a classification learner for the corresponding nuisance part.
 We use a regression learner for the continuous outcome variable net financial assets.
 
-.. tabbed:: Python
+.. tab-set::
 
-    .. ipython:: python
-        :okwarning:
+    .. tab-item:: Python
+        :sync: py
 
-        # Random forest learners
-        from sklearn.ensemble import RandomForestClassifier, RandomForestRegressor
-        ml_l_rf = RandomForestRegressor(n_estimators = 500, max_depth = 7,
-                                        max_features = 3, min_samples_leaf = 3)
-        ml_m_rf = RandomForestClassifier(n_estimators = 500, max_depth = 5,
-                                        max_features = 4, min_samples_leaf = 7)
+        .. ipython:: python
+            :okwarning:
 
-        # Xgboost learners
-        from xgboost import XGBClassifier, XGBRegressor
-        ml_l_xgb = XGBRegressor(objective = "reg:squarederror", eta = 0.1,
-                                n_estimators =35)
-        ml_m_xgb = XGBClassifier(use_label_encoder = False ,
-                                objective = "binary:logistic",
-                                eval_metric = "logloss",
-                                eta = 0.1, n_estimators = 34)
+            # Random forest learners
+            from sklearn.ensemble import RandomForestClassifier, RandomForestRegressor
+            ml_l_rf = RandomForestRegressor(n_estimators = 500, max_depth = 7,
+                                            max_features = 3, min_samples_leaf = 3)
+            ml_m_rf = RandomForestClassifier(n_estimators = 500, max_depth = 5,
+                                            max_features = 4, min_samples_leaf = 7)
 
-.. tabbed:: R
+            # Xgboost learners
+            from xgboost import XGBClassifier, XGBRegressor
+            ml_l_xgb = XGBRegressor(objective = "reg:squarederror", eta = 0.1,
+                                    n_estimators =35)
+            ml_m_xgb = XGBClassifier(use_label_encoder = False ,
+                                    objective = "binary:logistic",
+                                    eval_metric = "logloss",
+                                    eta = 0.1, n_estimators = 34)
 
-    .. jupyter-execute::
+    .. tab-item:: R
+        :sync: r
 
-        library(mlr3)
-        library(mlr3learners)
-        # Random forest learners
-        ml_l_rf = lrn("regr.ranger", max.depth = 7,
-                    mtry = 3, min.node.size =3)
-        ml_m_rf = lrn("classif.ranger", max.depth = 5,
-                    mtry = 4, min.node.size = 7)
+        .. jupyter-execute::
 
-        # Xgboost learners
-        ml_l_xgb = lrn("regr.xgboost", objective = "reg:squarederror",
-                        eta = 0.1, nrounds = 35)
-        ml_m_xgb = lrn("classif.xgboost", objective = "binary:logistic",
-                        eval_metric = "logloss",
-                        eta = 0.1, nrounds = 34)
+            library(mlr3)
+            library(mlr3learners)
+            # Random forest learners
+            ml_l_rf = lrn("regr.ranger", max.depth = 7,
+                        mtry = 3, min.node.size =3)
+            ml_m_rf = lrn("classif.ranger", max.depth = 5,
+                        mtry = 4, min.node.size = 7)
 
+            # Xgboost learners
+            ml_l_xgb = lrn("regr.xgboost", objective = "reg:squarederror",
+                            eta = 0.1, nrounds = 35)
+            ml_m_xgb = lrn("classif.xgboost", objective = "binary:logistic",
+                            eval_metric = "logloss",
+                            eta = 0.1, nrounds = 34)
 
 4. DML Specifications
 ---------------------
@@ -197,46 +204,49 @@ object using the previously generated data-backend. Moreover, we specify the res
 the dml algorithm (:ref:`DML1 vs. DML2 <algorithms>`) and the score function (:ref:`"partialling out" or
 "IV-type" <plr-score>`).
 
-.. tabbed:: Python
+.. tab-set::
 
-    .. ipython:: python
+    .. tab-item:: Python
+        :sync: py
 
-        from doubleml import DoubleMLPLR
-        np.random.seed(123)
-        # Default values
-        dml_plr_tree = DoubleMLPLR(dml_data,
-                                    ml_l = ml_l_rf,
-                                    ml_m = ml_m_rf)
+        .. ipython:: python
 
-        np.random.seed(123)
-        # Parametrized by user
-        dml_plr_tree = DoubleMLPLR(dml_data,
-                                    ml_l = ml_l_rf,
-                                    ml_m = ml_m_rf,
-                                    n_folds = 3,
-                                    n_rep = 1,
-                                    score = 'partialling out',
-                                    dml_procedure = 'dml2')
-
-.. tabbed:: R
-
-    .. jupyter-execute::
-
-        set.seed(123)
-        # Default values
-        dml_plr_forest = DoubleMLPLR$new(dml_data,
+            from doubleml import DoubleMLPLR
+            np.random.seed(123)
+            # Default values
+            dml_plr_tree = DoubleMLPLR(dml_data,
                                         ml_l = ml_l_rf,
                                         ml_m = ml_m_rf)
 
-        set.seed(123)
-        # Parametrized by user
-        dml_plr_forest = DoubleMLPLR$new(dml_data,
+            np.random.seed(123)
+            # Parametrized by user
+            dml_plr_tree = DoubleMLPLR(dml_data,
                                         ml_l = ml_l_rf,
                                         ml_m = ml_m_rf,
                                         n_folds = 3,
+                                        n_rep = 1,
                                         score = 'partialling out',
                                         dml_procedure = 'dml2')
 
+    .. tab-item:: R
+        :sync: r
+
+        .. jupyter-execute::
+
+            set.seed(123)
+            # Default values
+            dml_plr_forest = DoubleMLPLR$new(dml_data,
+                                            ml_l = ml_l_rf,
+                                            ml_m = ml_m_rf)
+
+            set.seed(123)
+            # Parametrized by user
+            dml_plr_forest = DoubleMLPLR$new(dml_data,
+                                            ml_l = ml_l_rf,
+                                            ml_m = ml_m_rf,
+                                            n_folds = 3,
+                                            score = 'partialling out',
+                                            dml_procedure = 'dml2')
 
 5. Estimation
 -------------
@@ -245,38 +255,41 @@ We perform estimation in Step 5. In this step, the cross-fitting algorithm is ex
 in the score are computed. As an output, users can access the coefficient estimates and standard errors either via the
 corresponding fields or via a summary.
 
-.. tabbed:: Python
+.. tab-set::
 
-    .. ipython:: python
+    .. tab-item:: Python
+        :sync: py
 
-        # Estimation
-        dml_plr_tree.fit()
+        .. ipython:: python
 
-        # Coefficient estimate
-        dml_plr_tree.coef
+            # Estimation
+            dml_plr_tree.fit()
 
-        # Standard error
-        dml_plr_tree.se
+            # Coefficient estimate
+            dml_plr_tree.coef
 
-        # Summary
-        dml_plr_tree.summary
+            # Standard error
+            dml_plr_tree.se
 
-.. tabbed:: R
+            # Summary
+            dml_plr_tree.summary
 
-    .. jupyter-execute::
+    .. tab-item:: R
+        :sync: r
 
-        # Estimation
-        dml_plr_forest$fit()
+        .. jupyter-execute::
 
-        # Coefficient estimate
-        dml_plr_forest$coef
+            # Estimation
+            dml_plr_forest$fit()
 
-        # Standard error
-        dml_plr_forest$se
+            # Coefficient estimate
+            dml_plr_forest$coef
 
-        # Summary
-        dml_plr_forest$summary()
+            # Standard error
+            dml_plr_forest$se
 
+            # Summary
+            dml_plr_forest$summary()
 
 6. Inference
 ------------
@@ -291,34 +304,38 @@ on net financial assets, we find a positive and significant effect: Being eligib
 approximately :math:`$9,000`. This estimate is much smaller than the unconditional effect of eligibility on net financial assets:
 If we did not control for the confounding variables, the average treatment effect would correspond to :math:`$19,559`.
 
-.. tabbed:: Python
+.. tab-set::
 
-    .. ipython:: python
+    .. tab-item:: Python
+        :sync: py
 
-        # Summary
-        dml_plr_tree.summary
+        .. ipython:: python
 
-        # Confidence intervals
-        dml_plr_tree.confint()
+            # Summary
+            dml_plr_tree.summary
 
-        # Multiplier bootstrap (relevant in case with multiple treatment variables)
-        dml_plr_tree.bootstrap()
+            # Confidence intervals
+            dml_plr_tree.confint()
 
-        # Simultaneous confidence bands
-        dml_plr_tree.confint(joint = True)
+            # Multiplier bootstrap (relevant in case with multiple treatment variables)
+            dml_plr_tree.bootstrap()
 
-.. tabbed:: R
+            # Simultaneous confidence bands
+            dml_plr_tree.confint(joint = True)
 
-    .. jupyter-execute::
+    .. tab-item:: R
+        :sync: r
 
-        # Summary
-        dml_plr_forest$summary()
+        .. jupyter-execute::
 
-        # Confidence intervals
-        dml_plr_forest$confint()
+            # Summary
+            dml_plr_forest$summary()
 
-        # Multiplier bootstrap (relevant in case with multiple treatment variables)
-        dml_plr_forest$bootstrap()
+            # Confidence intervals
+            dml_plr_forest$confint()
 
-        # Simultaneous confidence bands
-        dml_plr_forest$confint(joint = TRUE)
+            # Multiplier bootstrap (relevant in case with multiple treatment variables)
+            dml_plr_forest$bootstrap()
+
+            # Simultaneous confidence bands
+            dml_plr_forest$confint(joint = TRUE)

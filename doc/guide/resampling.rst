@@ -17,39 +17,43 @@ Advanced resampling techniques can be obtained via the boolean parameters
 As an example we consider a partially linear regression model (PLR)
 implemented in ``DoubleMLPLR``.
 
-.. tabbed:: Python
+.. tab-set::
 
-    .. ipython:: python
+    .. tab-item:: Python
+        :sync: py
 
-        import doubleml as dml
-        import numpy as np
-        from doubleml.datasets import make_plr_CCDDHNR2018
-        from sklearn.ensemble import RandomForestRegressor
-        from sklearn.base import clone
+        .. ipython:: python
 
-        learner = RandomForestRegressor(n_estimators=100, max_features=20, max_depth=5, min_samples_leaf=2)
-        ml_l = clone(learner)
-        ml_m = clone(learner)
-        np.random.seed(1234)
-        obj_dml_data = make_plr_CCDDHNR2018(alpha=0.5, n_obs=100)
+            import doubleml as dml
+            import numpy as np
+            from doubleml.datasets import make_plr_CCDDHNR2018
+            from sklearn.ensemble import RandomForestRegressor
+            from sklearn.base import clone
 
-.. tabbed:: R
+            learner = RandomForestRegressor(n_estimators=100, max_features=20, max_depth=5, min_samples_leaf=2)
+            ml_l = clone(learner)
+            ml_m = clone(learner)
+            np.random.seed(1234)
+            obj_dml_data = make_plr_CCDDHNR2018(alpha=0.5, n_obs=100)
 
-    .. jupyter-execute::
+    .. tab-item:: R
+        :sync: r
 
-        library(DoubleML)
-        library(mlr3)
-        lgr::get_logger("mlr3")$set_threshold("warn")
-        library(mlr3learners)
-        library(data.table)
+        .. jupyter-execute::
 
-        learner = lrn("regr.ranger", num.trees = 100, mtry = 20, min.node.size = 2, max.depth = 5)
-        ml_l = learner
-        ml_m = learner
-        data = make_plr_CCDDHNR2018(alpha=0.5, n_obs=100, return_type = "data.table")
-        obj_dml_data = DoubleMLData$new(data,
-                                        y_col = "y",
-                                        d_cols = "d")
+            library(DoubleML)
+            library(mlr3)
+            lgr::get_logger("mlr3")$set_threshold("warn")
+            library(mlr3learners)
+            library(data.table)
+
+            learner = lrn("regr.ranger", num.trees = 100, mtry = 20, min.node.size = 2, max.depth = 5)
+            ml_l = learner
+            ml_m = learner
+            data = make_plr_CCDDHNR2018(alpha=0.5, n_obs=100, return_type = "data.table")
+            obj_dml_data = DoubleMLData$new(data,
+                                            y_col = "y",
+                                            d_cols = "d")
 
 .. _k-fold-cross-fitting:
 
@@ -59,21 +63,25 @@ Cross-fitting with *K* folds
 The default setting is ``n_folds = 5`` and ``n_rep = 1``, i.e.,
 :math:`K=5` folds and no repeated cross-fitting.
 
-.. tabbed:: Python
+.. tab-set::
 
-    .. ipython:: python
+    .. tab-item:: Python
+        :sync: py
 
-        dml_plr_obj = dml.DoubleMLPLR(obj_dml_data, ml_l, ml_m, n_folds = 5, n_rep = 1)
-        print(dml_plr_obj.n_folds)
-        print(dml_plr_obj.n_rep)
+        .. ipython:: python
 
-.. tabbed:: R
+            dml_plr_obj = dml.DoubleMLPLR(obj_dml_data, ml_l, ml_m, n_folds = 5, n_rep = 1)
+            print(dml_plr_obj.n_folds)
+            print(dml_plr_obj.n_rep)
 
-    .. jupyter-execute::
+    .. tab-item:: R
+        :sync: r
 
-        dml_plr_obj = DoubleMLPLR$new(obj_dml_data, ml_l, ml_m, n_folds = 5, n_rep = 1)
-        print(dml_plr_obj$n_folds)
-        print(dml_plr_obj$n_rep)
+        .. jupyter-execute::
+
+            dml_plr_obj = DoubleMLPLR$new(obj_dml_data, ml_l, ml_m, n_folds = 5, n_rep = 1)
+            print(dml_plr_obj$n_folds)
+            print(dml_plr_obj$n_rep)
 
 During the initialization of a DML model like ``DoubleMLPLR`` a :math:`K`-fold random
 partition :math:`(I_k)_{k=1}^{K}` of observation indices is generated.
@@ -81,23 +89,27 @@ The :math:`K`-fold random partition is stored in the ``smpls`` attribute of the 
 
 .. TODO: add more detailed describtion of the ``smpls`` list. Or refer to the attribute description.
 
-.. tabbed:: Python
+.. tab-set::
 
-    .. ipython:: python
+    .. tab-item:: Python
+        :sync: py
 
-        print(dml_plr_obj.smpls)
+        .. ipython:: python
 
-.. tabbed:: R
+            print(dml_plr_obj.smpls)
 
-    .. jupyter-execute::
+    .. tab-item:: R
+        :sync: r
 
-        dml_plr_obj$smpls
+        .. jupyter-execute::
+
+            dml_plr_obj$smpls
 
 For each :math:`k \in [K] = \lbrace 1, \ldots, K]` the nuisance ML estimator
 
-    .. math::
+.. math::
 
-        \hat{\eta}_{0,k} = \hat{\eta}_{0,k}\big((W_i)_{i\not\in I_k}\big)
+    \hat{\eta}_{0,k} = \hat{\eta}_{0,k}\big((W_i)_{i\not\in I_k}\big)
 
 is based on the observations of all other :math:`k-1` folds.
 The values of the two score function components
@@ -105,21 +117,25 @@ The values of the two score function components
 for each observation index :math:`i \in I_k` are computed and
 stored in the attributes ``psi_a`` and ``psi_b``.
 
-.. tabbed:: Python
+.. tab-set::
 
-    .. ipython:: python
+    .. tab-item:: Python
+        :sync: py
 
-        dml_plr_obj.fit();
-        print(dml_plr_obj.psi_elements['psi_a'][:5])
-        print(dml_plr_obj.psi_elements['psi_b'][:5])
+        .. ipython:: python
 
-.. tabbed:: R
+            dml_plr_obj.fit();
+            print(dml_plr_obj.psi_elements['psi_a'][:5])
+            print(dml_plr_obj.psi_elements['psi_b'][:5])
 
-    .. jupyter-execute::
+    .. tab-item:: R
+        :sync: r
 
-        dml_plr_obj$fit()
-        print(dml_plr_obj$psi_a[1:5, ,1])
-        print(dml_plr_obj$psi_b[1:5, ,1])
+        .. jupyter-execute::
+
+            dml_plr_obj$fit()
+            print(dml_plr_obj$psi_a[1:5, ,1])
+            print(dml_plr_obj$psi_b[1:5, ,1])
 
 .. _repeated-cross-fitting:
 
@@ -129,21 +145,25 @@ Repeated cross-fitting with *K* folds and *M* repetitions
 Repeated cross-fitting is obtained by choosing a value :math:`M>1` for the number of repetition ``n_rep``.
 It results in :math:`M` random :math:`K`-fold partitions being drawn.
 
-.. tabbed:: Python
+.. tab-set::
 
-    .. ipython:: python
+    .. tab-item:: Python
+        :sync: py
 
-        dml_plr_obj = dml.DoubleMLPLR(obj_dml_data, ml_l, ml_m, n_folds = 5, n_rep = 10)
-        print(dml_plr_obj.n_folds)
-        print(dml_plr_obj.n_rep)
+        .. ipython:: python
 
-.. tabbed:: R
+            dml_plr_obj = dml.DoubleMLPLR(obj_dml_data, ml_l, ml_m, n_folds = 5, n_rep = 10)
+            print(dml_plr_obj.n_folds)
+            print(dml_plr_obj.n_rep)
 
-    .. jupyter-execute::
+    .. tab-item:: R
+        :sync: r
 
-        dml_plr_obj = DoubleMLPLR$new(obj_dml_data, ml_l, ml_m, n_folds = 5, n_rep = 10)
-        print(dml_plr_obj$n_folds)
-        print(dml_plr_obj$n_rep)
+        .. jupyter-execute::
+
+            dml_plr_obj = DoubleMLPLR$new(obj_dml_data, ml_l, ml_m, n_folds = 5, n_rep = 10)
+            print(dml_plr_obj$n_folds)
+            print(dml_plr_obj$n_rep)
 
 For each of the :math:`M` partitions, the nuisance ML models are estimated and score functions computed as described
 in :ref:`k-fold-cross-fitting`.
@@ -156,66 +176,78 @@ The third dimension refers to the treatment variable and becomes non-singleton i
 .. Note that in case of multiple treatment variables the score functions are 3-dimensional arrays where the third dimension
 .. refers to the different treatment variables.
 
-.. tabbed:: Python
+.. tab-set::
 
-    .. ipython:: python
+    .. tab-item:: Python
+        :sync: py
 
-        dml_plr_obj.fit();
-        print(dml_plr_obj.psi_elements['psi_a'][:5, :, 0])
-        print(dml_plr_obj.psi_elements['psi_b'][:5, :, 0])
+        .. ipython:: python
 
-.. tabbed:: R
+            dml_plr_obj.fit();
+            print(dml_plr_obj.psi_elements['psi_a'][:5, :, 0])
+            print(dml_plr_obj.psi_elements['psi_b'][:5, :, 0])
 
-    .. jupyter-execute::
+    .. tab-item:: R
+        :sync: r
 
-        dml_plr_obj$fit()
-        print(dml_plr_obj$psi_a[1:5, ,1])
-        print(dml_plr_obj$psi_b[1:5, ,1])
+        .. jupyter-execute::
+
+            dml_plr_obj$fit()
+            print(dml_plr_obj$psi_a[1:5, ,1])
+            print(dml_plr_obj$psi_b[1:5, ,1])
 
 We estimate the causal parameter :math:`\tilde{\theta}_{0,m}` for each of the :math:`M` partitions with a DML
 algorithm as described in :ref:`algorithms`.
 Standard errors are obtained as described in :ref:`se_confint`.
 The aggregation of the estimates of the causal parameter and its standard errors is done using the median
 
-    .. math::
-        \tilde{\theta}_{0} &= \text{Median}\big((\tilde{\theta}_{0,m})_{m \in [M]}\big),
+.. math::
+    \tilde{\theta}_{0} &= \text{Median}\big((\tilde{\theta}_{0,m})_{m \in [M]}\big),
 
-        \hat{\sigma} &= \sqrt{\text{Median}\big((\hat{\sigma}_m^2 + (\tilde{\theta}_{0,m} - \tilde{\theta}_{0})^2)_{m \in [M]}\big)}.
+    \hat{\sigma} &= \sqrt{\text{Median}\big((\hat{\sigma}_m^2 + (\tilde{\theta}_{0,m} - \tilde{\theta}_{0})^2)_{m \in [M]}\big)}.
 
 The estimate of the causal parameter :math:`\tilde{\theta}_{0}` is stored in the ``coef`` attribute
 and the asymptotic standard error :math:`\hat{\sigma}/\sqrt{N}` in ``se``.
 
-.. tabbed:: Python
+.. tab-set::
 
-    .. ipython:: python
+    .. tab-item:: Python
+        :sync: py
 
-        print(dml_plr_obj.coef)
-        print(dml_plr_obj.se)
+        .. ipython:: python
 
-.. tabbed:: R
+            print(dml_plr_obj.coef)
+            print(dml_plr_obj.se)
 
-    .. jupyter-execute::
+    .. tab-item:: R
+        :sync: r
 
-        print(dml_plr_obj$coef)
-        print(dml_plr_obj$se)
+        .. jupyter-execute::
+
+            print(dml_plr_obj$coef)
+            print(dml_plr_obj$se)
 
 The parameter estimates :math:`(\tilde{\theta}_{0,m})_{m \in [M]}` and asymptotic standard errors
 :math:`(\hat{\sigma}_m/\sqrt{N})_{m \in [M]}` for each of the :math:`M` partitions are stored in the attributes
 ``_all_coef`` and ``_all_se``, respectively.
 
-.. tabbed:: Python
+.. tab-set::
 
-    .. ipython:: python
+    .. tab-item:: Python
+        :sync: py
 
-        print(dml_plr_obj._all_coef)
-        print(dml_plr_obj._all_se)
+        .. ipython:: python
 
-.. tabbed:: R
+            print(dml_plr_obj._all_coef)
+            print(dml_plr_obj._all_se)
 
-    .. jupyter-execute::
+    .. tab-item:: R
+        :sync: r
 
-        print(dml_plr_obj$all_coef)
-        print(dml_plr_obj$all_se)
+        .. jupyter-execute::
+
+            print(dml_plr_obj$all_coef)
+            print(dml_plr_obj$all_se)
 
 Externally provide a sample splitting / partition
 +++++++++++++++++++++++++++++++++++++++++++++++++
@@ -229,58 +261,66 @@ The following calls are equivalent.
 In the first sample code, we use the standard interface and draw the sample-splitting with :math:`K=4` folds during
 initialization of the ``DoubleMLPLR`` object.
 
-.. tabbed:: Python
+.. tab-set::
 
-    .. ipython:: python
+    .. tab-item:: Python
+        :sync: py
 
-        np.random.seed(314)
-        dml_plr_obj_internal = dml.DoubleMLPLR(obj_dml_data, ml_l, ml_m, n_folds = 4)
-        print(dml_plr_obj_internal.fit().summary)
+        .. ipython:: python
 
-.. tabbed:: R
+            np.random.seed(314)
+            dml_plr_obj_internal = dml.DoubleMLPLR(obj_dml_data, ml_l, ml_m, n_folds = 4)
+            print(dml_plr_obj_internal.fit().summary)
 
-    .. jupyter-execute::
+    .. tab-item:: R
+        :sync: r
 
-        set.seed(314)
-        dml_plr_obj_internal = DoubleMLPLR$new(obj_dml_data, ml_l, ml_m, n_folds = 4)
-        dml_plr_obj_internal$fit()
-        dml_plr_obj_internal$summary()
+        .. jupyter-execute::
+
+            set.seed(314)
+            dml_plr_obj_internal = DoubleMLPLR$new(obj_dml_data, ml_l, ml_m, n_folds = 4)
+            dml_plr_obj_internal$fit()
+            dml_plr_obj_internal$summary()
 
 In the second sample code, we use the K-Folds cross-validator of sklearn :py:class:`~sklearn.model_selection.KFold`
 and set the partition via the ``set_sample_splitting()`` method.
 
-.. tabbed:: Python
+.. tab-set::
 
-    .. ipython:: python
+    .. tab-item:: Python
+        :sync: py
 
-        dml_plr_obj_external = dml.DoubleMLPLR(obj_dml_data, ml_l, ml_m, draw_sample_splitting = False)
+        .. ipython:: python
 
-        from sklearn.model_selection import KFold
-        np.random.seed(314)
-        kf = KFold(n_splits=4, shuffle=True)
-        smpls = [(train, test) for train, test in kf.split(obj_dml_data.x)]
+            dml_plr_obj_external = dml.DoubleMLPLR(obj_dml_data, ml_l, ml_m, draw_sample_splitting = False)
 
-        dml_plr_obj_external.set_sample_splitting(smpls);
-        print(dml_plr_obj_external.fit().summary)
+            from sklearn.model_selection import KFold
+            np.random.seed(314)
+            kf = KFold(n_splits=4, shuffle=True)
+            smpls = [(train, test) for train, test in kf.split(obj_dml_data.x)]
 
-.. tabbed:: R
+            dml_plr_obj_external.set_sample_splitting(smpls);
+            print(dml_plr_obj_external.fit().summary)
 
-    .. jupyter-execute::
+    .. tab-item:: R
+        :sync: r
 
-        dml_plr_obj_external = DoubleMLPLR$new(obj_dml_data, ml_l, ml_m, draw_sample_splitting = FALSE)
+        .. jupyter-execute::
 
-        set.seed(314)
-        # set up a task and cross-validation resampling scheme in mlr3
-        my_task = Task$new("help task", "regr", data)
-        my_sampling = rsmp("cv", folds = 4)$instantiate(my_task)
+            dml_plr_obj_external = DoubleMLPLR$new(obj_dml_data, ml_l, ml_m, draw_sample_splitting = FALSE)
 
-        train_ids = lapply(1:4, function(x) my_sampling$train_set(x))
-        test_ids = lapply(1:4, function(x) my_sampling$test_set(x))
-        smpls = list(list(train_ids = train_ids, test_ids = test_ids))
+            set.seed(314)
+            # set up a task and cross-validation resampling scheme in mlr3
+            my_task = Task$new("help task", "regr", data)
+            my_sampling = rsmp("cv", folds = 4)$instantiate(my_task)
 
-        dml_plr_obj_external$set_sample_splitting(smpls)
-        dml_plr_obj_external$fit()
-        dml_plr_obj_external$summary()
+            train_ids = lapply(1:4, function(x) my_sampling$train_set(x))
+            test_ids = lapply(1:4, function(x) my_sampling$test_set(x))
+            smpls = list(list(train_ids = train_ids, test_ids = test_ids))
+
+            dml_plr_obj_external$set_sample_splitting(smpls)
+            dml_plr_obj_external$fit()
+            dml_plr_obj_external$summary()
 
 Sample-splitting without cross-fitting
 ++++++++++++++++++++++++++++++++++++++
@@ -292,61 +332,69 @@ causal parameter.
 Note that cross-fitting performs well empirically and is recommended to remove bias induced by overfitting, see also
 :ref:`bias_overfitting`.
 
-.. tabbed:: Python
+.. tab-set::
 
-    .. ipython:: python
+    .. tab-item:: Python
+        :sync: py
 
-        np.random.seed(314)
-        dml_plr_obj_external = dml.DoubleMLPLR(obj_dml_data, ml_l, ml_m,
-                                               n_folds = 2, apply_cross_fitting = False)
-        print(dml_plr_obj_external.fit().summary)
+        .. ipython:: python
 
-.. tabbed:: R
+            np.random.seed(314)
+            dml_plr_obj_external = dml.DoubleMLPLR(obj_dml_data, ml_l, ml_m,
+                                                n_folds = 2, apply_cross_fitting = False)
+            print(dml_plr_obj_external.fit().summary)
 
-    .. jupyter-execute::
+    .. tab-item:: R
+        :sync: r
 
-        dml_plr_obj_external = DoubleMLPLR$new(obj_dml_data, ml_l, ml_m,
-                                               n_folds = 2, apply_cross_fitting = FALSE)
-        dml_plr_obj_external$fit()
-        dml_plr_obj_external$summary()
+        .. jupyter-execute::
+
+            dml_plr_obj_external = DoubleMLPLR$new(obj_dml_data, ml_l, ml_m,
+                                                n_folds = 2, apply_cross_fitting = FALSE)
+            dml_plr_obj_external$fit()
+            dml_plr_obj_external$summary()
 
 Note, that in order to split data unevenly into train and test sets the interface to externally set the sample splitting
 via ``set_sample_splitting()`` needs to be applied, like for example:
 
-.. tabbed:: Python
+.. tab-set::
 
-    .. ipython:: python
+    .. tab-item:: Python
+        :sync: py
 
-        np.random.seed(314)
-        dml_plr_obj_external = dml.DoubleMLPLR(obj_dml_data, ml_l, ml_m,
-                                               n_folds = 2, apply_cross_fitting = False, draw_sample_splitting = False)
+        .. ipython:: python
 
-        from sklearn.model_selection import train_test_split
-        smpls = train_test_split(np.arange(obj_dml_data.n_obs), train_size=0.8)
-        dml_plr_obj_external.set_sample_splitting(tuple(smpls));
+            np.random.seed(314)
+            dml_plr_obj_external = dml.DoubleMLPLR(obj_dml_data, ml_l, ml_m,
+                                                n_folds = 2, apply_cross_fitting = False, draw_sample_splitting = False)
 
-        print(dml_plr_obj_external.fit().summary)
+            from sklearn.model_selection import train_test_split
+            smpls = train_test_split(np.arange(obj_dml_data.n_obs), train_size=0.8)
+            dml_plr_obj_external.set_sample_splitting(tuple(smpls));
 
-.. tabbed:: R
+            print(dml_plr_obj_external.fit().summary)
 
-    .. jupyter-execute::
+    .. tab-item:: R
+        :sync: r
 
-        dml_plr_obj_external = DoubleMLPLR$new(obj_dml_data, ml_l, ml_m,
-                                                n_folds = 2, apply_cross_fitting = FALSE,
-                                                draw_sample_splitting = FALSE)
+        .. jupyter-execute::
 
-        set.seed(314)
-        # set up a task and cross-validation resampling scheme in mlr3
-        my_task = Task$new("help task", "regr", data)
-        my_sampling = rsmp("holdout", ratio = 0.8)$instantiate(my_task)
+            dml_plr_obj_external = DoubleMLPLR$new(obj_dml_data, ml_l, ml_m,
+                                                    n_folds = 2, apply_cross_fitting = FALSE,
+                                                    draw_sample_splitting = FALSE)
 
-        train_ids = list(my_sampling$train_set(1))
-        test_ids = list(my_sampling$test_set(1))
-        smpls = list(list(train_ids = train_ids, test_ids = test_ids))
+            set.seed(314)
+            # set up a task and cross-validation resampling scheme in mlr3
+            my_task = Task$new("help task", "regr", data)
+            my_sampling = rsmp("holdout", ratio = 0.8)$instantiate(my_task)
 
-        dml_plr_obj_external$set_sample_splitting(smpls)
-        dml_plr_obj_external$fit()
-        dml_plr_obj_external$summary()
+            train_ids = list(my_sampling$train_set(1))
+            test_ids = list(my_sampling$test_set(1))
+            smpls = list(list(train_ids = train_ids, test_ids = test_ids))
+
+            dml_plr_obj_external$set_sample_splitting(smpls)
+            dml_plr_obj_external$fit()
+            dml_plr_obj_external$summary()
 
 
 Estimate DML models without sample-splitting
@@ -358,23 +406,27 @@ Note that this approach usually results in a bias and is therefore not recommend
 justification, see also :ref:`bias_overfitting`.
 
 
-.. tabbed:: Python
+.. tab-set::
 
-    .. ipython:: python
+    .. tab-item:: Python
+        :sync: py
 
-        np.random.seed(314)
-        dml_plr_no_split = dml.DoubleMLPLR(obj_dml_data, ml_l, ml_m,
-                                           n_folds = 1, apply_cross_fitting = False)
+        .. ipython:: python
 
-        print(dml_plr_obj_external.fit().summary)
+            np.random.seed(314)
+            dml_plr_no_split = dml.DoubleMLPLR(obj_dml_data, ml_l, ml_m,
+                                            n_folds = 1, apply_cross_fitting = False)
 
-.. tabbed:: R
+            print(dml_plr_obj_external.fit().summary)
 
-    .. jupyter-execute::
+    .. tab-item:: R
+        :sync: r
 
-        dml_plr_no_split = DoubleMLPLR$new(obj_dml_data, ml_l, ml_m,
-                                           n_folds = 1, apply_cross_fitting = FALSE)
+        .. jupyter-execute::
 
-        set.seed(314)
-        dml_plr_no_split$fit()
-        dml_plr_no_split$summary()
+            dml_plr_no_split = DoubleMLPLR$new(obj_dml_data, ml_l, ml_m,
+                                            n_folds = 1, apply_cross_fitting = FALSE)
+
+            set.seed(314)
+            dml_plr_no_split$fit()
+            dml_plr_no_split$summary()

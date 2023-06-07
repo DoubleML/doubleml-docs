@@ -21,32 +21,35 @@ the groups (dummy coded or one column with strings).
 This will construct and fit a ``DoubleMLBLP`` object. Confidence intervals can then be constructed via 
 the ``confint()`` method. Jointly valid confidence intervals will be based on a gaussian multiplier bootstrap.
 
-.. tabbed:: Python
+.. tab-set::
 
-    .. ipython:: python
+    .. tab-item:: Python
+        :sync: py
 
-        import numpy as np
-        import pandas as pd
-        import doubleml as dml
-        from doubleml.datasets import make_irm_data
-        from sklearn.ensemble import RandomForestRegressor, RandomForestClassifier
+        .. ipython:: python
 
-        ml_g = RandomForestRegressor(n_estimators=100, max_features=20, max_depth=5, min_samples_leaf=2)
-        ml_m = RandomForestClassifier(n_estimators=100, max_features=20, max_depth=5, min_samples_leaf=2)
-        np.random.seed(3333)
-        data = make_irm_data(theta=0.5, n_obs=500, dim_x=20, return_type='DataFrame')
-        obj_dml_data = dml.DoubleMLData(data, 'y', 'd')
-        dml_irm_obj = dml.DoubleMLIRM(obj_dml_data, ml_g, ml_m)
-        _ = dml_irm_obj.fit()
+            import numpy as np
+            import pandas as pd
+            import doubleml as dml
+            from doubleml.datasets import make_irm_data
+            from sklearn.ensemble import RandomForestRegressor, RandomForestClassifier
 
-        # define groups
-        np.random.seed(42)
-        groups = pd.DataFrame(np.random.choice(3, 500), columns=['Group'], dtype=str)
-        print(groups.head())
+            ml_g = RandomForestRegressor(n_estimators=100, max_features=20, max_depth=5, min_samples_leaf=2)
+            ml_m = RandomForestClassifier(n_estimators=100, max_features=20, max_depth=5, min_samples_leaf=2)
+            np.random.seed(3333)
+            data = make_irm_data(theta=0.5, n_obs=500, dim_x=20, return_type='DataFrame')
+            obj_dml_data = dml.DoubleMLData(data, 'y', 'd')
+            dml_irm_obj = dml.DoubleMLIRM(obj_dml_data, ml_g, ml_m)
+            _ = dml_irm_obj.fit()
 
-        gate_obj = dml_irm_obj.gate(groups=groups)
-        ci = gate_obj.confint()
-        print(ci)
+            # define groups
+            np.random.seed(42)
+            groups = pd.DataFrame(np.random.choice(3, 500), columns=['Group'], dtype=str)
+            print(groups.head())
+
+            gate_obj = dml_irm_obj.gate(groups=groups)
+            ci = gate_obj.confint()
+            print(ci)
 
 
 A more detailed notebook on GATEs is available in the :ref:`example gallery <examplegallery>`.
@@ -64,34 +67,37 @@ the basis (e.g. B-splines) for the conditional treatment effects.
 This will construct and fit a ``DoubleMLBLP`` object. Confidence intervals can then be constructed via 
 the ``confint()`` method. Jointly valid confidence intervals will be based on a gaussian multiplier bootstrap.
 
-.. tabbed:: Python
+.. tab-set::
 
-    .. ipython:: python
+    .. tab-item:: Python
+        :sync: py
 
-        import numpy as np
-        import pandas as pd
-        import patsy
+        .. ipython:: python
 
-        import doubleml as dml
-        from doubleml.datasets import make_irm_data
-        from sklearn.ensemble import RandomForestRegressor, RandomForestClassifier
+            import numpy as np
+            import pandas as pd
+            import patsy
 
-        ml_g = RandomForestRegressor(n_estimators=100, max_features=20, max_depth=5, min_samples_leaf=2)
-        ml_m = RandomForestClassifier(n_estimators=100, max_features=20, max_depth=5, min_samples_leaf=2)
-        np.random.seed(3333)
-        data = make_irm_data(theta=0.5, n_obs=500, dim_x=20, return_type='DataFrame')
-        obj_dml_data = dml.DoubleMLData(data, 'y', 'd')
-        dml_irm_obj = dml.DoubleMLIRM(obj_dml_data, ml_g, ml_m)
-        _ = dml_irm_obj.fit()
+            import doubleml as dml
+            from doubleml.datasets import make_irm_data
+            from sklearn.ensemble import RandomForestRegressor, RandomForestClassifier
 
-        # define a basis with respect to the first variable
-        design_matrix = patsy.dmatrix("bs(x, df=5, degree=2)", {"x":obj_dml_data.data["X1"]})
-        spline_basis = pd.DataFrame(design_matrix)
-        print(spline_basis.head())
+            ml_g = RandomForestRegressor(n_estimators=100, max_features=20, max_depth=5, min_samples_leaf=2)
+            ml_m = RandomForestClassifier(n_estimators=100, max_features=20, max_depth=5, min_samples_leaf=2)
+            np.random.seed(3333)
+            data = make_irm_data(theta=0.5, n_obs=500, dim_x=20, return_type='DataFrame')
+            obj_dml_data = dml.DoubleMLData(data, 'y', 'd')
+            dml_irm_obj = dml.DoubleMLIRM(obj_dml_data, ml_g, ml_m)
+            _ = dml_irm_obj.fit()
 
-        cate_obj = dml_irm_obj.cate(basis=spline_basis)
-        ci = cate_obj.confint()
-        print(ci.head())
+            # define a basis with respect to the first variable
+            design_matrix = patsy.dmatrix("bs(x, df=5, degree=2)", {"x":obj_dml_data.data["X1"]})
+            spline_basis = pd.DataFrame(design_matrix)
+            print(spline_basis.head())
+
+            cate_obj = dml_irm_obj.cate(basis=spline_basis)
+            ci = cate_obj.confint()
+            print(ci.head())
 
 
 A more detailed notebook on CATEs is available in the :ref:`example gallery <examplegallery>`. 
@@ -112,40 +118,46 @@ Potential quantiles (PQs)
 
 ``DoubleMLPQ`` implements potential quantile estimation. Estimation is conducted via its ``fit()`` method: 
 
-.. tabbed:: Python
+.. tab-set::
 
-    .. ipython:: python
+    .. tab-item:: Python
+        :sync: py
 
-        import numpy as np
-        import doubleml as dml
-        from doubleml.datasets import make_irm_data
-        from sklearn.ensemble import RandomForestClassifier
-        np.random.seed(3141)
-        ml_g = RandomForestClassifier(n_estimators=100, max_features=20, max_depth=10, min_samples_leaf=2)
-        ml_m = RandomForestClassifier(n_estimators=100, max_features=20, max_depth=10, min_samples_leaf=2)
-        data = make_irm_data(theta=0.5, n_obs=500, dim_x=20, return_type='DataFrame')
-        obj_dml_data = dml.DoubleMLData(data, 'y', 'd')
-        dml_pq_obj = dml.DoubleMLPQ(obj_dml_data, ml_g, ml_m, treatment=1, quantile=0.5)
-        dml_pq_obj.fit().summary
+        .. ipython:: python
+
+            import numpy as np
+            import doubleml as dml
+            from doubleml.datasets import make_irm_data
+            from sklearn.ensemble import RandomForestClassifier
+            np.random.seed(3141)
+            ml_g = RandomForestClassifier(n_estimators=100, max_features=20, max_depth=10, min_samples_leaf=2)
+            ml_m = RandomForestClassifier(n_estimators=100, max_features=20, max_depth=10, min_samples_leaf=2)
+            data = make_irm_data(theta=0.5, n_obs=500, dim_x=20, return_type='DataFrame')
+            obj_dml_data = dml.DoubleMLData(data, 'y', 'd')
+            dml_pq_obj = dml.DoubleMLPQ(obj_dml_data, ml_g, ml_m, treatment=1, quantile=0.5)
+            dml_pq_obj.fit().summary
 
 ``DoubleMLLPQ`` implements local potential quantile estimation, where the argument ``treatment`` indicates the potential outcome.
 Estimation is conducted via its ``fit()`` method: 
 
-.. tabbed:: Python
+.. tab-set::
 
-    .. ipython:: python
+    .. tab-item:: Python
+        :sync: py
 
-        import numpy as np
-        import doubleml as dml
-        from doubleml.datasets import make_iivm_data
-        from sklearn.ensemble import RandomForestClassifier
-        np.random.seed(3141)
-        ml_g = RandomForestClassifier(n_estimators=100, max_features=20, max_depth=10, min_samples_leaf=2)
-        ml_m = RandomForestClassifier(n_estimators=100, max_features=20, max_depth=10, min_samples_leaf=2)
-        data = make_iivm_data(theta=0.5, n_obs=1000, dim_x=20, return_type='DataFrame')
-        obj_dml_data = dml.DoubleMLData(data, 'y', 'd', z_cols='z')
-        dml_lpq_obj = dml.DoubleMLLPQ(obj_dml_data, ml_g, ml_m, treatment=1, quantile=0.5)
-        dml_lpq_obj.fit().summary
+        .. ipython:: python
+
+            import numpy as np
+            import doubleml as dml
+            from doubleml.datasets import make_iivm_data
+            from sklearn.ensemble import RandomForestClassifier
+            np.random.seed(3141)
+            ml_g = RandomForestClassifier(n_estimators=100, max_features=20, max_depth=10, min_samples_leaf=2)
+            ml_m = RandomForestClassifier(n_estimators=100, max_features=20, max_depth=10, min_samples_leaf=2)
+            data = make_iivm_data(theta=0.5, n_obs=1000, dim_x=20, return_type='DataFrame')
+            obj_dml_data = dml.DoubleMLData(data, 'y', 'd', z_cols='z')
+            dml_lpq_obj = dml.DoubleMLLPQ(obj_dml_data, ml_g, ml_m, treatment=1, quantile=0.5)
+            dml_lpq_obj.fit().summary
 
 
 Quantile treatment effects (QTEs)
@@ -155,21 +167,24 @@ Quantile treatment effects (QTEs)
 
 ``DoubleMLQTE`` implements quantile treatment effect estimation. Estimation is conducted via its ``fit()`` method: 
 
-.. tabbed:: Python
+.. tab-set::
 
-    .. ipython:: python
+    .. tab-item:: Python
+        :sync: py
 
-        import numpy as np
-        import doubleml as dml
-        from doubleml.datasets import make_irm_data
-        from sklearn.ensemble import RandomForestClassifier
-        np.random.seed(3141)
-        ml_g = RandomForestClassifier(n_estimators=100, max_features=20, max_depth=10, min_samples_leaf=2)
-        ml_m = RandomForestClassifier(n_estimators=100, max_features=20, max_depth=10, min_samples_leaf=2)
-        data = make_irm_data(theta=0.5, n_obs=500, dim_x=20, return_type='DataFrame')
-        obj_dml_data = dml.DoubleMLData(data, 'y', 'd')
-        dml_qte_obj = dml.DoubleMLQTE(obj_dml_data, ml_g, ml_m, score='PQ', quantiles=[0.25, 0.5, 0.75])
-        dml_qte_obj.fit().summary
+        .. ipython:: python
+
+            import numpy as np
+            import doubleml as dml
+            from doubleml.datasets import make_irm_data
+            from sklearn.ensemble import RandomForestClassifier
+            np.random.seed(3141)
+            ml_g = RandomForestClassifier(n_estimators=100, max_features=20, max_depth=10, min_samples_leaf=2)
+            ml_m = RandomForestClassifier(n_estimators=100, max_features=20, max_depth=10, min_samples_leaf=2)
+            data = make_irm_data(theta=0.5, n_obs=500, dim_x=20, return_type='DataFrame')
+            obj_dml_data = dml.DoubleMLData(data, 'y', 'd')
+            dml_qte_obj = dml.DoubleMLQTE(obj_dml_data, ml_g, ml_m, score='PQ', quantiles=[0.25, 0.5, 0.75])
+            dml_qte_obj.fit().summary
 
 To estimate local quantile effects the ``score`` argument has to be set to ``'LPQ'``.
 A detailed notebook on PQs and QTEs is available in the :ref:`example gallery <examplegallery>`. 
@@ -188,21 +203,24 @@ CVaR of potential outcomes
 ``DoubleMLCVAR`` implements conditional value at risk estimation for potential outcomes, where the argument ``treatment`` indicates the potential outcome.
 Estimation is conducted via its ``fit()`` method: 
 
-.. tabbed:: Python
+.. tab-set::
 
-    .. ipython:: python
+    .. tab-item:: Python
+        :sync: py
 
-        import numpy as np
-        import doubleml as dml
-        from doubleml.datasets import make_irm_data
-        from sklearn.ensemble import RandomForestClassifier, RandomForestRegressor
-        np.random.seed(3141)
-        ml_g = RandomForestRegressor(n_estimators=100, max_features=20, max_depth=10, min_samples_leaf=2)
-        ml_m = RandomForestClassifier(n_estimators=100, max_features=20, max_depth=10, min_samples_leaf=2)
-        data = make_irm_data(theta=0.5, n_obs=500, dim_x=20, return_type='DataFrame')
-        obj_dml_data = dml.DoubleMLData(data, 'y', 'd')
-        dml_cvar_obj = dml.DoubleMLCVAR(obj_dml_data, ml_g, ml_m, treatment=1, quantile=0.5)
-        dml_cvar_obj.fit().summary
+        .. ipython:: python
+
+            import numpy as np
+            import doubleml as dml
+            from doubleml.datasets import make_irm_data
+            from sklearn.ensemble import RandomForestClassifier, RandomForestRegressor
+            np.random.seed(3141)
+            ml_g = RandomForestRegressor(n_estimators=100, max_features=20, max_depth=10, min_samples_leaf=2)
+            ml_m = RandomForestClassifier(n_estimators=100, max_features=20, max_depth=10, min_samples_leaf=2)
+            data = make_irm_data(theta=0.5, n_obs=500, dim_x=20, return_type='DataFrame')
+            obj_dml_data = dml.DoubleMLData(data, 'y', 'd')
+            dml_cvar_obj = dml.DoubleMLCVAR(obj_dml_data, ml_g, ml_m, treatment=1, quantile=0.5)
+            dml_cvar_obj.fit().summary
 
 
 CVaR treatment effects
@@ -213,21 +231,24 @@ CVaR treatment effects
 ``DoubleMLQTE`` implements CVaR treatment effect estimation, if the ``score`` argument has been set to ``'CVaR'`` (default is ``'PQ'``).
 Estimation is conducted via its ``fit()`` method: 
 
-.. tabbed:: Python
+.. tab-set::
 
-    .. ipython:: python
+    .. tab-item:: Python
+        :sync: py
 
-        import numpy as np
-        import doubleml as dml
-        from doubleml.datasets import make_irm_data
-        from sklearn.ensemble import RandomForestClassifier, RandomForestRegressor
-        np.random.seed(3141)
-        ml_g = RandomForestRegressor(n_estimators=100, max_features=20, max_depth=10, min_samples_leaf=2)
-        ml_m = RandomForestClassifier(n_estimators=100, max_features=20, max_depth=10, min_samples_leaf=2)
-        data = make_irm_data(theta=0.5, n_obs=500, dim_x=20, return_type='DataFrame')
-        obj_dml_data = dml.DoubleMLData(data, 'y', 'd')
-        dml_cvar_obj = dml.DoubleMLQTE(obj_dml_data, ml_g, ml_m, score='CVaR', quantiles=[0.25, 0.5, 0.75])
-        dml_cvar_obj.fit().summary
+        .. ipython:: python
+
+            import numpy as np
+            import doubleml as dml
+            from doubleml.datasets import make_irm_data
+            from sklearn.ensemble import RandomForestClassifier, RandomForestRegressor
+            np.random.seed(3141)
+            ml_g = RandomForestRegressor(n_estimators=100, max_features=20, max_depth=10, min_samples_leaf=2)
+            ml_m = RandomForestClassifier(n_estimators=100, max_features=20, max_depth=10, min_samples_leaf=2)
+            data = make_irm_data(theta=0.5, n_obs=500, dim_x=20, return_type='DataFrame')
+            obj_dml_data = dml.DoubleMLData(data, 'y', 'd')
+            dml_cvar_obj = dml.DoubleMLQTE(obj_dml_data, ml_g, ml_m, score='CVaR', quantiles=[0.25, 0.5, 0.75])
+            dml_cvar_obj.fit().summary
 
 A detailed notebook on CVaR estimation for potential outcomes and treatment effects
 is available in the :ref:`example gallery <examplegallery>`. 
