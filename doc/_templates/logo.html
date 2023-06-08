@@ -1,3 +1,17 @@
 <p class="logo" style="text-align:center;"><a href="{{ pathto(master_doc)|e }}">
     <img class="logo" src="{{ pathto('logo.png', 1)|e }}" alt="Logo" width="65%" height="65%">
 </a></p>
+
+<script type="text/javascript">
+    // Change the logo depending on the theme
+    var logo = document.querySelector('img.logo');
+    var observer = new MutationObserver(function(mutations) {
+        const dark = document.documentElement.dataset.theme == 'dark';
+        if (dark) {
+            logo.src = "{{ pathto('logo_dark.png', 1)|e }}";
+        } else {
+            logo.src = "{{ pathto('logo.png', 1)|e }}";
+        }
+    });
+    observer.observe(document.documentElement, {attributes: true, attributeFilter: ['data-theme']});
+</script>

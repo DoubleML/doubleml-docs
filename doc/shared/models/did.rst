@@ -17,8 +17,8 @@ Target parameter of interest is the average treatment effect on the treated (ATT
 
 The corresponding identifying assumptions are
 
- - **(Cond.) Parallel Trends:** :math:`\mathbb{E}[Y_{i1}(0) - Y_{i0}(0)|X_i, D_i=1] = \mathbb{E}[Y_{i1}(0) - Y_{i0}(0)|X_i, D_i=0]\quad a.s.`
- - **Overlap:** :math:`\exists\epsilon > 0`: :math:`P(D_i=1) > \epsilon` and :math:`P(D_i=1|X_i) \le 1-\epsilon\quad a.s.`
+- **(Cond.) Parallel Trends:** :math:`\mathbb{E}[Y_{i1}(0) - Y_{i0}(0)|X_i, D_i=1] = \mathbb{E}[Y_{i1}(0) - Y_{i0}(0)|X_i, D_i=0]\quad a.s.`
+- **Overlap:** :math:`\exists\epsilon > 0`: :math:`P(D_i=1) > \epsilon` and :math:`P(D_i=1|X_i) \le 1-\epsilon\quad a.s.`
 
 .. note::
     For a more detailed introduction and recent developments of the difference-in-differences literature see e.g. `Roth et al. (2022) <https://arxiv.org/abs/2201.01194>`_.

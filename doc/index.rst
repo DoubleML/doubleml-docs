@@ -30,122 +30,108 @@ ecosystem <https://github.com/mlr-org/mlr3/wiki/Extension-Packages>`_ (Lang et a
                 panel_icons[i].src = dark ? '_static/dark_' + filename : '_static/light_' + filename;
             }
         });
-    observer.observe(document.documentElement, {attributes: true, attributeFilter: ['data-theme']});
-  </script>
+        observer.observe(document.documentElement, {attributes: true, attributeFilter: ['data-theme']});
+    </script>
 
-.. panels::
-    :column: col-lg-4 col-md-4 col-sm-6 col-xs-12 p-2
-    :card: text-center
-    :img-top-cls: pl-5 pr-5 pt-5 pb-5 panel-icon
-    :header: font-weight-bold border-0 h4
-    :footer: border-0
+.. grid:: 2
 
-    ---
-    :img-top: _static/light_gettingstarted.png
-
-    Getting started
-    ^^^^^^^^^^^^^^^
-
-    New to **DoubleML**? Then check out how to get started!
-
-    +++
-
-    .. link-button:: intro/intro
-        :type: ref
-        :text: To the getting started guide
-        :classes: btn-block btn-dark stretched-link btn-sm
-
-    ---
-    :img-top: _static/light_userguide.png
-
-    User guide
-    ^^^^^^^^^^
-
-    Want to learn everything about **DoubleML**? Then you should visit our extensive user guide with detailed explanations and further references.
-
-    +++
-
-    .. link-button:: guide/guide
-        :type: ref
-        :text: To the user guide
-        :classes: btn-block btn-dark stretched-link btn-sm
-
-    ---
-    :img-top: _static/light_workflow.png
-
-    Workflow
-    ^^^^^^^^^^^^^^^^^
-
-    The **DoubleML** workflow demonstrates the typical steps to consider when using **DoubleML** in applied analysis.
-
-    +++
-
-    .. link-button:: workflow/workflow
-        :type: ref
-        :text: To the DoubleML workflow
-        :classes: btn-block btn-dark stretched-link btn-sm
-
-    ---
-    :img-top: _static/light_pythonapi.png
-
-    Python API
-    ^^^^^^^^^^
-
-    The Python API documentation.
-
-    +++
-
-    .. link-button:: api/api
-        :type: ref
-        :text: To the Python API
-        :classes: btn-block btn-dark stretched-link btn-sm
-
-    ---
-    :img-top: _static/light_rapi.png
-
-    R API
-    ^^^^^
-
-    The R API documentation.
-
-    +++
-
-    .. link-button:: https://docs.doubleml.org/r/stable/
-        :type: url
-        :text: To the R API
-        :classes: btn-block btn-dark stretched-link btn-sm
-
-    ---
-    :img-top: _static/light_examplegallery.png
-
-    Example gallery
-    ^^^^^^^^^^^^^^^
-
-    A gallery with examples demonstrating the functionalities of **DoubleML**.
-
-    +++
-
-    .. link-button:: examples/index
-        :type: ref
-        :text: To the example gallery
-        :classes: btn-block btn-dark stretched-link btn-sm
+    .. grid-item-card::
+        :columns: 4
+        :img-top: _static/light_gettingstarted.png
+        :class-img-top: p-5
+        :link: intro
+        :link-type: ref
+        :text-align: center
+        :class-header: sd-font-weight-bold h4
 
 
-.. toctree::
-   :hidden:
+        Getting started
+        ^^^
 
-   self
+        New to **DoubleML**? Then check out how to get started!
+
+    .. grid-item-card::
+        :columns: 4
+        :img-top: _static/light_workflow.png
+        :class-img-top: p-5
+        :link: workflow
+        :link-type: ref
+        :text-align: center
+        :class-header: sd-font-weight-bold h4
+
+        Workflow
+        ^^^
+
+        The **DoubleML** workflow demonstrates the typical steps to consider when using **DoubleML** in applied analysis.
+
+    .. grid-item-card::
+        :columns: 4
+        :img-top: _static/light_userguide.png
+        :class-img-top: p-5
+        :link: guide
+        :link-type: ref
+        :text-align: center
+        :class-header: sd-font-weight-bold h4
+
+        User guide
+        ^^^
+
+        Want to learn everything about **DoubleML**? Then you should visit our extensive user guide with detailed explanations and further references.
+
+.. grid:: 2 3 3 2
+
+    .. grid-item-card:: 
+        :columns: 4
+        :img-top: _static/light_pythonapi.png
+        :class-img-top: p-5
+        :link: python_api
+        :link-type: ref
+        :text-align: center
+        :class-header: sd-font-weight-bold h4
+
+
+        Python API
+        ^^^
+
+        The Python API documentation.
+
+    .. grid-item-card:: 
+        :columns: 4
+        :img-top: _static/light_rapi.png
+        :class-img-top: p-5
+        :link: https://docs.doubleml.org/r/stable/
+        :text-align: center
+        :class-header: sd-font-weight-bold h4
+
+        R API
+        ^^^
+
+        The R API documentation.
+
+    .. grid-item-card::
+        :columns: 4
+        :img-top: _static/light_examplegallery.png
+        :class-img-top: p-5
+        :link: examplegallery
+        :link-type: ref
+        :text-align: center
+        :class-header: sd-font-weight-bold h4
+
+        Example gallery
+        ^^^
+
+        A gallery with examples demonstrating the functionalities of **DoubleML**.
 
 .. toctree::
    :hidden:
 
     Install <intro/install>
     Getting started <intro/intro>
-    User guide <guide/guide>
     Workflow <workflow/workflow>
+    User guide <guide/guide>
+    Examples <examples/index>
     Python API <api/api>
     R API <https://docs.doubleml.org/r/stable/>
-    Examples <examples/index>
     Literature <literature/literature>
     Release notes <release/release>
 

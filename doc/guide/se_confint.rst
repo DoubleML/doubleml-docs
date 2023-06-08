@@ -48,89 +48,105 @@ An approximate confidence interval is given by
 As an example we consider a partially linear regression model (PLR)
 implemented in ``DoubleMLPLR``.
 
-.. tabbed:: Python
+.. tab-set::
 
-    .. ipython:: python
+    .. tab-item:: Python
+        :sync: py
 
-        import doubleml as dml
-        from doubleml.datasets import make_plr_CCDDHNR2018
-        from sklearn.ensemble import RandomForestRegressor
-        from sklearn.base import clone
+        .. ipython:: python
 
-        np.random.seed(3141)
-        learner = RandomForestRegressor(n_estimators=100, max_features=20, max_depth=5, min_samples_leaf=2)
-        ml_l = clone(learner)
-        ml_m = clone(learner)
-        data = make_plr_CCDDHNR2018(alpha=0.5, return_type='DataFrame')
-        obj_dml_data = dml.DoubleMLData(data, 'y', 'd')
-        dml_plr_obj = dml.DoubleMLPLR(obj_dml_data, ml_l, ml_m)
-        dml_plr_obj.fit();
+            import doubleml as dml
+            from doubleml.datasets import make_plr_CCDDHNR2018
+            from sklearn.ensemble import RandomForestRegressor
+            from sklearn.base import clone
 
-.. tabbed:: R
+            np.random.seed(3141)
+            learner = RandomForestRegressor(n_estimators=100, max_features=20, max_depth=5, min_samples_leaf=2)
+            ml_l = clone(learner)
+            ml_m = clone(learner)
+            data = make_plr_CCDDHNR2018(alpha=0.5, return_type='DataFrame')
+            obj_dml_data = dml.DoubleMLData(data, 'y', 'd')
+            dml_plr_obj = dml.DoubleMLPLR(obj_dml_data, ml_l, ml_m)
+            dml_plr_obj.fit();
 
-    .. jupyter-execute::
+    .. tab-item:: R
+        :sync: r
 
-        library(DoubleML)
-        library(mlr3)
-        library(mlr3learners)
-        library(data.table)
-        lgr::get_logger("mlr3")$set_threshold("warn")
+        .. jupyter-execute::
 
-        learner = lrn("regr.ranger", num.trees = 100, mtry = 20, min.node.size = 2, max.depth = 5)
-        ml_l = learner$clone()
-        ml_m = learner$clone()
+            library(DoubleML)
+            library(mlr3)
+            library(mlr3learners)
+            library(data.table)
+            lgr::get_logger("mlr3")$set_threshold("warn")
 
-        set.seed(3141)
-        obj_dml_data = make_plr_CCDDHNR2018(alpha=0.5)
-        dml_plr_obj = DoubleMLPLR$new(obj_dml_data, ml_l, ml_m)
-        dml_plr_obj$fit()
+            learner = lrn("regr.ranger", num.trees = 100, mtry = 20, min.node.size = 2, max.depth = 5)
+            ml_l = learner$clone()
+            ml_m = learner$clone()
+
+            set.seed(3141)
+            obj_dml_data = make_plr_CCDDHNR2018(alpha=0.5)
+            dml_plr_obj = DoubleMLPLR$new(obj_dml_data, ml_l, ml_m)
+            dml_plr_obj$fit()
 
 
 The ``fit()`` method of ``DoubleMLPLR``
 stores the estimate :math:`\tilde{\theta}_0` in its ``coef`` attribute.
 
-.. tabbed:: Python
+.. tab-set::
 
-    .. ipython:: python
+    .. tab-item:: Python
+        :sync: py
 
-        print(dml_plr_obj.coef)
+        .. ipython:: python
 
-.. tabbed:: R
+            print(dml_plr_obj.coef)
 
-    .. jupyter-execute::
+    .. tab-item:: R
+        :sync: r
 
-        print(dml_plr_obj$coef)
+        .. jupyter-execute::
+
+            print(dml_plr_obj$coef)
 
 The asymptotic standard error :math:`\hat{\sigma}/\sqrt{N}` is stored in its ``se`` attribute.
 
-.. tabbed:: Python
+.. tab-set::
 
-    .. ipython:: python
+    .. tab-item:: Python
+        :sync: py
 
-        print(dml_plr_obj.se)
+        .. ipython:: python
 
-.. tabbed:: R
+            print(dml_plr_obj.se)
 
-    .. jupyter-execute::
+    .. tab-item:: R
+        :sync: r
 
-        print(dml_plr_obj$se)
+        .. jupyter-execute::
+
+            print(dml_plr_obj$se)
 
 Additionally, the value of the :math:`t`-statistic and the corresponding p-value are provided in the attributes
 ``t_stat`` and ``pval``.
 
-.. tabbed:: Python
+.. tab-set::
 
-    .. ipython:: python
+    .. tab-item:: Python
+        :sync: py
 
-        print(dml_plr_obj.t_stat)
-        print(dml_plr_obj.pval)
+        .. ipython:: python
 
-.. tabbed:: R
+            print(dml_plr_obj.t_stat)
+            print(dml_plr_obj.pval)
 
-    .. jupyter-execute::
+    .. tab-item:: R
+        :sync: r
 
-        print(dml_plr_obj$t_stat)
-        print(dml_plr_obj$pval)
+        .. jupyter-execute::
+
+            print(dml_plr_obj$t_stat)
+            print(dml_plr_obj$pval)
 
 
 .. note::
@@ -140,33 +156,41 @@ Additionally, the value of the :math:`t`-statistic and the corresponding p-value
       confidence intervals.
 
 
-.. tabbed:: Python
+.. tab-set::
 
-    .. ipython:: python
+    .. tab-item:: Python
+        :sync: py
 
-        print(dml_plr_obj.summary)
+        .. ipython:: python
 
-.. tabbed:: R
+            print(dml_plr_obj.summary)
 
-    .. jupyter-execute::
+    .. tab-item:: R
+        :sync: r
 
-        dml_plr_obj$summary()
-        dml_plr_obj$confint()
+        .. jupyter-execute::
+
+            dml_plr_obj$summary()
+            dml_plr_obj$confint()
 
 A more detailed overview of the fitted model, its specifications and the summary can be obtained via the
 string-representation of the object.
 
-.. tabbed:: Python
+.. tab-set::
 
-    .. ipython:: python
+    .. tab-item:: Python
+        :sync: py
 
-        print(dml_plr_obj)
+        .. ipython:: python
 
-.. tabbed:: R
+            print(dml_plr_obj)
 
-    .. jupyter-execute::
+    .. tab-item:: R
+        :sync: r
 
-        print(dml_plr_obj)
+        .. jupyter-execute::
+
+            print(dml_plr_obj)
 
 .. _sim_inf:
 
@@ -234,62 +258,66 @@ the method ``p_adjust``. :ref:`DoubleML <doubleml_package>`  performs a version 
 which is based on the multiplier bootstrap, by default. Alternatively, ``p_adjust`` allows users to apply traditional corrections
 via the option ``method``.
 
-.. tabbed:: Python
+.. tab-set::
 
-    .. ipython:: python
+    .. tab-item:: Python
+        :sync: py
 
-        import doubleml as dml
-        import numpy as np
-        from sklearn.base import clone
-        from sklearn.linear_model import LassoCV
+        .. ipython:: python
 
-        # Simulate data
-        np.random.seed(1234)
-        n_obs = 500
-        n_vars = 100
-        X = np.random.normal(size=(n_obs, n_vars))
-        theta = np.array([3., 3., 3.])
-        y = np.dot(X[:, :3], theta) + np.random.standard_normal(size=(n_obs,))
+            import doubleml as dml
+            import numpy as np
+            from sklearn.base import clone
+            from sklearn.linear_model import LassoCV
 
-        dml_data = dml.DoubleMLData.from_arrays(X[:, 10:], y, X[:, :10])
+            # Simulate data
+            np.random.seed(1234)
+            n_obs = 500
+            n_vars = 100
+            X = np.random.normal(size=(n_obs, n_vars))
+            theta = np.array([3., 3., 3.])
+            y = np.dot(X[:, :3], theta) + np.random.standard_normal(size=(n_obs,))
 
-        learner = LassoCV()
-        ml_l = clone(learner)
-        ml_m = clone(learner)
-        dml_plr = dml.DoubleMLPLR(dml_data, ml_l, ml_m)
+            dml_data = dml.DoubleMLData.from_arrays(X[:, 10:], y, X[:, :10])
 
-        print(dml_plr.fit().bootstrap().confint(joint=True))
-        print(dml_plr.p_adjust())
-        print(dml_plr.p_adjust(method='bonferroni'))
+            learner = LassoCV()
+            ml_l = clone(learner)
+            ml_m = clone(learner)
+            dml_plr = dml.DoubleMLPLR(dml_data, ml_l, ml_m)
 
-.. tabbed:: R
+            print(dml_plr.fit().bootstrap().confint(joint=True))
+            print(dml_plr.p_adjust())
+            print(dml_plr.p_adjust(method='bonferroni'))
 
-    .. jupyter-execute::
+    .. tab-item:: R
+        :sync: r
 
-        library(DoubleML)
-        library(mlr3)
-        library(mlr3learners)
-        library(data.table)
-        lgr::get_logger("mlr3")$set_threshold("warn")
+        .. jupyter-execute::
 
-        set.seed(3141)
-        n_obs = 500
-        n_vars = 100
-        theta = rep(3, 3)
-        X = matrix(stats::rnorm(n_obs * n_vars), nrow = n_obs, ncol = n_vars)
-        y = X[, 1:3, drop = FALSE] %*% theta  + stats::rnorm(n_obs)
-        dml_data = double_ml_data_from_matrix(X = X[, 11:n_vars], y = y, d = X[,1:10])
+            library(DoubleML)
+            library(mlr3)
+            library(mlr3learners)
+            library(data.table)
+            lgr::get_logger("mlr3")$set_threshold("warn")
 
-        learner = lrn("regr.cv_glmnet", s="lambda.min")
-        ml_l = learner$clone()
-        ml_m = learner$clone()
-        dml_plr = DoubleMLPLR$new(dml_data, ml_l, ml_m)
+            set.seed(3141)
+            n_obs = 500
+            n_vars = 100
+            theta = rep(3, 3)
+            X = matrix(stats::rnorm(n_obs * n_vars), nrow = n_obs, ncol = n_vars)
+            y = X[, 1:3, drop = FALSE] %*% theta  + stats::rnorm(n_obs)
+            dml_data = double_ml_data_from_matrix(X = X[, 11:n_vars], y = y, d = X[,1:10])
 
-        dml_plr$fit()
-        dml_plr$bootstrap()
-        dml_plr$confint(joint=TRUE)
-        dml_plr$p_adjust()
-        dml_plr$p_adjust(method="bonferroni")
+            learner = lrn("regr.cv_glmnet", s="lambda.min")
+            ml_l = learner$clone()
+            ml_m = learner$clone()
+            dml_plr = DoubleMLPLR$new(dml_data, ml_l, ml_m)
+
+            dml_plr$fit()
+            dml_plr$bootstrap()
+            dml_plr$confint(joint=TRUE)
+            dml_plr$p_adjust()
+            dml_plr$p_adjust(method="bonferroni")
 
 
 References
