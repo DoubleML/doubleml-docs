@@ -41,7 +41,6 @@ extensions = [
     'nbsphinx',
     'sphinx_gallery.load_style',
     'sphinx_copybutton',
-    'sphinx_panels',
     'sphinx_design',
     'jupyter_sphinx',
 ]
