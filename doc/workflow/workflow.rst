@@ -1,5 +1,7 @@
 :parenttoc: True
 
+.. _workflow:
+
 DoubleML Workflow
 =================
 

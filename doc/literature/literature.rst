@@ -9,17 +9,18 @@ Double machine learning literature
     :text-align: left
 
     .. dropdown:: Main Reference
-      :class-title: sd-bg-primary sd-text-white sd-text-center sd-font-weight-bold sd-reference-dropdown
+      :class-title: sd-bg-primary sd-font-weight-bold
       :open:
 
       - Victor Chernozhukov, Denis Chetverikov, Mert Demirer, Esther Duflo, Christian Hansen, Whitney Newey, James Robins |br|
         **Double/debiased machine learning for treatment and structural parameters** |br|
         *The Econometrics Journal, 21(1), C1-C68, 2018* |br|
+        :octicon:`link` :bdg-link-dark:`URL <https://doi.org/10.1111/ectj.12097>`
         :opticon:`link` :link-badge:`https://doi.org/10.1111/ectj.12097,"URL",cls=badge-dark`
         :link-badge:`https://arxiv.org/abs/1608.00060,"arXiv",cls=badge-dark`
 
     .. dropdown:: Software for double machine learning
-      :class-title: sd-bg-primary sd-text-white sd-text-center sd-font-weight-bold sd-reference-dropdown
+      :class-title: sd-bg-primary sd-font-weight-bold
 
       - Philipp Bach, Victor Chernozhukov, Malte S. Kurz, Martin Spindler |br|
         **DoubleML -- An Object-Oriented Implementation of Double Machine Learning in Python** |br|
@@ -90,7 +91,7 @@ Double machine learning literature
         :opticon:`mark-github` :link-badge:`https://github.com/JSzitas/postDoubleR,"GitHub",cls=badge-dark`
 
     .. dropdown:: Double machine learning models and methodological extensions
-      :class-title: sd-bg-primary sd-text-white sd-text-center sd-font-weight-bold sd-reference-dropdown
+      :class-title: sd-bg-primary sd-font-weight-bold
 
       - Neng-Chieh Chang |br|
         **Double/debiased machine learning for difference-in-differences models** |br|
@@ -155,7 +156,7 @@ Double machine learning literature
         :opticon:`link` :link-badge:`https://arxiv.org/abs/1809.01643,"arXiv",cls=badge-dark`
 
     .. dropdown:: Debiased sparsity-based inference / theoretical foundations
-      :class-title: sd-bg-primary sd-text-white sd-text-center sd-font-weight-bold sd-reference-dropdown
+      :class-title: sd-bg-primary sd-font-weight-bold
 
       - A. Belloni, V. Chernozhukov, C. Hansen |br|
         **Inference for High-Dimensional Sparse Econometric Models** |br|

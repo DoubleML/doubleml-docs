@@ -8,7 +8,7 @@ Release notes
   .. tab-item:: Python
 
     .. dropdown:: DoubleML 0.6.1
-      :class-title: sd-bg-primary sd-text-white sd-text-center sd-font-weight-bold sd-reference-dropdown
+      :class-title: sd-bg-primary sd-font-weight-bold
       :open:
 
       - **Release highlight:** Difference-in-differences models for ATTE estimation
@@ -32,7 +32,7 @@ Release notes
         `#136 <https://github.com/DoubleML/doubleml-docs/pull/136>`_  
 
     .. dropdown:: DoubleML 0.6.0
-      :class-title: sd-bg-primary sd-text-white sd-text-center sd-font-weight-bold
+      :class-title: sd-bg-primary sd-font-weight-bold
 
       - **Release highlight:** Heterogeneous treatment effects (GATE, CATE, Quantile effects, ...)
       - Add out-of-sample RMSE and targets for nuisance elements and implement nuisance estimation 
@@ -73,13 +73,13 @@ Release notes
         `#181 <https://github.com/DoubleML/doubleml-for-py/pull/181>`_
 
     .. dropdown:: DoubleML 0.5.2
-      :class-title: sd-bg-primary sd-text-white sd-text-center sd-font-weight-bold
+      :class-title: sd-bg-primary sd-font-weight-bold
 
       - Fix / adapted unit tests which failed in the release of 0.5.1 to conda-forge
         `#172 <https://github.com/DoubleML/doubleml-for-py/pull/172>`_
 
     .. dropdown:: DoubleML 0.5.1
-      :class-title: sd-bg-primary sd-text-white sd-text-center sd-font-weight-bold
+      :class-title: sd-bg-primary sd-font-weight-bold
 
       - Store estimated models for nuisance parameters
         `#159 <https://github.com/DoubleML/doubleml-for-py/pull/159>`_
@@ -93,7 +93,7 @@ Release notes
         `#170 <https://github.com/DoubleML/doubleml-for-py/pull/170>`_
 
     .. dropdown:: DoubleML 0.5.0
-      :class-title: sd-bg-primary sd-text-white sd-text-center sd-font-weight-bold
+      :class-title: sd-bg-primary sd-font-weight-bold
 
       - Implement a new score function ``score = 'IV-type'`` for the PLIV model (for details see
         `#151 <https://github.com/DoubleML/doubleml-for-py/pull/151>`_) |br|
@@ -115,7 +115,7 @@ Release notes
         `#153 <https://github.com/DoubleML/doubleml-for-py/pull/153>`_
 
     .. dropdown:: DoubleML 0.4.1
-      :class-title: sd-bg-primary sd-text-white sd-text-center sd-font-weight-bold
+      :class-title: sd-bg-primary sd-font-weight-bold
 
       - We added `Contribution Guidelines <https://github.com/DoubleML/doubleml-for-py/blob/master/CONTRIBUTING.md>`_,
         issue templates, a pull request template and a
@@ -129,7 +129,7 @@ Release notes
         `#131 <https://github.com/DoubleML/doubleml-for-py/pull/131>`_
 
     .. dropdown:: DoubleML 0.4.0
-      :class-title: sd-bg-primary sd-text-white sd-text-center sd-font-weight-bold
+      :class-title: sd-bg-primary sd-font-weight-bold
 
       - **Release highlight:** Clustered standard errors for double machine learning models
         `#116 <https://github.com/DoubleML/doubleml-for-py/pull/116>`_
@@ -142,7 +142,7 @@ Release notes
         `#123 <https://github.com/DoubleML/doubleml-for-py/pull/123>`_
 
     .. dropdown:: DoubleML 0.3.0
-      :class-title: sd-bg-primary sd-text-white sd-text-center sd-font-weight-bold
+      :class-title: sd-bg-primary sd-font-weight-bold
 
       - Always use the same bootstrap algorithm independent of ``dml1`` vs ``dml2`` and consistent with docu and paper
         `#101 <https://github.com/DoubleML/doubleml-for-py/issues/101>`_ &
@@ -161,7 +161,7 @@ Release notes
         `#113 <https://github.com/DoubleML/doubleml-for-py/pull/113>`_
 
     .. dropdown:: DoubleML 0.2.2
-      :class-title: sd-bg-primary sd-text-white sd-text-center sd-font-weight-bold
+      :class-title: sd-bg-primary sd-font-weight-bold
 
       - IIVM model: Added a subgroups option to adapt to cases with and without the subgroups of always-takers and
         never-takers (`#96 <https://github.com/DoubleML/doubleml-for-py/pull/96>`_).
@@ -183,14 +183,14 @@ Release notes
         Double Machine Learning in Python, `arXiv:2104.03220 <https://arxiv.org/abs/2104.03220>`_.
 
     .. dropdown:: DoubleML 0.2.1
-      :class-title: sd-bg-primary sd-text-white sd-text-center sd-font-weight-bold
+      :class-title: sd-bg-primary sd-font-weight-bold
 
       - Provide an option to store & export the first-stage predictions
         `#91 <https://github.com/DoubleML/doubleml-for-py/pull/91>`_
       - Added the package logo to the doc
 
     .. dropdown:: DoubleML 0.2.0
-      :class-title: sd-bg-primary sd-text-white sd-text-center sd-font-weight-bold
+      :class-title: sd-bg-primary sd-font-weight-bold
 
       - Major extensions of the unit test framework which result in a coverage >98% (a summary is given in
         `#82 <https://github.com/DoubleML/doubleml-for-py/pull/82>`_)
@@ -212,7 +212,7 @@ Release notes
         `#89 <https://github.com/DoubleML/doubleml-for-py/pull/89>`_)
 
     .. dropdown:: DoubleML 0.1.2
-      :class-title: sd-bg-primary sd-text-white sd-text-center sd-font-weight-bold
+      :class-title: sd-bg-primary sd-font-weight-bold
 
       - Fixed a compatibility issue with ``scikit-learn`` 0.24, which only affected some unit tests
         (`#70 <https://github.com/DoubleML/doubleml-for-py/issues/70>`_, `#71 <https://github.com/DoubleML/doubleml-for-py/pull/71>`_)
@@ -222,7 +222,7 @@ Release notes
         This is needed for the DoubleML-Serverless project: https://github.com/DoubleML/doubleml-serverless.
 
     .. dropdown:: DoubleML 0.1.1
-      :class-title: sd-bg-primary sd-text-white sd-text-center sd-font-weight-bold
+      :class-title: sd-bg-primary sd-font-weight-bold
 
       - Bug fix in the drawing of bootstrap weights for the multiple treatment case
         `#66 <https://github.com/DoubleML/doubleml-for-py/pull/66>`_ (see also https://github.com/DoubleML/doubleml-for-r/pull/28)
@@ -231,7 +231,7 @@ Release notes
       - Documentation is now served with HTTPS `https://docs.doubleml.org/ <https://docs.doubleml.org/>`_
 
     .. dropdown:: DoubleML 0.1.0
-      :class-title: sd-bg-primary sd-text-white sd-text-center sd-font-weight-bold
+      :class-title: sd-bg-primary sd-font-weight-bold
 
       - Initial release
       - Development at `https://github.com/DoubleML/doubleml-for-py <https://github.com/DoubleML/doubleml-for-py>`_
@@ -250,7 +250,7 @@ Release notes
   .. tab-item:: R
 
     .. dropdown:: DoubleML 0.5.3
-      :class-title: sd-bg-primary sd-text-white sd-text-center sd-font-weight-bold
+      :class-title: sd-bg-primary sd-font-weight-bold
       :open:
 
       - Add documentation for estimated models for nuisance parameters
@@ -260,7 +260,7 @@ Release notes
         `#179 <https://github.com/DoubleML/doubleml-for-r/pull/179>`_
 
     .. dropdown:: DoubleML 0.5.2
-      :class-title: sd-bg-primary sd-text-white sd-text-center sd-font-weight-bold
+      :class-title: sd-bg-primary sd-font-weight-bold
 
       - Store estimated models for nuisance parameters
         `#169 <https://github.com/DoubleML/doubleml-for-r/pull/169>`_
@@ -273,7 +273,7 @@ Release notes
         `#178 <https://github.com/DoubleML/doubleml-for-r/pull/178>`_
 
     .. dropdown:: DoubleML 0.5.1
-      :class-title: sd-bg-primary sd-text-white sd-text-center sd-font-weight-bold
+      :class-title: sd-bg-primary sd-font-weight-bold
 
       - Fix a CRAN issue (html checks) by regenerating ``.Rd``-files with the newest version of ``roxygen2``.
         `#166 <https://github.com/DoubleML/doubleml-for-r/issues/166>`_
@@ -281,7 +281,7 @@ Release notes
         `#168 <https://github.com/DoubleML/doubleml-for-r/pull/168>`_
 
     .. dropdown:: DoubleML 0.5.0
-      :class-title: sd-bg-primary sd-text-white sd-text-center sd-font-weight-bold
+      :class-title: sd-bg-primary sd-font-weight-bold
 
       - Implement a new score function ``score = 'IV-type'`` for the PLIV model (for details see
         `#161 <https://github.com/DoubleML/doubleml-for-r/pull/161>`_) |br|
@@ -311,7 +311,7 @@ Release notes
         `#163 <https://github.com/DoubleML/doubleml-for-r/pull/163>`_
 
     .. dropdown:: DoubleML 0.4.1
-      :class-title: sd-bg-primary sd-text-white sd-text-center sd-font-weight-bold
+      :class-title: sd-bg-primary sd-font-weight-bold
 
       - Prevent usage of ``glmnet`` learner for unit testing as recommended by CRAN (failing tests on Solaris)
         `#137 <https://github.com/DoubleML/doubleml-for-r/pull/137>`_
@@ -319,7 +319,7 @@ Release notes
         `#134 <https://github.com/DoubleML/doubleml-for-r/pull/134>`_
 
     .. dropdown:: DoubleML 0.4.0
-      :class-title: sd-bg-primary sd-text-white sd-text-center sd-font-weight-bold
+      :class-title: sd-bg-primary sd-font-weight-bold
 
       - **Release highlight:** Clustered standard errors for double machine learning models
         `#119 <https://github.com/DoubleML/doubleml-for-r/pull/119>`_
@@ -335,13 +335,13 @@ Release notes
         `#133 <https://github.com/DoubleML/doubleml-for-r/pull/133>`_
 
     .. dropdown:: DoubleML 0.3.1
-      :class-title: sd-bg-primary sd-text-white sd-text-center sd-font-weight-bold
+      :class-title: sd-bg-primary sd-font-weight-bold
 
       - Initialize all numeric matrices, vectors and arrays with the correct data type by using ``NA_real_`` instead of
         ``NA`` and replace a ``print()`` call with ``cat()`` `#115 <https://github.com/DoubleML/doubleml-for-r/pull/115>`_
 
     .. dropdown:: DoubleML 0.3.0
-      :class-title: sd-bg-primary sd-text-white sd-text-center sd-font-weight-bold
+      :class-title: sd-bg-primary sd-font-weight-bold
 
       - Use active bindings in the R6 OOP implementation
         `#106 <https://github.com/DoubleML/doubleml-for-r/pull/106>`_ &
@@ -391,7 +391,7 @@ Release notes
         `#108 <https://github.com/DoubleML/doubleml-for-r/pull/108>`_
 
     .. dropdown:: DoubleML 0.2.1
-      :class-title: sd-bg-primary sd-text-white sd-text-center sd-font-weight-bold
+      :class-title: sd-bg-primary sd-font-weight-bold
 
       - Provide an option to store & export the first-stage predictions
         `#74 <https://github.com/DoubleML/doubleml-for-r/pull/74>`_
@@ -403,7 +403,7 @@ Release notes
       - Added the package logo to the doc
 
     .. dropdown:: DoubleML 0.2.0
-      :class-title: sd-bg-primary sd-text-white sd-text-center sd-font-weight-bold
+      :class-title: sd-bg-primary sd-font-weight-bold
 
       - In the PLR one can now also specify classifiers for ``ml_m`` in case of a binary treatment variable with values 0 and 1
       - Major refactoring of core-parts of the estimation and tuning of the ML estimators for the nuisance functions: All models now use central helper functions ``dml_cv_predict()`` and ``dml_tune()``
@@ -412,7 +412,7 @@ Release notes
       - Minor docu updates and adaptions: `#58 <https://github.com/DoubleML/doubleml-for-r/pull/58>`_, `#61 <https://github.com/DoubleML/doubleml-for-r/pull/61>`_ & `#70 <https://github.com/DoubleML/doubleml-for-r/pull/70>`_
 
     .. dropdown:: DoubleML 0.1.2
-      :class-title: sd-bg-primary sd-text-white sd-text-center sd-font-weight-bold
+      :class-title: sd-bg-primary sd-font-weight-bold
 
       - Adapt calls to ``mlr3tuning`` due to a change in their API (since version 0.6.0): fixes `#51 <https://github.com/DoubleML/doubleml-for-r/issues/51>`_
       - Add ``bbotk`` to suggests: fixes R CMD check note `#47 <https://github.com/DoubleML/doubleml-for-r/issues/47>`_
@@ -420,7 +420,7 @@ Release notes
       - Minor docu updates as ``DoubleML`` is now available on CRAN
 
     .. dropdown:: DoubleML 0.1.1
-      :class-title: sd-bg-primary sd-text-white sd-text-center sd-font-weight-bold
+      :class-title: sd-bg-primary sd-font-weight-bold
 
       - First release to CRAN `https://cran.r-project.org/package=DoubleML <https://cran.r-project.org/package=DoubleML>`_
       - Clean up of imports
@@ -428,7 +428,7 @@ Release notes
         `https://github.com/DoubleML/doubleml-for-r/actions <https://github.com/DoubleML/doubleml-for-r/actions>`_
 
     .. dropdown:: DoubleML 0.1.0
-      :class-title: sd-bg-primary sd-text-white sd-text-center sd-font-weight-bold
+      :class-title: sd-bg-primary sd-font-weight-bold
 
       - Initial release
       - Development at `https://github.com/DoubleML/doubleml-for-r <https://github.com/DoubleML/doubleml-for-r>`_

@@ -1,5 +1,7 @@
 :parenttoc: True
 
+.. _intro:
+
 Getting started
 ===============
 
