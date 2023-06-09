@@ -1,0 +1,22 @@
+/* PYDATA THEME */
+html[data-theme="dark"] img:not(.only-dark):not(.dark-light) {
+  filter: brightness(1) contrast(1) !important;
+}
+
+html[data-theme="dark"] .bd-content img:not(.only-dark):not(.dark-light) {
+  background: none !important;
+  border-radius: 0;
+}
+
+html[data-theme="light"] {
+  --pst-color-primary: #0063BC;
+}
+
+html[data-theme="dark"] {
+  --pst-color-primary: #0092ff;
+}
+
+/* BOOTSTRAP */
+.card {
+  background: none !important;
+}
