@@ -98,6 +98,10 @@ html_css_files = ['css/custom.css']
 
 # -- Extension configuration -------------------------------------------------
 
+nbsphinx_thumbnails = {
+    'examples/py_double_ml_sensitivity': '_static/sensitivity_example_nb.png',
+}
+
 copybutton_prompt_text = r'>>> |\.\.\. |\$ |In \[\d*\]: | {2,5}\.\.\.: | {5,8}: | {2,5}\.\.\.\.:'
 copybutton_prompt_is_regexp = True
 

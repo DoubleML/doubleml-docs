@@ -232,16 +232,15 @@ If the estimated parameter :math:`\hat{\theta}` is larger than the null hypothes
 The robustness value $RVa$ defined analogous, but additionally incorporates statistical uncertainty (as it is based on the confidence intervals of the bounds). 
 
 To obtain a more complete overview over the sensitivity one can call the ``sensitivity_plot()`` method. The methods creates a contour plot, which calculates estimate of the upper or lower bound for :math:`\theta`
-(based on the null hypothesis) for each combination of ``cf_y`` and ``cf_d`` in a grid of values. An interactive example can be found in the Example ga
+(based on the null hypothesis) for each combination of ``cf_y`` and ``cf_d`` in a grid of values.
 
-.. tab-set::
+.. figure:: ../_static/sensitivity_example_nb.png
+   :alt: Contour plot
+   :figclass: captioned-image
 
-    .. tab-item:: Python
-        :sync: py
+   Contour plot example (see :ref:`examplegallery`)
 
-        .. ipython:: python
-            
-            dml_plr_obj.sensitivity_plot()
+By adjusting the parameter ``value='ci'`` in the ``sensitivity_plot()`` method the bounds are displayed for the corresponding confidence level.
 
 .. note::
 
@@ -249,18 +248,6 @@ To obtain a more complete overview over the sensitivity one can call the ``sensi
     the corresponding null hypothesis. Furhter, the parameters ``rho`` and ``level`` are used. Both are constained in the ``sensitivity_params`` property.   
  -  The ``sensitivity_plot()`` is created for the first treatment variable. This can be changed via the ``idx_treatment`` parameter.
  -  The robustness values are given via the intersection countour of the null hypothesis and the identity.
-
-By adjusting the parameter ``value='ci'`` the bounds are displayed for the corresponding confidence level.
-
-.. tab-set::
-
-    .. tab-item:: Python
-        :sync: py
-
-        .. ipython:: python
-            
-            dml_plr_obj.sensitivity_plot(value='ci')
-
 
 .. _sensitivity_models:
 
