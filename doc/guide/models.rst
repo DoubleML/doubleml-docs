@@ -226,10 +226,15 @@ Estimation is conducted via its ``fit()`` method:
             print(dml_iivm_obj)
 
 
+.. _did-model:
+
 Difference-in-Differences Models (DID)
 ++++++++++++++++++++++++++++++++++++++
 
 .. include:: ../shared/models/did.rst
+
+
+.. _did-pa-model:
 
 Panel data
 **********
@@ -261,6 +266,8 @@ Estimation is conducted via its ``fit()`` method:
             obj_dml_data = dml.DoubleMLData(data, 'y', 'd')
             dml_did_obj = dml.DoubleMLDID(obj_dml_data, ml_g, ml_m)
             print(dml_did_obj.fit())
+
+.. _did-cs-model:
 
 Repeated cross-sections
 ***********************
