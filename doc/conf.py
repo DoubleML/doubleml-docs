@@ -40,6 +40,7 @@ extensions = [
     'matplotlib.sphinxext.plot_directive',
     'nbsphinx',
     'sphinx_gallery.load_style',
+    'sphinx_gallery.gen_gallery',
     'sphinx_copybutton',
     'sphinx_design',
     'jupyter_sphinx',
@@ -106,6 +107,11 @@ copybutton_prompt_text = r'>>> |\.\.\. |\$ |In \[\d*\]: | {2,5}\.\.\.: | {5,8}: 
 copybutton_prompt_is_regexp = True
 
 # config of sphinx gallery for examples
+sphinx_gallery_conf = {
+     'examples_dirs': 'examples/gallery',   # path to your example scripts
+     'gallery_dirs': 'examples/generated',  # path to where to save gallery generated output
+}
+
 nbsphinx_prolog = r"""
 .. raw:: html
     {% raw %}

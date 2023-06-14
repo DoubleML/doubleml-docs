@@ -48,3 +48,5 @@ These are examples which are work-in-progress and/or not yet fully documented.
 
     R_double_ml_pipeline.ipynb
     double_ml_bonus_data.ipynb
+
+.. include:: generated/index.rst
