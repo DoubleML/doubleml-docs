@@ -1,5 +1,7 @@
 :parenttoc: True
 
+.. _intro:
+
 Getting started
 ===============
 
@@ -12,46 +14,48 @@ Data
 For our case study we download the Bonus data set from the Pennsylvania Reemployment Bonus experiment and as a second
 example we simulate data from a partially linear regression model.
 
-.. tabbed:: Python
+.. tab-set::
 
-    .. ipython:: python
+    .. tab-item:: Python
+        :sync: py
 
-        import numpy as np
-        from doubleml.datasets import fetch_bonus
+        .. ipython:: python
 
-        # Load bonus data
-        df_bonus = fetch_bonus('DataFrame')
-        print(df_bonus.head(5))
+            import numpy as np
+            from doubleml.datasets import fetch_bonus
 
-        # Simulate data
-        np.random.seed(3141)
-        n_obs = 500
-        n_vars = 100
-        theta = 3
-        X = np.random.normal(size=(n_obs, n_vars))
-        d = np.dot(X[:, :3], np.array([5, 5, 5])) + np.random.standard_normal(size=(n_obs,))
-        y = theta * d + np.dot(X[:, :3], np.array([5, 5, 5])) + np.random.standard_normal(size=(n_obs,))
+            # Load bonus data
+            df_bonus = fetch_bonus('DataFrame')
+            print(df_bonus.head(5))
 
-.. tabbed:: R
+            # Simulate data
+            np.random.seed(3141)
+            n_obs = 500
+            n_vars = 100
+            theta = 3
+            X = np.random.normal(size=(n_obs, n_vars))
+            d = np.dot(X[:, :3], np.array([5, 5, 5])) + np.random.standard_normal(size=(n_obs,))
+            y = theta * d + np.dot(X[:, :3], np.array([5, 5, 5])) + np.random.standard_normal(size=(n_obs,))
 
-    .. jupyter-execute::
+    .. tab-item:: R
+        :sync: r
 
-        library(DoubleML)
+        .. jupyter-execute::
 
-        # Load bonus data
-        df_bonus = fetch_bonus(return_type="data.table")
-        head(df_bonus)
+            library(DoubleML)
 
-        # Simulate data
-        set.seed(3141)
-        n_obs = 500
-        n_vars = 100
-        theta = 3
-        X = matrix(rnorm(n_obs*n_vars), nrow=n_obs, ncol=n_vars)
-        d = X[,1:3]%*%c(5,5,5) + rnorm(n_obs)
-        y = theta*d + X[, 1:3]%*%c(5,5,5) + rnorm(n_obs)
+            # Load bonus data
+            df_bonus = fetch_bonus(return_type="data.table")
+            head(df_bonus)
 
-
+            # Simulate data
+            set.seed(3141)
+            n_obs = 500
+            n_vars = 100
+            theta = 3
+            X = matrix(rnorm(n_obs*n_vars), nrow=n_obs, ncol=n_vars)
+            d = X[,1:3]%*%c(5,5,5) + rnorm(n_obs)
+            y = theta*d + X[, 1:3]%*%c(5,5,5) + rnorm(n_obs)
 
 The causal model
 ----------------
@@ -81,41 +85,45 @@ specifying the column ``y_col='inuidur1'`` serving as outcome variable :math:`Y`
 serving as treatment variable :math:`D` and the columns ``x_cols`` specifying the confounders.
 Alternatively an array interface can be used as shown below for the simulated data.
 
-.. tabbed:: Python
+.. tab-set::
 
-    .. ipython:: python
+    .. tab-item:: Python
+        :sync: py
 
-        from doubleml import DoubleMLData
+        .. ipython:: python
 
-        # Specify the data and the variables for the causal model
-        dml_data_bonus = DoubleMLData(df_bonus,
-                                          y_col='inuidur1',
-                                          d_cols='tg',
-                                          x_cols=['female', 'black', 'othrace', 'dep1', 'dep2',
-                                                  'q2', 'q3', 'q4', 'q5', 'q6', 'agelt35', 'agegt54',
-                                                  'durable', 'lusd', 'husd'])
-        print(dml_data_bonus)
+            from doubleml import DoubleMLData
 
-        # array interface to DoubleMLData
-        dml_data_sim = DoubleMLData.from_arrays(X, y, d)
-        print(dml_data_sim)
+            # Specify the data and the variables for the causal model
+            dml_data_bonus = DoubleMLData(df_bonus,
+                                            y_col='inuidur1',
+                                            d_cols='tg',
+                                            x_cols=['female', 'black', 'othrace', 'dep1', 'dep2',
+                                                    'q2', 'q3', 'q4', 'q5', 'q6', 'agelt35', 'agegt54',
+                                                    'durable', 'lusd', 'husd'])
+            print(dml_data_bonus)
 
-.. tabbed:: R
+            # array interface to DoubleMLData
+            dml_data_sim = DoubleMLData.from_arrays(X, y, d)
+            print(dml_data_sim)
 
-    .. jupyter-execute::
+    .. tab-item:: R
+        :sync: r
 
-        # Specify the data and variables for the causal model
-        dml_data_bonus = DoubleMLData$new(df_bonus,
-                                     y_col = "inuidur1",
-                                     d_cols = "tg",
-                                     x_cols = c("female", "black", "othrace", "dep1", "dep2",
-                                                "q2", "q3", "q4", "q5", "q6", "agelt35", "agegt54",
-                                                  "durable", "lusd", "husd"))
-        print(dml_data_bonus)
+        .. jupyter-execute::
 
-        # matrix interface to DoubleMLData
-        dml_data_sim = double_ml_data_from_matrix(X=X, y=y, d=d)
-        dml_data_sim
+            # Specify the data and variables for the causal model
+            dml_data_bonus = DoubleMLData$new(df_bonus,
+                                        y_col = "inuidur1",
+                                        d_cols = "tg",
+                                        x_cols = c("female", "black", "othrace", "dep1", "dep2",
+                                                    "q2", "q3", "q4", "q5", "q6", "agelt35", "agegt54",
+                                                    "durable", "lusd", "husd"))
+            print(dml_data_bonus)
+
+            # matrix interface to DoubleMLData
+            dml_data_sim = double_ml_data_from_matrix(X=X, y=y, d=d)
+            dml_data_sim
 
 
 Learners to estimate the nuisance models
@@ -129,38 +137,42 @@ The implementation of :ref:`DoubleML <doubleml_package>` is based on the meta-pa
 and `mlr3 <https://mlr3.mlr-org.com/>`_ (Lang et al, 2019) for R.
 For details on the specification of learners and their hyperparameters we refer to the user guide :ref:`learners`.
 
-.. tabbed:: Python
+.. tab-set::
 
-    .. ipython:: python
+    .. tab-item:: Python
+        :sync: py
 
-        from sklearn.base import clone
-        from sklearn.ensemble import RandomForestRegressor
-        from sklearn.linear_model import LassoCV
+        .. ipython:: python
 
-        learner = RandomForestRegressor(n_estimators = 500, max_features = 'sqrt', max_depth= 5)
-        ml_l_bonus = clone(learner)
-        ml_m_bonus = clone(learner)
+            from sklearn.base import clone
+            from sklearn.ensemble import RandomForestRegressor
+            from sklearn.linear_model import LassoCV
 
-        learner = LassoCV()
-        ml_l_sim = clone(learner)
-        ml_m_sim = clone(learner)
+            learner = RandomForestRegressor(n_estimators = 500, max_features = 'sqrt', max_depth= 5)
+            ml_l_bonus = clone(learner)
+            ml_m_bonus = clone(learner)
 
-.. tabbed:: R
+            learner = LassoCV()
+            ml_l_sim = clone(learner)
+            ml_m_sim = clone(learner)
 
-    .. jupyter-execute::
+    .. tab-item:: R
+        :sync: r
 
-        library(mlr3)
-        library(mlr3learners)
-        # surpress messages from mlr3 package during fitting
-        lgr::get_logger("mlr3")$set_threshold("warn")
+        .. jupyter-execute::
 
-        learner = lrn("regr.ranger", num.trees=500, max.depth=5, min.node.size=2)
-        ml_l_bonus = learner$clone()
-        ml_m_bonus = learner$clone()
+            library(mlr3)
+            library(mlr3learners)
+            # surpress messages from mlr3 package during fitting
+            lgr::get_logger("mlr3")$set_threshold("warn")
 
-        learner = lrn("regr.cv_glmnet", s="lambda.min")
-        ml_l_sim = learner$clone()
-        ml_m_sim = learner$clone()
+            learner = lrn("regr.ranger", num.trees=500, max.depth=5, min.node.size=2)
+            ml_l_bonus = learner$clone()
+            ml_m_bonus = learner$clone()
+
+            learner = lrn("regr.cv_glmnet", s="lambda.min")
+            ml_l_sim = learner$clone()
+            ml_m_sim = learner$clone()
 
 
 Cross-fitting, DML algorithms and Neyman-orthogonal score functions
@@ -194,32 +206,37 @@ Besides the ``fit()`` method :ref:`DoubleML <doubleml_package>` model classes al
 statistical inference like ``bootstrap()``, ``confint()`` and ``p_adjust()``, for details see the user guide
 :ref:`se_confint`.
 
-.. tabbed:: Python
+.. tab-set::
 
-    .. ipython:: python
+    .. tab-item:: Python
+        :sync: py
 
-        from doubleml import DoubleMLPLR
-        np.random.seed(3141)
-        obj_dml_plr_bonus = DoubleMLPLR(dml_data_bonus, ml_l_bonus, ml_m_bonus)
-        obj_dml_plr_bonus.fit();
-        print(obj_dml_plr_bonus)
+        .. ipython:: python
 
-        obj_dml_plr_sim = DoubleMLPLR(dml_data_sim, ml_l_sim, ml_m_sim)
-        obj_dml_plr_sim.fit();
-        print(obj_dml_plr_sim)
+            from doubleml import DoubleMLPLR
+            np.random.seed(3141)
+            obj_dml_plr_bonus = DoubleMLPLR(dml_data_bonus, ml_l_bonus, ml_m_bonus)
+            obj_dml_plr_bonus.fit();
+            print(obj_dml_plr_bonus)
 
-.. tabbed:: R
+            obj_dml_plr_sim = DoubleMLPLR(dml_data_sim, ml_l_sim, ml_m_sim)
+            obj_dml_plr_sim.fit();
+            print(obj_dml_plr_sim)
 
-    .. jupyter-execute::
+    .. tab-item:: R
+        :sync: r
 
-        set.seed(3141)
-        obj_dml_plr_bonus = DoubleMLPLR$new(dml_data_bonus, ml_l=ml_l_bonus, ml_m=ml_m_bonus)
-        obj_dml_plr_bonus$fit()
-        print(obj_dml_plr_bonus)
+        .. jupyter-execute::
 
-        obj_dml_plr_sim = DoubleMLPLR$new(dml_data_sim, ml_l=ml_l_sim, ml_m=ml_m_sim)
-        obj_dml_plr_sim$fit()
-        print(obj_dml_plr_sim)
+            set.seed(3141)
+            obj_dml_plr_bonus = DoubleMLPLR$new(dml_data_bonus, ml_l=ml_l_bonus, ml_m=ml_m_bonus)
+            obj_dml_plr_bonus$fit()
+            print(obj_dml_plr_bonus)
+
+            obj_dml_plr_sim = DoubleMLPLR$new(dml_data_sim, ml_l=ml_l_sim, ml_m=ml_m_sim)
+            obj_dml_plr_sim$fit()
+            print(obj_dml_plr_sim)
+
 
 References
 ++++++++++

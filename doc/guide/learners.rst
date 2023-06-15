@@ -22,15 +22,15 @@ Minimum requirements for learners
 The minimum requirement for a learner to be used for nuisance models in the :ref:`DoubleML <doubleml_package>`
 package is
 
-    * The implementation of a ``fit()`` and ``predict()`` method.
-      Some models, like :py:class:`doubleml.DoubleMLIRM` and :py:class:`doubleml.DoubleMLIIVM` require classifiers.
-    * In case of classifiers, the learner needs to come with a ``predict_proba()`` instead of, or in addition to, a
-      ``predict()`` method, see for example :py:meth:`sklearn.ensemble.RandomForestClassifier.predict_proba`.
-    * In order to be able to use the ``set_ml_nuisance_params()`` method of :ref:`DoubleML <doubleml_package>` classes the
-      learner additionally needs to come with a ``set_params()`` method,
-      see for example :py:meth:`sklearn.ensemble.RandomForestRegressor.set_params`.
-    * We further rely on the function :py:func:`sklearn.base.clone` which adds the requirement of a ``get_params()``
-      method for a learner in order to be used for nuisance models of :ref:`DoubleML <doubleml_package>` model classes.
+* The implementation of a ``fit()`` and ``predict()`` method.
+  Some models, like :py:class:`doubleml.DoubleMLIRM` and :py:class:`doubleml.DoubleMLIIVM` require classifiers.
+* In case of classifiers, the learner needs to come with a ``predict_proba()`` instead of, or in addition to, a
+  ``predict()`` method, see for example :py:meth:`sklearn.ensemble.RandomForestClassifier.predict_proba`.
+* In order to be able to use the ``set_ml_nuisance_params()`` method of :ref:`DoubleML <doubleml_package>` classes the
+  learner additionally needs to come with a ``set_params()`` method,
+  see for example :py:meth:`sklearn.ensemble.RandomForestRegressor.set_params`.
+* We further rely on the function :py:func:`sklearn.base.clone` which adds the requirement of a ``get_params()``
+  method for a learner in order to be used for nuisance models of :ref:`DoubleML <doubleml_package>` model classes.
 
 Most learners from `scikit-learn <https://scikit-learn.org/>`_ satisfy all these minimum requirements.
 
@@ -44,30 +44,36 @@ Lets simulate some data and consider the partially linear regression model.
 We need to specify learners for the nuisance functions :math:`g_0(X) = E[Y|X]` and :math:`m_0(X) = E[D|X]`,
 for example :py:class:`sklearn.ensemble.RandomForestRegressor`.
 
-.. tabbed:: Python
+.. tab-set::
+
+  .. tab-item:: Python
+    :sync: py
 
     .. ipython:: python
 
-        import doubleml as dml
-        from doubleml.datasets import make_plr_CCDDHNR2018
-        from sklearn.ensemble import RandomForestRegressor
+      import doubleml as dml
+      from doubleml.datasets import make_plr_CCDDHNR2018
+      from sklearn.ensemble import RandomForestRegressor
 
-        np.random.seed(1234)
-        ml_l = RandomForestRegressor()
-        ml_m = RandomForestRegressor()
-        data = make_plr_CCDDHNR2018(alpha=0.5, return_type='DataFrame')
-        obj_dml_data = dml.DoubleMLData(data, 'y', 'd')
-        dml_plr_obj = dml.DoubleMLPLR(obj_dml_data, ml_l, ml_m)
-        dml_plr_obj.fit().summary
+      np.random.seed(1234)
+      ml_l = RandomForestRegressor()
+      ml_m = RandomForestRegressor()
+      data = make_plr_CCDDHNR2018(alpha=0.5, return_type='DataFrame')
+      obj_dml_data = dml.DoubleMLData(data, 'y', 'd')
+      dml_plr_obj = dml.DoubleMLPLR(obj_dml_data, ml_l, ml_m)
+      dml_plr_obj.fit().summary
 
 Without further specification of the hyperparameters, default values are used. To set hyperparameters:
 
-    * We can also use pre-parametrized learners, like ``RandomForestRegressor(n_estimators=10)``.
-    * Alternatively, hyperparameters can also be set after initialization via the method
-      ``set_ml_nuisance_params(learner, treat_var, params)``
+* We can also use pre-parametrized learners, like ``RandomForestRegressor(n_estimators=10)``.
+* Alternatively, hyperparameters can also be set after initialization via the method
+  ``set_ml_nuisance_params(learner, treat_var, params)``
 
 
-.. tabbed:: Python
+.. tab-set::
+
+  .. tab-item:: Python
+    :sync: py
 
     .. ipython:: python
 
@@ -86,12 +92,12 @@ Without further specification of the hyperparameters, default values are used. T
 
 Setting treatment-variable-specific or fold-specific hyperparameters:
 
-    * In the multiple-treatment case, the method ``set_ml_nuisance_params(learner, treat_var, params)`` can be used to set
-      different hyperparameters for different treatment variables.
-    * The method ``set_ml_nuisance_params(learner, treat_var, params)`` accepts dicts and lists for ``params``.
-      A dict should be provided if for each fold the same hyperparameters should be used.
-      Fold-specific parameters are supported. To do so,  provide a nested list as ``params``, where the outer list is of
-      length ``n_rep`` and the inner list of length ``n_folds``.
+* In the multiple-treatment case, the method ``set_ml_nuisance_params(learner, treat_var, params)`` can be used to set
+  different hyperparameters for different treatment variables.
+* The method ``set_ml_nuisance_params(learner, treat_var, params)`` accepts dicts and lists for ``params``.
+  A dict should be provided if for each fold the same hyperparameters should be used.
+  Fold-specific parameters are supported. To do so,  provide a nested list as ``params``, where the outer list is of
+  length ``n_rep`` and the inner list of length ``n_folds``.
 
 
 Hyperparameter tuning
@@ -101,7 +107,10 @@ Parameter tuning of learners for the nuisance functions of :ref:`DoubleML <doubl
 the ``tune()`` method.
 To illustrate the parameter tuning, we generate data from a sparse partially linear regression model.
 
-.. tabbed:: Python
+.. tab-set::
+
+  .. tab-item:: Python
+    :sync: py
 
     .. ipython:: python
 
@@ -121,7 +130,10 @@ The hyperparameter-tuning is performed using either an exhaustive search over sp
 implemented in :class:`sklearn.model_selection.GridSearchCV` or via a randomized search implemented in
 :class:`sklearn.model_selection.RandomizedSearchCV`.
 
-.. tabbed:: Python
+.. tab-set::
+
+  .. tab-item:: Python
+    :sync: py
 
     .. ipython:: python
 
@@ -149,7 +161,10 @@ a regularization path implemented in :py:class:`sklearn.linear_model.LassoCV`.
 In this case the tuning should be done externally and the parameters can then be set via the
 ``set_ml_nuisance_params()`` method.
 
-.. tabbed:: Python
+.. tab-set::
+
+  .. tab-item:: Python
+    :sync: py
 
     .. ipython:: python
 
@@ -179,7 +194,10 @@ already shows the root mean squared error (RMSE) for each learner and each corre
 
 To illustrate the parameter tuning, we work with the following example.
 
-.. tabbed:: Python
+.. tab-set::
+
+  .. tab-item:: Python
+    :sync: py
 
     .. ipython:: python
 
@@ -200,7 +218,10 @@ The RMSEs of each learner are also stored in the ``rmses`` attribute.
 Further, the ``evaluate_learners()`` method allows to evalute customized evaluation metrics as e.g. the mean absolute error. 
 The default option is still the RMSE for evaluation.
 
-.. tabbed:: Python
+.. tab-set::
+
+  .. tab-item:: Python
+    :sync: py
 
     .. ipython:: python
 
@@ -210,7 +231,10 @@ The default option is still the RMSE for evaluation.
 To evaluate a customized metric one has to define a ``callable``. For some models (e.g. the IRM model) it is important that
 the metric can handle ``nan`` values as not all target values are known.   
 
-.. tabbed:: Python
+.. tab-set::
+
+  .. tab-item:: Python
+    :sync: py
 
     .. ipython:: python
 
@@ -234,23 +258,23 @@ Minimum requirements for learners
 
 The minimum requirement for a learner to be used for nuisance models in the :ref:`DoubleML <doubleml_package>` package is
 
-    * The implementation as a learner for regression or classification in the `mlr3 <https://mlr3.mlr-org.com/>`_ package
-      or its extension packages `mlr3learners <https://mlr3learners.mlr-org.com/>`_ and
-      `mlr3extralearners <https://mlr3extralearners.mlr-org.com/>`_ . A guide on how to add a learner is provided in the
-      `chapter on extending learners in the mlr3 book <https://mlr3book.mlr-org.com/technical.html#sec-extending>`_ .
-    * The `mlr3 <https://mlr3.mlr-org.com/>`_ package makes sure that the learners satisfy some core functionalities.
-      To specify a specific learner in :ref:`DoubleML <doubleml_package>` users can pass objects of the class
-      `Learner <https://mlr3.mlr-org.com/reference/Learner.html>`_. A fast way to construct these objects is to use the
-      `mlr3 <https://mlr3.mlr-org.com/>`_  function `lrn() <https://mlr3.mlr-org.com/reference/mlr_sugar.html>`_.
-      An introduction to learners in `mlr3 <https://mlr3.mlr-org.com/>`_  is provided in the `chapter on learners of the mlr3 book <https://mlr3book.mlr-org.com/basics.html#sec-learners>`_.
-    * It is also possible to pass learners that have been constructed from a pipeline with the `mlr3pipelines <https://mlr3pipelines.mlr-org.com/>`_
-      package.
-    * The models `DoubleML::DoubleMLIRM <https://docs.doubleml.org/r/stable/reference/DoubleMLIRM.html>`_ and
-      `DoubleML::DoubleMLIIVM <https://docs.doubleml.org/r/stable/reference/DoubleMLIIVM.html>`_ require classifiers.
-      Users can also specify classifiers in the `DoubleML::DoubleMLPLR <https://docs.doubleml.org/r/stable/reference/DoubleMLPLR.html>`_
-      in cases with binary treatment variables.
-    * Hyperparameters of learners can either be set at instantiation in `mlr3 <https://mlr3.mlr-org.com/>`_ or after
-      instantiation using the ``set_ml_nuisance_params()`` method.
+* The implementation as a learner for regression or classification in the `mlr3 <https://mlr3.mlr-org.com/>`_ package
+  or its extension packages `mlr3learners <https://mlr3learners.mlr-org.com/>`_ and
+  `mlr3extralearners <https://mlr3extralearners.mlr-org.com/>`_ . A guide on how to add a learner is provided in the
+  `chapter on extending learners in the mlr3 book <https://mlr3book.mlr-org.com/technical.html#sec-extending>`_ .
+* The `mlr3 <https://mlr3.mlr-org.com/>`_ package makes sure that the learners satisfy some core functionalities.
+  To specify a specific learner in :ref:`DoubleML <doubleml_package>` users can pass objects of the class
+  `Learner <https://mlr3.mlr-org.com/reference/Learner.html>`_. A fast way to construct these objects is to use the
+  `mlr3 <https://mlr3.mlr-org.com/>`_  function `lrn() <https://mlr3.mlr-org.com/reference/mlr_sugar.html>`_.
+  An introduction to learners in `mlr3 <https://mlr3.mlr-org.com/>`_  is provided in the `chapter on learners of the mlr3 book <https://mlr3book.mlr-org.com/basics.html#sec-learners>`_.
+* It is also possible to pass learners that have been constructed from a pipeline with the `mlr3pipelines <https://mlr3pipelines.mlr-org.com/>`_
+  package.
+* The models `DoubleML::DoubleMLIRM <https://docs.doubleml.org/r/stable/reference/DoubleMLIRM.html>`_ and
+  `DoubleML::DoubleMLIIVM <https://docs.doubleml.org/r/stable/reference/DoubleMLIIVM.html>`_ require classifiers.
+  Users can also specify classifiers in the `DoubleML::DoubleMLPLR <https://docs.doubleml.org/r/stable/reference/DoubleMLPLR.html>`_
+  in cases with binary treatment variables.
+* Hyperparameters of learners can either be set at instantiation in `mlr3 <https://mlr3.mlr-org.com/>`_ or after
+  instantiation using the ``set_ml_nuisance_params()`` method.
 
 
 An interactive list of provided learners in the `mlr3 <https://mlr3.mlr-org.com/>`_ and extension packages can be found on the
@@ -272,7 +296,10 @@ for example `LearnerRegrRanger <https://mlr3learners.mlr-org.com/reference/mlr_l
 (``lrn("regr.ranger")``) for regression with random forests based on the  `ranger <https://github.com/imbs-hl/ranger>`_
 package for R.
 
-.. tabbed:: R
+.. tab-set::
+
+  .. tab-item:: R
+    :sync: r
 
     .. jupyter-execute::
 
@@ -295,11 +322,14 @@ package for R.
 
 Without further specification of the hyperparameters, default values are used. To set hyperparameters:
 
-    * We can also use pre-parametrized learners ``lrn("regr.ranger", num.trees=10)``.
-    * Alternatively, hyperparameters can be set after initialization via the method
-      ``set_ml_nuisance_params(learner, treat_var, params, set_fold_specific)``.
+* We can also use pre-parametrized learners ``lrn("regr.ranger", num.trees=10)``.
+* Alternatively, hyperparameters can be set after initialization via the method
+  ``set_ml_nuisance_params(learner, treat_var, params, set_fold_specific)``.
 
-.. tabbed:: R
+.. tab-set::
+
+  .. tab-item:: R
+    :sync: r
 
     .. jupyter-execute::
 
@@ -320,22 +350,25 @@ Without further specification of the hyperparameters, default values are used. T
 
 Setting treatment-variable-specific or fold-specific hyperparameters:
 
-    * In the multiple-treatment case, the method ``set_ml_nuisance_params(learner, treat_var, params, set_fold_specific)``
-      can be used to set different hyperparameters for different treatment variables.
-    * The method ``set_ml_nuisance_params(learner, treat_var, params, set_fold_specific)`` accepts lists for ``params``.
-      The structure of the list depends on whether the same parameters should be provided for all folds or separate values
-      are passed for specific folds.
-    * Global parameter passing: The values in ``params`` are used for estimation on all folds.
-      The named list in the argument ``params`` should have entries with names corresponding to
-      the parameters of the learners. It is required that option ``set_fold_specific`` is set to ``FALSE`` (default).
-    * Fold-specific parameter passing: ``params`` is a nested list. The outer list needs to be of length ``n_rep`` and the inner
-      list of length ``n_folds``. The innermost list must have named entries that correspond to the parameters of the learner.
-      It is required that option ``set_fold_specific`` is set to ``TRUE``. Moreover, fold-specific
-      parameter passing is only supported, if all parameters are set fold-specific.
-    * External setting of parameters will override previously set parameters. To assert the choice of parameters, access the
-      fields ``$learner`` and ``$params``.
+* In the multiple-treatment case, the method ``set_ml_nuisance_params(learner, treat_var, params, set_fold_specific)``
+  can be used to set different hyperparameters for different treatment variables.
+* The method ``set_ml_nuisance_params(learner, treat_var, params, set_fold_specific)`` accepts lists for ``params``.
+  The structure of the list depends on whether the same parameters should be provided for all folds or separate values
+  are passed for specific folds.
+* Global parameter passing: The values in ``params`` are used for estimation on all folds.
+  The named list in the argument ``params`` should have entries with names corresponding to
+  the parameters of the learners. It is required that option ``set_fold_specific`` is set to ``FALSE`` (default).
+* Fold-specific parameter passing: ``params`` is a nested list. The outer list needs to be of length ``n_rep`` and the inner
+  list of length ``n_folds``. The innermost list must have named entries that correspond to the parameters of the learner.
+  It is required that option ``set_fold_specific`` is set to ``TRUE``. Moreover, fold-specific
+  parameter passing is only supported, if all parameters are set fold-specific.
+* External setting of parameters will override previously set parameters. To assert the choice of parameters, access the
+  fields ``$learner`` and ``$params``.
 
-.. tabbed:: R
+.. tab-set::
+
+  .. tab-item:: R
+    :sync: r
 
     .. jupyter-execute::
 
@@ -360,7 +393,10 @@ Setting treatment-variable-specific or fold-specific hyperparameters:
 
 The following example illustrates how to set parameters for each fold.
 
-.. tabbed:: R
+.. tab-set::
+
+  .. tab-item:: R
+    :sync: r
 
     .. jupyter-execute::
 
@@ -392,7 +428,10 @@ we refer to the `Pipelines Chapter in the mlr3book <https://mlr3book.mlr-org.com
 notebook on how to use `mlr3pipelines <https://mlr3pipelines.mlr-org.com/>`_ in combination with :ref:`DoubleML <doubleml_package>`
 is available in the example gallery.
 
-.. tabbed:: R
+.. tab-set::
+
+  .. tab-item:: R
+    :sync: r
 
     .. jupyter-execute::
 
@@ -447,7 +486,10 @@ The ``tune()`` method passes various options and parameters to the tuning interf
 
 To illustrate the parameter tuning, we generate data from a sparse partially linear regression model.
 
-.. tabbed:: R
+.. tab-set::
+
+  .. tab-item:: R
+    :sync: r
 
     .. jupyter-execute::
 
@@ -467,25 +509,25 @@ To illustrate the parameter tuning, we generate data from a sparse partially lin
 The hyperparameter-tuning is performed according to options passed through a named list ``tune_settings``.
 The entries in the list specify options during parameter tuning with `mlr3tuning <https://mlr3tuning.mlr-org.com/>`_:
 
-    * ``terminator`` is a `Terminator object <https://bbotk.mlr-org.com/reference/Terminator.html>`_ passed to
-      `mlr3tuning <https://mlr3tuning.mlr-org.com/>`_ that manages the budget to solve the tuning problem.
-    * ``algorithm`` is an object of class
-      `Tuner <https://mlr3tuning.mlr-org.com/reference/Tuner.html>`_ and specifies the tuning algorithm.
-      Alternatively, ``algorithm`` can be a ``character()`` that is used as an argument in the wrapper
-      `mlr3tuning <https://mlr3tuning.mlr-org.com/>`_ call
-      `tnr(algorithm) <https://mlr3tuning.mlr-org.com/reference/tnr.html>`_.
-      `The corresponding chapter in the mlr3book <https://mlr3book.mlr-org.com/optimization.html#sec-model-tuning>`_ illustrates
-      how the `Tuner <https://mlr3tuning.mlr-org.com/reference/Tuner.html>`_ class supports grid search, random search,
-      generalized simulated annealing and non-linear optimization.
-    * ``rsmp_tune`` is an object of class `mlr3 resampling <https://mlr3.mlr-org.com/reference/Resampling.html>`_
-      that specifies the resampling method for evaluation, for example `rsmp("cv", folds = 5)` implements 5-fold cross-validation.
-      `rsmp("holdout", ratio = 0.8)` implements an evaluation based on a hold-out sample that contains 20 percent of the observations.
-      By default, 5-fold cross-validation is performed.
-    * ``measure`` is a named list containing the measures used for tuning of the nuisance components.
-      The names of the entries must match the learner names (see method ``learner_names()``).  The entries in the list must either be
-      objects of class `Measure <https://mlr3.mlr-org.com/reference/Measure.html>`_ or keys passed to `msr() <https://mlr3.mlr-org.com/reference/mlr_sugar.html>`_.
-      If ``measure`` is not provided by the user, default measures are used, i.e., mean squared error for regression models
-      and classification error for binary outcomes.
+* ``terminator`` is a `Terminator object <https://bbotk.mlr-org.com/reference/Terminator.html>`_ passed to
+  `mlr3tuning <https://mlr3tuning.mlr-org.com/>`_ that manages the budget to solve the tuning problem.
+* ``algorithm`` is an object of class
+  `Tuner <https://mlr3tuning.mlr-org.com/reference/Tuner.html>`_ and specifies the tuning algorithm.
+  Alternatively, ``algorithm`` can be a ``character()`` that is used as an argument in the wrapper
+  `mlr3tuning <https://mlr3tuning.mlr-org.com/>`_ call
+  `tnr(algorithm) <https://mlr3tuning.mlr-org.com/reference/tnr.html>`_.
+  `The corresponding chapter in the mlr3book <https://mlr3book.mlr-org.com/optimization.html#sec-model-tuning>`_ illustrates
+  how the `Tuner <https://mlr3tuning.mlr-org.com/reference/Tuner.html>`_ class supports grid search, random search,
+  generalized simulated annealing and non-linear optimization.
+* ``rsmp_tune`` is an object of class `mlr3 resampling <https://mlr3.mlr-org.com/reference/Resampling.html>`_
+  that specifies the resampling method for evaluation, for example `rsmp("cv", folds = 5)` implements 5-fold cross-validation.
+  `rsmp("holdout", ratio = 0.8)` implements an evaluation based on a hold-out sample that contains 20 percent of the observations.
+  By default, 5-fold cross-validation is performed.
+* ``measure`` is a named list containing the measures used for tuning of the nuisance components.
+  The names of the entries must match the learner names (see method ``learner_names()``).  The entries in the list must either be
+  objects of class `Measure <https://mlr3.mlr-org.com/reference/Measure.html>`_ or keys passed to `msr() <https://mlr3.mlr-org.com/reference/mlr_sugar.html>`_.
+  If ``measure`` is not provided by the user, default measures are used, i.e., mean squared error for regression models
+  and classification error for binary outcomes.
 
 In the following example, we tune the penalty parameter :math:`\lambda` (``lambda``) for lasso with the R package
 `glmnet <https://glmnet.stanford.edu/>`_. To tune the value of ``lambda``, a grid search  is performed over a grid of values that range from 0.05
@@ -501,7 +543,10 @@ For example, if we set ``n_folds=2`` at initialization of the ``DoubleMLPLR`` ob
 for tuning, each of the two folds would be split up into 5 subfolds and the error would be evaluated on these subfolds.
 
 
-.. tabbed:: R
+.. tab-set::
+
+  .. tab-item:: R
+    :sync: r
 
     .. jupyter-execute::
 
@@ -543,7 +588,10 @@ Alternatively, the powerful functionalities of the `mlr3tuning <https://mlr3tuni
 external parameter tuning of the nuisance parts. The optimally chosen parameters can then be passed to the
 :ref:`DoubleML <doubleml_package>` models using the ``set_ml_nuisance_params()`` method.
 
-.. tabbed:: R
+.. tab-set::
+
+  .. tab-item:: R
+    :sync: r
 
     .. jupyter-execute::
 
@@ -568,7 +616,10 @@ The following code chunk illustrates another example for global parameter tuning
 as provided by the  `ranger <https://github.com/imbs-hl/ranger>`_ package. In this example, we use random search to find optimal
 parameters ``mtry`` and ``max.depth`` of a random forest. Evaluation is based on 3-fold cross-validation.
 
-.. tabbed:: R
+.. tab-set::
+
+  .. tab-item:: R
+    :sync: r
 
     .. jupyter-execute::
 
@@ -619,7 +670,10 @@ from above. In general, the pipeline-based approach can be used to find optimal 
 one or multiple learners, but also for other parameters, which are, for example, involved in the data preprocessing. We
 refer to more details provided in the `Pipelines Chapter in the mlr3book <https://mlr3book.mlr-org.com/pipelines.html>`_.
 
-.. tabbed:: R
+.. tab-set::
+
+  .. tab-item:: R
+    :sync: r
 
     .. jupyter-execute::
 
@@ -654,8 +708,6 @@ refer to more details provided in the `Pipelines Chapter in the mlr3book <https:
                                           tune_on_fold=TRUE)
         dml_plr_obj$fit()
         dml_plr_obj$summary()
-
-
 
 References
 ++++++++++

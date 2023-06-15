@@ -54,76 +54,88 @@ Implementation of the score function and the estimate of the causal parameter
 As an example we consider a partially linear regression model (PLR)
 implemented in ``DoubleMLPLR``.
 
-.. tabbed:: Python
+.. tab-set::
 
-    .. ipython:: python
+    .. tab-item:: Python
+        :sync: py
 
-        import doubleml as dml
-        from doubleml.datasets import make_plr_CCDDHNR2018
-        from sklearn.ensemble import RandomForestRegressor
-        from sklearn.base import clone
+        .. ipython:: python
 
-        np.random.seed(3141)
-        learner = RandomForestRegressor(n_estimators=100, max_features=20, max_depth=5, min_samples_leaf=2)
-        ml_l = clone(learner)
-        ml_m = clone(learner)
-        data = make_plr_CCDDHNR2018(alpha=0.5, return_type='DataFrame')
-        obj_dml_data = dml.DoubleMLData(data, 'y', 'd')
-        dml_plr_obj = dml.DoubleMLPLR(obj_dml_data, ml_l, ml_m)
-        dml_plr_obj.fit();
-        print(dml_plr_obj)
+            import doubleml as dml
+            from doubleml.datasets import make_plr_CCDDHNR2018
+            from sklearn.ensemble import RandomForestRegressor
+            from sklearn.base import clone
 
-.. tabbed:: R
+            np.random.seed(3141)
+            learner = RandomForestRegressor(n_estimators=100, max_features=20, max_depth=5, min_samples_leaf=2)
+            ml_l = clone(learner)
+            ml_m = clone(learner)
+            data = make_plr_CCDDHNR2018(alpha=0.5, return_type='DataFrame')
+            obj_dml_data = dml.DoubleMLData(data, 'y', 'd')
+            dml_plr_obj = dml.DoubleMLPLR(obj_dml_data, ml_l, ml_m)
+            dml_plr_obj.fit();
+            print(dml_plr_obj)
 
-    .. jupyter-execute::
+    .. tab-item:: R
+        :sync: r
 
-        library(DoubleML)
-        library(mlr3)
-        library(mlr3learners)
-        library(data.table)
-        lgr::get_logger("mlr3")$set_threshold("warn")
+        .. jupyter-execute::
 
-        learner = lrn("regr.ranger", num.trees = 100, mtry = 20, min.node.size = 2, max.depth = 5)
-        ml_l = learner$clone()
-        ml_m = learner$clone()
-        set.seed(3141)
-        data = make_plr_CCDDHNR2018(alpha=0.5, return_type='data.table')
-        obj_dml_data = DoubleMLData$new(data, y_col="y", d_cols="d")
-        dml_plr_obj = DoubleMLPLR$new(obj_dml_data, ml_l, ml_m)
-        dml_plr_obj$fit()
-        print(dml_plr_obj)
+            library(DoubleML)
+            library(mlr3)
+            library(mlr3learners)
+            library(data.table)
+            lgr::get_logger("mlr3")$set_threshold("warn")
+
+            learner = lrn("regr.ranger", num.trees = 100, mtry = 20, min.node.size = 2, max.depth = 5)
+            ml_l = learner$clone()
+            ml_m = learner$clone()
+            set.seed(3141)
+            data = make_plr_CCDDHNR2018(alpha=0.5, return_type='data.table')
+            obj_dml_data = DoubleMLData$new(data, y_col="y", d_cols="d")
+            dml_plr_obj = DoubleMLPLR$new(obj_dml_data, ml_l, ml_m)
+            dml_plr_obj$fit()
+            print(dml_plr_obj)
 
 The ``fit()`` method of ``DoubleMLPLR``
 stores the estimate :math:`\tilde{\theta}_0` in its ``coef`` attribute.
 
-.. tabbed:: Python
+.. tab-set::
 
-    .. ipython:: python
+    .. tab-item:: Python
+        :sync: py
 
-        print(dml_plr_obj.coef)
+        .. ipython:: python
 
-.. tabbed:: R
+            print(dml_plr_obj.coef)
 
-    .. jupyter-execute::
+    .. tab-item:: R
+        :sync: r
 
-        print(dml_plr_obj$coef)
+        .. jupyter-execute::
+
+            print(dml_plr_obj$coef)
 
 The values of the score function components :math:`\psi_a(W_i; \hat{\eta}_0)` and :math:`\psi_b(W_i; \hat{\eta}_0)`
 are stored in the attributes ``psi_elements['psi_a']`` and ``psi_elements['psi_b']`` (Python package ``DoubleML``)
 and ``psi_a`` and ``psi_b`` (R package ``DoubleML``).
 In the attribute ``psi`` the values of the score function :math:`\psi(W_i; \tilde{\theta}_0, \hat{\eta}_0)` are stored.
 
-.. tabbed:: Python
+.. tab-set::
 
-    .. ipython:: python
+    .. tab-item:: Python
+        :sync: py
 
-        print(dml_plr_obj.psi[:5])
+        .. ipython:: python
 
-.. tabbed:: R
+            print(dml_plr_obj.psi[:5])
 
-    .. jupyter-execute::
+    .. tab-item:: R
+        :sync: r
 
-        print(dml_plr_obj$psi[1:5, ,1])
+        .. jupyter-execute::
+
+            print(dml_plr_obj$psi[1:5, ,1])
 
 
 Implemented Neyman orthogonal score functions
@@ -511,7 +523,7 @@ where :math:`\eta=(g_d,m)` with true values
     m_0(X) &= P(D=d|X).
 
 Remark that :math:`g_{d,0}(X,\theta_0)` depends on the target parameter :math:`\theta_0`, such that
-the score is estimated with a preliminary estimate :math:`\tilde{\theta}`. For further details, see Kallus et al., (2019). 
+the score is estimated with a preliminary estimate :math:`\tilde{\theta}`. For further details, see `Kallus et al. (2019) <https://arxiv.org/abs/1912.12945>`_. 
 
 
 Local potential quantiles (LPQs)
@@ -546,7 +558,7 @@ Further, the compliance probability :math:`\gamma_0` is estimated with the two a
     m_{Z=z,0}(X) = P(D=d|X, Z=z),\quad z\in\{0,1\}.
 
 Remark that :math:`g_{d,Z=z,0}(X, \theta_0)` depends on the target parameter :math:`\theta_0`, such that
-the score is estimated with a preliminary estimate :math:`\tilde{\theta}`. For further details, see Kallus et al., (2019).
+the score is estimated with a preliminary estimate :math:`\tilde{\theta}`. For further details, see `Kallus et al. (2019) <https://arxiv.org/abs/1912.12945>`_.
 
 
 Conditional value at risk (CVaR)
@@ -568,7 +580,7 @@ where :math:`\eta=(g_d,m,\gamma)` with true values
     m_0(X) &= P(D=d|X)
 
 and :math:`\gamma_0` being the potential quantile of :math:`Y(d)`. As for potential quantiles, the estimate :math:`g_d` is constructed via
-a preliminary estimate of :math:`\gamma_0`. For further details, see Kallus et al., (2019).
+a preliminary estimate of :math:`\gamma_0`. For further details, see `Kallus et al. (2019) <https://arxiv.org/abs/1912.12945>`_.
 
 Specifying alternative score functions via callables
 ++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -588,29 +600,33 @@ For example, the non-orthogonal score function
 
 can be obtained with
 
-.. tabbed:: Python
+.. tab-set::
 
-    .. ipython:: python
+    .. tab-item:: Python
+        :sync: py
 
-        import numpy as np
+        .. ipython:: python
 
-        def non_orth_score(y, d, l_hat, m_hat, g_hat, smpls):
-            u_hat = y - g_hat
-            psi_a = -np.multiply(d, d)
-            psi_b = np.multiply(d, u_hat)
-            return psi_a, psi_b
+            import numpy as np
 
-.. tabbed:: R
+            def non_orth_score(y, d, l_hat, m_hat, g_hat, smpls):
+                u_hat = y - g_hat
+                psi_a = -np.multiply(d, d)
+                psi_b = np.multiply(d, u_hat)
+                return psi_a, psi_b
 
-    .. jupyter-execute::
+    .. tab-item:: R
+        :sync: r
 
-        non_orth_score = function(y, d, l_hat, m_hat, g_hat, smpls) {
-            u_hat = y - g_hat
-            psi_a = -1*d*d
-            psi_b = d*u_hat
-            psis = list(psi_a = psi_a, psi_b = psi_b)
-            return(psis)
-        }
+        .. jupyter-execute::
+
+            non_orth_score = function(y, d, l_hat, m_hat, g_hat, smpls) {
+                u_hat = y - g_hat
+                psi_a = -1*d*d
+                psi_b = d*u_hat
+                psis = list(psi_a = psi_a, psi_b = psi_b)
+                return(psis)
+            }
 
 Use ``DoubleMLPLR`` with ``inf_model=non_orth_score`` in order to obtain the estimator
 
