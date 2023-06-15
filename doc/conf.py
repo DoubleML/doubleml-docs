@@ -159,7 +159,7 @@ linkcheck_ignore = [
     'https://doi.org/10.1080/07350015.2021.1895815',
     # Valid DOI; Causes 403 Client Error: Forbidden for url:...
     'https://doi.org/10.1198/jbes.2010.07136',
-    # Piplesnotebook has to be reworked
+    # Pipelines notebook has to be reworked
     'https://mlr3book.mlr-org.com/pipelines.html',
 ]
 
