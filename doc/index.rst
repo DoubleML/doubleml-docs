@@ -33,7 +33,6 @@ ecosystem <https://github.com/mlr-org/mlr3/wiki/Extension-Packages>`_ (Lang et a
         observer.observe(document.documentElement, {attributes: true, attributeFilter: ['data-theme']});
     </script>
 
-
 .. grid:: 2
 
     .. grid-item-card::
