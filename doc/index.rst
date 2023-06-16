@@ -33,12 +33,13 @@ ecosystem <https://github.com/mlr-org/mlr3/wiki/Extension-Packages>`_ (Lang et a
         observer.observe(document.documentElement, {attributes: true, attributeFilter: ['data-theme']});
     </script>
 
+
 .. grid:: 2
 
     .. grid-item-card::
         :columns: 4
         :img-top: _static/light_gettingstarted.png
-        :class-img-top: p-5
+        :class-img-top: p-5 panel-icon
         :link: intro
         :link-type: ref
         :text-align: center
@@ -53,7 +54,7 @@ ecosystem <https://github.com/mlr-org/mlr3/wiki/Extension-Packages>`_ (Lang et a
     .. grid-item-card::
         :columns: 4
         :img-top: _static/light_workflow.png
-        :class-img-top: p-5
+        :class-img-top: p-5 panel-icon
         :link: workflow
         :link-type: ref
         :text-align: center
@@ -67,7 +68,7 @@ ecosystem <https://github.com/mlr-org/mlr3/wiki/Extension-Packages>`_ (Lang et a
     .. grid-item-card::
         :columns: 4
         :img-top: _static/light_userguide.png
-        :class-img-top: p-5
+        :class-img-top: p-5 panel-icon
         :link: guide
         :link-type: ref
         :text-align: center
@@ -83,7 +84,7 @@ ecosystem <https://github.com/mlr-org/mlr3/wiki/Extension-Packages>`_ (Lang et a
     .. grid-item-card:: 
         :columns: 4
         :img-top: _static/light_pythonapi.png
-        :class-img-top: p-5
+        :class-img-top: p-5 panel-icon
         :link: python_api
         :link-type: ref
         :text-align: center
@@ -98,7 +99,7 @@ ecosystem <https://github.com/mlr-org/mlr3/wiki/Extension-Packages>`_ (Lang et a
     .. grid-item-card:: 
         :columns: 4
         :img-top: _static/light_rapi.png
-        :class-img-top: p-5
+        :class-img-top: p-5 panel-icon
         :link: https://docs.doubleml.org/r/stable/
         :text-align: center
         :class-header: sd-font-weight-bold h4
@@ -111,7 +112,7 @@ ecosystem <https://github.com/mlr-org/mlr3/wiki/Extension-Packages>`_ (Lang et a
     .. grid-item-card::
         :columns: 4
         :img-top: _static/light_examplegallery.png
-        :class-img-top: p-5
+        :class-img-top: p-5 panel-icon
         :link: examplegallery
         :link-type: ref
         :text-align: center
