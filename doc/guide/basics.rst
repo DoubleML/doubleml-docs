@@ -117,6 +117,7 @@ other half of observations indexed with :math:`i \in I`
                 return psi_a, psi_b
 
         .. ipython:: python
+            :okwarning:
 
             from doubleml import DoubleMLData
             from doubleml import DoubleMLPLR
