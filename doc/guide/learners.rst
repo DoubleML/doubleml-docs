@@ -261,12 +261,12 @@ The minimum requirement for a learner to be used for nuisance models in the :ref
 * The implementation as a learner for regression or classification in the `mlr3 <https://mlr3.mlr-org.com/>`_ package
   or its extension packages `mlr3learners <https://mlr3learners.mlr-org.com/>`_ and
   `mlr3extralearners <https://mlr3extralearners.mlr-org.com/>`_ . A guide on how to add a learner is provided in the
-  `chapter on extending learners in the mlr3 book <https://mlr3book.mlr-org.com/technical.html#sec-extending>`_ .
+  `chapter on extending learners in the mlr3 book <https://mlr3book.mlr-org.com/chapters/chapter10/advanced_technical_aspects_of_mlr3.html#sec-extending>`_ .
 * The `mlr3 <https://mlr3.mlr-org.com/>`_ package makes sure that the learners satisfy some core functionalities.
   To specify a specific learner in :ref:`DoubleML <doubleml_package>` users can pass objects of the class
   `Learner <https://mlr3.mlr-org.com/reference/Learner.html>`_. A fast way to construct these objects is to use the
   `mlr3 <https://mlr3.mlr-org.com/>`_  function `lrn() <https://mlr3.mlr-org.com/reference/mlr_sugar.html>`_.
-  An introduction to learners in `mlr3 <https://mlr3.mlr-org.com/>`_  is provided in the `chapter on learners of the mlr3 book <https://mlr3book.mlr-org.com/basics.html#sec-learners>`_.
+  An introduction to learners in `mlr3 <https://mlr3.mlr-org.com/>`_  is provided in the `chapter on learners of the mlr3 book <https://mlr3book.mlr-org.com/chapters/chapter2/data_and_basic_modeling.html#sec-learners>`_.
 * It is also possible to pass learners that have been constructed from a pipeline with the `mlr3pipelines <https://mlr3pipelines.mlr-org.com/>`_
   package.
 * The models `DoubleML::DoubleMLIRM <https://docs.doubleml.org/r/stable/reference/DoubleMLIRM.html>`_ and
@@ -424,7 +424,7 @@ Users can also specify learners that have been constructed from a pipeline using
 package. In general, pipelines can be used to perform data preprocessing, feature selection, combine learners and even
 to perform hyperparameter tuning. In the following, we provide two examples on how to construct a single learner and how
 to stack different learners via a pipeline. For a more detailed introduction to `mlr3pipelines <https://mlr3pipelines.mlr-org.com/>`_,
-we refer to the `Pipelines Chapter in the mlr3book <https://mlr3book.mlr-org.com/pipelines.html>`_. Moreover, a
+we refer to the `Pipelines Chapter in the mlr3book <https://mlr3book.mlr-org.com/chapters/chapter7/sequential_pipelines.html>`_. Moreover, a
 notebook on how to use `mlr3pipelines <https://mlr3pipelines.mlr-org.com/>`_ in combination with :ref:`DoubleML <doubleml_package>`
 is available in the example gallery.
 
@@ -482,7 +482,7 @@ Hyperparameter tuning
 Parameter tuning of learners for the nuisance functions of :ref:`DoubleML <doubleml_package>` models can be done via the ``tune()`` method.
 The ``tune()`` method passes various options and parameters to the tuning interface provided by the
 `mlr3tuning <https://mlr3tuning.mlr-org.com/>`_ package. The `mlr3 book <https://mlr3book.mlr-org.com/>`_ provides a
-`step-by-step introduction to parameter tuning <https://mlr3book.mlr-org.com/optimization.html>`_.
+`step-by-step introduction to parameter tuning <https://mlr3book.mlr-org.com/chapters/chapter4/hyperparameter_optimization.html>`_.
 
 To illustrate the parameter tuning, we generate data from a sparse partially linear regression model.
 
@@ -516,7 +516,7 @@ The entries in the list specify options during parameter tuning with `mlr3tuning
   Alternatively, ``algorithm`` can be a ``character()`` that is used as an argument in the wrapper
   `mlr3tuning <https://mlr3tuning.mlr-org.com/>`_ call
   `tnr(algorithm) <https://mlr3tuning.mlr-org.com/reference/tnr.html>`_.
-  `The corresponding chapter in the mlr3book <https://mlr3book.mlr-org.com/optimization.html#sec-model-tuning>`_ illustrates
+  `The corresponding chapter in the mlr3book <https://mlr3book.mlr-org.com/chapters/chapter4/hyperparameter_optimization.html#sec-tuner>`_ illustrates
   how the `Tuner <https://mlr3tuning.mlr-org.com/reference/Tuner.html>`_ class supports grid search, random search,
   generalized simulated annealing and non-linear optimization.
 * ``rsmp_tune`` is an object of class `mlr3 resampling <https://mlr3.mlr-org.com/reference/Resampling.html>`_
@@ -668,7 +668,7 @@ as provided by the `mlr3pipelines <https://mlr3pipelines.mlr-org.com/>`_ package
 define a learner via a pipeline and then perform the tuning via the ``tune()``. We will shortly repeat the lasso example
 from above. In general, the pipeline-based approach can be used to find optimal values not only for the parameters of
 one or multiple learners, but also for other parameters, which are, for example, involved in the data preprocessing. We
-refer to more details provided in the `Pipelines Chapter in the mlr3book <https://mlr3book.mlr-org.com/pipelines.html>`_.
+refer to more details provided in the `Pipelines Chapter in the mlr3book <https://mlr3book.mlr-org.com/chapters/chapter7/sequential_pipelines.html>`_.
 
 .. tab-set::
 
