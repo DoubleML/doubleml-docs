@@ -13,6 +13,7 @@ Release notes
 
       - **Release highlight:** Sensitivity Analysis (omitted variable bias) for
         `#201 <https://github.com/DoubleML/doubleml-for-py/pull/201>`_
+
         - ``DoubleMLPLR``
         - ``DoubleMLIRM``
         - ``DoubleMLDID``
@@ -37,11 +38,8 @@ Release notes
         `#145 <https://github.com/DoubleML/doubleml-docs/pull/145>`_
         `#146 <https://github.com/DoubleML/doubleml-docs/pull/146>`_
 
-  .. tab-item:: Python
-
     .. dropdown:: DoubleML 0.6.1
       :class-title: sd-bg-primary sd-font-weight-bold
-      :open:
 
       - **Release highlight:** Difference-in-differences models for ATTE estimation
         `#200 <https://github.com/DoubleML/doubleml-for-py/pull/200>`_
