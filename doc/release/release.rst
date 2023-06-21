@@ -7,6 +7,38 @@ Release notes
 
   .. tab-item:: Python
 
+    .. dropdown:: DoubleML 0.6.2
+      :class-title: sd-bg-primary sd-font-weight-bold
+      :open:
+
+      - **Release highlight:** Sensitivity Analysis (omitted variable bias) for
+        `#201 <https://github.com/DoubleML/doubleml-for-py/pull/201>`_
+        - ``DoubleMLPLR``
+        - ``DoubleMLIRM``
+        - ``DoubleMLDID``
+        - ``DoubleMLDIDCS``
+      
+      - Updated documentation
+        `#144 <https://github.com/DoubleML/doubleml-docs/pull/144>`_
+        `#141 <https://github.com/DoubleML/doubleml-docs/pull/141>`_
+
+      - Extend the guide with sensitivity and add further examples
+        `#142 <https://github.com/DoubleML/doubleml-docs/pull/142>`_
+
+      - Maintenance package
+        `#202 <https://github.com/DoubleML/doubleml-for-py/pull/202>`_
+        `#206 <https://github.com/DoubleML/doubleml-for-py/pull/206>`_
+
+      - Maintenance documentation
+        `#137 <https://github.com/DoubleML/doubleml-docs/pull/137>`_
+        `#138 <https://github.com/DoubleML/doubleml-docs/pull/138>`_
+        `#140 <https://github.com/DoubleML/doubleml-docs/pull/140>`_
+        `#143 <https://github.com/DoubleML/doubleml-docs/pull/143>`_
+        `#145 <https://github.com/DoubleML/doubleml-docs/pull/145>`_
+        `#146 <https://github.com/DoubleML/doubleml-docs/pull/146>`_
+
+  .. tab-item:: Python
+
     .. dropdown:: DoubleML 0.6.1
       :class-title: sd-bg-primary sd-font-weight-bold
       :open:
