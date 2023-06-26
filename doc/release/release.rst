@@ -7,6 +7,13 @@ Release notes
 
   .. tab-item:: Python
 
+    .. dropdown:: DoubleML 0.6.3
+      :class-title: sd-bg-primary sd-font-weight-bold
+      :open:
+
+      - Fix install requirements for 0.6.2
+        `#208 <https://github.com/DoubleML/doubleml-for-py/pull/208>`_
+
     .. dropdown:: DoubleML 0.6.2
       :class-title: sd-bg-primary sd-font-weight-bold
       :open:
