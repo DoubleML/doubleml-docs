@@ -65,7 +65,7 @@ of the main regression equation and the first stage.
 1. Data-Backend
 ---------------
 
-In step 1., we initialize the data-backend and thereby declare the role of the outcome, the treatment, and the confounding variables.
+In Step 1., we initialize the data-backend and thereby declare the role of the outcome, the treatment, and the confounding variables.
 
 We use data from the 1991 Survey of Income and Program Participation which is available via the function 
 `fetch_401K (Python) <https://docs.doubleml.org/stable/api/generated/doubleml.datasets.fetch_401K.html>`_
@@ -141,7 +141,7 @@ individuals. To keep the presentation short, we will choose a partially linear m
 3. ML Methods
 -------------
 
-In Step 3. we can specify the machine learning tools used for estimation of the nuisance parts.
+In Step 3., we can specify the machine learning tools used for estimation of the nuisance parts.
 We can generally choose any learner from `scikit learn <https://scikit-learn.org>`_ in Python and from the `mlr3 <https://mlr3.mlr-org.com>`_ ecosystem in R.
 
 There are two nuisance parts in the PLR, :math:`g_0(X)=\mathbb{E}(Y|X)` and  :math:`m_0(X)=\mathbb{E}(D|X)`.
@@ -296,7 +296,7 @@ corresponding fields or via a summary.
 6. Inference
 ------------
 
-In Step 6. we can perform further inference methods and finally interpret our findings. For example, we can set up confidence intervals
+In Step 6., we can perform further inference methods and finally interpret our findings. For example, we can set up confidence intervals
 or, in case multiple causal parameters are estimated, adjust the analysis for multiple testing. :ref:`DoubleML <doubleml_package>`
 supports various approaches to perform :ref:`valid simultaneous inference <sim_inf>`
 which are partly based on a multiplier bootstrap.
@@ -341,3 +341,27 @@ If we did not control for the confounding variables, the average treatment effec
 
             # Simultaneous confidence bands
             dml_plr_forest$confint(joint = TRUE)
+
+
+7. Sensitivity Analysis
+------------------------
+
+In Step 7., we can analyze the sensitivity of the estimated parameters. In the :ref:`plr-model` the causal interpretation
+relies on conditional exogeneity, which requires to control for confounding variables. The :ref:`DoubleML <doubleml_package>` python package
+implements :ref:`sensitivity` with respect to omitted confounders. 
+
+Analyzing the sensitivity of the intent-to-treat effect in the 401(k) example, we find that the effect remains positive even after adjusting for
+omitted confounders with a lower bound of :math:`$4,611` for the point estimate and :math:`$2,359` including statistical uncertainty.
+
+.. tab-set::
+
+    .. tab-item:: Python
+        :sync: py
+
+        .. ipython:: python
+
+            # Sensitivity analysis
+            dml_plr_tree.sensitivity_analysis(cf_y=0.04, cf_d=0.03)
+
+            # Sensitivity summary
+            print(dml_plr_tree.sensitivity_summary)

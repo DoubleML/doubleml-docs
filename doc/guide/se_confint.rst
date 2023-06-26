@@ -1,7 +1,7 @@
 .. _se_confint:
 
 Variance estimation and confidence intervals 
----------------------------------------------
+--------------------------------------------
 
 Variance estimation
 +++++++++++++++++++
