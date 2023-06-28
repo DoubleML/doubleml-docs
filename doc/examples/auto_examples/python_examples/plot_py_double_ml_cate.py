@@ -15,6 +15,9 @@ The code demonstrates the usage of the `DoubleMLCateEstimator` class and provide
 # ## Data
 # 
 # We define a data generating process to create synthetic data to compare the estimates to the true effect. The data generating process is based on the Monte Carlo simulation from [Oprescu et al. (2019)](http://proceedings.mlr.press/v97/oprescu19a.html) and this [notebook](https://github.com/py-why/EconML/blob/main/notebooks/Causal%20Forest%20and%20Orthogonal%20Random%20Forest%20Examples.ipynb) from [EconML](https://github.com/py-why/EconML).
+# %%
+import plotly.io as pio
+pio.renderers.default = 'sphinx_gallery'
 
 # %%
 import numpy as np

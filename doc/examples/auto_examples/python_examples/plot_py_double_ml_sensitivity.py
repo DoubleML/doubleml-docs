@@ -19,6 +19,10 @@ The code demonstrates the usage of the `DoubleMLCateEstimator` class and provide
 # For illustration purposes, we will work with generated data. This enables us to set the counfounding strength, such that we can correctly access quality of e.g. the robustness values.
 
 # %%
+import plotly.io as pio
+pio.renderers.default = 'sphinx_gallery'
+
+# %%
 import numpy as np
 import pandas as pd
 
