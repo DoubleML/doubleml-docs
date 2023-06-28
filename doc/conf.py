@@ -89,7 +89,10 @@ html_sidebars = {'**': ['logo.html',
                                        'sidebar-doubleml-workflow.html'],
                  'guide/guide': ['logo.html',
                                  'search-field.html',
-                                 'sidebar-nav-bs.html']}
+                                 'sidebar-nav-bs.html'],
+                 'examples/index': ['logo.html',
+                                    'search-field.html',
+                                    'sidebar-nav-bs.html']}
 
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,
@@ -108,8 +111,8 @@ copybutton_prompt_is_regexp = True
 
 # config of sphinx gallery for examples
 sphinx_gallery_conf = {
-     'examples_dirs': 'examples/gallery',   # path to your example scripts
-     'gallery_dirs': 'examples/generated',  # path to where to save gallery generated output
+     'examples_dirs': 'examples/py_gallery',   # path to your example scripts
+     'gallery_dirs': 'examples/auto_examples',  # path to where to save gallery generated output
 }
 
 nbsphinx_prolog = r"""
