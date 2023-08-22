@@ -325,7 +325,7 @@ The benchmarked estimates are then defined as
 
 - ``cf_d``:math:`:=\frac{1 - \hat{R}^2_{\alpha}}{\hat{R}^2_{\alpha}}` measures the proportional gain in variation that the ``benchmarking_set`` creates in the Riesz representer
 
-Further, the degree of adversity :math:`rho` can be estimated via
+Further, the degree of adversity :math:`\rho` can be estimated via
 
 .. math::
 
