@@ -253,7 +253,7 @@ By adjusting the parameter ``value='ci'`` in the ``sensitivity_plot()`` method t
 .. note::
 
  -  The ``sensitivity_plot()`` requires to call ``sensitivity_analysis`` first, since the choice of the bound (upper or lower) is based on
-    the corresponding null hypothesis. Furhter, the parameters ``rho`` and ``level`` are used. Both are constained in the ``sensitivity_params`` property.   
+    the corresponding null hypothesis. Further, the parameters ``rho`` and ``level`` are used. Both are constained in the ``sensitivity_params`` property.   
  -  The ``sensitivity_plot()`` is created for the first treatment variable. This can be changed via the ``idx_treatment`` parameter.
  -  The robustness values are given via the intersection countour of the null hypothesis and the identity.
 
