@@ -332,7 +332,7 @@ Further, the degree of adversity :math:`\rho` can be estimated via
     \hat{\rho} := \frac{\hat{\theta}_{short} - \hat{\theta}}{ \sqrt{(\hat{\sigma}^2_{short} - \hat{\sigma}^2)(\hat{\nu}^2 - \hat{\nu}^2_{short})}}.
 
 
-For a more detailed description see `Chernozhukov et al. (2022) <https://www.nber.org/papers/w30302>`_ Appendix D.
+For a more detailed description, see `Chernozhukov et al. (2022) <https://www.nber.org/papers/w30302>`_ Appendix D.
 
 
 .. _sensitivity_models:
