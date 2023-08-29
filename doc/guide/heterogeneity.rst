@@ -253,6 +253,49 @@ Estimation is conducted via its ``fit()`` method:
 A detailed notebook on CVaR estimation for potential outcomes and treatment effects
 is available in the :ref:`example gallery <examplegallery>`. 
 
+Policy Learning with Trees
+*******************************************
+
+.. include:: ../shared/heterogeneity/policytree.rst
+
+The ``DoubleMLIRM`` class contains the ``policy_tree()`` method, which enables the estimation of a policy tree 
+using weighted classification after fitting the ``DoubleMLIRM`` object. To estimate a policy tree, the user has to specify a pandas ``DataFrame`` containing
+the covariates on based on which the policy will make treatment decisions. These can be either the original covariates used in the
+``DoubleMLIRM`` estimation, or a subset, or new covariates.
+This will construct and fit a ``DoubleMLPolicyTree`` object. A plot of the decision rules can be displayed by the
+``plot_tree()`` method. The ``predict()`` method enables the application of the estimated policy on new data.
+
+.. tab-set::
+
+    .. tab-item:: Python
+        :sync: py
+
+        .. ipython:: python
+
+            import numpy as np
+            import pandas as pd
+            import doubleml as dml
+            from doubleml.datasets import make_irm_data
+            from sklearn.ensemble import RandomForestRegressor, RandomForestClassifier
+
+            ml_g = RandomForestRegressor(n_estimators=100, max_features=20, max_depth=5, min_samples_leaf=2)
+            ml_m = RandomForestClassifier(n_estimators=100, max_features=20, max_depth=5, min_samples_leaf=2)
+            np.random.seed(3333)
+            data = make_irm_data(theta=0.5, n_obs=500, dim_x=20, return_type='DataFrame')
+            obj_dml_data = dml.DoubleMLData(data, 'y', 'd')
+            dml_irm_obj = dml.DoubleMLIRM(obj_dml_data, ml_g, ml_m)
+            _ = dml_irm_obj.fit()
+
+            # define covariates to learn policy on 
+            np.random.seed(42)
+            x_vars = data[["X1","X2","X3"]]
+            print(x_vars.head())
+
+            policy_tree_obj = dml_irm_obj.policy_tree(x_vars = x_vars, depth=2)
+            policy_tree_obj.plot_tree();
+
+A more detailed notebook on Policy Trees is available in the :ref:`example gallery <examplegallery>`.
+
 
 
 
