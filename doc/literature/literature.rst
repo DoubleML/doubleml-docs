@@ -92,6 +92,12 @@ Double machine learning literature
     .. dropdown:: Double machine learning models and methodological extensions
       :class-title: sd-bg-primary sd-font-weight-bold
 
+      - Susan Athey, Stefan Wager |br|
+        **Policy Learning With Observational Data** |br|
+        *Econometrica, 89(1), Pages 133–161, 2021* |br|
+        :octicon:`link` :bdg-link-dark:`URL <https://doi.org/10.3982/ECTA15732>`        
+        |hr|
+            
       - Neng-Chieh Chang |br|
         **Double/debiased machine learning for difference-in-differences models** |br|
         *The Econometrics Journal, 23(2), Pages 177–191, 2020* |br|
