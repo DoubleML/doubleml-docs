@@ -161,6 +161,10 @@ linkcheck_ignore = [
     'https://doi.org/10.1198/jbes.2010.07136',
     # Valid DOI; Causes 403 Client Error: Forbidden for url:...
     'https://doi.org/10.1111/rssb.12348',
+    # Valid DOI; Causes 403 Client Error: Forbidden for url:...
+    'https://doi.org/10.1145/3460231.3474231',
+    # Valid DOI; Causes 403 Client Error: Forbidden for url:...
+    'https://dl.acm.org/doi/10.1145/3447545.3451181',
     # Pipelines notebook has to be reworked
     'https://mlr3book.mlr-org.com/pipelines.html',
 ]
