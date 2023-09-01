@@ -264,6 +264,7 @@ the covariates on based on which the policy will make treatment decisions. These
 ``DoubleMLIRM`` estimation, or a subset, or new covariates.
 This will construct and fit a ``DoubleMLPolicyTree`` object. A plot of the decision rules can be displayed by the
 ``plot_tree()`` method. The ``predict()`` method enables the application of the estimated policy on new data.
+The ``depth`` parameter, which defaults to ``2``, can be used to adjust the maximum depth of the tree.
 
 .. tab-set::
 
@@ -291,7 +292,8 @@ This will construct and fit a ``DoubleMLPolicyTree`` object. A plot of the decis
             x_vars = data[["X1","X2","X3"]]
             print(x_vars.head())
 
-            policy_tree_obj = dml_irm_obj.policy_tree(x_vars = x_vars, depth=2)
+            # fits a tree of depth 2
+            policy_tree_obj = dml_irm_obj.policy_tree(x_vars = x_vars)
             policy_tree_obj.plot_tree();
 
 A more detailed notebook on Policy Trees is available in the :ref:`example gallery <examplegallery>`.
