@@ -254,7 +254,7 @@ A detailed notebook on CVaR estimation for potential outcomes and treatment effe
 is available in the :ref:`example gallery <examplegallery>`. 
 
 Policy Learning with Trees
-*******************************************
+++++++++++++++++++++++++++++++++++++++++++++
 
 .. include:: ../shared/heterogeneity/policytree.rst
 
@@ -287,13 +287,13 @@ The ``depth`` parameter, which defaults to ``2``, can be used to adjust the maxi
             dml_irm_obj = dml.DoubleMLIRM(obj_dml_data, ml_g, ml_m)
             _ = dml_irm_obj.fit()
 
-            # define covariates to learn policy on 
+            # define features to learn policy on 
             np.random.seed(42)
-            x_vars = data[["X1","X2","X3"]]
-            print(x_vars.head())
+            features = data[["X1","X2","X3"]]
+            print(features.head())
 
             # fits a tree of depth 2
-            policy_tree_obj = dml_irm_obj.policy_tree(x_vars = x_vars)
+            policy_tree_obj = dml_irm_obj.policy_tree(features=features)
             policy_tree_obj.plot_tree();
 
 A more detailed notebook on Policy Trees is available in the :ref:`example gallery <examplegallery>`.
