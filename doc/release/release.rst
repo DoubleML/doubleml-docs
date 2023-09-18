@@ -19,6 +19,9 @@ Release notes
       - Extending sensitivity and policy tree documentation in User Guide and Example Gallery
         `#148 <https://github.com/DoubleML/doubleml-docs/pull/148>`_
         `#150 <https://github.com/DoubleML/doubleml-docs/pull/150>`_
+
+      - The package requirements are set to python 3.8 or higher
+        `#211 <https://github.com/DoubleML/doubleml-for-py/pull/211>`_
       
       - Maintenance documentation
         `#149 <https://github.com/DoubleML/doubleml-docs/pull/149>`_
