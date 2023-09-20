@@ -7,16 +7,35 @@ Release notes
 
   .. tab-item:: Python
 
-    .. dropdown:: DoubleML 0.6.3
+    .. dropdown:: DoubleML 0.7.0
       :class-title: sd-bg-primary sd-font-weight-bold
       :open:
+
+      - **Release highlight:** Benchmarking for Sensitivity Analysis (omitted variable bias)
+        `#211 <https://github.com/DoubleML/doubleml-for-py/pull/211>`_
+      - Policy tree estimation for the ``DoubleMLIRM`` class
+        `#212 <https://github.com/DoubleML/doubleml-for-py/pull/212>`_
+
+      - Extending sensitivity and policy tree documentation in User Guide and Example Gallery
+        `#148 <https://github.com/DoubleML/doubleml-docs/pull/148>`_
+        `#150 <https://github.com/DoubleML/doubleml-docs/pull/150>`_
+
+      - The package requirements are set to python 3.8 or higher
+        `#211 <https://github.com/DoubleML/doubleml-for-py/pull/211>`_
+      
+      - Maintenance documentation
+        `#149 <https://github.com/DoubleML/doubleml-docs/pull/149>`_
+      - Maintenance package
+        `#213 <https://github.com/DoubleML/doubleml-for-py/pull/213>`_
+
+    .. dropdown:: DoubleML 0.6.3
+      :class-title: sd-bg-primary sd-font-weight-bold
 
       - Fix install requirements for 0.6.2
         `#208 <https://github.com/DoubleML/doubleml-for-py/pull/208>`_
 
     .. dropdown:: DoubleML 0.6.2
       :class-title: sd-bg-primary sd-font-weight-bold
-      :open:
 
       - **Release highlight:** Sensitivity Analysis (omitted variable bias) for
         `#201 <https://github.com/DoubleML/doubleml-for-py/pull/201>`_
