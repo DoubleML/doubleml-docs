@@ -10,4 +10,4 @@ Instead of considering a constant treatment effect :math:`\theta_0` for all obse
 where :math:`G_k` for :math:`k=1,\dots, K` denotes a group indicator where the groups can depend on the counfounding features :math:`X`.
 
 Point estimates and confidence intervals can be obtained via the ``gate()`` and ``confint()`` methods.
-Remark that the groups should be mutually exclusive.
+Remark that for straightforward interpretation the groups should be mutually exclusive.
