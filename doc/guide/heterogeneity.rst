@@ -182,6 +182,46 @@ CATEs for PLR models
 
 A more detailed notebook on CATEs for ``DoubleMLPLR`` models is available in the :ref:`example gallery <examplegallery>`. 
 
+**Theory:** In the model above, it holds
+
+.. math::
+
+    \mathbb{E}[Y|X] &= \mathbb{E}[\theta_0(X) D|X] + \mathbb{E}[g(X)|X] + \underbrace{\mathbb{E}[\varepsilon|X]}_{=\mathbb{E}[\mathbb{E}[\varepsilon|D, X]|X]=0}\\
+    &=\theta(X) \mathbb{E}[D|X] + g(X)
+
+such that 
+
+.. math::
+
+    \underbrace{Y - \mathbb{E}[Y|X]}_{=:\tilde{Y}} = \theta_0(X) (\underbrace{D - \mathbb{E}[D|X]}_{=:\tilde{D}}) + \varepsilon.
+
+Remark that for the generated :math:`\sigma`-agebras :math:`\sigma(\tilde{D})\subseteq \sigma(D,X)` implying
+
+.. math::
+
+    \mathbb{E}[\epsilon|\tilde{D}] = \mathbb{E}[\mathbb{E}[\epsilon|X, D]|\tilde{D}] = 0
+
+and consequently
+
+.. math::
+
+    \mathbb{E}[\tilde{Y}|\tilde{D}] = \theta(X)\tilde{D}.
+
+Consequently, :math:`\theta_0(X)` can be estimated by regressing :math:`\tilde{Y}` on :math:`\tilde{D}`:
+
+.. math::
+
+    \theta_0(X) = \arg\min_{\theta(X) \in \Theta}\mathbb{E}[(\tilde{Y} - \theta(X)\tilde{D})^2]
+
+The :ref:`DoubleML <doubleml_package>` implementation approximates the effect :math:`\theta(X)` by a linear projection on a supplied basis :math:`\phi(X)`:
+
+.. math::
+
+    \theta_0(X) \approx \beta_0^T \phi(X)
+
+where :math:`\beta_0` are coefficients to be estimated. 
+The coverage of the confidence intervals is meant to include the the approximation :math:`\beta_0^T\phi(X)`.
+
 .. _qtes:
 
 Quantiles
