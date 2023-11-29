@@ -3,7 +3,7 @@
 Heterogeneous treatment effects
 ----------------------------------------
 
-All implemented solutions focus on the :ref:`IRM <irm-model>` or :ref:`IIVM <iivm-model>` models, as for 
+Most implemented solutions focus on the :ref:`IRM <irm-model>` or :ref:`IIVM <iivm-model>` models, as for 
 the :ref:`PLR <plr-model>` and :ref:`PLIV <pliv-model>` models heterogeneous treatment effects can be usually modelled 
 via feature construction.
 
@@ -13,13 +13,16 @@ via feature construction.
 Group average treatment effects (GATEs)
 ++++++++++++++++++++++++++++++++++++++++++++++
 
-.. include:: ../shared/heterogeneity/gate.rst
-
-The ``DoubleMLIRM`` class contains the ``gate()`` method, which enables the estimation and construction of confidence intervals
-for GATEs after fitting the ``DoubleMLIRM`` object. To estimate GATEs, the user has to specify a pandas ``DataFrame`` containing
+The ``DoubleMLIRM`` and ``DoubleMLPLR`` classes contain the ``gate()`` method, which enables the estimation and construction of confidence intervals
+for GATEs after fitting the ``DoubleML`` object. To estimate GATEs, the user has to specify a pandas ``DataFrame`` containing
 the groups (dummy coded or one column with strings).
 This will construct and fit a ``DoubleMLBLP`` object. Confidence intervals can then be constructed via 
 the ``confint()`` method. Jointly valid confidence intervals will be based on a gaussian multiplier bootstrap.
+
+GATEs for IRM models
+*********************
+
+.. include:: ../shared/heterogeneity/gate.rst
 
 .. tab-set::
 
@@ -52,20 +55,59 @@ the ``confint()`` method. Jointly valid confidence intervals will be based on a 
             print(ci)
 
 
-A more detailed notebook on GATEs is available in the :ref:`example gallery <examplegallery>`.
+A more detailed notebook on GATEs with ``DoubleMLIRM`` models is available in the :ref:`example gallery <examplegallery>`.
+
+GATEs for PLR models
+*********************
+
+.. include:: ../shared/heterogeneity/gate_plr.rst
+
+.. tab-set::
+
+    .. tab-item:: Python
+        :sync: py
+
+        .. ipython:: python
+
+            import numpy as np
+            import pandas as pd
+            import doubleml as dml
+            from doubleml.datasets import make_plr_CCDDHNR2018
+            from sklearn.ensemble import RandomForestRegressor
+
+            ml_g = RandomForestRegressor(n_estimators=100, max_features=20, max_depth=5, min_samples_leaf=2)
+            ml_m = RandomForestRegressor(n_estimators=100, max_features=20, max_depth=5, min_samples_leaf=2)
+            np.random.seed(3333)
+            dml_data = make_plr_CCDDHNR2018(alpha=0.5, n_obs=500, dim_x=20)
+            dml_plr_obj = dml.DoubleMLPLR(dml_data, ml_g, ml_m)
+            _ = dml_plr_obj.fit()
+
+            # define groups
+            np.random.seed(42)
+            groups = pd.DataFrame(np.random.choice(3, 500), columns=['Group'], dtype=str)
+            print(groups.head())
+
+            gate_obj = dml_plr_obj.gate(groups=groups)
+            ci = gate_obj.confint()
+            print(ci)
+
+A more detailed notebook on GATEs with ``DoubleMLPLR`` models is available in the :ref:`example gallery <examplegallery>`.
 
 .. _cates:
 
 Conditional average treatment effects (CATEs)
 ++++++++++++++++++++++++++++++++++++++++++++++
 
-.. include:: ../shared/heterogeneity/cate.rst
-
-The ``DoubleMLIRM`` class contains the ``cate()`` method, which enables the estimation and construction of confidence intervals
-for CATEs after fitting the ``DoubleMLIRM`` object. To estimate CATEs, the user has to specify a pandas ``DataFrame`` containing
+The ``DoubleMLIRM`` and ``DoubleMLPLR`` classes contain the ``cate()`` method, which enables the estimation and construction of confidence intervals
+for CATEs after fitting the ``DoubleML`` object. To estimate CATEs, the user has to specify a pandas ``DataFrame`` containing
 the basis (e.g. B-splines) for the conditional treatment effects.
 This will construct and fit a ``DoubleMLBLP`` object. Confidence intervals can then be constructed via 
 the ``confint()`` method. Jointly valid confidence intervals will be based on a gaussian multiplier bootstrap.
+
+CATEs for IRM models
+*********************
+
+.. include:: ../shared/heterogeneity/cate.rst
 
 .. tab-set::
 
@@ -80,7 +122,7 @@ the ``confint()`` method. Jointly valid confidence intervals will be based on a 
 
             import doubleml as dml
             from doubleml.datasets import make_irm_data
-            from sklearn.ensemble import RandomForestRegressor, RandomForestClassifier
+            from sklearn.ensemble import RandomForestRegressor
 
             ml_g = RandomForestRegressor(n_estimators=100, max_features=20, max_depth=5, min_samples_leaf=2)
             ml_m = RandomForestClassifier(n_estimators=100, max_features=20, max_depth=5, min_samples_leaf=2)
@@ -99,9 +141,46 @@ the ``confint()`` method. Jointly valid confidence intervals will be based on a 
             ci = cate_obj.confint()
             print(ci.head())
 
-
-A more detailed notebook on CATEs is available in the :ref:`example gallery <examplegallery>`. 
+A more detailed notebook on CATEs for ``DoubleMLIRM`` models is available in the :ref:`example gallery <examplegallery>`. 
 The examples also include the construction of a two-dimensional basis with B-splines.
+
+CATEs for PLR models
+*********************
+
+.. include:: ../shared/heterogeneity/cate_plr.rst
+
+.. tab-set::
+
+    .. tab-item:: Python
+        :sync: py
+
+        .. ipython:: python
+
+            import numpy as np
+            import pandas as pd
+            import patsy
+
+            import doubleml as dml
+            from doubleml.datasets import make_plr_CCDDHNR2018
+            from sklearn.ensemble import RandomForestRegressor, RandomForestClassifier
+
+            ml_g = RandomForestRegressor(n_estimators=100, max_features=20, max_depth=5, min_samples_leaf=2)
+            ml_m = RandomForestRegressor(n_estimators=100, max_features=20, max_depth=5, min_samples_leaf=2)
+            np.random.seed(3333)
+            dml_data = make_plr_CCDDHNR2018(alpha=0.5, n_obs=500, dim_x=20)
+            dml_plr_obj = dml.DoubleMLPLR(dml_data, ml_g, ml_m)
+            _ = dml_plr_obj.fit()
+
+            # define a basis with respect to the first variable
+            design_matrix = patsy.dmatrix("bs(x, df=5, degree=2)", {"x":obj_dml_data.data["X1"]})
+            spline_basis = pd.DataFrame(design_matrix)
+            print(spline_basis.head())
+
+            cate_obj = dml_plr_obj.cate(basis=spline_basis)
+            ci = cate_obj.confint()
+            print(ci.head())
+
+A more detailed notebook on CATEs for ``DoubleMLPLR`` models is available in the :ref:`example gallery <examplegallery>`. 
 
 .. _qtes:
 
