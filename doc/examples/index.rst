@@ -30,6 +30,7 @@ These are case studies with the Python package :ref:`DoubleML <doubleml_package>
     py_double_ml_gate.ipynb
     py_double_ml_gate_plr.ipynb
     py_double_ml_cate.ipynb
+    py_double_ml_cate_plr.ipynb
     py_double_ml_did.ipynb
     py_double_ml_did_pretest.ipynb
     py_double_ml_pension_qte.ipynb
