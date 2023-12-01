@@ -68,6 +68,7 @@ Dataset generators
    datasets.make_did_SZ2020
    datasets.make_confounded_plr_data
    datasets.make_confounded_irm_data
+   datasets.make_heterogeneous_data
 
 Score mixin classes for double machine learning models
 ------------------------------------------------------
