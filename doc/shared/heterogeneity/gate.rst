@@ -7,3 +7,4 @@
 where :math:`G_k` denotes a group indicator and :math:`Y(d)` the potential outcome with :math:`d \in \{0, 1\}`.
 
 Point estimates and confidence intervals can be obtained via the ``gate()`` and ``confint()`` methods.
+Remark that for straightforward interpretation, the groups have to be mutually exclusive.
