@@ -138,7 +138,7 @@ CATEs for IRM models
             print(spline_basis.head())
 
             cate_obj = dml_irm_obj.cate(basis=spline_basis)
-            ci = cate_obj.confint()
+            ci = cate_obj.confint(basis=spline_basis)
             print(ci.head())
 
 A more detailed notebook on CATEs for ``DoubleMLIRM`` models is available in the :ref:`example gallery <examplegallery>`. 
@@ -177,7 +177,7 @@ CATEs for PLR models
             print(spline_basis.head())
 
             cate_obj = dml_plr_obj.cate(basis=spline_basis)
-            ci = cate_obj.confint()
+            ci = cate_obj.confint(basis=spline_basis)
             print(ci.head())
 
 A more detailed notebook on CATEs for ``DoubleMLPLR`` models is available in the :ref:`example gallery <examplegallery>`. 
