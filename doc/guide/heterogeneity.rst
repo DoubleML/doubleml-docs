@@ -228,19 +228,19 @@ Weighted Average Treatment Effects
 +++++++++++++++++++++++++++++++++++
 
 The ``DoubleMLIRM`` class allows to specify weights via the ``weights`` argument in the initialization of the ``DoubleMLIRM`` object.
-Given some weights, :math:`w(Y,D,X)` the model identifies the weighted average treatment effect
+Given some weights, :math:`\omega(Y,D,X)` the model identifies the weighted average treatment effect
 
 .. math::
 
-    \theta_0 = \mathbb{E}[w(Y,D,X)(g_0(1,X) - g_0(0,X))].
+    \theta_0 = \mathbb{E}[(g_0(1,X) - g_0(0,X))\omega(Y,D,X)].
 
 The interpretation depends on the choice of weights. The simplest examples include
 
-- :math:`w(Y,D,X) = 1` which corresponds to the average treatment effect (ATE)
-- :math:`w(Y,D,X) = \frac{1\{X\in G\}}{P(X\in G)}` which corresponds to the group average treatment effect (GATE) for group :math:`G`
-- :math:`w(Y,D,X) = \pi(X)` which corresponds to the average value of policy :math:`\pi`, where :math:`0\le \pi \le 1`
+- :math:`\omega(Y,D,X) = 1` which corresponds to the average treatment effect (ATE)
+- :math:`\omega(Y,D,X) = \frac{1\{X\in G\}}{P(X\in G)}` which corresponds to the group average treatment effect (GATE) for group :math:`G`
+- :math:`\omega(Y,D,X) = \pi(X)` which corresponds to the average value of policy :math:`\pi`, where :math:`0\le \pi \le 1`
 
-where the weights :math:`w(Y,D,X)` only depend on the features :math:`X`.
+where the weights :math:`\omega(Y,D,X)` only depend on the features :math:`X`.
 
 In these cases the weights can be specified as an array via the ``weights`` argument in the initialization of the ``DoubleMLIRM`` object.
 
@@ -269,16 +269,16 @@ In these cases the weights can be specified as an array via the ``weights`` argu
             print(dml_irm_obj.summary)
 
 If the weights do not only depend on the features :math:`X`, but e.g. also on the treatment :math:`D` estimation becomes more involved.
-To identifiy the correct parameter not only the weights :math:`w(Y,D,X)` but also their conditional expectation 
+To identifiy the correct parameter not only the weights :math:`\omega(Y,D,X)` but also their conditional expectation 
 
 .. math::
 
-    \bar{w}(X) = \mathbb{E}[w(Y,D,X)|X]
+    \bar{\omega}(X) = \mathbb{E}[\omega(Y,D,X)|X]
 
 has to be specified. A common example is the average treatment effect on the treated (ATTE) which can be identified by setting
 
-- :math:`w(Y,D,X) = \frac{D}{P(D=1)}`
-- :math:`\bar{w}(X) = \frac{\mathbb{E}[D|X]}{P(D=1)} = \frac{m_0(X)}{P(D=1)}`
+- :math:`\omega(Y,D,X) = \frac{D}{P(D=1)}`
+- :math:`\bar{\omega}(X) = \frac{\mathbb{E}[D|X]}{P(D=1)} = \frac{m_0(X)}{P(D=1)}`
 
 which depends on the propensity score :math:`m_0(X)`. 
 In this case the weights can be specified as a ``dictionary`` the ``weights`` argument in the initialization of the ``DoubleMLIRM`` object.
