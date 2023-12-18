@@ -416,16 +416,16 @@ In the :ref:`irm-model` the target parameter can be written as
 
 .. math::
 
-    \theta = \mathbb{E}[(g(1,X) - g(0,X))\omega(D,X)]
+    \theta_0 = \mathbb{E}[(g_0(1,X) - g_0(0,X))\omega(Y,D,X)]
 
 where :math:`\omega(D,X)` are weights (e.g. set to :math:`1` for the ATE).
 This implies the following representations
 
 .. math::
 
-    m(W,g) &= \big(g(1,X) - g(0,X))\omega(D,X)
+    m(W,g) &= \big(g(1,X) - g(0,X))\omega(Y,D,X)
 
-    \alpha(W) &= \bigg(\frac{D}{m(X)} - \frac{1-D}{1-m(X)}\bigg)  \mathbb{E}[\omega(D,X)|X].
+    \alpha(W) &= \bigg(\frac{D}{m(X)} - \frac{1-D}{1-m(X)}\bigg)  \mathbb{E}[\omega(Y,D,X)|X].
 
 .. note::
     In the :ref:`irm-model` with the ATE, it holds
@@ -442,19 +442,19 @@ For ``score='ATE'``, the weights are set to one
 
 .. math::
 
-    \omega(D,X) = 1,
+    \omega(Y,D,X) = 1,
 
 wheras for ``score='ATTE'``
 
 .. math::
 
-    \omega(D,X) = \frac{D}{\mathbb{E}[D]},
+    \omega(Y,D,X) = \frac{D}{\mathbb{E}[D]},
 
 such that
 
 .. math::
 
-    \mathbb{E}[\omega(D,X)|X] = \frac{m(X)}{\mathbb{E}[D]}.
+    \mathbb{E}[\omega(Y,D,X)|X] = \frac{m(X)}{\mathbb{E}[D]}.
 
 
 Difference-in-Differences for Panel Data
