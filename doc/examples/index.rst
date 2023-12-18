@@ -12,7 +12,7 @@ Python: Case studies
 These are case studies with the Python package :ref:`DoubleML <doubleml_package>`.
 
 General Examples
-++++++++++++++
+++++++++++++++++
 
 .. nbgallery::
     :name: case-studies-py
