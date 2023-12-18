@@ -16,6 +16,7 @@ These are case studies with the R package :ref:`DoubleML <doubleml_package>`.
 
     R_double_ml_pension.ipynb
     r_double_ml_multiway_cluster.ipynb
+    r_doubleml_basic_iv.ipynb
 
 Python: Case studies
 ---------------------
@@ -37,6 +38,7 @@ These are case studies with the Python package :ref:`DoubleML <doubleml_package>
     py_double_ml_learner.ipynb
     py_double_ml_sensitivity.ipynb
     py_double_ml_policy_tree.ipynb
+    py_doubleml_basic_iv.ipynb
 
 Sandbox
 ----------
