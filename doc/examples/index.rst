@@ -51,7 +51,6 @@ These are case studies with the R package :ref:`DoubleML <doubleml_package>`.
 
     R_double_ml_pension.ipynb
     r_double_ml_multiway_cluster.ipynb
-    r_double_ml_basic_iv.ipynb
 
 Sandbox
 ----------
