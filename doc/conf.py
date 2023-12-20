@@ -100,6 +100,8 @@ html_css_files = ['css/custom.css']
 
 nbsphinx_thumbnails = {
     'examples/py_double_ml_sensitivity': '_static/sensitivity_example_nb.png',
+    'examples/py_double_ml_basic_iv': '_static/basic_iv_example_nb.png',
+    'examples/r_double_ml_basic_iv': '_static/basic_iv_example_nb.png',
 }
 
 copybutton_prompt_text = r'>>> |\.\.\. |\$ |In \[\d*\]: | {2,5}\.\.\.: | {5,8}: | {2,5}\.\.\.\.:'
