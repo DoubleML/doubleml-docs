@@ -23,7 +23,6 @@ General Examples
     py_double_ml_multiway_cluster.ipynb
     py_double_ml_did.ipynb
     py_double_ml_did_pretest.ipynb
-    py_doubleml_basic_iv.ipynb
 
 
 Effect Heterogeneity
@@ -51,7 +50,6 @@ These are case studies with the R package :ref:`DoubleML <doubleml_package>`.
 
     R_double_ml_pension.ipynb
     r_double_ml_multiway_cluster.ipynb
-    r_doubleml_basic_iv.ipynb
 
 Sandbox
 ----------
