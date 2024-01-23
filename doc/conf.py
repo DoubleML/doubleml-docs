@@ -100,7 +100,7 @@ html_css_files = ['css/custom.css']
 
 nbsphinx_thumbnails = {
     'examples/py_double_ml_sensitivity': '_static/sensitivity_example_nb.png',
-    'examples/py_doubleml_firststage': '_static/firststage_example_nb.png',
+    'examples/py_double_ml_firststage': '_static/firststage_example_nb.png',
     'examples/py_double_ml_basic_iv': '_static/basic_iv_example_nb.png',
     'examples/R_double_ml_basic_iv': '_static/basic_iv_example_nb.png',
 }
