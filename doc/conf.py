@@ -100,6 +100,7 @@ html_css_files = ['css/custom.css']
 
 nbsphinx_thumbnails = {
     'examples/py_double_ml_sensitivity': '_static/sensitivity_example_nb.png',
+    'examples/py_double_ml_firststage': '_static/firststage_example_nb.png',
     'examples/py_double_ml_basic_iv': '_static/basic_iv_example_nb.png',
     'examples/R_double_ml_basic_iv': '_static/basic_iv_example_nb.png',
 }
@@ -169,6 +170,8 @@ linkcheck_ignore = [
     'https://dl.acm.org/doi/10.1145/3447545.3451181',
     # Pipelines notebook has to be reworked
     'https://mlr3book.mlr-org.com/pipelines.html',
+    # Valid DOI; Causes 403 Client Error: Forbidden for url:...
+    'https://doi.org/10.1093/restud/rdt044'
 ]
 
 # To execute R code via jupyter-execute one needs to install the R kernel for jupyter
