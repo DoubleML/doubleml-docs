@@ -6,6 +6,8 @@ Sensitivity analysis
 The :ref:`DoubleML <doubleml_package>` package implements sensitivity analysis with respect to omitted variable bias
 based on `Chernozhukov et al. (2022) <https://www.nber.org/papers/w30302>`_.
 
+.. _sensitivity_general:
+
 General algorithm
 +++++++++++++++++
 
@@ -334,6 +336,8 @@ Further, the degree of adversity :math:`\rho` can be estimated via
 
 For a more detailed description, see `Chernozhukov et al. (2022) <https://www.nber.org/papers/w30302>`_ Appendix D.
 
+.. note::
+    - As benchmarking requires the estimation of a seperate model, the use with external predictions is generally not possible.
 
 .. _sensitivity_models:
 

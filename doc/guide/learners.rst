@@ -263,6 +263,7 @@ To illustrate the use of external predictions, we work with the following exampl
     :sync: py
 
     .. ipython:: python
+
       import numpy as np
       import doubleml as dml
       from doubleml.datasets import make_irm_data
@@ -290,6 +291,7 @@ variable names and the inner level keys correspond to the nuisance learner names
     :sync: py
 
     .. ipython:: python
+
       pred_dict = {"d": {
           "ml_g0": dml_irm_obj.predictions["ml_g0"][:, :, 0],
           "ml_g1": dml_irm_obj.predictions["ml_g1"][:, :, 0],
@@ -305,6 +307,7 @@ The external predictions can be passed to the ``fit()`` method of the :py:class:
     :sync: py
 
     .. ipython:: python
+      
       ml_g = dml.utils.DMLDummyRegressor()
       ml_m = dml.utils.DMLDummyClassifier()
       dml_irm_obj_ext = dml.DoubleMLIRM(obj_dml_data, ml_g, ml_m)

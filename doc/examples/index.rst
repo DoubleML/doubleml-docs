@@ -37,10 +37,11 @@ Effect Heterogeneity
     py_double_ml_gate_plr.ipynb
     py_double_ml_cate.ipynb
     py_double_ml_cate_plr.ipynb
+    py_double_ml_gate_sensitivity.ipynb
+    py_double_ml_policy_tree.ipynb
     py_double_ml_pension_qte.ipynb
     py_double_ml_pq.ipynb
     py_double_ml_cvar.ipynb
-    py_double_ml_policy_tree.ipynb
 
 R: Case studies
 ---------------
