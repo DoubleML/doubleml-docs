@@ -6,6 +6,8 @@ Sensitivity analysis
 The :ref:`DoubleML <doubleml_package>` package implements sensitivity analysis with respect to omitted variable bias
 based on `Chernozhukov et al. (2022) <https://www.nber.org/papers/w30302>`_.
 
+.. _sensitivity_general:
+
 General algorithm
 +++++++++++++++++
 
