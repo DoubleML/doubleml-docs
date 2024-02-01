@@ -70,6 +70,18 @@ Dataset generators
    datasets.make_confounded_irm_data
    datasets.make_heterogeneous_data
 
+Utility classes and functions
+-----------------------------
+
+.. currentmodule:: doubleml.utils
+
+.. autosummary::
+    :toctree: generated/
+
+    DMLDummyRegressor
+    DMLDummyClassifier
+    gain_statistics
+
 Score mixin classes for double machine learning models
 ------------------------------------------------------
 
