@@ -33,18 +33,18 @@ jobs:
 
     steps:
     - name: Check out the repo containing the docu source
-      uses: actions/checkout@v3
+      uses: actions/checkout@v4
 
     - name: Check out the repo containing the python pkg DoubleML (dev)
       if: ${{ github.event_name != 'workflow_dispatch' }}
-      uses: actions/checkout@v3
+      uses: actions/checkout@v4
       with:
         repository: DoubleML/doubleml-for-py
         path: doubleml-for-py
 
     - name: Check out the repo containing the python pkg DoubleML (dev)
       if: ${{ github.event_name == 'workflow_dispatch' }}
-      uses: actions/checkout@v3
+      uses: actions/checkout@v4
       with:
         repository: DoubleML/doubleml-for-py
         path: doubleml-for-py
@@ -54,7 +54,7 @@ jobs:
       run: sudo apt-get install graphviz
 
     - name: Install python
-      uses: actions/setup-python@v4
+      uses: actions/setup-python@v5
       with:
         python-version: '3.8'
     - name: Install dependencies and the python package
@@ -88,7 +88,7 @@ jobs:
       shell: Rscript {0}
 
     - name: Cache R packages
-      uses: actions/cache@v3
+      uses: actions/cache@v4
       with:
         path: ${{ env.R_LIBS_USER }}
         key: doubleml-test-build-dev-${{ hashFiles('.github/R-version') }}
@@ -120,7 +120,7 @@ jobs:
         make -C doc linkcheck
 
     - name: Upload html artifacts
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       with:
         name: build_html
         path: doc/_build/html/
