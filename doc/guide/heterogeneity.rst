@@ -291,6 +291,7 @@ In this case the weights would take the following form
 
 To simplify the specification of the weights, the ``DoubleMLIRM`` with ``score='ATTE'`` accepts binary weights, which should correspond to :math:`1\{X\in G\}`. 
 This automatically relies on the propensity score :math:`m(X)` to construct the weights mentioned above (e.g. for weights equal to one this refers to the average treatment effect on the treated).
+
 A more detailed notebook on weighted average treatment effects for on GATE sensitivity analysis is available in the :ref:`example gallery <examplegallery>`. 
 
 .. _qtes:
