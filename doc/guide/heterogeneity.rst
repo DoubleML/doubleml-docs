@@ -283,6 +283,14 @@ has to be specified. A common example is the average treatment effect on the tre
 which depends on the propensity score :math:`m_0(X)`. 
 In this case the weights can be specified as a ``dictionary`` the ``weights`` argument in the initialization of the ``DoubleMLIRM`` object.
 
+One other important example would be the sensitivity analysis for group average treatment effects on the treated (GATET).
+In this case the weights would take the following form
+
+- :math:`\omega(Y,D,X) = \frac{1\{D=1, X\in G\}}{P(D=1, X\in G)}= \frac{D \cdot 1\{X\in G\}}{P(D=1, X\in G)}`
+- :math:`\bar{\omega}(X) = \frac{\mathbb{E}[D|X]1\{X\in G\}}{P(D=1, X\in G)} = \frac{m_0(X)1\{X\in G\}}{P(D=1, X\in G)}.`
+
+To simplify the specification of the weights, the ``DoubleMLIRM`` with ``score='ATTE'`` accepts binary weights, which should correspond to :math:`1\{X\in G\}`. 
+This automatically relies on the propensity score :math:`m(X)` to construct the weights mentioned above (e.g. for weights equal to one this refers to the average treatment effect on the treated).
 A more detailed notebook on weighted average treatment effects for on GATE sensitivity analysis is available in the :ref:`example gallery <examplegallery>`. 
 
 .. _qtes:
