@@ -73,14 +73,27 @@ Dataset generators
 Utility classes and functions
 -----------------------------
 
-.. currentmodule:: doubleml.utils
+Utility classes
+~~~~~~~~~~~~~~~
+
+.. currentmodule:: doubleml
+
+.. autosummary::
+    :toctree: generated/
+    :template: class.rst
+
+    utils.DMLDummyRegressor
+    utils.DMLDummyClassifier
+
+Utility functions
+~~~~~~~~~~~~~~~~~
+
+.. currentmodule:: doubleml
 
 .. autosummary::
     :toctree: generated/
 
-    DMLDummyRegressor
-    DMLDummyClassifier
-    gain_statistics
+    utils.gain_statistics
 
 Score mixin classes for double machine learning models
 ------------------------------------------------------
