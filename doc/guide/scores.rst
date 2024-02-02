@@ -564,7 +564,7 @@ the score is estimated with a preliminary estimate :math:`\tilde{\theta}`. For f
 Conditional value at risk (CVaR)
 **********************************
 
-For ``DoubleMLCVAR`` the only valid option is ``score='CVAR'``. For ``treatment=d`` with :math:`d\in\{0,1\}` and
+For ``DoubleMLCVAR`` the only valid option is ``score='CVaR'``. For ``treatment=d`` with :math:`d\in\{0,1\}` and
 a quantile :math:`\tau\in (0,1)` this implements the score function:
 
 .. math::

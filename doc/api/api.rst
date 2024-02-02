@@ -68,6 +68,32 @@ Dataset generators
    datasets.make_did_SZ2020
    datasets.make_confounded_plr_data
    datasets.make_confounded_irm_data
+   datasets.make_heterogeneous_data
+
+Utility classes and functions
+-----------------------------
+
+Utility classes
+~~~~~~~~~~~~~~~
+
+.. currentmodule:: doubleml
+
+.. autosummary::
+    :toctree: generated/
+    :template: class.rst
+
+    utils.DMLDummyRegressor
+    utils.DMLDummyClassifier
+
+Utility functions
+~~~~~~~~~~~~~~~~~
+
+.. currentmodule:: doubleml
+
+.. autosummary::
+    :toctree: generated/
+
+    utils.gain_statistics
 
 Score mixin classes for double machine learning models
 ------------------------------------------------------

@@ -6,6 +6,8 @@ Sensitivity analysis
 The :ref:`DoubleML <doubleml_package>` package implements sensitivity analysis with respect to omitted variable bias
 based on `Chernozhukov et al. (2022) <https://www.nber.org/papers/w30302>`_.
 
+.. _sensitivity_general:
+
 General algorithm
 +++++++++++++++++
 
@@ -334,6 +336,8 @@ Further, the degree of adversity :math:`\rho` can be estimated via
 
 For a more detailed description, see `Chernozhukov et al. (2022) <https://www.nber.org/papers/w30302>`_ Appendix D.
 
+.. note::
+    - As benchmarking requires the estimation of a seperate model, the use with external predictions is generally not possible.
 
 .. _sensitivity_models:
 
@@ -416,45 +420,72 @@ In the :ref:`irm-model` the target parameter can be written as
 
 .. math::
 
-    \theta = \mathbb{E}[(g(1,X) - g(0,X))\omega(D,X)]
+    \theta_0 = \mathbb{E}[(g_0(1,X) - g_0(0,X))\omega(Y,D,X)]
 
 where :math:`\omega(D,X)` are weights (e.g. set to :math:`1` for the ATE).
 This implies the following representations
 
 .. math::
 
-    m(W,g) &= \big(g(1,X) - g(0,X))\omega(D,X)
+    m(W,g) &= \big(g(1,X) - g(0,X))\omega(Y,D,X)
 
-    \alpha(W) &= \bigg(\frac{D}{m(X)} - \frac{1-D}{1-m(X)}\bigg)  \mathbb{E}[\omega(D,X)|X].
+    \alpha(W) &= \bigg(\frac{D}{m(X)} - \frac{1-D}{1-m(X)}\bigg)  \mathbb{E}[\omega(Y,D,X)|X].
+
 
 .. note::
-    In the :ref:`irm-model` with the ATE, it holds
+    In the :ref:`irm-model` with for the ATE (weights equal to :math:`1`), the form and interpretation of ``cf_y`` is the same as in the :ref:`plr-model`.
+
+    - ``cf_y`` has the interpretation as the *nonparametric partial* :math:`R^2` *of* :math:`A` *with* :math:`Y` *given* :math:`(D,X)`
     
     .. math:: 
-
-        C_D^2= \frac{\mathbb{E}\Big[\big(P(D=1|X,A)(1-P(D=1|X,A))\big)^{-1}\Big]}{\mathbb{E}\Big[\big(P(D=1|X)(1-P(D=1|X))\big)^{-1}\Big]} - 1
+        
+        \frac{\textrm{Var}(\mathbb{E}[Y|D,X,A]) - \textrm{Var}(\mathbb{E}[Y|D,X])}{\textrm{Var}(Y)-\textrm{Var}(\mathbb{E}[Y|D,X])}
     
-    which is the *average gain in conditional precision to predict* :math:`D` *by using* :math:`A` *in addition to* :math:`X`.
-    This can be used to choose ``cf_d``:math:`:=\frac{C_D^2}{1 + C_D^2}`.
+    - ``cf_d`` takes the following form
+    
+    .. math:: 
+        
+        \small{\frac{\mathbb{E}\Big[\big(P(D=1|X,A)(1-P(D=1|X,A))\big)^{-1}\Big] - \mathbb{E}\Big[\big(P(D=1|X)(1-P(D=1|X))\big)^{-1}\Big]}{\mathbb{E}\Big[\big(P(D=1|X,A)(1-P(D=1|X,A))\big)^{-1}\Big]}}
 
+    where the numerator measures the *gain in average conditional precision to predict* :math:`D` *by using* :math:`A` *in addition to* :math:`X`.
+    The denominator is the *average conditional precision to predict* :math:`D` *by using* :math:`A` *and* :math:`X`. Consequently ``cf_d`` measures the *relative gain in average conditional precision*.
+
+    Remark that :math:`P(D=1|X,A)(1-P(D=1|X,A))` denotes the variance of the conditional distribution of :math:`D` given :math:`(X,A)`, such that the inverse measures the precision of
+    predicting :math:`D` conditional on :math:`(X,A)`.
+    
+    Since :math:`C_D^2=\frac{cf_d}{1 - cf_d}`, this corresponds to
+
+    .. math:: 
+
+        C_D^2= \small{\frac{\mathbb{E}\Big[\big(P(D=1|X,A)(1-P(D=1|X,A))\big)^{-1}\Big] - \mathbb{E}\Big[\big(P(D=1|X)(1-P(D=1|X))\big)^{-1}\Big]}{\mathbb{E}\Big[\big(P(D=1|X)(1-P(D=1|X))\big)^{-1}\Big]}}
+    
+    which has the same numerator but is instead relative to the *average conditional precision to predict* :math:`D` *by using only* :math:`X`.
+
+    Including weights changes only the definition of ``cf_d`` to 
+
+    .. math::
+
+        \frac{\mathbb{E}\left[\frac{\mathbb{E}[\omega(Y,D,X)|X,A]^2}{P(D=1|X,A)(1-P(D=1|X,A))}\right] - \mathbb{E}\left[\frac{\mathbb{E}[\omega(Y,D,X)|X]^2}{P(D=1|X)(1-P(D=1|X))}\right]}{\mathbb{E}\left[\frac{\mathbb{E}[\omega(Y,D,X)|X,A]^2}{P(D=1|X,A)(1-P(D=1|X,A))}\right]}
+
+    which has a interpretation as the *relative weighted gain in average conditional precision*.
 The ``nuisance_elements`` are then computed with plug-in versions according to the general :ref:`sensitivity_implementation`. 
 For ``score='ATE'``, the weights are set to one 
 
 .. math::
 
-    \omega(D,X) = 1,
+    \omega(Y,D,X) = 1,
 
 wheras for ``score='ATTE'``
 
 .. math::
 
-    \omega(D,X) = \frac{D}{\mathbb{E}[D]},
+    \omega(Y,D,X) = \frac{D}{\mathbb{E}[D]},
 
 such that
 
 .. math::
 
-    \mathbb{E}[\omega(D,X)|X] = \frac{m(X)}{\mathbb{E}[D]}.
+    \mathbb{E}[\omega(Y,D,X)|X] = \frac{m(X)}{\mathbb{E}[D]}.
 
 
 Difference-in-Differences for Panel Data

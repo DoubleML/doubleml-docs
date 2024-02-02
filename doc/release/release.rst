@@ -7,9 +7,44 @@ Release notes
 
   .. tab-item:: Python
 
-    .. dropdown:: DoubleML 0.7.0
+    .. dropdown:: DoubleML 0.7.1
       :class-title: sd-bg-primary sd-font-weight-bold
       :open:
+
+      - **Release highlight:** Add weights to ``DoubleMLIRM`` class to extend sensitivity to GATEs etc.
+        `#220 <https://github.com/DoubleML/doubleml-for-py/pull/220>`_
+        `#229 <https://github.com/DoubleML/doubleml-for-py/pull/229>`_
+        `#155 <https://github.com/DoubleML/doubleml-docs/pull/155>`_
+        `#161 <https://github.com/DoubleML/doubleml-docs/pull/161>`_
+      - Extend GATE and CATE estimation to the ``DoubleMLPLR`` class
+        `#220 <https://github.com/DoubleML/doubleml-for-py/pull/220>`_
+        `#155 <https://github.com/DoubleML/doubleml-docs/pull/155>`_
+      - Enable the use of external predictions for ``DoubleML`` classes
+        `#221 <https://github.com/DoubleML/doubleml-for-py/pull/221>`_
+        `#159 <https://github.com/DoubleML/doubleml-docs/pull/159>`_
+
+      - Implementing utility classes and functions (gain statistics and dummy learners)
+        `#221 <https://github.com/DoubleML/doubleml-for-py/pull/221>`_
+        `#222 <https://github.com/DoubleML/doubleml-for-py/pull/222>`_
+        `#229 <https://github.com/DoubleML/doubleml-for-py/pull/229>`_
+        `#161 <https://github.com/DoubleML/doubleml-docs/pull/161>`_
+
+      - Extend example Gallery
+        `#153 <https://github.com/DoubleML/doubleml-docs/pull/153>`_
+        `#158 <https://github.com/DoubleML/doubleml-docs/pull/158>`_
+        `#161 <https://github.com/DoubleML/doubleml-docs/pull/161>`_
+
+      - Maintenance documentation
+        `#157 <https://github.com/DoubleML/doubleml-docs/pull/157>`_
+        `#160 <https://github.com/DoubleML/doubleml-docs/pull/160>`_
+
+      - Maintenance package
+        `#223 <https://github.com/DoubleML/doubleml-for-py/pull/223>`_
+        `#224 <https://github.com/DoubleML/doubleml-for-py/pull/224>`_
+
+
+    .. dropdown:: DoubleML 0.7.0
+      :class-title: sd-bg-primary sd-font-weight-bold
 
       - **Release highlight:** Benchmarking for Sensitivity Analysis (omitted variable bias)
         `#211 <https://github.com/DoubleML/doubleml-for-py/pull/211>`_
