@@ -210,7 +210,7 @@ Journal of Machine Learning Research, 23(53): 1-6,
 
 Bach, P., Chernozhukov, V., Kurz, M. S., Spindler, M.  and Klaassen, S. (2024),
 DoubleML - An Object-Oriented Implementation of Double Machine Learning in R, Journal of Statistical Software,
-108(3): 1-56, doi:`doi:10.18637/jss.v108.i03 <doi:10.18637/jss.v108.i03>`, arXiv:`2103.09603 <https://arxiv.org/abs/2103.09603>`_.
+108(3): 1-56, doi:`doi:10.18637/jss.v108.i03 <doi:10.18637/jss.v108.i03>`_, arXiv:`2103.09603 <https://arxiv.org/abs/2103.09603>`_.
 
 Bibtex-entries:
 
