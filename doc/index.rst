@@ -230,7 +230,7 @@ Bibtex-entries:
 .. code-block:: TeX
 
     @Article{doubleml2024R,
-      title   = {DoubleML: An Object-Oriented Implementation of Double Machine Learning in {R}},
+      title   = {{DoubleML}: {A}n Object-Oriented Implementation of Double Machine Learning in {R}},
       author  = {Philipp Bach and Malte S. Kurz and Victor Chernozhukov and Martin Spindler and Sven Klaassen},
       journal = {Journal of Statistical Software},
       year    = {2024},
