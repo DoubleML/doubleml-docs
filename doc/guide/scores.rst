@@ -240,7 +240,7 @@ For the IRM model implemented in ``DoubleMLIRM`` one can choose between
 
 .. math::
 
-    \psi(W; \theta, \eta) &:= g(1,X) - g(0,X) + \frac{D (Y - g(1,X))}{m(X)} - \frac{(1 - D)(Y - g(0,X))}{1 - m(x)} - \theta
+    \psi(W; \theta, \eta) &:= g(1,X) - g(0,X) + \frac{D (Y - g(1,X))}{m(X)} - \frac{(1 - D)(Y - g(0,X))}{1 - m(X)} - \theta
 
     &= \psi_a(W; \eta) \theta + \psi_b(W; \eta)
 
@@ -250,13 +250,13 @@ with :math:`\eta=(g,m)` and where the components of the linear score are
 
     \psi_a(W; \eta) &=  - 1,
 
-    \psi_b(W; \eta) &= g(1,X) - g(0,X) + \frac{D (Y - g(1,X))}{m(X)} - \frac{(1 - D)(Y - g(0,X))}{1 - m(x)}.
+    \psi_b(W; \eta) &= g(1,X) - g(0,X) + \frac{D (Y - g(1,X))}{m(X)} - \frac{(1 - D)(Y - g(0,X))}{1 - m(X)}.
 
 ``score='ATTE'`` implements the score function:
 
 .. math::
 
-    \psi(W; \theta, \eta) &:= \frac{D (Y - g(0,X))}{p} - \frac{m(X) (1 - D) (Y - g(0,X))}{p(1 - m(x))} - \frac{D}{p} \theta
+    \psi(W; \theta, \eta) &:= \frac{D (Y - g(0,X))}{p} - \frac{m(X) (1 - D) (Y - g(0,X))}{p(1 - m(X))} - \frac{D}{p} \theta
 
     &= \psi_a(W; \eta) \theta + \psi_b(W; \eta)
 
@@ -280,9 +280,9 @@ we employ for ``score='LATE'`` the score function:
 .. math::
 
     \psi(W; \theta, \eta) :=\; &g(1,X) - g(0,X)
-    + \frac{Z (Y - g(1,X))}{m(X)} - \frac{(1 - Z)(Y - g(0,X))}{1 - m(x)}
+    + \frac{Z (Y - g(1,X))}{m(X)} - \frac{(1 - Z)(Y - g(0,X))}{1 - m(X)}
 
-    &- \bigg(r(1,X) - r(0,X) + \frac{Z (D - r(1,X))}{m(X)} - \frac{(1 - Z)(D - r(0,X))}{1 - m(x)} \bigg) \theta
+    &- \bigg(r(1,X) - r(0,X) + \frac{Z (D - r(1,X))}{m(X)} - \frac{(1 - Z)(D - r(0,X))}{1 - m(X)} \bigg) \theta
 
     =\; &\psi_a(W; \eta) \theta + \psi_b(W; \eta)
 
@@ -290,9 +290,9 @@ with :math:`\eta=(g, m, r)` and where the components of the linear score are
 
 .. math::
 
-    \psi_a(W; \eta) &=  - \bigg(r(1,X) - r(0,X) + \frac{Z (D - r(1,X))}{m(X)} - \frac{(1 - Z)(D - r(0,X))}{1 - m(x)} \bigg),
+    \psi_a(W; \eta) &=  - \bigg(r(1,X) - r(0,X) + \frac{Z (D - r(1,X))}{m(X)} - \frac{(1 - Z)(D - r(0,X))}{1 - m(X)} \bigg),
 
-    \psi_b(W; \eta) &= g(1,X) - g(0,X) + \frac{Z (Y - g(1,X))}{m(X)} - \frac{(1 - Z)(Y - g(0,X))}{1 - m(x)}.
+    \psi_b(W; \eta) &= g(1,X) - g(0,X) + \frac{Z (Y - g(1,X))}{m(X)} - \frac{(1 - Z)(Y - g(0,X))}{1 - m(X)}.
 
 Difference-in-Differences for Panel Data
 ****************************************
