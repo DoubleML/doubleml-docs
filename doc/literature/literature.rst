@@ -32,10 +32,11 @@ Double machine learning literature
         :octicon:`mark-github` :bdg-link-dark:`GitHub <https://github.com/DoubleML/doubleml-for-py>`
         |hr|
 
-      - Philipp Bach, Victor Chernozhukov, Malte S. Kurz, Martin Spindler |br|
+      - Philipp Bach, Victor Chernozhukov, Malte S. Kurz, Martin Spindler, Sven Klaassen |br|
         **DoubleML -- An Object-Oriented Implementation of Double Machine Learning in R** |br|
-        *arXiv preprint arXiv:2103.09603 [stat.ML], 2021* |br|
+        *Journal of Statistical Software, 108(3), 1-56, 2024* |br|
         :bdg-info:`R Package DoubleML` |br|
+        :octicon:`link` :bdg-link-dark:`URL <https://doi.org/10.18637/jss.v108.i03>`
         :octicon:`link` :bdg-link-dark:`arXiv <https://arxiv.org/abs/2103.09603>`
         :bdg-link-dark:`CRAN <https://cran.r-project.org/package=DoubleML>`
         :octicon:`mark-github` :bdg-link-dark:`GitHub <https://github.com/DoubleML/doubleml-for-r>`

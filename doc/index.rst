@@ -208,9 +208,9 @@ Journal of Machine Learning Research, 23(53): 1-6,
 `https://www.jmlr.org/papers/v23/21-0862.html  <https://www.jmlr.org/papers/v23/21-0862.html>`_.
 
 
-Bach, P., Chernozhukov, V., Kurz, M. S., and Spindler, M. (2021),
-DoubleML - An Object-Oriented Implementation of Double Machine Learning in R,
-arXiv:`2103.09603 <https://arxiv.org/abs/2103.09603>`_.
+Bach, P., Chernozhukov, V., Kurz, M. S., Spindler, M.  and Klaassen, S. (2024),
+DoubleML - An Object-Oriented Implementation of Double Machine Learning in R, Journal of Statistical Software,
+108(3): 1-56, doi:`10.18637/jss.v108.i03 <https://doi.org/10.18637/jss.v108.i03>`_, arXiv:`2103.09603 <https://arxiv.org/abs/2103.09603>`_.
 
 Bibtex-entries:
 
@@ -229,13 +229,15 @@ Bibtex-entries:
 
 .. code-block:: TeX
 
-    @misc{DoubleML2021R,
-      title={{DoubleML} -- {A}n Object-Oriented Implementation of Double Machine Learning in {R}},
-      author={P. Bach and V. Chernozhukov and M. S. Kurz and M. Spindler},
-      year={2021},
-      eprint={2103.09603},
-      archivePrefix={arXiv},
-      primaryClass={stat.ML},
+    @Article{doubleml2024R,
+      title   = {{DoubleML}: {A}n Object-Oriented Implementation of Double Machine Learning in {R}},
+      author  = {Philipp Bach and Malte S. Kurz and Victor Chernozhukov and Martin Spindler and Sven Klaassen},
+      journal = {Journal of Statistical Software},
+      year    = {2024},
+      volume  = {108},
+      number  = {3},
+      pages   = {1--56},
+      doi     = {10.18637/jss.v108.i03},
       note={arXiv:\href{https://arxiv.org/abs/2103.09603}{2103.09603} [stat.ML]}
     }
 
@@ -253,9 +255,9 @@ Object-Oriented Implementation of Double Machine Learning in Python,
 Journal of Machine Learning Research, 23(53): 1-6,
 `https://www.jmlr.org/papers/v23/21-0862.html  <https://www.jmlr.org/papers/v23/21-0862.html>`_.
 
-Bach, P., Chernozhukov, V., Kurz, M. S., and Spindler, M. (2021),
-DoubleML - An Object-Oriented Implementation of Double Machine Learning in R,
-arXiv:`2103.09603 <https://arxiv.org/abs/2103.09603>`_.
+Bach, P., Chernozhukov, V., Kurz, M. S., Spindler, M. and Klaassen, S. (2024),
+DoubleML - An Object-Oriented Implementation of Double Machine Learning in R, Journal of Statistical Software,
+108(3): 1-56, doi:`10.18637/jss.v108.i03 <https://doi.org/10.18637/jss.v108.i03>`_, arXiv:`2103.09603 <https://arxiv.org/abs/2103.09603>`_.
 
 Chernozhukov, V., Chetverikov, D., Demirer, M., Duflo, E., Hansen, C., Newey, W. and Robins, J. (2018),
 Double/debiased machine learning for treatment and structural parameters. The Econometrics Journal, 21: C1-C68, doi:`10.1111/ectj.12097 <https://doi.org/10.1111/ectj.12097>`_.

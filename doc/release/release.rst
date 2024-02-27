@@ -340,10 +340,15 @@ Release notes
 
   .. tab-item:: R
 
-    .. dropdown:: DoubleML 0.5.3
+    .. dropdown:: DoubleML 1.0.0
       :class-title: sd-bg-primary sd-font-weight-bold
       :open:
 
+      - Update citation info to publication in Journal of Statistical Software, rename helper function and fix links and GH actions
+        `191 <https://github.com/DoubleML/doubleml-for-r/pull/191>`_
+
+    .. dropdown:: DoubleML 0.5.3
+      :class-title: sd-bg-primary sd-font-weight-bold
       - Add documentation for estimated models for nuisance parameters
         `#181 <https://github.com/DoubleML/doubleml-for-r/pull/181>`_
       - New contributor `@SvenKlaassen <https://github.com/SvenKlaassen>`_
