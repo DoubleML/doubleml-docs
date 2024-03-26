@@ -17,6 +17,7 @@ General Examples
 .. nbgallery::
     :name: case-studies-py
 
+    py_double_ml_basics.ipynb
     py_double_ml_pension.ipynb
     py_double_ml_sensitivity.ipynb
     py_double_ml_learner.ipynb
@@ -51,6 +52,7 @@ These are case studies with the R package :ref:`DoubleML <doubleml_package>`.
 .. nbgallery::
     :name: case-studies-r
 
+    R_double_ml_basics.ipynb
     R_double_ml_pension.ipynb
     R_double_ml_multiway_cluster.ipynb
     R_double_ml_basic_iv.ipynb
