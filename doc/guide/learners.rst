@@ -186,6 +186,8 @@ In this case the tuning should be done externally and the parameters can then be
 
 .. TODO: Also discuss other specification options like `tune_on_folds` or `scoring_methods`.
 
+.. _learners:
+
 Evaluate learners
 #################
 
@@ -247,6 +249,8 @@ the metric can handle ``nan`` values as not all target values are known.
         dml_plr_obj.evaluate_learners(learners=['ml_l'], metric=mae)
 
 A more detailed notebook on the choice of learners is available in the :ref:`example gallery <examplegallery>`.
+
+.. _ext_pred:
 
 Advanced: External Predictions
 ##############################
