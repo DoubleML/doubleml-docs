@@ -249,6 +249,10 @@ The parameter estimates :math:`(\tilde{\theta}_{0,m})_{m \in [M]}` and asymptoti
             print(dml_plr_obj$all_coef)
             print(dml_plr_obj$all_se)
 
+In python, the confidence intervals and p-values are based on the :py:class:`doubleml.DoubleMLFramework` object.
+This class provides methods such as ``confint``, ``bootstrap`` or ``p_adjust``. For different repetitions, 
+the computations are done seperately and combined via the median (as based on Chernozhukov et al., 2018).
+
 Externally provide a sample splitting / partition
 +++++++++++++++++++++++++++++++++++++++++++++++++
 

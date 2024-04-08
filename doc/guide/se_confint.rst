@@ -326,7 +326,7 @@ The :ref:`DoubleML <doubleml_package>` package provides a method to perform vali
     Remark that the confidence intervals will generally only be valid if the stronger (uniform) assumptions on e.g. nuisance
     estimates are satisfied. Further, the models should be estimated on the same data set.
 
-The :class:`doubleml.DoubleML` class contains a ``framework`` attribute which stores a :class:`doubleml.DoubleMLModelFramework` object. This
+The :py:class:`doubleml.DoubleML` class contains a ``framework`` attribute which stores a :py:class:`doubleml.DoubleMLFramework` object. This
 object contains a scaled version of the score function
 
 .. math::
