@@ -403,3 +403,9 @@ justification, see also :ref:`bias_overfitting`.
             set.seed(314)
             dml_plr_no_split$fit()
             dml_plr_no_split$summary()
+
+
+References
+++++++++++
+
+* Chernozhukov, Victor and Demirer, Mert and Duflo, Esther and Fernández-Val, Iván (2018), Generic Machine Learning Inference on Heterogeneous Treatment Effects in Randomized Experiments, with an Application to Immunization in India, National Bureau of Economic Research,  `doi: 10.3386/w24678 <https://dx.doi.org/10.3386/w24678>`_.
