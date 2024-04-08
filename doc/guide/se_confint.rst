@@ -231,13 +231,10 @@ The number of bootstrap samples is provided as input ``n_rep_boot`` and for ``me
 ``'normal'`` or ``'wild'``.
 Based on the estimates of the standard errors :math:`\hat{\sigma}_j`
 and :math:`\hat{J}_{0,j} = \mathbb{E}_N(\psi_{a,j}(W; \eta_{0,j}))`
-that are obtained from DML, we construct bootstrap coefficients
-:math:`\theta^{*,b}_j` and bootstrap t-statistics :math:`t^{*,b}_j`
+that are obtained from DML, we construct bootstraped t-statistics :math:`t^{*,b}_j`
 for :math:`j=1, \ldots, p_1`
 
 .. math::
-
-    \theta^{*,b}_{j} &= \frac{1}{\sqrt{N} \hat{J}_{0,j}}\sum_{k=1}^{K} \sum_{i \in I_k} \xi_{i}^b \cdot \psi_j(W_i; \tilde{\theta}_{0,j}, \hat{\eta}_{0,j;k}),
 
     t^{*,b}_{j} &= \frac{1}{\sqrt{N} \hat{J}_{0,j} \hat{\sigma}_{j}} \sum_{k=1}^{K} \sum_{i \in I_k} \xi_{i}^b  \cdot \psi_j(W_i; \tilde{\theta}_{0,j}, \hat{\eta}_{0,j;k}).
 
