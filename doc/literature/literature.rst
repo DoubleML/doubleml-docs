@@ -98,6 +98,12 @@ Double machine learning literature
         *Econometrica, 89(1), Pages 133–161, 2021* |br|
         :octicon:`link` :bdg-link-dark:`URL <https://doi.org/10.3982/ECTA15732>`        
         |hr|
+
+      - Michela Bia, Martin Huber, Lukas Laffers |br|
+        **Double Machine Learning for Sample Selection Models** |br|
+        * Journal of Business & Economic Statistics, 1-12., 2023* |br|
+        :octicon:`link` :bdg-link-dark:`URL <https://doi.org/10.1080/07350015.2023.2271071>`        
+        |hr|
             
       - Neng-Chieh Chang |br|
         **Double/debiased machine learning for difference-in-differences models** |br|
