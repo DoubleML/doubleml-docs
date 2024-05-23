@@ -23,6 +23,7 @@ General Examples
     py_double_ml_learner.ipynb
     py_double_ml_firststage.ipynb
     py_double_ml_multiway_cluster.ipynb
+    py_double_ml_ssm.ipynb
     py_double_ml_did.ipynb
     py_double_ml_did_pretest.ipynb
     py_double_ml_basic_iv.ipynb
