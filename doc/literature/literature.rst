@@ -105,6 +105,12 @@ Double machine learning literature
         :octicon:`link` :bdg-link-dark:`URL <https://doi.org/10.1093/ectj/utaa001>`        
         |hr|
 
+      - Chernozhukov, Victor and Demirer, Mert and Duflo, Esther and Fernández-Val, Iván |br|
+        **Generic Machine Learning Inference on Heterogeneous Treatment Effects in Randomized Experiments, with an Application to Immunization in India** |br|
+        *National Bureau of Economic Research, Working Paper* |br|
+        :octicon:`link` :bdg-link-dark:`URL <https://doi.org/10.3386/w24678>`        
+        |hr|
+
       - Harold D. Chiang, Kengo Kato, Yukun Ma, Yuya Sasaki |br|
         **Multiway Cluster Robust Double/Debiased Machine Learning** |br|
         *Journal of Business & Economic Statistics, forthcoming, 2021* |br|
