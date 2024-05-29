@@ -582,6 +582,73 @@ where :math:`\eta=(g_d,m,\gamma)` with true values
 and :math:`\gamma_0` being the potential quantile of :math:`Y(d)`. As for potential quantiles, the estimate :math:`g_d` is constructed via
 a preliminary estimate of :math:`\gamma_0`. For further details, see `Kallus et al. (2019) <https://arxiv.org/abs/1912.12945>`_.
 
+.. _ssm-mar-score:
+
+Missingness at Random
+*********************
+
+For ``DoubleMLCSSM``the ``score='missing-at-random'`` implements the score function:
+
+.. math::
+
+    \psi(W; \theta, \eta) := \tilde{\psi}_1(W; \eta) - \tilde{\psi}_0(W; \eta) - \theta
+
+where
+
+.. math::
+
+    \tilde{\psi}_1(W; \eta) &= \frac{D \cdot S \cdot [Y - g(1,1,X)]}{m(X) \cdot \pi(1, X)} + g(1,1,X)
+
+    \tilde{\psi}_0(W; \eta) &= \frac{(1-D) \cdot S \cdot [Y - g(0,1,X)]}{(1-m(X)) \cdot \pi(0, X)} + g(0,1,X)
+
+for :math:`d\in\{0,1\}` and :math:`\eta=(g, m, \pi)` with true values
+
+.. math::
+
+    g_0(d,s,X) &= \mathbb{E}[Y|D=d, S=s, X]
+
+    m_0(X) &= P(D=1|X)
+
+    \pi_0(d, X) &= P(S=1|D=d, X).
+
+
+For further details, see `Bia, Huber and Lafférs (2023) <https://doi.org/10.1080/07350015.2023.2271071>`_.
+
+.. _ssm-nr-score:
+
+Nonignorable Nonresponse
+************************
+
+For ``DoubleMLCSSM``the ``score='nonignorable'`` implements the score function:
+
+.. math::
+
+    \psi(W; \theta, \eta) := \tilde{\psi}_1(W; \eta) - \tilde{\psi}_0(W; \eta) - \theta
+
+where
+
+.. math::
+
+    \tilde{\psi}_1(W; \eta) &= \frac{D \cdot S \cdot [Y - g(1,1,X,\Pi)]}{m(X, \Pi) \cdot \pi(1,X,Z)} + g(1,1,X,\Pi)
+
+    \tilde{\psi}_0(W; \eta) &= \frac{(1-D) \cdot S \cdot [Y - g(0,1,X,\Pi)]}{(1-m(X,\Pi)) \cdot \pi(0,X,Z)} + g(0,1,X,\Pi)
+
+for :math:`d\in\{0,1\}` and :math:`\eta=(g, m, \pi, \Pi)` with true values
+
+.. math::
+
+    \pi_0(d, X, Z) &= P(S=1|D=d, X, Z)
+
+    \Pi_0 &:= \pi_0(D, Z, X) = P(S=1|D,X,Z)
+    
+    g_0(d,s,X) &= \mathbb{E}[Y|D=d, S=s, X, \Pi_0]
+
+    m_0(X, \Pi_0) &= P(D=1|X, \Pi_0).
+
+The estimate of :math:`\Pi_0` is constructed via a preliminary estimate of :math:`\pi_0(D,X,Z)` via nested cross-fitting.
+
+For further details, see `Bia, Huber and Lafférs (2023) <https://doi.org/10.1080/07350015.2023.2271071>`_.
+
 Specifying alternative score functions via callables
 ++++++++++++++++++++++++++++++++++++++++++++++++++++
 

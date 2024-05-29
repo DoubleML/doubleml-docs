@@ -1,4 +1,4 @@
-**Sample Selection Models** implemented in the package focus on the the binary treatment case when outcomes are only observed for a subpopulation
+**Sample Selection Models (SSM)** implemented in the package focus on the the binary treatment case when outcomes are only observed for a subpopulation
 due to sample selection or outcome attrition.
 
 The implementation and notation is based on `Bia, Huber and Lafférs (2023) <https://doi.org/10.1080/07350015.2023.2271071>`_.
