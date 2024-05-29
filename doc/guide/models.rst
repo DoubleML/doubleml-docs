@@ -305,3 +305,59 @@ Estimation is conducted via its ``fit()`` method:
             obj_dml_data = dml.DoubleMLData(data, 'y', 'd', t_col='t')
             dml_did_obj = dml.DoubleMLDIDCS(obj_dml_data, ml_g, ml_m)
             print(dml_did_obj.fit())
+
+.. _ssm-model:
+
+Sample Selection Models
+++++++++++++++++++++++++++++++++++++++
+
+.. include:: ../shared/models/ssm.rst
+
+.. _ssm-mar-model:
+
+Missingness at Random
+*********************
+
+Consider the following two additional assumptions for the sample selection model:
+
+- **Cond. Independence of Selection:** :math:`Y_i(d) \perp S_i|D_i=d, X_i\quad a.s.` for :math:`d=0,1`
+- **Common Support:** :math:`P(D_i=1|X_i=x)>0` and :math:`P(S_i=1|D_i=d, X_i)>0` for :math:`d=0,1`
+
+such that outcomes are missing at random (MAR).
+
+``DoubleMLSSM`` implements sample selection models. The score ``score='missing-at-random'`` refers to the correponding score
+relying on the assumptions above.
+Estimation is conducted via its ``fit()`` method:
+
+.. tab-set::
+
+    .. tab-item:: Python
+        :sync: py
+
+        .. ipython:: python
+            :okwarning:
+
+            import numpy as np
+            import doubleml as dml
+            from doubleml.datasets import make_did_SZ2020
+            from sklearn.ensemble import RandomForestRegressor, RandomForestClassifier
+
+            ml_g = RandomForestRegressor(n_estimators=100, max_depth=5, min_samples_leaf=5)
+            ml_m = RandomForestClassifier(n_estimators=100, max_depth=5, min_samples_leaf=5)
+            np.random.seed(42)
+            data = make_did_SZ2020(n_obs=500, return_type='DataFrame') 
+            # y is already defined as the difference of observed outcomes
+            obj_dml_data = dml.DoubleMLData(data, 'y', 'd')
+            dml_did_obj = dml.DoubleMLDID(obj_dml_data, ml_g, ml_m)
+            print(dml_did_obj.fit())
+
+
+.. _ssm-nr-model:
+
+Nonignorable Response
+*********************
+
+.. image:: figures/py_ssm.svg
+    :width: 800
+    :alt: Causal paths under nonignorable response
+    :align: center
