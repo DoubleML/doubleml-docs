@@ -104,6 +104,7 @@ nbsphinx_thumbnails = {
     'examples/py_double_ml_firststage': '_static/firststage_example_nb.png',
     'examples/py_double_ml_basic_iv': '_static/basic_iv_example_nb.png',
     'examples/R_double_ml_basic_iv': '_static/basic_iv_example_nb.png',
+    'examples/py_double_ml_ssm': '_static/ssm_example_nb.svg',
 }
 
 copybutton_prompt_text = r'>>> |\.\.\. |\$ |In \[\d*\]: | {2,5}\.\.\.: | {5,8}: | {2,5}\.\.\.\.:'
@@ -171,6 +172,8 @@ linkcheck_ignore = [
     'https://dl.acm.org/doi/10.1145/3447545.3451181',
     # Pipelines notebook has to be reworked
     'https://mlr3book.mlr-org.com/pipelines.html',
+    # Valid DOI; Causes 403 Client Error: Forbidden for url:...
+    'https://doi.org/10.1080/07350015.2023.2271071',
     # Valid DOI; Causes 403 Client Error: Forbidden for url:...
     'https://doi.org/10.1093/restud/rdt044',
     # Valid DOI; 'Connection aborted.', RemoteDisconnected ...
