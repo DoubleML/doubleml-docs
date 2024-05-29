@@ -66,6 +66,7 @@ Dataset generators
    datasets.make_plr_turrell2018
    datasets.make_pliv_multiway_cluster_CKMS2021
    datasets.make_did_SZ2020
+   datasets.make_ssm_data
    datasets.make_confounded_plr_data
    datasets.make_confounded_irm_data
    datasets.make_heterogeneous_data
