@@ -587,7 +587,7 @@ a preliminary estimate of :math:`\gamma_0`. For further details, see `Kallus et 
 Missingness at Random
 *********************
 
-For ``DoubleMLCSSM``the ``score='missing-at-random'`` implements the score function:
+For ``DoubleMLSSM``the ``score='missing-at-random'`` implements the score function:
 
 .. math::
 
@@ -619,7 +619,7 @@ For further details, see `Bia, Huber and Lafférs (2023) <https://doi.org/10.108
 Nonignorable Nonresponse
 ************************
 
-For ``DoubleMLCSSM``the ``score='nonignorable'`` implements the score function:
+For ``DoubleMLSSM``the ``score='nonignorable'`` implements the score function:
 
 .. math::
 
