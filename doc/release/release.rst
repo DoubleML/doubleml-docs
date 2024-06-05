@@ -344,7 +344,7 @@ Release notes
       :class-title: sd-bg-primary sd-font-weight-bold
       :open:
 
-      - Maintenance (upcoming breaking changes from ``paradox`` package), thanks to new contributor `@mb706 <https://github.com/mb706>`_
+      - Maintenance (upcoming breaking changes from ``paradox`` package), thanks to new contributor Martin Binder `@mb706 <https://github.com/mb706>`_
         `# 195 <https://github.com/DoubleML/doubleml-for-r/pull/195>`_
         `# 198 <https://github.com/DoubleML/doubleml-for-r/pull/199>`_
 
