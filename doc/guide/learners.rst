@@ -640,10 +640,9 @@ for tuning, each of the two folds would be split up into 5 subfolds and the erro
         ml_m = lrn("regr.glmnet")
         dml_plr_obj = DoubleMLPLR$new(dml_data, ml_l, ml_m)
 
-        par_grids = list("ml_l" = ParamSet$new(list(
-                                          ParamDbl$new("lambda", lower = 0.05, upper = 0.1))),
-                         "ml_m" =  ParamSet$new(list(
-                                          ParamDbl$new("lambda", lower = 0.05, upper = 0.1))))
+        par_grids = list(
+          "ml_l" = ps(lambda = p_dbl(lower = 0.05, upper = 0.1)),
+          "ml_m" = ps(lambda = p_dbl(lower = 0.05, upper = 0.1)))
 
         tune_settings = list(terminator = trm("evals", n_evals = 100),
                               algorithm = tnr("grid_search", resolution = 10),
@@ -718,12 +717,11 @@ parameters ``mtry`` and ``max.depth`` of a random forest. Evaluation is based on
         dml_plr_obj = DoubleMLPLR$new(obj_dml_data, ml_l, ml_m)
 
         # set up a list of parameter grids
-        param_grid = list("ml_l" = ParamSet$new(list(
-                                          ParamInt$new("mtry", lower = 2 , upper = 20),
-                                          ParamInt$new("max.depth", lower = 2, upper = 5))),
-                          "ml_m" = ParamSet$new(list(
-                                          ParamInt$new("mtry", lower = 2 , upper = 20),
-                                          ParamInt$new("max.depth", lower = 2, upper = 5))))
+        param_grid = list("ml_l" = ps(mtry = p_int(lower = 2 , upper = 20),
+                                      max.depth = p_int(lower = 2, upper = 5)),
+                          "ml_m" = ps(mtry = p_int(lower = 2 , upper = 20),
+                                      max.depth = p_int(lower = 2, upper = 5)))
+
         tune_settings = list(terminator = mlr3tuning::trm("evals", n_evals = 20),
                               algorithm = tnr("random_search"),
                               rsmp_tune = rsmp("cv", folds = 3),
