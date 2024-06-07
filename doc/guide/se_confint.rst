@@ -231,15 +231,12 @@ The number of bootstrap samples is provided as input ``n_rep_boot`` and for ``me
 ``'normal'`` or ``'wild'``.
 Based on the estimates of the standard errors :math:`\hat{\sigma}_j`
 and :math:`\hat{J}_{0,j} = \mathbb{E}_N(\psi_{a,j}(W; \eta_{0,j}))`
-that are obtained from DML, we construct bootstrap coefficients
-:math:`\theta^{*,b}_j` and bootstrap t-statistics :math:`t^{*,b}_j`
+that are obtained from DML, we construct bootstraped t-statistics :math:`t^{*,b}_j`
 for :math:`j=1, \ldots, p_1`
 
 .. math::
 
-    \theta^{*,b}_{j} &= \frac{1}{\sqrt{N} \hat{J}_{0,j}}\sum_{k=1}^{K} \sum_{i \in I_k} \xi_{i}^b \cdot \psi_j(W_i; \tilde{\theta}_{0,j}, \hat{\eta}_{0,j;k}),
-
-    t^{*,b}_{j} &= \frac{1}{\sqrt{N} \hat{J}_{0,j} \hat{\sigma}_{j}} \sum_{k=1}^{K} \sum_{i \in I_k} \xi_{i}^b  \cdot \psi_j(W_i; \tilde{\theta}_{0,j}, \hat{\eta}_{0,j;k}).
+    t^{*,b}_{j} = \frac{1}{\sqrt{N} \hat{J}_{0,j} \hat{\sigma}_{j}} \sum_{k=1}^{K} \sum_{i \in I_k} \xi_{i}^b  \cdot \psi_j(W_i; \tilde{\theta}_{0,j}, \hat{\eta}_{0,j;k}).
 
 The output of the multiplier bootstrap can be used to determine the constant, :math:`c_{1-\alpha}` that is required for the construction of a
 simultaneous :math:`(1-\alpha)` confidence band
@@ -318,6 +315,107 @@ via the option ``method``.
             dml_plr$confint(joint=TRUE)
             dml_plr$p_adjust()
             dml_plr$p_adjust(method="bonferroni")
+
+
+Simultaneous inference over different DoubleML models (advanced)
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+The :ref:`DoubleML <doubleml_package>` package provides a method to perform valid simultaneous inference over different DoubleML models.
+
+.. note::
+    Remark that the confidence intervals will generally only be valid if the stronger (uniform) assumptions on e.g. nuisance
+    estimates are satisfied. Further, the models should be estimated on the same data set.
+
+The :py:class:`doubleml.DoubleML` class contains a ``framework`` attribute which stores a :py:class:`doubleml.DoubleMLFramework` object. This
+object contains a scaled version of the score function
+
+.. math::
+
+    \tilde{\psi}(W_i; \theta, \eta) = \hat{J}_{0}^{-1}\psi(W_i; \hat{\theta}_{0}, \hat{\eta}_{0})
+
+which is used to construct confidence intervals. The framework objects can be concatenated using the
+:py:function:`doubleml.concat` function.
+
+.. tab-set::
+
+    .. tab-item:: Python
+        :sync: py
+
+        .. ipython:: python
+
+            import doubleml as dml
+            import numpy as np
+            from sklearn.base import clone
+            from sklearn.linear_model import LassoCV
+            from sklearn.ensemble import RandomForestRegressor
+
+            import doubleml as dml
+
+            # Simulate data
+            np.random.seed(1234)
+            n_obs = 500
+            n_vars = 100
+            X = np.random.normal(size=(n_obs, n_vars))
+            theta = np.array([3., 3., 3.])
+            y = np.dot(X[:, :3], theta) + np.random.standard_normal(size=(n_obs,))
+
+            dml_data = dml.DoubleMLData.from_arrays(X[:, 10:], y, X[:, :10])
+
+            learner = LassoCV()
+            dml_plr_1 = dml.DoubleMLPLR(dml_data, clone(learner), clone(learner))
+
+            learner_rf = RandomForestRegressor()
+            dml_plr_2 = dml.DoubleMLPLR(dml_data, clone(learner_rf), clone(learner_rf))
+
+            dml_plr_1.fit()
+            dml_plr_2.fit()
+
+            dml_combined = dml.concat([dml_plr_1.framework, dml_plr_2.framework])
+            dml_combined.bootstrap().confint(joint=True)
+
+Frameworks can also be added or subtracted from each other. Of course, this changes the estimated parameter and should be used with caution. 
+
+
+.. tab-set::
+
+    .. tab-item:: Python
+        :sync: py
+
+        .. ipython:: python
+
+            import doubleml as dml
+            import numpy as np
+            from sklearn.base import clone
+            from sklearn.linear_model import LassoCV
+            from sklearn.ensemble import RandomForestRegressor
+
+            import doubleml as dml
+
+            # Simulate data
+            np.random.seed(1234)
+            n_obs = 500
+            n_vars = 100
+            X = np.random.normal(size=(n_obs, n_vars))
+            theta = np.array([3., 3., 3.])
+            y = np.dot(X[:, :3], theta) + np.random.standard_normal(size=(n_obs,))
+
+            dml_data = dml.DoubleMLData.from_arrays(X[:, 10:], y, X[:, :10])
+
+            learner = LassoCV()
+            dml_plr_1 = dml.DoubleMLPLR(dml_data, clone(learner), clone(learner))
+
+            learner_rf = RandomForestRegressor()
+            dml_plr_2 = dml.DoubleMLPLR(dml_data, clone(learner_rf), clone(learner_rf))
+
+            dml_plr_1.fit()
+            dml_plr_2.fit()
+
+            dml_combined = dml_plr_1.framework - dml_plr_2.framework
+            dml_combined.bootstrap().confint(joint=True)
+
+One possible use case is to substract the estimates from two average potential outcome models as e.g. in the :class:`DoubleMLQTE` example.
+
+This also works for multiple repetitions if both models have the same number of repetitions, as each repetition is treated seperately.
 
 
 References

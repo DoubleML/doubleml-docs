@@ -227,8 +227,7 @@ the dml algorithm (:ref:`DML1 vs. DML2 <algorithms>`) and the score function (:r
                                         ml_m = ml_m_rf,
                                         n_folds = 3,
                                         n_rep = 1,
-                                        score = 'partialling out',
-                                        dml_procedure = 'dml2')
+                                        score = 'partialling out')
 
     .. tab-item:: R
         :sync: r

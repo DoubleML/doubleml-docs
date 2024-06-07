@@ -7,9 +7,43 @@ Release notes
 
   .. tab-item:: Python
 
-    .. dropdown:: DoubleML 0.7.1
+    .. dropdown:: DoubleML 0.8.0
       :class-title: sd-bg-primary sd-font-weight-bold
       :open:
+
+      - **Release highlight:** Sample-selections models as ``DoubleMLSMM`` class (by `Michaela Kecskésová <https://github.com/mychaelka>`_)
+        `#231 <https://github.com/DoubleML/doubleml-for-py/pull/231>`_
+        `#235 <https://github.com/DoubleML/doubleml-for-py/pull/235>`_
+        `#171 <https://github.com/DoubleML/doubleml-docs/pull/171>`_
+      - **API change:** Remove options ``apply_crossfitting`` and ``dml_procedure`` from the ``DoubleML`` class
+        `#227 <https://github.com/DoubleML/doubleml-for-py/pull/227>`_
+        `#166 <https://github.com/DoubleML/doubleml-docs/pull/166>`_
+      - Restructure the package to improve readability and maintainability
+        `#225 <https://github.com/DoubleML/doubleml-for-py/pull/225>`_
+      - Add a ``DoubleMLFramework`` class to combine multiple DoubleML models (aggregation of estimates, boostrap and CI-procedures)
+        `#226 <https://github.com/DoubleML/doubleml-for-py/pull/226>`_
+        `#169 <https://github.com/DoubleML/doubleml-docs/pull/169>`_
+      - Enable the use of external predictions for short models in benchmarks (by `Lucien <https://github.com/lucien1011>`_)
+        `#238 <https://github.com/DoubleML/doubleml-for-py/pull/238>`_
+        `#239 <https://github.com/DoubleML/doubleml-for-py/pull/239>`_
+      - Add the ``gain_statistics`` to ``utils`` to sensitivity analysis
+        `#229 <https://github.com/DoubleML/doubleml-for-py/pull/229>`_
+
+      - Maintenance documentation
+        `#162 <https://github.com/DoubleML/doubleml-docs/pull/162>`_
+        `#163 <https://github.com/DoubleML/doubleml-docs/pull/163>`_
+        `#164 <https://github.com/DoubleML/doubleml-docs/pull/164>`_
+        `#165 <https://github.com/DoubleML/doubleml-docs/pull/165>`_
+        `#167 <https://github.com/DoubleML/doubleml-docs/pull/167>`_
+        `#168 <https://github.com/DoubleML/doubleml-docs/pull/168>`_
+
+      - Maintainance package
+        `#225 <https://github.com/DoubleML/doubleml-for-py/pull/225>`_
+        `#229 <https://github.com/DoubleML/doubleml-for-py/pull/229>`_
+        `#246 <https://github.com/DoubleML/doubleml-for-py/pull/246>`_
+
+    .. dropdown:: DoubleML 0.7.1
+      :class-title: sd-bg-primary sd-font-weight-bold
 
       - **Release highlight:** Add weights to ``DoubleMLIRM`` class to extend sensitivity to GATEs etc.
         `#220 <https://github.com/DoubleML/doubleml-for-py/pull/220>`_
