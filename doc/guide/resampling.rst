@@ -249,6 +249,10 @@ The parameter estimates :math:`(\tilde{\theta}_{0,m})_{m \in [M]}` and asymptoti
             print(dml_plr_obj$all_coef)
             print(dml_plr_obj$all_se)
 
+In python, the confidence intervals and p-values are based on the :py:class:`doubleml.DoubleMLFramework` object.
+This class provides methods such as ``confint``, ``bootstrap`` or ``p_adjust``. For different repetitions, 
+the computations are done seperately and combined via the median (as based on Chernozhukov et al., 2018).
+
 Externally provide a sample splitting / partition
 +++++++++++++++++++++++++++++++++++++++++++++++++
 
@@ -337,12 +341,9 @@ Note that cross-fitting performs well empirically and is recommended to remove b
     .. tab-item:: Python
         :sync: py
 
-        .. ipython:: python
-
-            np.random.seed(314)
-            dml_plr_obj_external = dml.DoubleMLPLR(obj_dml_data, ml_l, ml_m,
-                                                n_folds = 2, apply_cross_fitting = False)
-            print(dml_plr_obj_external.fit().summary)
+        .. note:: 
+            The flag ``apply_cross_fitting`` is deprecated for the python package. To avoid cross-fitting, please use the option
+            to set :ref:`external predictions <ext_pred>`.
 
     .. tab-item:: R
         :sync: r
@@ -354,28 +355,8 @@ Note that cross-fitting performs well empirically and is recommended to remove b
             dml_plr_obj_external$fit()
             dml_plr_obj_external$summary()
 
-Note, that in order to split data unevenly into train and test sets the interface to externally set the sample splitting
-via ``set_sample_splitting()`` needs to be applied, like for example:
-
-.. tab-set::
-
-    .. tab-item:: Python
-        :sync: py
-
-        .. ipython:: python
-
-            np.random.seed(314)
-            dml_plr_obj_external = dml.DoubleMLPLR(obj_dml_data, ml_l, ml_m,
-                                                n_folds = 2, apply_cross_fitting = False, draw_sample_splitting = False)
-
-            from sklearn.model_selection import train_test_split
-            smpls = train_test_split(np.arange(obj_dml_data.n_obs), train_size=0.8)
-            dml_plr_obj_external.set_sample_splitting(tuple(smpls));
-
-            print(dml_plr_obj_external.fit().summary)
-
-    .. tab-item:: R
-        :sync: r
+        Note, that in order to split data unevenly into train and test sets the interface to externally set the sample splitting
+        via ``set_sample_splitting()`` needs to be applied, like for example:
 
         .. jupyter-execute::
 
@@ -411,13 +392,9 @@ justification, see also :ref:`bias_overfitting`.
     .. tab-item:: Python
         :sync: py
 
-        .. ipython:: python
-
-            np.random.seed(314)
-            dml_plr_no_split = dml.DoubleMLPLR(obj_dml_data, ml_l, ml_m,
-                                            n_folds = 1, apply_cross_fitting = False)
-
-            print(dml_plr_obj_external.fit().summary)
+        .. note:: 
+            The flag ``apply_cross_fitting`` is deprecated for the python package. To avoid cross-fitting, please use the option
+            to set :ref:`external predictions <ext_pred>`. Additionally, the number of folds ``n_folds`` is expected to be at least ``2``.
 
     .. tab-item:: R
         :sync: r
@@ -430,3 +407,9 @@ justification, see also :ref:`bias_overfitting`.
             set.seed(314)
             dml_plr_no_split$fit()
             dml_plr_no_split$summary()
+
+
+References
+++++++++++
+
+* Chernozhukov, Victor and Demirer, Mert and Duflo, Esther and Fernández-Val, Iván (2018), Generic Machine Learning Inference on Heterogeneous Treatment Effects in Randomized Experiments, with an Application to Immunization in India, National Bureau of Economic Research,  `doi: 10.3386/w24678 <https://dx.doi.org/10.3386/w24678>`_.

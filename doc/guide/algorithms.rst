@@ -5,6 +5,10 @@ Double machine learning algorithms
 
 The DoubleML package comes with two different algorithms to obtain DML estimates.
 
+.. note::
+    The algorithms are argument ``dml_procedure`` is deprecated in the python package. Generally, the second version of the algorithm DML2 is recommended, to obtain
+    more stable estimates.
+
 Algorithm DML1
 ++++++++++++++
 
@@ -71,7 +75,7 @@ Implementation of the double machine learning algorithms
 
 As an example we consider a partially linear regression model (PLR)
 implemented in ``DoubleMLPLR``.
-The DML algorithm can be selected via parameter ``dml_procedure='dml1'`` vs. ``dml_procedure='dml2'``.
+The default version of the :class:`DoubleML` class is based on the DML2 algorithm.
 
 .. tab-set::
 
@@ -91,11 +95,13 @@ The DML algorithm can be selected via parameter ``dml_procedure='dml1'`` vs. ``d
             ml_m = clone(learner)
             data = make_plr_CCDDHNR2018(alpha=0.5, return_type='DataFrame')
             obj_dml_data = dml.DoubleMLData(data, 'y', 'd')
-            dml_plr_obj = dml.DoubleMLPLR(obj_dml_data, ml_l, ml_m, dml_procedure='dml1')
+            dml_plr_obj = dml.DoubleMLPLR(obj_dml_data, ml_l, ml_m)
             dml_plr_obj.fit();
 
     .. tab-item:: R
         :sync: r
+
+        The DML algorithm can be selected via parameter ``dml_procedure='dml1'`` vs. ``dml_procedure='dml2'``.
 
         .. jupyter-execute::
 
@@ -151,27 +157,13 @@ are stored in the attribute ``psi``.
     .. tab-item:: R
         :sync: r
 
+        For the DML1 algorithm, the estimates for the different folds
+        :math:`\check{\theta}_{0,k}``, :math:`k \in [K]` are stored in attribute ``all_dml1_coef``.
+
         .. jupyter-execute::
 
             dml_plr_obj$psi[1:5, ,1]
-
-
-For the DML1 algorithm, the estimates for the different folds
-:math:`\check{\theta}_{0,k}``, :math:`k \in [K]` are stored in attribute ``all_dml1_coef``.
-
-.. tab-set::
-
-    .. tab-item:: Python
-        :sync: py
-
-        .. ipython:: python
-
-            dml_plr_obj.all_dml1_coef
-
-    .. tab-item:: R
-        :sync: r
-
+        
         .. jupyter-execute::
 
             dml_plr_obj$all_dml1_coef
-

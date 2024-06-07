@@ -186,8 +186,8 @@ A more detailed notebook on CATEs for ``DoubleMLPLR`` models is available in the
 
 .. math::
 
-    \mathbb{E}[Y|X] &= \mathbb{E}[\theta_0(X) D|X] + \mathbb{E}[g(X)|X] + \underbrace{\mathbb{E}[\varepsilon|X]}_{=\mathbb{E}[\mathbb{E}[\varepsilon|D, X]|X]=0}\\
-    &=\theta(X) \mathbb{E}[D|X] + g(X)
+    \mathbb{E}[Y|X] &= \mathbb{E}[\theta_0(X) D|X] + \mathbb{E}[g_0(X)|X] + \underbrace{\mathbb{E}[\varepsilon|X]}_{=\mathbb{E}[\mathbb{E}[\varepsilon|D, X]|X]=0}\\
+    &=\theta_0(X) \mathbb{E}[D|X] + g_0(X)
 
 such that 
 
@@ -205,7 +205,7 @@ and consequently
 
 .. math::
 
-    \mathbb{E}[\tilde{Y}|\tilde{D}] = \theta(X)\tilde{D}.
+    \mathbb{E}[\tilde{Y}|\tilde{D}] = \theta_0(X)\tilde{D}.
 
 Consequently, :math:`\theta_0(X)` can be estimated by regressing :math:`\tilde{Y}` on :math:`\tilde{D}`:
 
@@ -213,7 +213,7 @@ Consequently, :math:`\theta_0(X)` can be estimated by regressing :math:`\tilde{Y
 
     \theta_0(X) = \arg\min_{\theta(X) \in \Theta}\mathbb{E}[(\tilde{Y} - \theta(X)\tilde{D})^2]
 
-The :ref:`DoubleML <doubleml_package>` implementation approximates the effect :math:`\theta(X)` by a linear projection on a supplied basis :math:`\phi(X)`:
+The :ref:`DoubleML <doubleml_package>` implementation approximates the effect :math:`\theta_0(X)` by a linear projection on a supplied basis :math:`\phi(X)`:
 
 .. math::
 
