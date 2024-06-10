@@ -186,7 +186,7 @@ In this case the tuning should be done externally and the parameters can then be
 
 .. TODO: Also discuss other specification options like `tune_on_folds` or `scoring_methods`.
 
-.. _learners:
+.. _eval_learners:
 
 Evaluate learners
 #################
