@@ -7,6 +7,21 @@ Release notes
 
   .. tab-item:: Python
 
+    .. dropdown:: DoubleML 0.8.1
+      :class-title: sd-bg-primary sd-font-weight-bold
+      :open:
+
+      - Increment package requirements and update workflows for python 3.9 (add tests for python 3.12)
+        `#247 <https://github.com/DoubleML/doubleml-for-py/pull/247>`_
+        `#175 <https://github.com/DoubleML/doubleml-docs/pull/175>`_
+
+      - Additional example for ranking treatment effects (by `Apoorva Lal <https://github.com/apoorvalal>`_)
+        `#173 <https://github.com/DoubleML/doubleml-docs/pull/173>`_
+        `#174 <https://github.com/DoubleML/doubleml-docs/pull/174>`_
+
+      - Maintainance documentation
+        `#172 <https://github.com/DoubleML/doubleml-docs/pull/172>`_
+
     .. dropdown:: DoubleML 0.8.0
       :class-title: sd-bg-primary sd-font-weight-bold
       :open:

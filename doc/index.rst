@@ -9,7 +9,7 @@ DoubleML
 .. |PyPi| image:: https://badge.fury.io/py/DoubleML.svg
 .. _PyPi: https://badge.fury.io/py/DoubleML
 
-.. |PythonVersion| image:: https://img.shields.io/badge/python-3.6%20%7C%203.7%20%7C%203.8%20%7C%203.9-blue
+.. |PythonVersion| image:: https://img.shields.io/badge/python-3.9%20%7C%203.10%20%7C%203.11%20%7C%203.12-blue
 .. _PythonVersion: https://www.python.org/
 
 The Python and R package **DoubleML** provide an implementation of the double / debiased machine learning framework of
