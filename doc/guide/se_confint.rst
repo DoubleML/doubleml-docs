@@ -334,7 +334,7 @@ object contains a scaled version of the score function
     \tilde{\psi}(W_i; \theta, \eta) = \hat{J}_{0}^{-1}\psi(W_i; \hat{\theta}_{0}, \hat{\eta}_{0})
 
 which is used to construct confidence intervals. The framework objects can be concatenated using the
-:py:function:`doubleml.concat` function.
+:py:func:`doubleml.concat` function.
 
 .. tab-set::
 
