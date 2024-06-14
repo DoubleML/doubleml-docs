@@ -257,7 +257,7 @@ Release notes
     .. dropdown:: DoubleML 0.4.1
       :class-title: sd-bg-primary sd-font-weight-bold
 
-      - We added `Contribution Guidelines <https://github.com/DoubleML/doubleml-for-py/blob/master/CONTRIBUTING.md>`_,
+      - We added `Contribution Guidelines <https://github.com/DoubleML/doubleml-for-py/blob/main/CONTRIBUTING.md>`_,
         issue templates, a pull request template and a
         `discussion forum <https://github.com/DoubleML/doubleml-for-py/discussions>`_ to the Python package repository
         `#132 <https://github.com/DoubleML/doubleml-for-py/pull/132>`_
@@ -447,7 +447,7 @@ Release notes
       - Use ``task_type`` instead of ``learner_class`` to identify whether a learner is meant to regress or classify (this
         change makes it possible to easily integrate pipelines from ``mlr3pipelines`` as learner for the nuisance functions)
         `#141 <https://github.com/DoubleML/doubleml-for-r/pull/141>`_
-      - Add `Contribution Guidelines <https://github.com/DoubleML/doubleml-for-r/blob/master/CONTRIBUTING.md>`_,
+      - Add `Contribution Guidelines <https://github.com/DoubleML/doubleml-for-r/blob/main/CONTRIBUTING.md>`_,
         issue templates, a pull request template and a
         `discussion forum <https://github.com/DoubleML/doubleml-for-r/discussions>`_ to the R package repository
         `#142 <https://github.com/DoubleML/doubleml-for-r/pull/142>`_

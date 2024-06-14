@@ -334,7 +334,7 @@ object contains a scaled version of the score function
     \tilde{\psi}(W_i; \theta, \eta) = \hat{J}_{0}^{-1}\psi(W_i; \hat{\theta}_{0}, \hat{\eta}_{0})
 
 which is used to construct confidence intervals. The framework objects can be concatenated using the
-:py:function:`doubleml.concat` function.
+:py:func:`doubleml.concat` function.
 
 .. tab-set::
 
@@ -421,7 +421,7 @@ This also works for multiple repetitions if both models have the same number of 
 References
 ++++++++++
 
-* Belloni, A., Chernozhukov, V., Chetverikov, D., Wei, Y. (2018), Uniformly valid post-regularization confidence regions for many functional parameters in z-estimation framework. The Annals of Statistics, 46 (6B): 3643-75,  `doi: 10.1214/17-AOS1671 <https://dx.doi.org/10.1214%2F17-AOS1671>`_.
+* Belloni, A., Chernozhukov, V., Chetverikov, D., Wei, Y. (2018), Uniformly valid post-regularization confidence regions for many functional parameters in z-estimation framework. The Annals of Statistics, 46 (6B): 3643-75,  `doi: 10.1214/17-AOS1671 <https://doi.org/10.1214/17-AOS1671>`_.
 
 * Chernozhukov, V., Chetverikov, D., Kato, K. (2013). Gaussian approximations and multiplier bootstrap for maxima of sums of high-dimensional random vectors. The Annals of Statistics 41 (6): 2786-2819, `doi: 10.1214/13-AOS1161 <https://dx.doi.org/10.1214/13-AOS1161>`_.
 
