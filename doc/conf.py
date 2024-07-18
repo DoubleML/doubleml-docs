@@ -194,6 +194,8 @@ linkcheck_ignore = [
     'https://glmnet.stanford.edu/index.html',
     # Valid URL Failed to establish a new connection: [Errno 111] Connection refused' ...
     'https://glmnet.stanford.edu/reference/cv.glmnet.html',
+    # Valid URL Failed to establish a new connection: Connection timed out' ...
+    'https://folia.unifr.ch/global/documents/306524'
 ]
 
 # To execute R code via jupyter-execute one needs to install the R kernel for jupyter
