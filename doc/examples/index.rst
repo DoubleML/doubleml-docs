@@ -20,6 +20,7 @@ General Examples
     py_double_ml_basics.ipynb
     py_double_ml_pension.ipynb
     py_double_ml_sensitivity.ipynb
+    py_doube_ml_apo.ipynb
     py_double_ml_learner.ipynb
     py_double_ml_firststage.ipynb
     py_double_ml_multiway_cluster.ipynb
