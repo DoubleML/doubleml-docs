@@ -5,10 +5,19 @@ Models
 
 The :ref:`DoubleML <doubleml_package>` includes the following models.
 
+Partially linear models (PLM)
++++++++++++++++++++++++++++++
+
+The partially linear models (PLM) take the form
+
+.. math::
+
+    Y = D \theta_0 + g_0(X) + \zeta.
+
 .. _plr-model:
 
 Partially linear regression model (PLR)
-+++++++++++++++++++++++++++++++++++++++
+***************************************
 
 .. include:: ../shared/models/plr.rst
 
@@ -64,7 +73,7 @@ Estimation is conducted via its ``fit()`` method:
 .. _pliv-model:
 
 Partially linear IV regression model (PLIV)
-+++++++++++++++++++++++++++++++++++++++++++
+*******************************************
 
 .. include:: ../shared/models/pliv.rst
 
@@ -119,10 +128,19 @@ Estimation is conducted via its ``fit()`` method:
             print(dml_pliv_obj)
 
 
+Interactive regression models (IRM)
+++++++++++++++++++++++++++++++++++++
+
+The interactive regression model (IRM) take the form
+
+.. math::
+
+    Y = g_0(D, X) + U.
+
 .. _irm-model:
 
-Interactive regression model (IRM)
-++++++++++++++++++++++++++++++++++
+Binary Interactive Regression Model (IRM)
+*****************************************
 
 .. include:: ../shared/models/irm.rst
 
@@ -238,7 +256,7 @@ Estimation is conducted via its ``fit()`` method. The ``causal_contrast()`` meth
 .. _iivm-model:
 
 Interactive IV model (IIVM)
-+++++++++++++++++++++++++++
+***************************
 
 .. include:: ../shared/models/iivm.rst
 
