@@ -427,7 +427,7 @@ This implies the following representations
 
 .. math::
 
-    m(W,g) &= \big(g(1,X) - g(0,X))\omega(Y,D,X)
+    m(W,g) &= \big(g(1,X) - g(0,X)\big)\omega(Y,D,X)
 
     \alpha(W) &= \bigg(\frac{D}{m(X)} - \frac{1-D}{1-m(X)}\bigg)  \mathbb{E}[\omega(Y,D,X)|X].
 
@@ -486,6 +486,25 @@ such that
 .. math::
 
     \mathbb{E}[\omega(Y,D,X)|X] = \frac{m(X)}{\mathbb{E}[D]}.
+
+
+Average Potential Outcomes (APOs)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+In the :ref:`irm-model` the (weighted) average potential outcome for the treatment level :math:`d` can be written as
+
+.. math::
+
+    \theta_0 = \mathbb{E}[g_0(d,X)\omega(Y,D,X)]
+
+where :math:`\omega(Y,D,X)` are weights (e.g. set to :math:`1` for the APO).
+This implies the following representations
+
+.. math::
+
+    m(W,g) &= g(d,X)\omega(Y,D,X)
+
+    \alpha(W) &= \frac{1\lbrace D = d\rbrace }{m(X)}\cdot\mathbb{E}[\omega(Y,D,X)|X].
 
 
 Difference-in-Differences for Panel Data
