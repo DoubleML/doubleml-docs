@@ -12,7 +12,9 @@ The partially linear models (PLM) take the form
 
 .. math::
 
-    Y = D \theta_0 + g_0(X) + \zeta.
+    Y = D \theta_0 + g_0(X) + \zeta,
+
+where treatment effects are additive with some sort of linear form.
 
 .. _plr-model:
 
@@ -135,7 +137,9 @@ The interactive regression model (IRM) take the form
 
 .. math::
 
-    Y = g_0(D, X) + U.
+    Y = g_0(D, X) + U,
+
+where treatment effects are fully heterogeneous.
 
 .. _irm-model:
 
