@@ -163,6 +163,11 @@ Binary Interactive Regression Model (IRM)
 ==========================================
 
 .. include:: ./scores/irm_score.rst
+
+Average Potential Outcomes (APOs)
+=================================
+
+.. include:: ./scores/apo_score.rst
  
 Interactive IV model (IIVM)
 ===========================
