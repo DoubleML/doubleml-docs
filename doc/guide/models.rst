@@ -143,8 +143,8 @@ Estimation is conducted via its ``fit()`` method:
             from doubleml.datasets import make_irm_data
             from sklearn.ensemble import RandomForestRegressor, RandomForestClassifier
 
-            ml_g = RandomForestRegressor(n_estimators=100, max_features=20, max_depth=5, min_samples_leaf=2)
-            ml_m = RandomForestClassifier(n_estimators=100, max_features=20, max_depth=5, min_samples_leaf=2)
+            ml_g = RandomForestRegressor(n_estimators=100, max_features=10, max_depth=5, min_samples_leaf=2)
+            ml_m = RandomForestClassifier(n_estimators=100, max_features=10, max_depth=5, min_samples_leaf=2)
             np.random.seed(3333)
             data = make_irm_data(theta=0.5, n_obs=500, dim_x=10, return_type='DataFrame')
             obj_dml_data = dml.DoubleMLData(data, 'y', 'd')
@@ -162,8 +162,8 @@ Estimation is conducted via its ``fit()`` method:
             library(data.table)
 
             set.seed(3333)
-            ml_g = lrn("regr.ranger", num.trees = 100, mtry = 20, min.node.size = 2, max.depth = 5)
-            ml_m = lrn("classif.ranger", num.trees = 100, mtry = 20, min.node.size = 2, max.depth = 5)
+            ml_g = lrn("regr.ranger", num.trees = 100, mtry = 10, min.node.size = 2, max.depth = 5)
+            ml_m = lrn("classif.ranger", num.trees = 100, mtry = 10, min.node.size = 2, max.depth = 5)
             data = make_irm_data(theta=0.5, n_obs=500, dim_x=10, return_type="data.table")
             obj_dml_data = DoubleMLData$new(data, y_col="y", d_cols="d")
             dml_irm_obj = DoubleMLIRM$new(obj_dml_data, ml_g, ml_m)
@@ -192,8 +192,8 @@ Estimation is conducted via its ``fit()`` method:
             from doubleml.datasets import make_irm_data
             from sklearn.ensemble import RandomForestRegressor, RandomForestClassifier
 
-            ml_g = RandomForestRegressor(n_estimators=100, max_features=20, max_depth=5, min_samples_leaf=2)
-            ml_m = RandomForestClassifier(n_estimators=100, max_features=20, max_depth=5, min_samples_leaf=2)
+            ml_g = RandomForestRegressor(n_estimators=100, max_features=10, max_depth=5, min_samples_leaf=2)
+            ml_m = RandomForestClassifier(n_estimators=100, max_features=10, max_depth=5, min_samples_leaf=2)
             np.random.seed(3333)
             data = make_irm_data(theta=0.5, n_obs=500, dim_x=10, return_type='DataFrame')
             obj_dml_data = dml.DoubleMLData(data, 'y', 'd')
@@ -223,8 +223,8 @@ Estimation is conducted via its ``fit()`` method. The ``causal_contrast()`` meth
             from doubleml.datasets import make_irm_data
             from sklearn.ensemble import RandomForestRegressor, RandomForestClassifier
 
-            ml_g = RandomForestRegressor(n_estimators=100, max_features=20, max_depth=5, min_samples_leaf=2)
-            ml_m = RandomForestClassifier(n_estimators=100, max_features=20, max_depth=5, min_samples_leaf=2)
+            ml_g = RandomForestRegressor(n_estimators=100, max_features=10, max_depth=5, min_samples_leaf=2)
+            ml_m = RandomForestClassifier(n_estimators=100, max_features=10, max_depth=5, min_samples_leaf=2)
             np.random.seed(3333)
             data = make_irm_data(theta=0.5, n_obs=500, dim_x=10, return_type='DataFrame')
             obj_dml_data = dml.DoubleMLData(data, 'y', 'd')
