@@ -422,7 +422,7 @@ In the :ref:`irm-model` the target parameter can be written as
 
     \theta_0 = \mathbb{E}[(g_0(1,X) - g_0(0,X))\omega(Y,D,X)]
 
-where :math:`\omega(D,X)` are weights (e.g. set to :math:`1` for the ATE).
+where :math:`\omega(Y,D,X)` are weights (e.g. set to :math:`1` for the ATE).
 This implies the following representations
 
 .. math::
