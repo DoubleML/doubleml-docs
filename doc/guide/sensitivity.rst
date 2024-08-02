@@ -506,6 +506,44 @@ This implies the following representations
 
     \alpha(W) &= \frac{1\lbrace D = d\rbrace }{m(X)}\cdot\mathbb{E}[\omega(Y,D,X)|X].
 
+.. note::
+    In the :ref:`irm-model` the form and interpretation of ``cf_y`` only depends on the conditional expectation :math:`\mathbb{E}[Y|D,X]`.
+
+    - ``cf_y`` has the interpretation as the *nonparametric partial* :math:`R^2` *of* :math:`A` *with* :math:`Y` *given* :math:`(D,X)`
+    
+    .. math:: 
+        
+        \frac{\textrm{Var}(\mathbb{E}[Y|D,X,A]) - \textrm{Var}(\mathbb{E}[Y|D,X])}{\textrm{Var}(Y)-\textrm{Var}(\mathbb{E}[Y|D,X])}
+    
+    - ``cf_d`` takes the following form
+    
+    .. math:: 
+        
+        \frac{\mathbb{E}\left[\frac{1\lbrace D = d\rbrace }}{P(D=d|X,A)^2}\right] - \mathbb{E}\left[\frac{1\lbrace D = d\rbrace }}{P(D=d|X)^2}\right]}{\mathbb{E}\left[\frac{1\lbrace D = d\rbrace }}{P(D=d|X,A)^2}\right]}
+
+    where the numerator measures the *gain in average conditional precision to predict* :math:`D` *by using* :math:`A` *in addition to* :math:`X`.
+    The denominator is the *average conditional precision to predict* :math:`D` *by using* :math:`A` *and* :math:`X`. Consequently ``cf_d`` measures the *relative gain in average conditional precision*.
+    Including weights changes only the definition of ``cf_d`` to 
+
+    .. math::
+
+        \frac{\mathbb{E}\left[\frac{1\lbrace D = d\rbrace }}{P(D=d|X,A)^2}\mathbb{E}[\omega(Y,D,X)|X,A]^2\right] - \mathbb{E}\left[\frac{1\lbrace D = d\rbrace }}{P(D=d|X)^2}\mathbb{E}[\omega(Y,D,X)|X]^2\right]}{\mathbb{E}\left[\frac{1\lbrace D = d\rbrace }}{P(D=d|X,A)^2}\mathbb{E}[\omega(Y,D,X)|X,A]^2\right]}
+
+    which has a interpretation as the *relative weighted gain in average conditional precision*.
+The ``nuisance_elements`` are then computed with plug-in versions according to the general :ref:`sensitivity_implementation`. 
+The default weights are set to one 
+
+.. math::
+
+    \omega(Y,D,X) = 1,
+
+whereas 
+
+.. math::
+
+    \bar{\omega}(X) := \mathbb{E}[\omega(Y,D,X)|X],
+
+have to be supplied for weights which depend on :math:`Y` or :math:`D`.
 
 Difference-in-Differences for Panel Data
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
