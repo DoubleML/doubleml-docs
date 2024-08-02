@@ -8,6 +8,12 @@
 
 where the treatment variable is binary, :math:`D \in \lbrace 0,1 \rbrace`.
 We consider estimation of the average treatment effects when treatment effects are fully heterogeneous.
+
+.. _irm-ate-model:
+
+Average Treatment Effects (ATEs)
+********************************
+
 Target parameters of interest in this model are the average treatment effect (ATE),
 
 .. math::

@@ -146,7 +146,7 @@ Estimation is conducted via its ``fit()`` method:
             ml_g = RandomForestRegressor(n_estimators=100, max_features=20, max_depth=5, min_samples_leaf=2)
             ml_m = RandomForestClassifier(n_estimators=100, max_features=20, max_depth=5, min_samples_leaf=2)
             np.random.seed(3333)
-            data = make_irm_data(theta=0.5, n_obs=500, dim_x=20, return_type='DataFrame')
+            data = make_irm_data(theta=0.5, n_obs=500, dim_x=10, return_type='DataFrame')
             obj_dml_data = dml.DoubleMLData(data, 'y', 'd')
             dml_irm_obj = dml.DoubleMLIRM(obj_dml_data, ml_g, ml_m)
             print(dml_irm_obj.fit())
@@ -164,11 +164,75 @@ Estimation is conducted via its ``fit()`` method:
             set.seed(3333)
             ml_g = lrn("regr.ranger", num.trees = 100, mtry = 20, min.node.size = 2, max.depth = 5)
             ml_m = lrn("classif.ranger", num.trees = 100, mtry = 20, min.node.size = 2, max.depth = 5)
-            data = make_irm_data(theta=0.5, n_obs=500, dim_x=20, return_type="data.table")
+            data = make_irm_data(theta=0.5, n_obs=500, dim_x=10, return_type="data.table")
             obj_dml_data = DoubleMLData$new(data, y_col="y", d_cols="d")
             dml_irm_obj = DoubleMLIRM$new(obj_dml_data, ml_g, ml_m)
             dml_irm_obj$fit()
             print(dml_irm_obj)
+
+.. _irm-apo-model:
+
+Average Potential Outcomes (APOs)
+*********************************
+
+.. include:: ../shared/models/apo.rst
+
+``DoubleMLAPO`` implements the estimation of average potential outcomes.
+Estimation is conducted via its ``fit()`` method:
+
+.. tab-set::
+
+    .. tab-item:: Python
+        :sync: py
+
+        .. ipython:: python
+
+            import numpy as np
+            import doubleml as dml
+            from doubleml.datasets import make_irm_data
+            from sklearn.ensemble import RandomForestRegressor, RandomForestClassifier
+
+            ml_g = RandomForestRegressor(n_estimators=100, max_features=20, max_depth=5, min_samples_leaf=2)
+            ml_m = RandomForestClassifier(n_estimators=100, max_features=20, max_depth=5, min_samples_leaf=2)
+            np.random.seed(3333)
+            data = make_irm_data(theta=0.5, n_obs=500, dim_x=10, return_type='DataFrame')
+            obj_dml_data = dml.DoubleMLData(data, 'y', 'd')
+            dml_apo_obj = dml.DoubleMLAPO(obj_dml_data, ml_g, ml_m, treatment_level=0)
+            print(dml_apo_obj.fit())
+
+
+.. _irm-apos-model:
+
+Average Potential Outcomes (APOs) for Multiple Treatment Levels
+***************************************************************
+
+.. include:: ../shared/models/apos.rst
+
+``DoubleMLAPOS`` implements the estimation of average potential outcomes for multiple treatment levels.
+Estimation is conducted via its ``fit()`` method. The ``causal_contrast()`` method allows to estimate causal contrasts between treatment levels:
+
+.. tab-set::
+
+    .. tab-item:: Python
+        :sync: py
+
+        .. ipython:: python
+
+            import numpy as np
+            import doubleml as dml
+            from doubleml.datasets import make_irm_data
+            from sklearn.ensemble import RandomForestRegressor, RandomForestClassifier
+
+            ml_g = RandomForestRegressor(n_estimators=100, max_features=20, max_depth=5, min_samples_leaf=2)
+            ml_m = RandomForestClassifier(n_estimators=100, max_features=20, max_depth=5, min_samples_leaf=2)
+            np.random.seed(3333)
+            data = make_irm_data(theta=0.5, n_obs=500, dim_x=10, return_type='DataFrame')
+            obj_dml_data = dml.DoubleMLData(data, 'y', 'd')
+            dml_apos_obj = dml.DoubleMLAPOS(obj_dml_data, ml_g, ml_m, treatment_levels=[0, 1])
+            print(dml_apos_obj.fit())
+
+            causal_contrast_model = dml_apos_obj.causal_contrast(reference_levels=0)
+            print(causal_contrast_model.summary)
 
 
 .. _iivm-model:
