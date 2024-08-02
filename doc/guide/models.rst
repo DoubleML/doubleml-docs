@@ -323,7 +323,7 @@ Consider the following two additional assumptions for the sample selection model
 - **Cond. Independence of Selection:** :math:`Y_i(d) \perp S_i|D_i=d, X_i\quad a.s.` for :math:`d=0,1`
 - **Common Support:** :math:`P(D_i=1|X_i)>0` and :math:`P(S_i=1|D_i=d, X_i)>0` for :math:`d=0,1`
 
-such that outcomes are missing at random (for the score see :ref:`Scores <_ssm-mar-score>`).
+such that outcomes are missing at random (for the score see :ref:`Scores <ssm-mar-score>`).
 
 ``DoubleMLSSM`` implements sample selection models. The score ``score='missing-at-random'`` refers to the correponding score
 relying on the assumptions above. The ``DoubleMLData`` object has to be defined with the additional argument ``s_col`` for the selection indicator.
