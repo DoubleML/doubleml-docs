@@ -16,14 +16,20 @@ Release notes
         `#254 <https://github.com/DoubleML/doubleml-for-py/pull/254>`_
         `#184 <https://github.com/DoubleML/doubleml-docs/pull/184>`_
 
+      - Add new example on sensitivity analysis
+        `#190 <https://github.com/DoubleML/doubleml-docs/pull/190>`_
+
+      - Add a new example on DiD with DoubleML in R
+        `#178 <https://github.com/DoubleML/doubleml-docs/pull/178>`_
+
       - Enable ``set_sample_splitting`` for cluster data
         `#255 <https://github.com/DoubleML/doubleml-for-py/pull/255>`_
 
       - Update the ``make_confounded_irm_data`` data generating process
         `#263 <https://github.com/DoubleML/doubleml-for-py/pull/263>`_
       
-      - Add a new example on DiD with DoubleML in R
-        `#178 <https://github.com/DoubleML/doubleml-docs/pull/178>`_
+      - Maintainance package
+        `#264 <https://github.com/DoubleML/doubleml-for-py/pull/264>`_
 
       - Maintenance documentation
         `#177 <https://github.com/DoubleML/doubleml-docs/pull/177>`_
