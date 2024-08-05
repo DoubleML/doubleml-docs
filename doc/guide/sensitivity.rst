@@ -519,7 +519,7 @@ This implies the following representations
     
     .. math:: 
         
-        \frac{\mathbb{E}\left[\frac{1\lbrace D = d\rbrace }}{P(D=d|X,A)^2}\right] - \mathbb{E}\left[\frac{1\lbrace D = d\rbrace }}{P(D=d|X)^2}\right]}{\mathbb{E}\left[\frac{1\lbrace D = d\rbrace }}{P(D=d|X,A)^2}\right]}
+        \frac{\mathbb{E}\left[\frac{1\lbrace D = d\rbrace }{P(D=d|X,A)^2}\right] - \mathbb{E}\left[\frac{1\lbrace D = d\rbrace }{P(D=d|X)^2}\right]}{\mathbb{E}\left[\frac{1\lbrace D = d\rbrace }{P(D=d|X,A)^2}\right]}
 
     where the numerator measures the *gain in average conditional precision to predict* :math:`D` *by using* :math:`A` *in addition to* :math:`X`.
     The denominator is the *average conditional precision to predict* :math:`D` *by using* :math:`A` *and* :math:`X`. Consequently ``cf_d`` measures the *relative gain in average conditional precision*.
@@ -527,7 +527,7 @@ This implies the following representations
 
     .. math::
 
-        \frac{\mathbb{E}\left[\frac{1\lbrace D = d\rbrace }}{P(D=d|X,A)^2}\mathbb{E}[\omega(Y,D,X)|X,A]^2\right] - \mathbb{E}\left[\frac{1\lbrace D = d\rbrace }}{P(D=d|X)^2}\mathbb{E}[\omega(Y,D,X)|X]^2\right]}{\mathbb{E}\left[\frac{1\lbrace D = d\rbrace }}{P(D=d|X,A)^2}\mathbb{E}[\omega(Y,D,X)|X,A]^2\right]}
+        \frac{\mathbb{E}\left[\frac{1\lbrace D = d\rbrace }{P(D=d|X,A)^2}\mathbb{E}[\omega(Y,D,X)|X,A]^2\right] - \mathbb{E}\left[\frac{1\lbrace D = d\rbrace }{P(D=d|X)^2}\mathbb{E}[\omega(Y,D,X)|X]^2\right]}{\mathbb{E}\left[\frac{1\lbrace D = d\rbrace }{P(D=d|X,A)^2}\mathbb{E}[\omega(Y,D,X)|X,A]^2\right]}
 
     which has a interpretation as the *relative weighted gain in average conditional precision*.
 The ``nuisance_elements`` are then computed with plug-in versions according to the general :ref:`sensitivity_implementation`. 
