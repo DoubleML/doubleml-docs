@@ -7,6 +7,37 @@ Release notes
 
   .. tab-item:: Python
 
+    .. dropdown:: DoubleML 0.8.2
+      :class-title: sd-bg-primary sd-font-weight-bold
+      :open:
+
+      - **API Update**: Change nuisance evaluation for classifiers.
+        The corresponding properties are renamed ``nuisance_loss`` instead of ``rmses``.
+        `#254 <https://github.com/DoubleML/doubleml-for-py/pull/254>`_
+        `#184 <https://github.com/DoubleML/doubleml-docs/pull/184>`_
+
+      - Add new example on sensitivity analysis
+        `#190 <https://github.com/DoubleML/doubleml-docs/pull/190>`_
+
+      - Add a new example on DiD with DoubleML in R
+        `#178 <https://github.com/DoubleML/doubleml-docs/pull/178>`_
+
+      - Enable ``set_sample_splitting`` for cluster data
+        `#255 <https://github.com/DoubleML/doubleml-for-py/pull/255>`_
+
+      - Update the ``make_confounded_irm_data`` data generating process
+        `#263 <https://github.com/DoubleML/doubleml-for-py/pull/263>`_
+      
+      - Maintainance package
+        `#264 <https://github.com/DoubleML/doubleml-for-py/pull/264>`_
+
+      - Maintenance documentation
+        `#177 <https://github.com/DoubleML/doubleml-docs/pull/177>`_
+        `#180 <https://github.com/DoubleML/doubleml-docs/pull/180>`_
+        `#181 <https://github.com/DoubleML/doubleml-docs/pull/181>`_
+        `#187 <https://github.com/DoubleML/doubleml-docs/pull/187>`_
+        `#189 <https://github.com/DoubleML/doubleml-docs/pull/189>`_
+
     .. dropdown:: DoubleML 0.8.1
       :class-title: sd-bg-primary sd-font-weight-bold
       :open:
