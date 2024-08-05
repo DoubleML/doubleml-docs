@@ -19,4 +19,4 @@ The corresponding identifying assumption is
 where further assmputions are made in the context of the respective sample selection model.
 
 .. note::
-    A more detailed example can be found in the :ref:`Example Gallery <_examplegallery>`.
+    A more detailed example can be found in the :ref:`Example Gallery <examplegallery>`.

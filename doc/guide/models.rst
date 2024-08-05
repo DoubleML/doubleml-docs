@@ -5,10 +5,21 @@ Models
 
 The :ref:`DoubleML <doubleml_package>` includes the following models.
 
+Partially linear models (PLM)
++++++++++++++++++++++++++++++
+
+The partially linear models (PLM) take the form
+
+.. math::
+
+    Y = D \theta_0 + g_0(X) + \zeta,
+
+where treatment effects are additive with some sort of linear form.
+
 .. _plr-model:
 
 Partially linear regression model (PLR)
-+++++++++++++++++++++++++++++++++++++++
+***************************************
 
 .. include:: ../shared/models/plr.rst
 
@@ -64,7 +75,7 @@ Estimation is conducted via its ``fit()`` method:
 .. _pliv-model:
 
 Partially linear IV regression model (PLIV)
-+++++++++++++++++++++++++++++++++++++++++++
+*******************************************
 
 .. include:: ../shared/models/pliv.rst
 
@@ -119,10 +130,21 @@ Estimation is conducted via its ``fit()`` method:
             print(dml_pliv_obj)
 
 
+Interactive regression models (IRM)
+++++++++++++++++++++++++++++++++++++
+
+The interactive regression model (IRM) take the form
+
+.. math::
+
+    Y = g_0(D, X) + U,
+
+where treatment effects are fully heterogeneous.
+
 .. _irm-model:
 
-Interactive regression model (IRM)
-++++++++++++++++++++++++++++++++++
+Binary Interactive Regression Model (IRM)
+*****************************************
 
 .. include:: ../shared/models/irm.rst
 
@@ -143,10 +165,10 @@ Estimation is conducted via its ``fit()`` method:
             from doubleml.datasets import make_irm_data
             from sklearn.ensemble import RandomForestRegressor, RandomForestClassifier
 
-            ml_g = RandomForestRegressor(n_estimators=100, max_features=20, max_depth=5, min_samples_leaf=2)
-            ml_m = RandomForestClassifier(n_estimators=100, max_features=20, max_depth=5, min_samples_leaf=2)
+            ml_g = RandomForestRegressor(n_estimators=100, max_features=10, max_depth=5, min_samples_leaf=2)
+            ml_m = RandomForestClassifier(n_estimators=100, max_features=10, max_depth=5, min_samples_leaf=2)
             np.random.seed(3333)
-            data = make_irm_data(theta=0.5, n_obs=500, dim_x=20, return_type='DataFrame')
+            data = make_irm_data(theta=0.5, n_obs=500, dim_x=10, return_type='DataFrame')
             obj_dml_data = dml.DoubleMLData(data, 'y', 'd')
             dml_irm_obj = dml.DoubleMLIRM(obj_dml_data, ml_g, ml_m)
             print(dml_irm_obj.fit())
@@ -162,19 +184,83 @@ Estimation is conducted via its ``fit()`` method:
             library(data.table)
 
             set.seed(3333)
-            ml_g = lrn("regr.ranger", num.trees = 100, mtry = 20, min.node.size = 2, max.depth = 5)
-            ml_m = lrn("classif.ranger", num.trees = 100, mtry = 20, min.node.size = 2, max.depth = 5)
-            data = make_irm_data(theta=0.5, n_obs=500, dim_x=20, return_type="data.table")
+            ml_g = lrn("regr.ranger", num.trees = 100, mtry = 10, min.node.size = 2, max.depth = 5)
+            ml_m = lrn("classif.ranger", num.trees = 100, mtry = 10, min.node.size = 2, max.depth = 5)
+            data = make_irm_data(theta=0.5, n_obs=500, dim_x=10, return_type="data.table")
             obj_dml_data = DoubleMLData$new(data, y_col="y", d_cols="d")
             dml_irm_obj = DoubleMLIRM$new(obj_dml_data, ml_g, ml_m)
             dml_irm_obj$fit()
             print(dml_irm_obj)
 
+.. _irm-apo-model:
+
+Average Potential Outcomes (APOs)
+*********************************
+
+.. include:: ../shared/models/apo.rst
+
+``DoubleMLAPO`` implements the estimation of average potential outcomes.
+Estimation is conducted via its ``fit()`` method:
+
+.. tab-set::
+
+    .. tab-item:: Python
+        :sync: py
+
+        .. ipython:: python
+
+            import numpy as np
+            import doubleml as dml
+            from doubleml.datasets import make_irm_data
+            from sklearn.ensemble import RandomForestRegressor, RandomForestClassifier
+
+            ml_g = RandomForestRegressor(n_estimators=100, max_features=10, max_depth=5, min_samples_leaf=2)
+            ml_m = RandomForestClassifier(n_estimators=100, max_features=10, max_depth=5, min_samples_leaf=2)
+            np.random.seed(3333)
+            data = make_irm_data(theta=0.5, n_obs=500, dim_x=10, return_type='DataFrame')
+            obj_dml_data = dml.DoubleMLData(data, 'y', 'd')
+            dml_apo_obj = dml.DoubleMLAPO(obj_dml_data, ml_g, ml_m, treatment_level=0)
+            print(dml_apo_obj.fit())
+
+
+.. _irm-apos-model:
+
+Average Potential Outcomes (APOs) for Multiple Treatment Levels
+***************************************************************
+
+.. include:: ../shared/models/apos.rst
+
+``DoubleMLAPOS`` implements the estimation of average potential outcomes for multiple treatment levels.
+Estimation is conducted via its ``fit()`` method. The ``causal_contrast()`` method allows to estimate causal contrasts between treatment levels:
+
+.. tab-set::
+
+    .. tab-item:: Python
+        :sync: py
+
+        .. ipython:: python
+
+            import numpy as np
+            import doubleml as dml
+            from doubleml.datasets import make_irm_data
+            from sklearn.ensemble import RandomForestRegressor, RandomForestClassifier
+
+            ml_g = RandomForestRegressor(n_estimators=100, max_features=10, max_depth=5, min_samples_leaf=2)
+            ml_m = RandomForestClassifier(n_estimators=100, max_features=10, max_depth=5, min_samples_leaf=2)
+            np.random.seed(3333)
+            data = make_irm_data(theta=0.5, n_obs=500, dim_x=10, return_type='DataFrame')
+            obj_dml_data = dml.DoubleMLData(data, 'y', 'd')
+            dml_apos_obj = dml.DoubleMLAPOS(obj_dml_data, ml_g, ml_m, treatment_levels=[0, 1])
+            print(dml_apos_obj.fit())
+
+            causal_contrast_model = dml_apos_obj.causal_contrast(reference_levels=0)
+            print(causal_contrast_model.summary)
+
 
 .. _iivm-model:
 
 Interactive IV model (IIVM)
-+++++++++++++++++++++++++++
+***************************
 
 .. include:: ../shared/models/iivm.rst
 
@@ -323,7 +409,7 @@ Consider the following two additional assumptions for the sample selection model
 - **Cond. Independence of Selection:** :math:`Y_i(d) \perp S_i|D_i=d, X_i\quad a.s.` for :math:`d=0,1`
 - **Common Support:** :math:`P(D_i=1|X_i)>0` and :math:`P(S_i=1|D_i=d, X_i)>0` for :math:`d=0,1`
 
-such that outcomes are missing at random (for the score see :ref:`Scores <_ssm-mar-score>`).
+such that outcomes are missing at random (for the score see :ref:`Scores <ssm-mar-score>`).
 
 ``DoubleMLSSM`` implements sample selection models. The score ``score='missing-at-random'`` refers to the correponding score
 relying on the assumptions above. The ``DoubleMLData`` object has to be defined with the additional argument ``s_col`` for the selection indicator.
