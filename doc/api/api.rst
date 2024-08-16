@@ -27,14 +27,16 @@ Double machine learning models
     DoubleMLPLR
     DoubleMLPLIV
     DoubleMLIRM
+    DoubleMLAPO
+    DoubleMLAPOS
     DoubleMLIIVM
     DoubleMLDID
     DoubleMLDIDCS
+    DoubleMLSSM
     DoubleMLPQ
     DoubleMLLPQ
     DoubleMLCVAR
     DoubleMLQTE
-    DoubleMLBLP
 
 Datasets module
 ---------------
@@ -70,6 +72,7 @@ Dataset generators
    datasets.make_confounded_plr_data
    datasets.make_confounded_irm_data
    datasets.make_heterogeneous_data
+   datasets.make_irm_data_discrete_treatments
 
 Utility classes and functions
 -----------------------------
@@ -85,6 +88,10 @@ Utility classes
 
     utils.DMLDummyRegressor
     utils.DMLDummyClassifier
+    utils.DoubleMLBLP
+    utils.DoubleMLPolicyTree
+    utils.DoubleMLResampling
+    utils.DoubleMLClusterResampling
 
 Utility functions
 ~~~~~~~~~~~~~~~~~
