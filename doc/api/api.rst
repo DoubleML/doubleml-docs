@@ -90,8 +90,6 @@ Utility classes
     utils.DMLDummyClassifier
     utils.DoubleMLBLP
     utils.DoubleMLPolicyTree
-    utils.DoubleMLResampling
-    utils.DoubleMLClusterResampling
 
 Utility functions
 ~~~~~~~~~~~~~~~~~
