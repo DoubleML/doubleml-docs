@@ -12,7 +12,8 @@ Release notes
       :open:
 
       - **Release highlight:** Average potential outcomes for multiple discrete treatments
-        via ``DoubleMLAPO`` and ``DoubleMLAPOS`` classes
+        via ``DoubleMLAPO`` and ``DoubleMLAPOS`` classes (proposed by `Apoorva Lal <https://github.com/apoorvalal>`_)
+        `#245 <https://github.com/DoubleML/doubleml-for-py/issues/245>`_
         `#250 <https://github.com/DoubleML/doubleml-for-py/pull/250>`_
 
       - Update User Guide and Example Gallery
