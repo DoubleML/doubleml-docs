@@ -33,7 +33,8 @@ Release notes
         `#186 <https://github.com/DoubleML/doubleml-docs/pull/186>`_
         `#193 <https://github.com/DoubleML/doubleml-docs/pull/193>`_
         `#194 <https://github.com/DoubleML/doubleml-docs/pull/194>`_
-
+        `#196 <https://github.com/DoubleML/doubleml-docs/pull/196>`_
+        `#197 <https://github.com/DoubleML/doubleml-docs/pull/197>`_
 
     .. dropdown:: DoubleML 0.8.2
       :class-title: sd-bg-primary sd-font-weight-bold
