@@ -7,9 +7,35 @@ Release notes
 
   .. tab-item:: Python
 
-    .. dropdown:: DoubleML 0.8.2
+    .. dropdown:: DoubleML 0.9.0
       :class-title: sd-bg-primary sd-font-weight-bold
       :open:
+
+      - **Release highlight:** Average potential outcomes for multiple discrete treatments
+        via ``DoubleMLAPO`` and ``DoubleMLAPOS`` classes
+        `#250 <https://github.com/DoubleML/doubleml-for-py/pull/250>`_
+
+      - Update User Guide and Example Gallery
+        `#188 <https://github.com/DoubleML/doubleml-docs/pull/188>`_
+        `#195 <https://github.com/DoubleML/doubleml-docs/pull/195>`_
+
+      - Add sensitivity analysis to ``DoubleMLFramework``
+        `#249 <https://github.com/DoubleML/doubleml-for-py/pull/249>`_
+
+      - Maintainance package
+        `#264 <https://github.com/DoubleML/doubleml-for-py/pull/264>`_
+        `#265 <https://github.com/DoubleML/doubleml-for-py/pull/265>`_
+
+      - Maintenance documentation
+        `#182 <https://github.com/DoubleML/doubleml-docs/pull/182>`_
+        `#184 <https://github.com/DoubleML/doubleml-docs/pull/184>`_
+        `#186 <https://github.com/DoubleML/doubleml-docs/pull/186>`_
+        `#193 <https://github.com/DoubleML/doubleml-docs/pull/193>`_
+        `#194 <https://github.com/DoubleML/doubleml-docs/pull/194>`_
+
+
+    .. dropdown:: DoubleML 0.8.2
+      :class-title: sd-bg-primary sd-font-weight-bold
 
       - **API Update**: Change nuisance evaluation for classifiers.
         The corresponding properties are renamed ``nuisance_loss`` instead of ``rmses``.
@@ -40,7 +66,6 @@ Release notes
 
     .. dropdown:: DoubleML 0.8.1
       :class-title: sd-bg-primary sd-font-weight-bold
-      :open:
 
       - Increment package requirements and update workflows for python 3.9 (add tests for python 3.12)
         `#247 <https://github.com/DoubleML/doubleml-for-py/pull/247>`_
@@ -55,7 +80,6 @@ Release notes
 
     .. dropdown:: DoubleML 0.8.0
       :class-title: sd-bg-primary sd-font-weight-bold
-      :open:
 
       - **Release highlight:** Sample-selections models as ``DoubleMLSMM`` class (by `Michaela Kecskésová <https://github.com/mychaelka>`_)
         `#231 <https://github.com/DoubleML/doubleml-for-py/pull/231>`_
