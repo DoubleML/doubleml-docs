@@ -25,6 +25,7 @@ Release notes
       - Maintainance package
         `#264 <https://github.com/DoubleML/doubleml-for-py/pull/264>`_
         `#265 <https://github.com/DoubleML/doubleml-for-py/pull/265>`_
+        `#266 <https://github.com/DoubleML/doubleml-for-py/pull/266>`_
 
       - Maintenance documentation
         `#182 <https://github.com/DoubleML/doubleml-docs/pull/182>`_
