@@ -195,6 +195,8 @@ linkcheck_ignore = [
     'https://glmnet.stanford.edu/index.html',
     # Valid URL Failed to establish a new connection: [Errno 111] Connection refused' ...
     'https://glmnet.stanford.edu/reference/cv.glmnet.html',
+    # Valid URL (error not replicable), Causes 409 Client Error: Too Many Requests for url
+    'http://dx.doi.org/10.2139/ssrn.3619201',
 ]
 
 # To execute R code via jupyter-execute one needs to install the R kernel for jupyter
