@@ -43,6 +43,9 @@ jobs:
       run: |
         writeLines(sprintf("R-%i.%i", getRversion()$major, getRversion()$minor), ".github/R-version")
       shell: Rscript {0}
+    
+    - name: Install pandoc
+      uses: r-lib/actions/setup-pandoc@v2
 
     - name: Install R kernel for Jupyter and the R package DoubleML (dev)
       run: |
