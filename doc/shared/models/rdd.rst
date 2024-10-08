@@ -8,9 +8,11 @@ The parameter of interest in an RDD is the **Local Average Treatment Effect (LAT
 
 .. math::
 
-   \theta_{\text{LATE}} = \mathbb[Y_i(1)-Y_i(0)\mid S = c]
+   \theta_{0} = \mathbb[Y(1)-Y(0)\mid S = c]
 
-Our implementation follows work from `Noack, Olma and Rothe (2024) <https://arxiv.org/abs/2107.07942>`_. By using a set of additional covariates :math:`X_i` for each observation, :math:`Y_i` and :math:`D_i` can be adjusted in a first stage, to reduce the standart deviation in estimation of $\theta$.
+Our implementation follows work from `Noack, Olma and Rothe (2024) <https://arxiv.org/abs/2107.07942>`_, however, our notation is slightly different to be consistent with the package.
+
+By using a set of additional covariates :math:`X_i` for each observation, :math:`Y_i` and :math:`D_i` can be adjusted in a first stage, to reduce the standart deviation in estimation of $\theta$.
 
 Sharp Regression Discontinuity Design
 *************************************
@@ -28,6 +30,20 @@ The assumptions for identifying the LATE in a sharp RDD are
 - **Continuity:** The potential outcomes :math:`Y_i(1)` and :math:`Y_i(0)` are continuous around the cutoff, meaning no other factors besides treatment change discontinuously at the threshold.
   
 - **Exogeneity of the Score:** Units cannot perfectly manipulate their value of :math:`S_i` to either receive or avoid treatment exactly at the cutoff.
+
+Without the use of covariates, :math:`\theta` is typically estimated by running seperate local linear regressions on  each side of the cutoff, yielding an estimator of the form
+
+.. math::
+
+   \hat{\theta}_{\text{SRD}} = \sum_{i=1}^n w_i(h)Y_i,
+
+where the :math:`w_i(h)` are local linear regression weights that depend on the data through the realizations of the running variable only and :math:`h > 0` is a bandwidth.
+
+
+
+
+
+
 
 Fuzzy Regression Discontinuity Design
 *************************************
