@@ -197,6 +197,8 @@ linkcheck_ignore = [
     'https://glmnet.stanford.edu/reference/cv.glmnet.html',
     # Valid URL (error not replicable), Causes 409 Client Error: Too Many Requests for url
     'http://dx.doi.org/10.2139/ssrn.3619201',
+    # Valid URL, Causes ConnectTimeoutError
+    'https://folia.unifr.ch/global/documents/306524',
 ]
 
 # To execute R code via jupyter-execute one needs to install the R kernel for jupyter
