@@ -5,6 +5,7 @@ name: Deploy Docu (stable)
 on:
   workflow_dispatch:
 
+
 jobs:
   build:
 
@@ -26,13 +27,33 @@ jobs:
         python -m pip install --upgrade pip
         pip install -r requirements.txt
 
+    - name: Add R repository
+      run: |
+        sudo apt install dirmngr gnupg apt-transport-https ca-certificates software-properties-common
+        sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys E298A3A825C0D65DFD57CBB651716619E084DAB9
+        sudo add-apt-repository 'deb https://cloud.r-project.org/bin/linux/ubuntu focal-cran40/'
     - name: Install R
-      uses: r-lib/actions/setup-r@v2
+      run: |
+        sudo apt-get update
+        sudo apt-get install r-base
+        sudo apt-get install r-base-dev
+        sudo apt-get install -y zlib1g-dev libicu-dev pandoc make libcurl4-openssl-dev libssl-dev
+
+    - name: Get user library folder
+      run: |
+        mkdir ${GITHUB_WORKSPACE}/tmp_r_libs_user
+        echo R_LIBS_USER=${GITHUB_WORKSPACE}/tmp_r_libs_user >> $GITHUB_ENV
 
     - name: Query R version
       run: |
         writeLines(sprintf("R-%i.%i", getRversion()$major, getRversion()$minor), ".github/R-version")
       shell: Rscript {0}
+
+    - name: Cache R packages
+      uses: actions/cache@v4
+      with:
+        path: ${{ env.R_LIBS_USER }}
+        key: doubleml-user-guide-stable-${{ hashFiles('.github/R-version') }}
 
     - name: Install R kernel for Jupyter and the R package DoubleML (dev)
       run: |
