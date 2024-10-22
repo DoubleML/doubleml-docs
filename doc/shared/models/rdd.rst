@@ -23,7 +23,7 @@ The LATE is identified as the difference in the conditional expectation of :math
 
 .. math::
 
-   \theta_{\text{SRD}} = \lim_{\epsilon \to 0} \left[ \mathbb{E}[Y_i | S_i = c + \epsilon] - \mathbb{E}[Y_i | S_i = c - \epsilon] \right]
+   \theta_{0} = \mathbb[Y(1)-Y(0)\mid S = c]
 
 The assumptions for identifying the LATE in a sharp RDD are
 
@@ -35,12 +35,32 @@ Without the use of covariates, :math:`\theta` is typically estimated by running 
 
 .. math::
 
-   \hat{\theta}_{\text{SRD}} = \sum_{i=1}^n w_i(h)Y_i,
+   \hat{\theta}_{\text{base}}(h) = \sum_{i=1}^n w_i(h)Y_i,
 
 where the :math:`w_i(h)` are local linear regression weights that depend on the data through the realizations of the running variable only and :math:`h > 0` is a bandwidth.
 
+Under standard conditions, which include that the running variable is continuously distributed, and that the bandwidth :math:`h` tends to zero at an appropriate rate, the estimator :math:`\hat{\theta}_{\text{base}}(h)` is approximately normally distributed in large samples, with bias of order :math:`h^2` and variance of order :math:`(nh)^{-1}`:
 
+.. math::
+   \hat{\tau}_{\text{base}}(h) \stackrel{a}{\sim} N\left(\tau + h^2  B_{\text{base}},(nh)^{-1}V_{\text{base}}\right).
 
+If covariates are available, they can be used to improve the accuracy of empirical RD estimates. The most popular strategy is to include them linearly and without kernel localization in the local linear regression. By simple least squares algebra, this "linear adjustment" estimator can be written as a no-covariates estimator with the covariate-adjusted outcome :math:`Y_i - Z_i^{\top} \widehat{\gamma}_h`, where :math:`\widehat{\gamma}_h` is a minimizer:
+
+.. math::
+   \widehat{\tau}_{\text{lin}}(h) = \sum w_i(h)\left(Y_i - X_i^{\top} \widehat{\gamma}_h\right).
+
+If :math:`\mathbb{E}[X_i | S_i = s]` is twice continuously differentiable around the cutoff, then the distribution of :math:`\widehat{\tau}_{\text{lin}}(h)` is similar to the one of the base estimator with potentially smaller variance termin.
+
+As this linear adjustment might not exploit the available covariate information efficiently, DoubleML features an RDD estimator with flexible covariate adjustment based on potentially nonlinear adjustment functions :math:`\eta`. The estimator takes the following form:
+
+.. math::
+   \widehat{\theta}_{\text{RDFlex}}(h; \eta) = \sum w_i(h) M_i(\eta), \quad M_i(\eta) = Y_i - \eta(Z_i).
+
+.. math::
+   \widehat{\theta}_{\text{RDFlex}}(h; \eta) \stackrel{a}{\sim} N\left(\tau + h^2 B_{\text{base}}, (nh)^{-1} V(\alpha)\right).
+
+.. math::
+   V(\eta) \geq V(\eta_0) \text{ for all } \eta.
 
 
 
@@ -52,16 +72,16 @@ In a **Fuzzy RDD**, treatment assignment is identical to the sharp RDD (:math:`T
 
 The **LATE** is identified by comparing the jump in the probability of receiving treatment with the jump in the outcome. 
 
-The LATE for Fuzzy RDD is given by:
+The parameter of interest in the Fuzzy RDD is the average treatment effect on the treated:
 
 .. math::
+   \theta_{0} = \mathbb[Y(1, 1)-Y(0, 0)\mid S = c, \{i\in \text{compliers}\}]
 
-   \theta_{\text{FRD}} = \frac{\lim_{\epsilon \to 0} \left[ \mathbb{E}[Y_i | S_i = c + \epsilon] - \mathbb{E}[Y_i | S_i = c - \epsilon] \right]}{\lim_{\epsilon \to 0} \left[ \mathbb{E}[D_i | S_i = c + \epsilon] - \mathbb{E}[D_i | S_i = c - \epsilon] \right]}
-
-The assumptions for identifying the LATE in a fuzzy RDD are
+with :math:`Y_i(T_i, D_i(T_i))` being the potential outcome under the potential treatments. The assumptions for identifying the ATT in a fuzzy RDD are
 
 - **Continuity of Potential Outcomes:** Similar to sharp RDD, the potential outcomes :math:`Y_i(1)` and :math:`Y_i(0)` must be continuous at the cutoff.
   
 - **Continuity of Treatment Assignment Probability:** The probability of receiving treatment :math:`\mathbb{E}[D_i | S_i]` must change discontinuously at the cutoff, but there should be no other jumps in the probability.
 
 - **Monotonicity:** There must be no "defiers", meaning individuals for whom the treatment assignment goes in the opposite direction of the score.
+
