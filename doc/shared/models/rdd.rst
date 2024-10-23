@@ -94,10 +94,7 @@ Estimation is conducted via its ``fit()`` method:
             np.random.seed(42)
             data_dict = make_simple_rdd_data(n_obs=1000, fuzzy=False)
             cov_names = ['x' + str(i) for i in range(data_dict['X'].shape[1])]
-            df = pd.DataFrame(
-               np.column_stack((data_dict['Y'], data_dict['D'], data_dict['score'], data_dict['X'])),
-               columns=['y', 'd', 'score'] + cov_names,
-            )
+            df = pd.DataFrame(np.column_stack((data_dict['Y'], data_dict['D'], data_dict['score'], data_dict['X'])),columns=['y', 'd', 'score'] + cov_names)
             
             dml_data = dml.DoubleMLData(df, y_col='y', d_cols='d', x_cols=cov_names, s_col='score')
 
@@ -156,10 +153,7 @@ Estimation is conducted via its ``fit()`` method:
             np.random.seed(42)
             data_dict = make_simple_rdd_data(n_obs=1000, fuzzy=True)
             cov_names = ['x' + str(i) for i in range(data_dict['X'].shape[1])]
-            df = pd.DataFrame(
-               np.column_stack((data_dict['Y'], data_dict['D'], data_dict['score'], data_dict['X'])),
-               columns=['y', 'd', 'score'] + cov_names,
-            )
+            df = pd.DataFrame(np.column_stack((data_dict['Y'], data_dict['D'], data_dict['score'], data_dict['X'])), columns=['y', 'd', 'score'] + cov_names)
             
             dml_data = dml.DoubleMLData(df, y_col='y', d_cols='d', x_cols=cov_names, s_col='score')
 
