@@ -85,8 +85,10 @@ Estimation is conducted via its ``fit()`` method:
             :okwarning:
 
             import numpy as np
+            import pandas as pd
             from sklearn.linear_model import LassoCV
             from doubleml.rdd.datasets import make_simple_rdd_data
+            from doubleml.rdd import RDFlex
             import doubleml as dml
 
             np.random.seed(42)
@@ -145,8 +147,10 @@ Estimation is conducted via its ``fit()`` method:
             :okwarning:
 
             import numpy as np
+            import pandas as pd
             from sklearn.linear_model import LassoCV, LogisticRegressionCV
             from doubleml.rdd.datasets import make_simple_rdd_data
+            from doubleml.rdd import RDFlex
             import doubleml as dml
 
             np.random.seed(42)
@@ -160,6 +164,7 @@ Estimation is conducted via its ``fit()`` method:
             dml_data = dml.DoubleMLData(df, y_col='y', d_cols='d', x_cols=cov_names, s_col='score')
 
             ml_g = LassoCV()
+            ml_m = LogisticRegressionCV()
 
             rdflex_obj = RDFlex(dml_data, ml_g, ml_m, fuzzy=True)
             rdflex_obj.fit()
