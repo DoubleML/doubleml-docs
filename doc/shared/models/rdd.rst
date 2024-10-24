@@ -15,7 +15,7 @@ Our implementation follows work from `Noack, Olma and Rothe (2024) <https://arxi
 By using a set of additional covariates :math:`X_i` for each observation, :math:`Y_i` and :math:`D_i` can be adjusted in a first stage, to reduce the standard deviation in the estimation of :math:`\theta`.
 
 .. note::
-   To fit into the package syntax, our notation differs as follows from the one used in most standard RDD works (as for example `Cattaneo and Titiunik (2022) <https://www.annualreviews.org/content/journals/10.1146/annurev-economics-051520-021409>`_.):
+   To fit into the package syntax, our notation differs as follows from the one used in most standard RDD works (as for example `Cattaneo and Titiunik (2022) <https://doi.org/10.1146/annurev-economics-051520-021409>`_.):
     - :math:`S_i` the **score** (instead of :math:`X_i`)
     - :math:`X_i` the **covariates** (instead of :math:`Z_i`)
     - :math:`D_i` the **treatment received** (in sharp RDD instead of :math:`T_i`)

@@ -182,12 +182,14 @@ Double machine learning literature
 
       - Claudia Noack, Tomasz Olma, Christoph Rothe |br|
         **Flexible Covariate Adjustments in Regression Discontinuity Designs** |br|
-        *arXiv preprint 	arXiv:2107.07942v3 [econ.EM], 2024* 
+        *arXiv preprint 	arXiv:2107.07942v3 [econ.EM], 2024* |br|
+        :octicon:`link` :bdg-link-dark:`arXiv <https://arxiv.org/abs/2107.07942v3>` 
         |hr|
 
       - Matias D. Cattaneo,Rocío Titiunik |br|
         **Regression Discontinuity Designs**  |br|
-        *Annual Review of Economics, 14, Pages 821-851, 2022*
+        *Annual Review of Economics, 14, Pages 821-851, 2022* |br|
+        :octicon:`link` :bdg-link-dark:`url <https://doi.org/10.1146/annurev-economics-051520-021409>`
         |hr|
 
     .. dropdown:: Debiased sparsity-based inference / theoretical foundations
