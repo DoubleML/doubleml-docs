@@ -37,6 +37,7 @@ Double machine learning models
     DoubleMLLPQ
     DoubleMLCVAR
     DoubleMLQTE
+    RDFlex
 
 Datasets module
 ---------------
@@ -73,6 +74,7 @@ Dataset generators
    datasets.make_confounded_irm_data
    datasets.make_heterogeneous_data
    datasets.make_irm_data_discrete_treatments
+   rdd.datasets.make_simple_rdd_data
 
 Utility classes and functions
 -----------------------------
