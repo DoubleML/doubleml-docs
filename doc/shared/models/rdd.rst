@@ -51,7 +51,7 @@ If covariates are available, they can be used to improve the accuracy of empiric
 Here, :math:`\widehat{\gamma}_h` is the minimizer from the regression
 
 .. math::
-    \arg\min_{\beta,\gamma} \sum K_h(S_i) (Y_i - Q_i^{\top} \beta - X_i^{\top} \gamma)^2,
+   \underset{\beta,\gamma}{\mathrm{arg\,min}} \, \sum K_h(S_i) (Y_i - Q_i^\top\beta- X_i^{\top}\gamma )^2,
 
 with :math:`Q_i =(D_i, S_i, D_i S_i, 1)^T` (see ``fs_specification`` in :ref:`Implementation Details <rdd_imp_details>`), :math:`K_h(v)=K(v/h)/h` with :math:`K(\cdot)` a kernel function.
 
