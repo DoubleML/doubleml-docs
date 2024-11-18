@@ -1,4 +1,4 @@
-**Regression Discontinuity Designs (RDD)** are causal inference methods used when treatment assignment is determined by a continuous running variable ("score") crossing a known threshold ("cutoff"). These designs exploit discontinuities in the probability of receiving treatment at the cutoff to estimate local treatment effects. RDDs are divided into two main types: **Sharp** and **Fuzzy**.
+**Regression Discontinuity Designs (RDD)** are causal inference methods used when treatment assignment is determined by a continuous running variable ("score") crossing a known threshold ("cutoff"). These designs exploit discontinuities in the probability of receiving treatment at the cutoff to estimate the average treatment effect. RDDs are divided into two main types: **Sharp** and **Fuzzy**.
 
 The key idea behind RDD is that units just above and just below the threshold are assumed to be comparable, differing only in the treatment assignment. This allows estimating the causal effect at the threshold by comparing outcomes of treated and untreated units.
 
@@ -7,7 +7,7 @@ Our implementation follows work from `Noack, Olma and Rothe (2024) <https://arxi
 Let :math:`Y_i` be the observed outcome of an individual and :math:`D_i` the treatment it received. By using a set of additional covariates :math:`X_i` for each observation, :math:`Y_i` and :math:`D_i` can be adjusted in a first stage, to reduce the standard deviation in the estimation of the causal effect.
 
 .. note::
-   To fit into the package syntax, our notation differs as follows from the one used in most standard RDD works (as for example `Cattaneo and Titiunik (2022) <https://doi.org/10.1146/annurev-economics-051520-021409>`_.):
+   To fit into the package syntax, our notation differs as follows from the one used in most standard RDD works (as for example `Cattaneo and Titiunik (2022) <https://doi.org/10.1146/annurev-economics-051520-021409>`_):
     - :math:`S_i` the **score** (instead of :math:`X_i`)
     - :math:`X_i` the **covariates** (instead of :math:`Z_i`)
     - :math:`D_i` the **treatment received** (in sharp RDD instead of :math:`T_i`)
