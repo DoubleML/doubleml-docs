@@ -139,10 +139,10 @@ with :math:`Y_i(T_i, D_i(T_i))` being the potential outcome under the potential 
 Under similar considerations as in the sharp case, an estimator using flexible covariate adjustment can be derived as:
 
 .. math::
-   \hat{\theta}(h; \widehat{\eta}_Y, \widehat{\eta}_D) = \frac{\hat{\theta}_Y(h; \widehat{\eta}_Y)}{\hat{\theta}_D(h; \widehat{\eta}_D)} 
-   = \frac{\sum w_{i}(h) (Y_i - \widehat{\eta}_{Y}(X_i))}{\sum w_{i}(h) (T_i - \widehat{\eta}_{D}(X_i))}.
+   \hat{\theta}(h; \widehat{\eta}_Y, \widehat{\eta}_D) = \frac{\hat{\tau}_Y(h; \widehat{\eta}_Y)}{\hat{\tau}_D(h; \widehat{\eta}_D)} 
+   = \frac{\sum w_{i}(h) (Y_i - \widehat{\eta}_{Y}(X_i))}{\sum w_{i}(h) (T_i - \widehat{\eta}_{D}(X_i))},
 
-:math:`\eta_Y` and :math:`\eta_D` are defined as in the sharp RDD setting, with the respective outcome.
+where :math:`\eta_Y` and :math:`\eta_D` are defined as in the sharp RDD setting, with the respective outcome.
 
 ``RDFlex`` implements this fuzzy RDD with flexible covariate adjustment. The indicator ``fuzzy=True`` indicates a fuzzy design. The ``DoubleMLData`` object has to be defined with the arguments:
 
@@ -194,8 +194,10 @@ There are some specialities in the ``RDFlex`` implementation that differ from th
 2. **Kernel Selection**: Another crucial decision when estimating with RDD is the kernel determining the weights for observations around the cutoff. For this, the parameters ``fs_kernel`` and ``kernel`` are important. The latter is a key-worded argument and is used in the RDD estimation, while the ``fs_kernel`` specifies the kernel used in the nuisance estimation. By default, both of them are ``triangular``.
 3. **Local and Global Learners**: ``RDFlex`` estimates the nuisance functions locally around the cutoff. In certain scenarios, it can be desirable to rather perform a global fit on the full support of the score :math:`S`. For this, the ``Global Learners`` in ``doubleml.utils`` can be used (see our example notebook in the :ref:`Example Gallery <examplegallery>`).
 4. **First Stage Specifications**: In nuisance estimation, we have to add variable(s) to add information about the location of the observation left or right of the cutoff. Available options are:
-  - In the default case ``fs_specification="cutoff"``, this is an indicator of whether the observation is left or right
-  - If ``fs_specification="cutoff and score"``, additionally the score is added. 
-  - In the case of ``fs_specification="interacted cutoff and score"``, also an interaction term of the cutoff indicator and the score is added. 
+
+  a. In the default case ``fs_specification="cutoff"``, this is an indicator of whether the observation is left or right
+  b. If ``fs_specification="cutoff and score"``, additionally the score is added. 
+  c. In the case of ``fs_specification="interacted cutoff and score"``, also an interaction term of the cutoff indicator and the score is added. 
+
 5. **Intention-to-Treat Effects**: Above, we demonstrated how to estimate the ATE at the cutoff in a fuzzy RDD. To estimate an Intention-to-Treat effect instead, the parameter ``fuzzy=False`` can be selected. 
 6. **Key-worded Arguments**: ``rdrobust`` as the underlying RDD library has additional parameters to tune the estimation. You can use ``**kwargs`` to add them via ``RDFlex``.
