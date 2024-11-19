@@ -37,7 +37,16 @@ Double machine learning models
     DoubleMLLPQ
     DoubleMLCVAR
     DoubleMLQTE
-    RDFlex
+
+Other models
+------------------------------
+.. currentmodule:: doubleml
+
+.. autosummary::
+    :toctree: generated/
+    :template: class.rst
+
+    rdd.RDFlex
 
 Datasets module
 ---------------
