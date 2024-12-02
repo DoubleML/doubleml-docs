@@ -201,6 +201,8 @@ linkcheck_ignore = [
     'https://folia.unifr.ch/global/documents/306524',
     # Valid DOI; Causes 403 Client Error: Forbidden for url:...
     'https://doi.org/10.1146/annurev-economics-051520-021409',
+    # Valdi DOI; Causes 504 Server Error: Gateway Time-out for ...
+    'https://doi.org/10.1017/CBO9781139060035.008'
 ]
 
 # To execute R code via jupyter-execute one needs to install the R kernel for jupyter
