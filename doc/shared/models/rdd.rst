@@ -18,11 +18,17 @@ Sharp Regression Discontinuity Design
 
 In a **Sharp RDD**, the treatment :math:`D_i` is deterministically assigned at the cutoff (:math:`D_i = \mathbb{1}\{S_i \geq c\}`).
 
-Let :math:`S_i` represent the score, and let :math:`c` denote the cutoff point. Further, let :math:`Y_i(1)` and :math:`Y_i(0)` denote the potential outcomes with and without treatment, respectively. Then, the treatment effect at the cutoff is identified as the difference in the conditional expectation of :math:`Y_i` at the cutoff from both sides.
+Let :math:`S_i` represent the score, and let :math:`c` denote the cutoff point. Further, let :math:`Y_i(1)` and :math:`Y_i(0)` denote the potential outcomes with and without treatment, respectively. Then, the treatment effect at the cutoff
 
 .. math::
 
    \tau_0 = \mathbb{E}[Y_i(1)-Y_i(0)\mid S_i = c]
+
+is identified as the difference in the conditional expectation of :math:`Y_i` at the cutoff from both sides
+
+.. math::
+
+   \tau_0 = \lim_{s \to c^+} \mathbb{E}[Y_i \mid S_i = s] - \lim_{s \to c^-} \mathbb{E}[Y_i \mid S_i = s]
 
 The key assumption for identifying this effect in a sharp RDD is:
 
@@ -46,12 +52,12 @@ Under standard conditions, which include that the running variable is continuous
 If covariates are available, they can be used to improve the accuracy of empirical RD estimates. The most popular strategy is to include them linearly and without kernel localization in the local linear regression. By simple least squares algebra, this "linear adjustment" estimator can be written as a no-covariates estimator with the covariate-adjusted outcome :math:`Y_i - X_i^{\top} \widehat{\gamma}_h`:
 
 .. math::
-   \widehat{\tau}_{\text{lin}}(h) = \sum w_i(h)\left(Y_i - X_i^{\top} \widehat{\gamma}_h\right).
+   \widehat{\tau}_{\text{lin}}(h) = \sum_{i=1}^n w_i(h)\left(Y_i - X_i^{\top} \widehat{\gamma}_h\right).
 
 Here, :math:`\widehat{\gamma}_h` is the minimizer from the regression
 
 .. math::
-   \underset{\beta,\gamma}{\mathrm{arg\,min}} \, \sum K_h(S_i) (Y_i - Q_i^\top\beta- X_i^{\top}\gamma )^2,
+   \underset{\beta,\gamma}{\mathrm{arg\,min}} \, \sum_{i=1}^n K_h(S_i) (Y_i - Q_i^\top\beta- X_i^{\top}\gamma )^2,
 
 with :math:`Q_i =(D_i, S_i, D_i S_i, 1)^T` (see ``fs_specification`` in :ref:`Implementation Details <rdd_imp_details>`), :math:`K_h(v)=K(v/h)/h` with :math:`K(\cdot)` a kernel function.
 
@@ -60,9 +66,9 @@ If :math:`\mathbb{E}[X_i | S_i = s]` is twice continuously differentiable around
 As this linear adjustment might not exploit the available covariate information efficiently, DoubleML features an RDD estimator with flexible covariate adjustment based on potentially nonlinear adjustment functions :math:`\eta`. The estimator takes the following form:
 
 .. math::
-   \widehat{\tau}_{\text{RDFlex}}(h; \eta) = \sum w_i(h) M_i(\eta), \quad M_i(\eta) = Y_i - \eta(X_i).
+   \widehat{\tau}_{\text{RDFlex}}(h; \eta) = \sum_{i=1}^n w_i(h) M_i(\eta), \quad M_i(\eta) = Y_i - \eta(X_i).
 
-Similar to other algorithms in DoubleML, :math:`\eta` is estimated by ML methods and with crossfitting. Different than in other models, there is no orthogonal score, but a similar global insensitive property holds (for details see `Noack, Olma and Rothe (2024) <https://arxiv.org/abs/2107.07942>`_). We adjust the outcome variable by the influence of the covariates.
+Similar to other algorithms in DoubleML, :math:`\eta` is estimated by ML methods and with crossfitting. Different than in other models, there is no orthogonal score, but a similar global insensitivity property holds (for details see `Noack, Olma and Rothe (2024) <https://arxiv.org/abs/2107.07942>`_). We adjust the outcome variable by the influence of the covariates.
 
 This reduces the variance in the estimation potentially even further to:
 
@@ -123,12 +129,17 @@ Fuzzy Regression Discontinuity Design
 
 In a **Fuzzy RDD**, treatment assignment :math:`T_i` is identical to the sharp RDD (:math:`T_i = \mathbb{1}\{S_i \geq c\}`), however, compliance is limited around the cutoff which leads to a different treatment received :math:`D_i` than assigned (:math:`D_i \neq T_i`) for some units.
 
-The parameter of interest in the Fuzzy RDD is the average treatment effect at the cutoff, for all individuals that comply with the assignment:
+The parameter of interest in the Fuzzy RDD is the average treatment effect at the cutoff, for all individuals that comply with the assignment
 
 .. math::
-   \theta_{0} = \mathbb{E}[Y_i(1, 1)-Y_i(0, 0)\mid S_i = c, \{i\in \text{compliers}\}]
+   \theta_{0} = \mathbb{E}[Y_i(1)-Y_i(0)\mid S_i = c, \{i\in \text{compliers}\}]
 
-with :math:`Y_i(T_i, D_i(T_i))` being the potential outcome under the potential treatments. The assumptions for identifying the ATT in a fuzzy RDD are:
+with :math:`Y_i(D_i(T_i))` being the potential outcome under the potential treatments. This effect is identified by
+
+.. math::
+   \theta_{0} = \frac{\lim_{s \to c^+} \mathbb{E}[Y_i \mid S_i = s] - \lim_{s \to c^-} \mathbb{E}[Y_i \mid S_i = s]}{\lim_{s \to c^+} \mathbb{E}[D_i \mid S_i = s] - \lim_{s \to c^-} \mathbb{E}[D_i \mid S_i = s]}
+
+ The assumptions for identifying the ATT in a fuzzy RDD are:
 
 - **Continuity of Potential Outcomes:** Similar to sharp RDD, the conditional mean of the potential outcomes :math:`\mathbb{E}[Y_i(d)\mid S_i=s]` for :math:`d \in \{0, 1\}` is continuous at the cutoff level :math:`c`.
   
@@ -140,7 +151,7 @@ Under similar considerations as in the sharp case, an estimator using flexible c
 
 .. math::
    \hat{\theta}(h; \widehat{\eta}_Y, \widehat{\eta}_D) = \frac{\hat{\tau}_Y(h; \widehat{\eta}_Y)}{\hat{\tau}_D(h; \widehat{\eta}_D)} 
-   = \frac{\sum w_{i}(h) (Y_i - \widehat{\eta}_{Y}(X_i))}{\sum w_{i}(h) (T_i - \widehat{\eta}_{D}(X_i))},
+   = \frac{\sum_{i=1}^n w_{i}(h) (Y_i - \widehat{\eta}_{Y}(X_i))}{\sum_{i=1}^n w_{i}(h) (T_i - \widehat{\eta}_{D}(X_i))},
 
 where :math:`\eta_Y` and :math:`\eta_D` are defined as in the sharp RDD setting, with the respective outcome.
 
@@ -194,10 +205,8 @@ There are some specialities in the ``RDFlex`` implementation that differ from th
 2. **Kernel Selection**: Another crucial decision when estimating with RDD is the kernel determining the weights for observations around the cutoff. For this, the parameters ``fs_kernel`` and ``kernel`` are important. The latter is a key-worded argument and is used in the RDD estimation, while the ``fs_kernel`` specifies the kernel used in the nuisance estimation. By default, both of them are ``triangular``.
 3. **Local and Global Learners**: ``RDFlex`` estimates the nuisance functions locally around the cutoff. In certain scenarios, it can be desirable to rather perform a global fit on the full support of the score :math:`S`. For this, the ``Global Learners`` in ``doubleml.utils`` can be used (see our example notebook in the :ref:`Example Gallery <examplegallery>`).
 4. **First Stage Specifications**: In nuisance estimation, we have to add variable(s) to add information about the location of the observation left or right of the cutoff. Available options are:
-
-  a. In the default case ``fs_specification="cutoff"``, this is an indicator of whether the observation is left or right
-  b. If ``fs_specification="cutoff and score"``, additionally the score is added. 
-  c. In the case of ``fs_specification="interacted cutoff and score"``, also an interaction term of the cutoff indicator and the score is added. 
-
+   In the default case ``fs_specification="cutoff"``, this is an indicator of whether the observation is left or right
+   If ``fs_specification="cutoff and score"``, additionally the score is added. 
+   In the case of ``fs_specification="interacted cutoff and score"``, also an interaction term of the cutoff indicator and the score is added. 
 5. **Intention-to-Treat Effects**: Above, we demonstrated how to estimate the ATE at the cutoff in a fuzzy RDD. To estimate an Intention-to-Treat effect instead, the parameter ``fuzzy=False`` can be selected. 
 6. **Key-worded Arguments**: ``rdrobust`` as the underlying RDD library has additional parameters to tune the estimation. You can use ``**kwargs`` to add them via ``RDFlex``.
