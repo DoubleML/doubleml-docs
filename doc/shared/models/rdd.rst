@@ -139,7 +139,7 @@ with :math:`Y_i(D_i(T_i))` being the potential outcome under the potential treat
 .. math::
    \theta_{0} = \frac{\lim_{s \to c^+} \mathbb{E}[Y_i \mid S_i = s] - \lim_{s \to c^-} \mathbb{E}[Y_i \mid S_i = s]}{\lim_{s \to c^+} \mathbb{E}[D_i \mid S_i = s] - \lim_{s \to c^-} \mathbb{E}[D_i \mid S_i = s]}
 
- The assumptions for identifying the ATT in a fuzzy RDD are:
+The assumptions for identifying the ATT in a fuzzy RDD are:
 
 - **Continuity of Potential Outcomes:** Similar to sharp RDD, the conditional mean of the potential outcomes :math:`\mathbb{E}[Y_i(d)\mid S_i=s]` for :math:`d \in \{0, 1\}` is continuous at the cutoff level :math:`c`.
   
@@ -205,7 +205,7 @@ There are some specialities in the ``RDFlex`` implementation that differ from th
 2. **Kernel Selection**: Another crucial decision when estimating with RDD is the kernel determining the weights for observations around the cutoff. For this, the parameters ``fs_kernel`` and ``kernel`` are important. The latter is a key-worded argument and is used in the RDD estimation, while the ``fs_kernel`` specifies the kernel used in the nuisance estimation. By default, both of them are ``triangular``.
 3. **Local and Global Learners**: ``RDFlex`` estimates the nuisance functions locally around the cutoff. In certain scenarios, it can be desirable to rather perform a global fit on the full support of the score :math:`S`. For this, the ``Global Learners`` in ``doubleml.utils`` can be used (see our example notebook in the :ref:`Example Gallery <examplegallery>`).
 4. **First Stage Specifications**: In nuisance estimation, we have to add variable(s) to add information about the location of the observation left or right of the cutoff. Available options are:
-   In the default case ``fs_specification="cutoff"``, this is an indicator of whether the observation is left or right
+   In the default case ``fs_specification="cutoff"``, this is an indicator of whether the observation is left or right.
    If ``fs_specification="cutoff and score"``, additionally the score is added. 
    In the case of ``fs_specification="interacted cutoff and score"``, also an interaction term of the cutoff indicator and the score is added. 
 5. **Intention-to-Treat Effects**: Above, we demonstrated how to estimate the ATE at the cutoff in a fuzzy RDD. To estimate an Intention-to-Treat effect instead, the parameter ``fuzzy=False`` can be selected. 
