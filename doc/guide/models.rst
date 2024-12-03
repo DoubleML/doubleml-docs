@@ -507,3 +507,8 @@ Estimation is conducted via its ``fit()`` method:
             dml_ssm = dml.DoubleMLSSM(dml_data, ml_g, ml_m, ml_pi, score='nonignorable')
             dml_ssm.fit()
             print(dml_ssm)
+
+Regression Discontinuity Designs (RDD)
+++++++++++++++++++++++++++++++++++++++
+
+.. include:: ../shared/models/rdd.rst

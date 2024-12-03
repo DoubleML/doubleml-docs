@@ -31,6 +31,7 @@ General Examples
     py_double_ml_basic_iv.ipynb
     py_double_ml_plm_irm_hetfx.ipynb
     py_double_ml_meets_flaml.ipynb
+    py_double_ml_rdflex.ipynb
 
 
 Effect Heterogeneity
