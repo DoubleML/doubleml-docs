@@ -16,17 +16,20 @@ Release notes
         and `Tomasz Olma <https://github.com/tomaszolma>`_; see `their paper` <https://arxiv.org/abs/2107.07942>`_)
         `#276 <https://github.com/DoubleML/doubleml-for-py/pull/276>`_
 
+      - Add ``cov_type=HC0`` and enable key-worded arguments to ``DoubleMLBLP``
+        `#270 <https://github.com/DoubleML/doubleml-for-py/issues/270>`_
+        `#271 <https://github.com/DoubleML/doubleml-for-py/pull/271>`_
+
       - Update User Guide and Example Gallery
         `#204 <https://github.com/DoubleML/doubleml-docs/pull/204>`_
 
-      - Add ``cov_type=HC0`` and enable key-worded arguments to ``DoubleMLBLP``
-        `https://github.com/DoubleML/doubleml-for-py/pull/271`_
-
       - Add AutoML example for tuning DoubleML estimators
-        `https://github.com/DoubleML/doubleml-docs/pull/199`_
+        `#199 <https://github.com/DoubleML/doubleml-docs/pull/199>`_
 
       - Maintainance package
         `#268 <https://github.com/DoubleML/doubleml-for-py/pull/268>`_
+        `#278 <https://github.com/DoubleML/doubleml-for-py/issues/278>`
+        `#279 <https://github.com/DoubleML/doubleml-for-py/pull/279>`
 
       - Maintenance documentation
         `#201 <https://github.com/DoubleML/doubleml-docs/pull/201>`_
