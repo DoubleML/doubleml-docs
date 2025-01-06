@@ -30,6 +30,8 @@ Release notes
         `#268 <https://github.com/DoubleML/doubleml-for-py/pull/268>`_
         `#278 <https://github.com/DoubleML/doubleml-for-py/issues/278>`
         `#279 <https://github.com/DoubleML/doubleml-for-py/pull/279>`
+        `#281 <https://github.com/DoubleML/doubleml-for-py/pull/281>`
+        `#282 <https://github.com/DoubleML/doubleml-for-py/pull/282>` 
 
       - Maintenance documentation
         `#201 <https://github.com/DoubleML/doubleml-docs/pull/201>`_
