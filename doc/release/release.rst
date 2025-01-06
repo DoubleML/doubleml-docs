@@ -13,7 +13,7 @@ Release notes
 
       - **Release highlight:** Regression Discontinuity Designs with Flexible Covariate Adjustment
         via ``RDFlex`` class (in cooperation with `Claudia Noack <https://github.com/claudianoack>`_
-        and `Tomasz Olma <https://github.com/tomaszolma>`_; see `their paper` <https://arxiv.org/abs/2107.07942>`_)
+        and `Tomasz Olma <https://github.com/tomaszolma>`_; see `their paper <https://arxiv.org/abs/2107.07942>`_)
         `#276 <https://github.com/DoubleML/doubleml-for-py/pull/276>`_
 
       - Add ``cov_type=HC0`` and enable key-worded arguments to ``DoubleMLBLP``
