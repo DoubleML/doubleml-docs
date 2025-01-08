@@ -6,7 +6,21 @@ Release notes
 .. tab-set::
 
   .. tab-item:: Python
+    .. dropdown:: DoubleML 0.9.2
+      :class-title: sd-bg-primary sd-font-weight-bold
+      :open:
 
+      - Make `rdrobust` optional for conda. Create `pyproject.toml` and remove `setup.py` for packaging
+        `#285 <https://github.com/DoubleML/doubleml-for-py/pull/285>`_
+        `#286 <https://github.com/DoubleML/doubleml-for-py/pull/286>`_
+
+      - Maintenance package
+        `#284 <https://github.com/DoubleML/doubleml-for-py/pull/284>`_
+
+      - Maintenance doccumentation
+        `#205 <https://github.com/DoubleML/doubleml-docs/pull/205>`_
+        `#206 <https://github.com/DoubleML/doubleml-docs/pull/206>`_
+    
     .. dropdown:: DoubleML 0.9.1
       :class-title: sd-bg-primary sd-font-weight-bold
       :open:
@@ -39,7 +53,6 @@ Release notes
 
     .. dropdown:: DoubleML 0.9.0
       :class-title: sd-bg-primary sd-font-weight-bold
-      :open:
 
       - **Release highlight:** Average potential outcomes for multiple discrete treatments
         via ``DoubleMLAPO`` and ``DoubleMLAPOS`` classes (proposed by `Apoorva Lal <https://github.com/apoorvalal>`_)
