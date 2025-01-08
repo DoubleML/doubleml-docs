@@ -6,6 +6,7 @@ Release notes
 .. tab-set::
 
   .. tab-item:: Python
+
     .. dropdown:: DoubleML 0.9.2
       :class-title: sd-bg-primary sd-font-weight-bold
       :open:
