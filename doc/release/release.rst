@@ -40,7 +40,7 @@ Release notes
       - Add AutoML example for tuning DoubleML estimators
         `#199 <https://github.com/DoubleML/doubleml-docs/pull/199>`_
 
-      - Maintainance package
+      - Maintenance package
         `#268 <https://github.com/DoubleML/doubleml-for-py/pull/268>`_
         `#278 <https://github.com/DoubleML/doubleml-for-py/issues/278>`_
         `#279 <https://github.com/DoubleML/doubleml-for-py/pull/279>`_
@@ -66,7 +66,7 @@ Release notes
       - Add sensitivity analysis to ``DoubleMLFramework``
         `#249 <https://github.com/DoubleML/doubleml-for-py/pull/249>`_
 
-      - Maintainance package
+      - Maintenance package
         `#264 <https://github.com/DoubleML/doubleml-for-py/pull/264>`_
         `#265 <https://github.com/DoubleML/doubleml-for-py/pull/265>`_
         `#266 <https://github.com/DoubleML/doubleml-for-py/pull/266>`_
@@ -100,7 +100,7 @@ Release notes
       - Update the ``make_confounded_irm_data`` data generating process
         `#263 <https://github.com/DoubleML/doubleml-for-py/pull/263>`_
       
-      - Maintainance package
+      - Maintenance package
         `#264 <https://github.com/DoubleML/doubleml-for-py/pull/264>`_
 
       - Maintenance documentation
@@ -121,7 +121,7 @@ Release notes
         `#173 <https://github.com/DoubleML/doubleml-docs/pull/173>`_
         `#174 <https://github.com/DoubleML/doubleml-docs/pull/174>`_
 
-      - Maintainance documentation
+      - Maintenance documentation
         `#172 <https://github.com/DoubleML/doubleml-docs/pull/172>`_
 
     .. dropdown:: DoubleML 0.8.0
@@ -153,7 +153,7 @@ Release notes
         `#167 <https://github.com/DoubleML/doubleml-docs/pull/167>`_
         `#168 <https://github.com/DoubleML/doubleml-docs/pull/168>`_
 
-      - Maintainance package
+      - Maintenance package
         `#225 <https://github.com/DoubleML/doubleml-for-py/pull/225>`_
         `#229 <https://github.com/DoubleML/doubleml-for-py/pull/229>`_
         `#246 <https://github.com/DoubleML/doubleml-for-py/pull/246>`_

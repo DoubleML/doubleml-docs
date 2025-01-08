@@ -17,6 +17,10 @@ There are three different ways to install the python package :ref:`DoubleML <dou
 - Install a released version of DoubleML from a .whl file.
 - Building the package from source. This is recommended if you want to work with the latest development version of the package. This also the best way if you wish to contribute to DoubleML.
 
+.. note::
+    Since DoubleML 0.9.X, some dependencies are installed optionally. For details, please read the instructions below.
+
+
 Python: Installing the latest release from pip or conda
 -------------------------------------------------------
 
@@ -313,6 +317,17 @@ Python: Installing the latest release from pip or conda
 
 
 
+Python: Optional Dependencies
+-----------------------------
+
+In all installation procedures specified above, the dependencies required for the ``doubleml.rdd`` module as well as
+the package development requirements are not included in the installation. Please use ``pip install doubleml[rdd]``, ``pip install doubleml[dev]``
+or ``pip install doubleml[dev,rdd]`` to install the necessary requirements for these modules, if desired.
+
+.. note::
+    The dependency ``rdrobust`` required in the ``doubleml.rdd`` module is currently not available on conda-forge.
+
+
 Python: Installing a released version from a .whl file
 ------------------------------------------------------
 
@@ -344,13 +359,6 @@ re-interpreted when the python interpreter restarts without having to re-build t
 .. code-block:: Bash
 
     $ pip install --editable .
-
-An alternative to pip with the ``--editable`` flag is the ``develope`` mode of setuptools. To use it call
-
-.. code-block:: Bash
-
-    $ python setup.py develop
-
 
 .. _install_r:
 
