@@ -20,6 +20,7 @@ Release notes
       - Maintenance doccumentation
         `#205 <https://github.com/DoubleML/doubleml-docs/pull/205>`_
         `#206 <https://github.com/DoubleML/doubleml-docs/pull/206>`_
+        `#207 <https://github.com/DoubleML/doubleml-docs/pull/207>`_
     
     .. dropdown:: DoubleML 0.9.1
       :class-title: sd-bg-primary sd-font-weight-bold
