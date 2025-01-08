@@ -18,7 +18,7 @@ There are three different ways to install the python package :ref:`DoubleML <dou
 - Building the package from source. This is recommended if you want to work with the latest development version of the package. This also the best way if you wish to contribute to DoubleML.
 
 .. note::
-    Since DoubleML 0.9.X, some dependencies are installed optionally. For details, please read the instructions below.
+    Since DoubleML 0.9.2, some dependencies are installed optionally. For details, please read the instructions below.
 
 
 Python: Installing the latest release from pip or conda
