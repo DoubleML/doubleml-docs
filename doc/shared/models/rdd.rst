@@ -13,6 +13,9 @@ Let :math:`Y_i` be the observed outcome of an individual and :math:`D_i` the tre
     - :math:`D_i` the **treatment received** (in sharp RDD instead of :math:`T_i`)
     - :math:`T_i` the **treatment assigned** (only relevant in fuzzy RDD)
 
+.. note::
+   The ``doubleml.rdd`` module depends on ``rdrobust`` which can be installed via ``pip install rdrobust`` or ``pip install doubleml[rdd]``.
+
 Sharp Regression Discontinuity Design
 *************************************
 

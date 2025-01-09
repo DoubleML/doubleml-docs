@@ -1,4 +1,4 @@
-DoubleML
+DoubleML[rdd]
 
 # test
 pytest
@@ -20,4 +20,3 @@ seaborn
 xgboost
 lightgbm
 flaml
-rdrobust

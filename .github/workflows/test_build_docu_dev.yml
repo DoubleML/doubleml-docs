@@ -63,7 +63,7 @@ jobs:
         pip install -r requirements.txt
         pip uninstall -y DoubleML
         cd doubleml-for-py
-        pip install -e .
+        pip install -e .[rdd]
 
     - name: Add R repository
       run: |
