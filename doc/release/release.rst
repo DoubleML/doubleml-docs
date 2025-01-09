@@ -7,6 +7,13 @@ Release notes
 
   .. tab-item:: Python
 
+    .. dropdown:: DoubleML 0.9.3
+      :class-title: sd-bg-primary sd-font-weight-bold
+      :open:
+
+      - Fix / adapted unit tests which failed in the release of 0.9.2 to conda-forge
+        `#208 <https://github.com/DoubleML/doubleml-docs/pull/208>`_
+
     .. dropdown:: DoubleML 0.9.2
       :class-title: sd-bg-primary sd-font-weight-bold
       :open:
