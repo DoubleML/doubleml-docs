@@ -101,6 +101,8 @@ Utility classes
     utils.DMLDummyClassifier
     utils.DoubleMLBLP
     utils.DoubleMLPolicyTree
+    utils.GlobalRegressor
+    utils.GlobalClassifier
 
 Utility functions
 ~~~~~~~~~~~~~~~~~
