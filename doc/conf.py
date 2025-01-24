@@ -71,6 +71,7 @@ html_theme = 'pydata_sphinx_theme'
 
 html_theme_options = {
     "navigation_with_keys": False,
+    "use_edit_page_button": True,
     "header_links_before_dropdown": 6,
     "icon_links": [
         {
@@ -102,6 +103,13 @@ html_sidebars = {'**': ['logo.html',
                  'guide/guide': ['logo.html',
                                  'search-field.html',
                                  'sidebar-nav-bs.html']}
+
+html_context = {
+    "github_user": "DoubleML",
+    "github_repo": "doubleml-docs",
+    "github_version": "dev",
+    "doc_path": "doc",
+}
 
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,
