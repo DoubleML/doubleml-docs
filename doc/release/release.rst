@@ -516,6 +516,7 @@ Release notes
 
     .. dropdown:: DoubleML 0.5.3
       :class-title: sd-bg-primary sd-font-weight-bold
+
       - Add documentation for estimated models for nuisance parameters
         `#181 <https://github.com/DoubleML/doubleml-for-r/pull/181>`_
       - New contributor `@SvenKlaassen <https://github.com/SvenKlaassen>`_
