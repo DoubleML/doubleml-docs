@@ -14,6 +14,7 @@ This implies the following representations
     \alpha(W) &= \frac{1\lbrace D = d\rbrace }{m(X)}\cdot\mathbb{E}[\omega(Y,D,X)|X].
 
 .. note::
+
     In the :ref:`irm-model` the form and interpretation of ``cf_y`` only depends on the conditional expectation :math:`\mathbb{E}[Y|D,X]`.
 
     - ``cf_y`` has the interpretation as the *nonparametric partial* :math:`R^2` *of* :math:`A` *with* :math:`Y` *given* :math:`(D,X)`
@@ -37,6 +38,7 @@ This implies the following representations
         \frac{\mathbb{E}\left[\frac{1}{P(D=d|X,A)}\mathbb{E}[\omega(Y,D,X)|X,A]^2\right] - \mathbb{E}\left[\frac{1}{P(D=d|X)}\mathbb{E}[\omega(Y,D,X)|X]^2\right]}{\mathbb{E}\left[\frac{1}{P(D=d|X,A)}\mathbb{E}[\omega(Y,D,X)|X,A]^2\right]}
 
     which has a interpretation as the *relative weighted change in inverse propensity weights*.
+
 The ``nuisance_elements`` are then computed with plug-in versions according to the general :ref:`sensitivity_implementation`. 
 The default weights are set to one 
 

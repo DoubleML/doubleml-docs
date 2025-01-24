@@ -1,1 +1,4 @@
 _build
+
+# Ignore generated API documentation
+api/generated/
