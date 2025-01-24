@@ -13,7 +13,7 @@ sphinx-gallery
 sphinx-panels
 sphinx-design
 jupyter-sphinx
-pydata-sphinx-theme==0.16.1
+pydata-sphinx-theme==0.15.4
 pickleshare
 matplotlib
 plotly
