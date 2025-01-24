@@ -70,9 +70,22 @@ autosummary_generate = True
 html_theme = 'pydata_sphinx_theme'
 
 html_theme_options = {
-    'github_url': 'https://github.com/DoubleML/doubleml-for-py',
-    'navigation_with_keys': False,
+    "navigation_with_keys": False,
     "header_links_before_dropdown": 6,
+    "icon_links": [
+        {
+            "name": "GitHub",
+            "url": "https://github.com/DoubleML/doubleml-for-py",
+            "icon": "fa-brands fa-square-github",
+            "type": "fontawesome",
+        },
+        {
+            "name": "PyPI",
+            "url": "https://pypi.org/project/DoubleML/",
+            "icon": "fa-solid fa-cube",
+            "type": "fontawesome",
+        },
+    ],
 }
 
 # html_logo = '../img/logo.png'
