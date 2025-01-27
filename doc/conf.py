@@ -74,9 +74,9 @@ version = "stable"
 html_theme_options = {
     "navigation_with_keys": False,
     "navbar_start": ["navbar-logo"],
-    "navbar_center": ["version-switcher", "navbar-nav"],
-    "navbar_persistent": ["search-button"],
-    "navbar_end": ["theme-switcher", "navbar-icon-links"],
+    "navbar_center": ["navbar-nav"],
+    "navbar_persistent": ["search-field"],
+    "navbar_end": ["theme-switcher", "navbar-icon-links", "version-switcher"],
     "navbar_align": "left",
     "logo": {
         "text": project,
@@ -104,22 +104,31 @@ html_theme_options = {
         "json_url": "https://docs.doubleml.org/dev/_static/switcher.json",
         "version_match": version,
     },
+    "show_version_warning_banner": True,
     "check_switcher": False,
 }
 
 html_extra_path = ['../img/logo.png', '../img/logo_dark.png']
 html_favicon = '../img/favicon.ico'
 
-html_sidebars = {'**': ['logo.html',
-                        'search-field.html',
-                        'sidebar-nav-bs.html'],
-                 'workflow/workflow': ['logo.html',
-                                       'search-field.html',
-                                       'sidebar-nav-bs.html',
-                                       'sidebar-doubleml-workflow.html'],
-                 'guide/guide': ['logo.html',
-                                 'search-field.html',
-                                 'sidebar-nav-bs.html']}
+html_sidebars = {
+    '**': [
+        'logo.html',
+        'search-field.html',
+        'sidebar-nav-bs.html',
+    ],
+    'intro/install': [],
+    'workflow/workflow': [
+        'logo.html',
+        'search-field.html',
+        'sidebar-doubleml-workflow.html'
+    ],
+    'guide/guide': [
+        'logo.html',
+        'search-field.html',
+        'sidebar-nav-bs.html'
+    ],
+}
 
 html_context = {
     "github_user": "DoubleML",
