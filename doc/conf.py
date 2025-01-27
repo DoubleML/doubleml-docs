@@ -66,11 +66,17 @@ autosummary_generate = True
 
 # The theme to use for HTML and HTML Help pages.  See the documentation for
 # a list of builtin themes.
-#
 html_theme = 'pydata_sphinx_theme'
+
+# version for the switcher
+version = "stable"
 
 html_theme_options = {
     "navigation_with_keys": False,
+    "navbar_start": ["navbar-logo"],
+    "navbar_center": ["navbar-nav"],
+    "navbar_persistent": ["search-button"],
+    "navbar_end": ["theme-switcher", "navbar-icon-links", "version-switcher"],
     "use_edit_page_button": True,
     "header_links_before_dropdown": 6,
     "icon_links": [
@@ -87,6 +93,11 @@ html_theme_options = {
             "type": "fontawesome",
         },
     ],
+    "switcher": {
+        "json_url": "https://docs.doubleml.org/dev/_static/switcher.json",
+        "version_match": version,
+    },
+    "check_switcher": False
 }
 
 # html_logo = '../img/logo.png'
