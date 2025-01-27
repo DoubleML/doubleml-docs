@@ -12,8 +12,10 @@
 #
 import os
 import sys
-sys.path.insert(0, os.path.abspath('..'))
 
+import doubleml
+
+sys.path.insert(0, os.path.abspath('..'))
 
 # -- Project information -----------------------------------------------------
 
@@ -69,7 +71,10 @@ autosummary_generate = True
 html_theme = 'pydata_sphinx_theme'
 
 # version for the switcher
-version = "stable"
+if "dev" in doubleml.__version__:
+    version = "dev"
+else:
+    version = "stable"
 
 html_theme_options = {
     "navigation_with_keys": False,
@@ -77,6 +82,10 @@ html_theme_options = {
     "navbar_center": ["navbar-nav"],
     "navbar_persistent": ["search-field"],
     "navbar_end": ["theme-switcher", "navbar-icon-links", "version-switcher"],
+    "show_nav_level": 2,
+    "collapse_navigation": True,
+    "navigation_depth": 4,
+    "show_toc_level": 2,
     "navbar_align": "left",
     "logo": {
         "text": project,
@@ -117,17 +126,10 @@ html_sidebars = {
         'search-field.html',
         'sidebar-nav-bs.html',
     ],
+    'index': [],
     'intro/install': [],
-    'workflow/workflow': [
-        'logo.html',
-        'search-field.html',
-        'sidebar-doubleml-workflow.html'
-    ],
-    'guide/guide': [
-        'logo.html',
-        'search-field.html',
-        'sidebar-nav-bs.html'
-    ],
+    'intro/intro': [],
+    'workflow/workflow': [],
 }
 
 html_context = {
