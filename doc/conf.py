@@ -130,6 +130,8 @@ html_sidebars = {
     'intro/install': [],
     'intro/intro': [],
     'workflow/workflow': [],
+    'literature/literature': [],
+    'release/release': [],
 }
 
 html_context = {

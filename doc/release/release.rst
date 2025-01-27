@@ -1,6 +1,6 @@
 :parenttoc: True
 
-Release notes
+Release Notes
 =============
 
 .. tab-set::

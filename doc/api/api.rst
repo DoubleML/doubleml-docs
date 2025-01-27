@@ -1,6 +1,6 @@
 .. _python_api:
 
-API reference
+API Reference
 =============
 
 Double machine learning data class
