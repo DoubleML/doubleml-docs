@@ -126,9 +126,9 @@ ecosystem <https://github.com/mlr-org/mlr3/wiki/Extension-Packages>`_ (Lang et a
    :hidden:
 
     Install <intro/install>
-    Getting started <intro/intro>
+    Getting Started <intro/intro>
     Workflow <workflow/workflow>
-    User guide <guide/guide>
+    User Guide <guide/guide>
     Examples <examples/index>
     Python API <api/api>
     R API <https://docs.doubleml.org/r/stable/>
