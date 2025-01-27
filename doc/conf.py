@@ -74,11 +74,18 @@ version = "stable"
 html_theme_options = {
     "navigation_with_keys": False,
     "navbar_start": ["navbar-logo"],
-    "navbar_center": ["navbar-nav"],
+    "navbar_center": ["version-switcher", "navbar-nav"],
     "navbar_persistent": ["search-button"],
-    "navbar_end": ["theme-switcher", "navbar-icon-links", "version-switcher"],
-    "use_edit_page_button": True,
+    "navbar_end": ["theme-switcher", "navbar-icon-links"],
+    "navbar_align": "left",
+    "logo": {
+        "text": project,
+        "image_light": "img/logo.png",
+        "image_dark": "img/logo_dark.png",
+    },
     "header_links_before_dropdown": 6,
+    "use_edit_page_button": True,
+    "secondary_sidebar_items": ["page-toc", "edit-this-page", "sourcelink"],
     "icon_links": [
         {
             "name": "GitHub",
@@ -97,10 +104,9 @@ html_theme_options = {
         "json_url": "https://docs.doubleml.org/dev/_static/switcher.json",
         "version_match": version,
     },
-    "check_switcher": False
+    "check_switcher": False,
 }
 
-# html_logo = '../img/logo.png'
 html_extra_path = ['../img/logo.png', '../img/logo_dark.png']
 html_favicon = '../img/favicon.ico'
 
