@@ -115,7 +115,7 @@ html_theme_options = {
     },
     "show_version_warning_banner": True,
     "check_switcher": False,
-    "announcement": "We offer <a href='https://trainings.doubleml.org/'>DoubleML Trainings!</a>",
+    "announcement": "Interested to learn more? We offer <a href='https://trainings.doubleml.org/'>DoubleML Trainings!</a>",
 }
 
 html_extra_path = ['../img/logo.png', '../img/logo_dark.png']
