@@ -117,7 +117,7 @@ jobs:
 
     - name: Build docu with sphinx
       env:
-        NBSPHINX_EXECUTE: ${{ github.event.inputs.nbsphinx-execute }}
+        NBSPHINX_EXECUTE: ${{ github.event.inputs.nbsphinx-execute || 'auto' }}
       run: |
         make -C doc html
 
