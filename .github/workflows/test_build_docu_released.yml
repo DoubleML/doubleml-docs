@@ -74,7 +74,7 @@ jobs:
 
     - name: Build docu with sphinx
       run: |
-        make -C doc html # build docu
+        make -C doc html NBSPHINX_EXECUTE=always # build docu
 
     - name: Check for broken links / URLs
       run: |
