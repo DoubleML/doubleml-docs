@@ -122,6 +122,8 @@ jobs:
         make -C doc html
 
     - name: Check for broken links / URLs
+      env:
+        NBSPHINX_EXECUTE: ${{ github.event.inputs.nbsphinx-execute || 'auto' }}
       run: |
         make -C doc linkcheck
 
