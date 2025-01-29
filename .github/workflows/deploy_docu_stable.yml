@@ -64,8 +64,10 @@ jobs:
       shell: Rscript {0}
 
     - name: Build docu with sphinx
+      env:
+        NBSPHINX_EXECUTE: 'auto'
       run: |
-        make -C doc html NBSPHINX_EXECUTE=auto # build docu
+        make -C doc html
 
     - name: Deploy to stable
       uses: JamesIves/github-pages-deploy-action@v4
