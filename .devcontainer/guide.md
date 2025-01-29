@@ -57,3 +57,8 @@ You can build the documentation via
    cd doc
    make html
    ```
+
+   Open the directory in WSL with
+   ```bash
+   explorer.exe .
+   ```
