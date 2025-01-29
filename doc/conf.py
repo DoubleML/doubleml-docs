@@ -264,4 +264,4 @@ jupyter_execute_default_kernel = 'ir'
 jupyter_sphinx_linenos = False
 
 # option to disable the execution of notebooks
-nbsphinx_execute = "auto"  # "auto" | "always" | "never"
+nbsphinx_execute = os.getenv("NBSPHINX_EXECUTE", "auto")  # Default is "auto"

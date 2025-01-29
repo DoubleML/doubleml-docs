@@ -8,6 +8,10 @@ SPHINXBUILD   ?= sphinx-build
 SOURCEDIR     = .
 BUILDDIR      = _build
 
+# Add NBSPHINX_EXECUTE to SPHINXOPTS
+SPHINXOPTS   += -D nbsphinx_execute=$(NBSPHINX_EXECUTE)
+
+
 # Put it first so that "make" without argument is like "make help".
 help:
 	@$(SPHINXBUILD) -M help "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS) $(O)
