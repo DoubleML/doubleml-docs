@@ -78,14 +78,10 @@ jobs:
       shell: Rscript {0}
 
     - name: Build docu with sphinx
-      env:
-        NBSPHINX_EXECUTE: ${{ github.event.inputs.nbsphinx-execute || 'auto' }}
       run: |
-        make -C doc html
+        make -C doc html NBSPHINX_EXECUTE=${{ github.event.inputs.nbsphinx-execute }}
 
     - name: Check for broken links / URLs
-      env:
-        NBSPHINX_EXECUTE: ${{ github.event.inputs.nbsphinx-execute || 'auto' }}
       run: |
         make -C doc linkcheck
 

@@ -75,8 +75,6 @@ jobs:
       shell: Rscript {0}
 
     - name: Build docu with sphinx
-      env:
-        NBSPHINX_EXECUTE: 'auto'
       run: |
         make -C doc html
 
