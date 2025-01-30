@@ -117,7 +117,7 @@ jobs:
 
     - name: Build docu with sphinx
       run: |
-        make -C doc html NBSPHINX_EXECUTE=${{ github.event.inputs.nbsphinx-execute }}
+        make -C doc html NBSPHINX_EXECUTE=${{ github.event.inputs.nbsphinx-execute || 'auto' }}
 
     - name: Check for broken links / URLs
       run: |
