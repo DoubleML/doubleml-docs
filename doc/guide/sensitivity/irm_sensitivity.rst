@@ -15,6 +15,7 @@ This implies the following representations
 
 
 .. note::
+
     In the :ref:`irm-model` with for the ATE (weights equal to :math:`1`), the form and interpretation of ``cf_y`` is the same as in the :ref:`plr-model`.
 
     - ``cf_y`` has the interpretation as the *nonparametric partial* :math:`R^2` *of* :math:`A` *with* :math:`Y` *given* :math:`(D,X)`
@@ -50,6 +51,7 @@ This implies the following representations
         \frac{\mathbb{E}\left[\frac{\mathbb{E}[\omega(Y,D,X)|X,A]^2}{P(D=1|X,A)(1-P(D=1|X,A))}\right] - \mathbb{E}\left[\frac{\mathbb{E}[\omega(Y,D,X)|X]^2}{P(D=1|X)(1-P(D=1|X))}\right]}{\mathbb{E}\left[\frac{\mathbb{E}[\omega(Y,D,X)|X,A]^2}{P(D=1|X,A)(1-P(D=1|X,A))}\right]}
 
     which has a interpretation as the *relative weighted gain in average conditional precision*.
+
 The ``nuisance_elements`` are then computed with plug-in versions according to the general :ref:`sensitivity_implementation`. 
 For ``score='ATE'``, the weights are set to one 
 

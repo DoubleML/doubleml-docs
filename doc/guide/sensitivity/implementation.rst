@@ -92,7 +92,7 @@ The robustness value $RVa$ defined analogous, but additionally incorporates stat
 To obtain a more complete overview over the sensitivity one can call the ``sensitivity_plot()`` method. The methods creates a contour plot, which calculates estimate of the upper or lower bound for :math:`\theta`
 (based on the null hypothesis) for each combination of ``cf_y`` and ``cf_d`` in a grid of values.
 
-.. figure:: ../_static/sensitivity_example_nb.png
+.. figure:: /_static/sensitivity_example_nb.png
    :alt: Contour plot
    :figclass: captioned-image
 

@@ -7,6 +7,11 @@ SPHINXOPTS    ?=
 SPHINXBUILD   ?= sphinx-build
 SOURCEDIR     = .
 BUILDDIR      = _build
+NBSPHINX_EXECUTE = auto
+
+# Add NBSPHINX_EXECUTE to SPHINXOPTS
+SPHINXOPTS   += -D nbsphinx_execute=$(NBSPHINX_EXECUTE)
+
 
 # Put it first so that "make" without argument is like "make help".
 help:
