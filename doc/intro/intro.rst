@@ -2,7 +2,7 @@
 
 .. _intro:
 
-Getting started
+Getting Started
 ===============
 
 The purpose of the following case-studies is to demonstrate the core functionalities of

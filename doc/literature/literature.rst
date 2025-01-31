@@ -1,6 +1,6 @@
 :parenttoc: True
 
-Double machine learning literature
+Double Machine Learning Literature
 ==================================
 
 .. grid:: 1

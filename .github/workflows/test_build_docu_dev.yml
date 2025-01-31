@@ -20,6 +20,10 @@ on:
         description: 'Branch in https://github.com/DoubleML/doubleml-for-r'
         required: true
         default: 'main'
+      nbsphinx-execute:
+        description: 'Execute notebooks with nbsphinx'
+        required: false
+        default: 'auto'
   schedule:
     - cron: "0 9 * * 1,3,5"
 
@@ -113,7 +117,7 @@ jobs:
 
     - name: Build docu with sphinx
       run: |
-        make -C doc html # build docu
+        make -C doc html NBSPHINX_EXECUTE=${{ github.event.inputs.nbsphinx-execute || 'auto' }}
 
     - name: Check for broken links / URLs
       run: |

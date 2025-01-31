@@ -76,7 +76,7 @@ jobs:
 
     - name: Build docu with sphinx
       run: |
-        make -C doc html # build docu
+        make -C doc html
 
     - name: Deploy to dev
       uses: JamesIves/github-pages-deploy-action@v4

@@ -2,7 +2,7 @@
 
 :parenttoc: True
 
-User guide
+User Guide
 ==========
 
 .. toctree::
