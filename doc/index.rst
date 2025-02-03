@@ -142,7 +142,7 @@ Double Machine Learning Algorithm
 .. raw:: html
 
     <p align="center">
-        <iframe width="500" height="400" src="https://www.youtube.com/embed/BMAr27rp4uA" title="Cross-Fitting Animation" frameborder="0" allowfullscreen></iframe>
+        <iframe width="500" height="400" src="https://www.youtube.com/embed/NWEoLe8mZqM?si=qJxpUOJb2ROqNogY" title="Cross-Fitting Animation" frameborder="0" allowfullscreen></iframe>
     </p>
 
 
