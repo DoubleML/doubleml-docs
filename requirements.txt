@@ -16,7 +16,7 @@ jupyter-sphinx
 pydata-sphinx-theme==0.15.4
 pickleshare
 matplotlib
-plotly
+plotly==5.24.1
 seaborn
 xgboost
 lightgbm
