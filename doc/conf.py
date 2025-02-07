@@ -109,7 +109,13 @@ html_theme_options = {
         {
             "name": "PyPI",
             "url": "https://pypi.org/project/DoubleML/",
-            "icon": "fa-solid fa-cube",
+            "icon": "fa-brands fa-python",
+            "type": "fontawesome",
+        },
+        {
+            "name": "Discussions",
+            "url": "https://github.com/DoubleML/doubleml-for-py/discussions",
+            "icon": "fa-solid fa-comments",
             "type": "fontawesome",
         },
     ],
