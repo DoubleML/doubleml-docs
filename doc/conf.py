@@ -124,7 +124,7 @@ html_theme_options = {
         "version_match": version,
     },
     "show_version_warning_banner": True,
-    "check_switcher": False,
+    "check_switcher": True,
     "announcement": "Interested to learn more? We offer <a href='https://trainings.doubleml.org/'>DoubleML Trainings!</a>",
 }
 
