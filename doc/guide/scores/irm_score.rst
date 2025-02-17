@@ -39,6 +39,6 @@ whereas ``score='ATTE'`` changes weights to:
 
     \omega(Y,D,X) &= \frac{D}{\mathbb{E}_n[D]}
     
-    \omega(Y,D,X) &= \frac{m(X)}{\mathbb{E}_n[D]}.
+     \bar{\omega(Y,D,X)} &= \frac{m(X)}{\mathbb{E}_n[D]}.
 
 For more details on other weight specifications, see :ref:`weighted_cates`.
