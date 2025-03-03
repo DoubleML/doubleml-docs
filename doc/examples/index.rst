@@ -26,6 +26,7 @@ General Examples
     py_double_ml_multiway_cluster.ipynb
     py_double_ml_ssm.ipynb
     py_double_ml_sensitivity_booking.ipynb
+    py_double_ml_panel.ipynb
     py_double_ml_did.ipynb
     py_double_ml_did_pretest.ipynb
     py_double_ml_basic_iv.ipynb
