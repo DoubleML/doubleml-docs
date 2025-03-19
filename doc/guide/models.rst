@@ -341,7 +341,7 @@ Estimation is conducted via its ``fit()`` method:
 
             import numpy as np
             import doubleml as dml
-            from doubleml.datasets import make_did_SZ2020
+            from doubleml.did.datasets import make_did_SZ2020
             from sklearn.ensemble import RandomForestRegressor, RandomForestClassifier
 
             ml_g = RandomForestRegressor(n_estimators=100, max_depth=5, min_samples_leaf=5)
@@ -381,7 +381,7 @@ Estimation is conducted via its ``fit()`` method:
 
             import numpy as np
             import doubleml as dml
-            from doubleml.datasets import make_did_SZ2020
+            from doubleml.did.datasets import make_did_SZ2020
             from sklearn.ensemble import RandomForestRegressor, RandomForestClassifier
 
             ml_g = RandomForestRegressor(n_estimators=100, max_depth=5, min_samples_leaf=5)
