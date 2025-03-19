@@ -37,6 +37,7 @@ extensions = [
     'sphinx.ext.autodoc',
     'sphinx.ext.autosummary',
     'sphinx.ext.coverage',
+    'sphinx.ext.doctest',
     'sphinx.ext.graphviz',
     'sphinx.ext.intersphinx',
     'sphinx.ext.mathjax',
@@ -109,7 +110,13 @@ html_theme_options = {
         {
             "name": "PyPI",
             "url": "https://pypi.org/project/DoubleML/",
-            "icon": "fa-solid fa-cube",
+            "icon": "fa-brands fa-python",
+            "type": "fontawesome",
+        },
+        {
+            "name": "Discussions",
+            "url": "https://github.com/DoubleML/doubleml-for-py/discussions",
+            "icon": "fa-solid fa-comments",
             "type": "fontawesome",
         },
     ],
@@ -118,7 +125,7 @@ html_theme_options = {
         "version_match": version,
     },
     "show_version_warning_banner": True,
-    "check_switcher": False,
+    "check_switcher": True,
     "announcement": "Interested to learn more? We offer <a href='https://trainings.doubleml.org/'>DoubleML Trainings!</a>",
 }
 
