@@ -366,6 +366,8 @@ test
 Single Period
 ^^^^^^^^^^^^^
 
+.. include:: ../shared/models/did_binary.rst
+
 If panel data are available, the observations are assumed to be iid. of form :math:`(Y_{i0}, Y_{i1}, D_i, X_i)`.
 Remark that the difference :math:`\Delta Y_i= Y_{i1}-Y_{i0}` has to be defined as the outcome ``y`` in the ``DoubleMLData`` object.
 
