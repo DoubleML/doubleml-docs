@@ -441,6 +441,22 @@ Estimation is conducted via its ``fit()`` method:
             dml_ssm.fit()
             print(dml_ssm)
 
+    .. tab-item:: R
+        :sync: r
+
+        .. jupyter-execute::
+
+            library(DoubleML)
+            library(mlr3)
+            library(data.table)
+
+            set.seed(3141)
+            n_obs = 2000
+            df = make_ssm_data(n_obs=n_obs, mar=TRUE, return_type="data.table")
+            dml_data = DoubleMLData$new(df, y_col="y", d_cols="d", s_col="s")
+            dml_ssm = DoubleMLSSM$new(dml_data, ml_g, ml_m, ml_pi, score="missing-at-random")
+            dml_ssm$fit()
+            print(dml_ssm)
 
 .. _ssm-nr-model:
 
@@ -507,6 +523,24 @@ Estimation is conducted via its ``fit()`` method:
             dml_ssm = dml.DoubleMLSSM(dml_data, ml_g, ml_m, ml_pi, score='nonignorable')
             dml_ssm.fit()
             print(dml_ssm)
+
+    .. tab-item:: R
+        :sync: r
+
+        .. jupyter-execute::
+
+            library(DoubleML)
+            library(mlr3)
+            library(data.table)
+
+            set.seed(3141)
+            n_obs = 2000
+            df = make_ssm_data(n_obs=n_obs, mar=FALSE, return_type="data.table")
+            dml_data = DoubleMLData$new(df, y_col="y", d_cols="d", z_cols = "z", s_col="s")
+            dml_ssm = DoubleMLSSM$new(dml_data, ml_g, ml_m, ml_pi, score="nonignorable")
+            dml_ssm$fit()
+            print(dml_ssm)
+
 
 Regression Discontinuity Designs (RDD)
 ++++++++++++++++++++++++++++++++++++++
