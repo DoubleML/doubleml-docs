@@ -25,6 +25,13 @@ The corresponding target parameters are the average causal effects of the treatm
     ATT(\mathrm{g},t):= \mathbb{E}[Y_{i,t}(\mathrm{g}) - Y_{i,t}(0)|G^{\mathrm{g}}_i=1].
 
 This target parameter quantifies the average change in potential outcomes for units that are treated the first time in period :math:`\mathrm{g}` with the difference in outcome being evaluated for time period :math:`t`.
+The corresponding control groups, defined by an indicator :math:`C`, can be typically set as either the *never treated* or *not yet treated* units.
+Let
+
+.. math::
+    C_{i}^{nev}&:= 1\{G_i=\infty\} \quad \text{(never treated)}, \\
+
+    C_{i,t,\mathrm{g}}^{nyt}&:= 1\{G_i < \mathrm{g}\} \quad \text{(not yet treated)}.
 
 
 The corresponding identifying assumptions are:
@@ -38,7 +45,7 @@ The corresponding identifying assumptions are:
 
 3. **Limited Treatment Anticipation:**
     There is a known :math:`\delta\ge 0` such that
-    :math:`\mathbb{E}[Y_{i,t}(\mathrm{g})|X_i, G_i^{\mathrm{g}}=1] = \mathbb{E}[Y_{i,t}(0)|X_i, G_i^{\mathrm{g}}=1]\quad a.s.` for all :math:`\mathrm{g}\in\mathcal{G}, t\in\{1,\dots,\mathcal{T}\}` such that :math:`t< \mathrm{g}-\delta`.`
+    :math:`\mathbb{E}[Y_{i,t}(\mathrm{g})|X_i, G_i^{\mathrm{g}}=1] = \mathbb{E}[Y_{i,t}(0)|X_i, G_i^{\mathrm{g}}=1]\quad a.s.` for all :math:`\mathrm{g}\in\mathcal{G}, t\in\{1,\dots,\mathcal{T}\}` such that :math:`t< \mathrm{g}-\delta`.
 
 4. **(Cond.) Parallel Trends:** 
    :math:`\mathbb{E}[Y_{i1}(0) - Y_{i0}(0)|X_i, D_i=1] = \mathbb{E}[Y_{i1}(0) - Y_{i0}(0)|X_i, D_i=0]\quad a.s.`
