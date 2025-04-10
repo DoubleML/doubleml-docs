@@ -44,7 +44,7 @@
 		}
 	},
 	"mounts": [
-		"source=${localWorkspaceFolder},target=/workspace,type=bind" // Mount your local workspace into the container
+		"source=${localWorkspaceFolder},target=/workspace,type=bind,consistency=cached,z" // Mount your local workspace into the container
 	],
 	"remoteUser": "ubuntu",
 	"postCreateCommand": "id && ls -la /workspace && echo 'Container is ready!'"
