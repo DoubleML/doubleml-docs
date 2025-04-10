@@ -3,11 +3,6 @@ FROM ubuntu:24.04
 # Set non-interactive mode to avoid prompts
 ENV DEBIAN_FRONTEND=noninteractive
 
-# Add a non-root user and create a workspace directory
-RUN useradd -m -s /bin/bash vscode && \
-    mkdir -p /workspace && \
-    chown -R vscode:vscode /workspace
-
 # Update package list and install dependencies
 RUN apt-get update && \
     apt-get install -y \
@@ -19,13 +14,12 @@ RUN apt-get update && \
     apt-transport-https \
     ca-certificates \
     git \
-    cmake
-
-# Install locale packages
-RUN apt-get update && \
-    apt-get install -y locales && \
+    cmake \
+    locales && \
     locale-gen en_US.UTF-8 && \
-    update-locale LANG=en_US.UTF-8
+    update-locale LANG=en_US.UTF-8 && \
+    apt-get clean && \
+    rm -rf /var/lib/apt/lists/*
 
 # Set environment variables for locale
 ENV LANG=en_US.UTF-8
@@ -36,43 +30,52 @@ ENV LC_ALL=en_US.UTF-8
 RUN add-apt-repository ppa:deadsnakes/ppa && \
     apt-get update && \
     apt-get install -y python3.12 python3.12-venv python3.12-dev python3-pip python3-full && \
-    apt-get clean && rm -rf /var/lib/apt/lists/*
-
-# Set Python 3.12 as the default for both python and python3
-RUN update-alternatives --install /usr/bin/python3 python3 /usr/bin/python3.12 1 && \
-    update-alternatives --install /usr/bin/python python /usr/bin/python3.12 1
+    update-alternatives --install /usr/bin/python3 python3 /usr/bin/python3.12 1 && \
+    update-alternatives --install /usr/bin/python python /usr/bin/python3.12 1 && \
+    apt-get clean && \
+    rm -rf /var/lib/apt/lists/*
 
 # Add R repository and install R
 RUN wget -qO- https://cloud.r-project.org/bin/linux/ubuntu/marutter_pubkey.asc | tee /etc/apt/trusted.gpg.d/cran_ubuntu_key.asc && \
     add-apt-repository 'deb https://cloud.r-project.org/bin/linux/ubuntu noble-cran40/' && \
     apt-get update && \
-    apt-get install -y r-base r-base-dev zlib1g-dev libicu-dev pandoc make libcurl4-openssl-dev libssl-dev
+    apt-get install -y r-base r-base-dev zlib1g-dev libicu-dev pandoc make libcurl4-openssl-dev libssl-dev && \
+    apt-get clean && \
+    rm -rf /var/lib/apt/lists/*
 
-# Install Python packages
-COPY requirements.txt /tmp/requirements.txt
-RUN python -m venv /workspace/.venv && \
-    /workspace/.venv/bin/python -m pip install --upgrade pip && \
-    /workspace/.venv/bin/pip install -r /tmp/requirements.txt
+# Create non-root user with explicit UID/GID matching common host values
+ARG USERNAME=vscode
+ARG USER_UID=1000
+ARG USER_GID=$USER_UID
+
+RUN groupadd --gid $USER_GID $USERNAME && \
+    useradd --uid $USER_UID --gid $USER_GID -m -s /bin/bash $USERNAME && \
+    mkdir -p /workspace && \
+    chown $USERNAME:$USERNAME /workspace
+
+# Create a directory for R user libraries
+RUN mkdir -p /usr/local/lib/R/site-library && \
+    chown -R $USERNAME:$USERNAME /usr/local/lib/R/site-library
+ENV R_LIBS_USER=/usr/local/lib/R/site-library
+
+# Switch to non-root user for remaining operations
+USER $USERNAME
+
+# Install Python packages in the virtual environment
+COPY --chown=$USERNAME:$USERNAME requirements.txt /tmp/requirements.txt
+RUN python -m venv /home/$USERNAME/.venv && \
+    /home/$USERNAME/.venv/bin/python -m pip install --upgrade pip && \
+    /home/$USERNAME/.venv/bin/pip install --no-cache-dir -r /tmp/requirements.txt && \
+    /home/$USERNAME/.venv/bin/pip install --no-cache-dir git+https://github.com/DoubleML/doubleml-for-py.git@main#egg=DoubleML[rdd]
 
 # Set the virtual environment as the default Python environment
-ENV PATH="/workspace/.venv/bin:$PATH"
-
-# Install from main branch of DoubleML for Python
-RUN pip uninstall -y DoubleML && \
-    pip install git+https://github.com/DoubleML/doubleml-for-py.git@main#egg=DoubleML[rdd]
-
-# Create a directory for R user libraries and set the default R user library path
-RUN mkdir -p /usr/local/lib/R/site-library
-ENV R_LIBS_USER=/usr/local/lib/R/site-library
+ENV PATH="/home/$USERNAME/.venv/bin:$PATH"
 
 # Install R packages and Jupyter kernel
 RUN Rscript -e "install.packages('remotes')" && \
     Rscript -e "remotes::install_github('DoubleML/doubleml-for-r', dependencies = TRUE)" && \
     Rscript -e "install.packages(c('ggplot2', 'IRkernel', 'xgboost', 'hdm', 'reshape2', 'gridExtra', 'igraph', 'mlr3filters', 'mlr3measures', 'did', dependencies=TRUE))" && \
     Rscript -e "IRkernel::installspec()"
-
-# ownership of all relevant directories for the non-root user
-RUN chown -R vscode:vscode /workspace /workspace/.venv /usr/local/lib/R/site-library
 
 # Set the working directory
 WORKDIR /workspace
