@@ -27,7 +27,11 @@
 				"python.linting.enabled": true, // Enable linting
 				"python.linting.flake8Enabled": false, // Disable Flake8 for linting
 				"python.linting.ruffEnabled": true, // Enable Ruff for linting
-				"python.formatting.provider": "black", // Use Black for formatting
+				"python.formatting.provider": "none",
+				"[python]": {
+					"editor.defaultFormatter": "ms-python.black-formatter",
+					"editor.formatOnSave": true
+				},
 				"python.testing.pytestEnabled": true, // Enable Pytest for testing
 				"python.testing.pytestArgs": [],
 				"python.testing.unittestEnabled": false,
