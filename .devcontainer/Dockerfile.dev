@@ -45,18 +45,16 @@ RUN wget -qO- https://cloud.r-project.org/bin/linux/ubuntu/marutter_pubkey.asc |
 
 # Install Python packages
 COPY requirements.txt /tmp/requirements.txt
-RUN python -m venv /opt/venv && \
-    /opt/venv/bin/python -m pip install --upgrade pip && \
-    /opt/venv/bin/pip install -r /tmp/requirements.txt
+RUN python -m venv /workspace/.venv && \
+    /workspace/.venv/bin/python -m pip install --upgrade pip && \
+    /workspace/.venv/bin/pip install -r /tmp/requirements.txt
 
 # Set the virtual environment as the default Python environment
-ENV PATH="/opt/venv/bin:$PATH"
+ENV PATH="/workspace/.venv/bin:$PATH"
 
-# Check out the repo containing the Python package DoubleML (dev)
-RUN git clone https://github.com/DoubleML/doubleml-for-py.git /doubleml-for-py
-WORKDIR /doubleml-for-py
-RUN /opt/venv/bin/pip uninstall -y DoubleML && \
-    /opt/venv/bin/pip install -e .[rdd]
+# Install from main branch of DoubleML for Python
+RUN pip uninstall -y DoubleML && \
+    pip install git+https://github.com/DoubleML/doubleml-for-py.git@main#egg=DoubleML[rdd]
 
 # Create a directory for R user libraries and set the default R user library path
 RUN mkdir -p /usr/local/lib/R/site-library
@@ -70,4 +68,3 @@ RUN Rscript -e "install.packages('remotes')" && \
 
 # Set the working directory
 WORKDIR /workspace
-
