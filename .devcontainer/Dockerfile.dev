@@ -3,6 +3,11 @@ FROM ubuntu:24.04
 # Set non-interactive mode to avoid prompts
 ENV DEBIAN_FRONTEND=noninteractive
 
+# Add a non-root user and create a workspace directory
+RUN useradd -m -s /bin/bash -N vscode && \
+    mkdir -p /workspace && \
+    chown -R vscode:vscode /workspace
+
 # Update package list and install dependencies
 RUN apt-get update && \
     apt-get install -y \
@@ -65,6 +70,9 @@ RUN Rscript -e "install.packages('remotes')" && \
     Rscript -e "remotes::install_github('DoubleML/doubleml-for-r', dependencies = TRUE)" && \
     Rscript -e "install.packages(c('ggplot2', 'IRkernel', 'xgboost', 'hdm', 'reshape2', 'gridExtra', 'igraph', 'mlr3filters', 'mlr3measures', 'did', dependencies=TRUE))" && \
     Rscript -e "IRkernel::installspec()"
+
+# ownership of all relevant directories for the non-root user
+RUN chown -R vscode:vscode /workspace /workspace/.venv /usr/local/lib/R/site-library
 
 # Set the working directory
 WORKDIR /workspace

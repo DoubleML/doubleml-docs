@@ -19,7 +19,7 @@
 				"charliermarsh.ruff" // Ruff extension
 			],
 			"settings": {
-				"python.defaultInterpreterPath": "${workspaceFolder}/.venv/bin/python", // Poetry virtual environment path
+				"python.defaultInterpreterPath": "${workspaceFolder}/.venv/bin/python",
 				"editor.formatOnSave": true, // Auto-format code when saving
 				"editor.codeActionsOnSave": {
 					"source.organizeImports": true // Auto-organize imports on save
@@ -46,5 +46,6 @@
 	"mounts": [
 		"source=${localWorkspaceFolder},target=/workspace,type=bind" // Mount your local workspace into the container
 	],
-	"remoteUser": "root" // Set the user inside the container
+	"remoteUser": "vscode", // Set the user inside the container
+	"postCreateCommand": "id && ls -la /workspace && echo 'Container is ready!'"
 }
