@@ -48,10 +48,12 @@ ARG USERNAME=vscode
 ARG USER_UID=1000
 ARG USER_GID=$USER_UID
 
-RUN if ! getent group $USER_GID >/dev/null; then groupadd --gid $USER_GID $USERNAME; fi && \
-    if ! id -u $USERNAME >/dev/null 2>&1; then useradd --uid $USER_UID --gid $USER_GID -m -s /bin/bash $USERNAME; fi && \
+RUN if ! id -u $USERNAME >/dev/null 2>&1; then \
+    if ! getent group $USER_GID >/dev/null; then groupadd --gid $USER_GID $USERNAME; fi && \
+    useradd --uid $USER_UID --gid $USER_GID -m -s /bin/bash $USERNAME; \
+    fi && \
     mkdir -p /workspace && \
-    chown $USER_UID:$USER_GID /workspace
+    chown -R $USER_UID:$USER_GID /workspace
 
 # Create a directory for R user libraries
 RUN mkdir -p /usr/local/lib/R/site-library && \
