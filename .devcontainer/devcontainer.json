@@ -19,7 +19,7 @@
 				"charliermarsh.ruff" // Ruff extension
 			],
 			"settings": {
-				"python.defaultInterpreterPath": "/home/vscode/.venv/bin/python",
+				"python.defaultInterpreterPath": "/home/ubuntu/.venv/bin/python",
 				"editor.formatOnSave": true, // Auto-format code when saving
 				"editor.codeActionsOnSave": {
 					"source.organizeImports": true // Auto-organize imports on save
