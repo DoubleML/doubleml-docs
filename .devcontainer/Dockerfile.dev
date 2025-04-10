@@ -43,17 +43,11 @@ RUN wget -qO- https://cloud.r-project.org/bin/linux/ubuntu/marutter_pubkey.asc |
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
 
-# Create non-root user with explicit UID/GID matching common host values
-ARG USERNAME=vscode
-ARG USER_UID=1000
-ARG USER_GID=$USER_UID
+# Reuse existing 'ubuntu' user (UID 1000)
+ARG USERNAME=ubuntu
 
-RUN if ! id -u $USERNAME >/dev/null 2>&1; then \
-    if ! getent group $USER_GID >/dev/null; then groupadd --gid $USER_GID $USERNAME; fi && \
-    useradd --uid $USER_UID --gid $USER_GID -m -s /bin/bash $USERNAME; \
-    fi && \
-    mkdir -p /workspace && \
-    chown -R $USER_UID:$USER_GID /workspace
+RUN mkdir -p /workspace && \
+    chown -R $USERNAME:$USERNAME /workspace
 
 # Create a directory for R user libraries
 RUN mkdir -p /usr/local/lib/R/site-library && \

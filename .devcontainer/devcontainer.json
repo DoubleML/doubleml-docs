@@ -46,6 +46,6 @@
 	"mounts": [
 		"source=${localWorkspaceFolder},target=/workspace,type=bind" // Mount your local workspace into the container
 	],
-	"remoteUser": "vscode", // Set the user inside the container
+	"remoteUser": "ubuntu",
 	"postCreateCommand": "id && ls -la /workspace && echo 'Container is ready!'"
 }
