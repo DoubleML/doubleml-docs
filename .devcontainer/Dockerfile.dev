@@ -4,7 +4,7 @@ FROM ubuntu:24.04
 ENV DEBIAN_FRONTEND=noninteractive
 
 # Add a non-root user and create a workspace directory
-RUN useradd -m -s /bin/bash -N vscode && \
+RUN useradd -m -s /bin/bash vscode && \
     mkdir -p /workspace && \
     chown -R vscode:vscode /workspace
 
