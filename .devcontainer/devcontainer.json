@@ -12,9 +12,9 @@
 				"njpwerner.autodocstring", // Optional: Auto-generate docstrings
 				"ms-python.black-formatter", // Optional: Black formatter
 				"streetsidesoftware.code-spell-checker", // Optional: Spell checker
-				"github.copilot" // Add GitHub Copilot extension
+				"github.copilot", // Add GitHub Copilot extension
 				"GitHub.github-vscode-theme", // GitHub theme
-				"github.vscode-github-actions" // GitHub Actions extension
+				"github.vscode-github-actions", // GitHub Actions extension
 				"ms-toolsai.jupyter", // Jupyter extension
 				"charliermarsh.ruff" // Ruff extension
 			],
@@ -28,7 +28,7 @@
 				"python.linting.flake8Enabled": false, // Disable Flake8 for linting
 				"python.linting.ruffEnabled": true, // Enable Ruff for linting
 				"python.formatting.provider": "black", // Use Black for formatting
-				"python.testing.pytestEnabled": false, // Enable Pytest for testing
+				"python.testing.pytestEnabled": true, // Enable Pytest for testing
 				"python.testing.pytestArgs": [],
 				"python.testing.unittestEnabled": false,
 				"files.exclude": {
