@@ -162,15 +162,8 @@ Interactive regression models (IRM)
 Difference-in-Differences Models
 ********************************
 
-Panel Data
-==========
+.. include:: scores/did/did_scores.inc
 
-.. include:: ./scores/did_score.rst
-
-Repeated Cross-Sectional Data
-=============================
-
-.. include:: ./scores/didcs_score.rst
 
 Sample Selection Models
 ************************
