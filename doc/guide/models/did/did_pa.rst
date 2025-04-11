@@ -1,3 +1,40 @@
+For the estimation of the target parameters :math:`ATT(\mathrm{g},t)` the following nuisance functions are required:
+
+.. math::
+    \begin{align}
+    g_{0, \mathrm{g}, t_{pre}, t_{eval}}(X_i) &:= \mathbb{E}[Y_{i,t} - Y_{i,\mathrm{g} - \delta - 1}|X_i, C_{i,t}^{(\cdot)} = 1], \\
+    m_{0, \mathrm{g}, t + \delta}(X_i) &:= P(G_i^{\mathrm{g}}=1|X_i, G_i^{\mathrm{g}} + C_{i,t + \delta}^{(\cdot)}=1).
+    \end{align}
+
+where :math:`g_{0, \mathrm{g}, t, \delta}(\cdot)` denotes the population outcome regression function and :math:`m_{0, \mathrm{g}, t + \delta}(\cdot)` the generalized propensity score.
+Remark that the nuisance functions depend on the control group used for the estimation of the target parameter.
+By slight abuse of notation we use the same notation for both control groups :math:`C_{i,t}^{(nev)}` and :math:`C_{i,t}^{(nyt)}`.
+
+Under these assumptions the target parameter :math:`ATT(\mathrm{g},t)` can be estimated by choosing a suitable combination of :math:`(\mathrm{g}, t, \delta)`. 
+
+.. note::
+    The package does not support a direct choice of the parameter :math:`\delta` but require the user to specify the tuple :math:`(\mathrm{g}, t_{pre}, t_{eval})` with the following interpretation
+
+    - :math:`\mathrm{g}` is the first post-treatment period of interest, i.e. the treatment group.
+    - :math:`t_{pre}` is the pre-treatment period, i.e. the time period from which the conditional parallel trends are assumed.
+    - :math:`t_{eval}` is the time period of interest or evaluation period, i.e. the time period where the treatment effect is evaluated.
+
+    The tuple :math:`(\mathrm{g}, t_{pre}, t_{eval})` is used to implicitly define the corresponding tuple :math:`(g, t, \delta)` with :math:`t=t_{eval}` and :math:`\delta=t_{eval}-t_{pre}-1`.
+
+For a given tuple :math:`(\mathrm{g}, t_{pre}, t_{eval})` the target parameter :math:`ATT(\mathrm{g},t)` is estimated by solving the empirical version of the the following linear moment condition:
+
+.. math::
+    ATT(\mathrm{g}, t_{pre}, t_{eval}):= -\frac{\mathbb{E}[\psi_b(W,\eta_0)]}{\mathbb{E}[\psi_a(W,\eta_0)]}
+
+with nuisance elements :math:`\eta_0=(g_{0, \mathrm{g}, t_{eval}, t_{eval}-t_{pre}-1}, m_{0, \mathrm{g}, 2t_{eval}-t_{pre}-1})` and score function :math:`\psi(W,\theta, \eta)` being defined in section :ref:`did-pa-score`.
+Under the identifying assumptions above 
+
+.. math::
+    ATT(\mathrm{g}, t_{pre}, t_{eval}) = ATT(\mathrm{g},t).
+
+``DoubleMLDIDMulti`` implements the estimation of :math:`ATT(\mathrm{g}, t_{pre}, t_{eval})` for multiple time periods.
+Setting ``gt_combinations='standard'`` will estimate the target parameter for all combinations of :math:`(\mathrm{g}, t_{pre}, t_{eval})` with :math:`\mathrm{g}\in\{2,\dots,\mathcal{T}\}` and :math:`t_{pre}\in\{1,\dots,\mathrm{g}-1\}` and :math:`t_{eval}\in\{\mathrm{g},\dots,\mathcal{T}\}`.
+Estimation is conducted via its ``fit()`` method:
 
 .. tab-set::
 
@@ -31,3 +68,7 @@
                 control_group="never_treated",
             )
             print(dml_did_obj.fit())
+
+
+.. note::
+    A more detailed example is available in the :ref:`Example Gallery <examplegallery>`.

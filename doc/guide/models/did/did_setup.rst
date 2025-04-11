@@ -30,8 +30,8 @@ Let
 
 .. math::
     \begin{align}
-    C_{i}^{nev} &:= 1\{G_i=\infty\} \quad \text{(never treated)}, \\
-    C_{i,t}^{nyt} &:= 1\{G_i > t\} \quad \text{(not yet treated)}.
+    C_{i,t}^{(nev)} \equiv C_{i}^{(nev)} &:= 1\{G_i=\infty\} \quad \text{(never treated)}, \\
+    C_{i,t}^{(nyt)} &:= 1\{G_i > t\} \quad \text{(not yet treated)}.
     \end{align}
 
 The corresponding identifying assumptions are:
@@ -52,14 +52,14 @@ The corresponding identifying assumptions are:
     For each :math:`\mathrm{g}\in\mathcal{G}` and :math:`t\in\{2,\dots,\mathcal{T}\}` such that :math:`t\ge \mathrm{g}-\delta`:
 
     a. **Never Treated:**
-        :math:`\mathbb{E}[Y_{i,t}(0) - Y_{i,t-1}(0)|X_i, G_i^{\mathrm{g}}=1] = \mathbb{E}[Y_{i,t}(0) - Y_{i,t-1}(0)|X_i,C_{i}^{nev}=1] \quad a.s.`
+        :math:`\mathbb{E}[Y_{i,t}(0) - Y_{i,t-1}(0)|X_i, G_i^{\mathrm{g}}=1] = \mathbb{E}[Y_{i,t}(0) - Y_{i,t-1}(0)|X_i,C_{i}^{(nev)}=1] \quad a.s.`
 
     b. **Not Yet Treated:**
-        :math:`\mathbb{E}[Y_{i,t}(0) - Y_{i,t-1}(0)|X_i, G_i^{\mathrm{g}}=1] = \mathbb{E}[Y_{i,t}(0) - Y_{i,t-1}(0)|X_i,C_{i,t+\delta}^{nyt}=1] \quad a.s.`
+        :math:`\mathbb{E}[Y_{i,t}(0) - Y_{i,t-1}(0)|X_i, G_i^{\mathrm{g}}=1] = \mathbb{E}[Y_{i,t}(0) - Y_{i,t-1}(0)|X_i,C_{i,t+\delta}^{(nyt)}=1] \quad a.s.`
 
 5. **Overlap:** 
     For each time period :math:`t=2,\dots,\mathcal{T}` and :math:`\mathrm{g}\in\mathcal{G}` there exists a :math:`\epsilon > 0` such that
-    :math:`P(G_i^{\mathrm{g}}=1) > \epsilon` and :math:`P(G_i^{\mathrm{g}}=1|X_i, G_i^{\mathrm{g}} + C_{i,t}^{nyt}=1) < 1-\epsilon\quad a.s.`
+    :math:`P(G_i^{\mathrm{g}}=1) > \epsilon` and :math:`P(G_i^{\mathrm{g}}=1|X_i, G_i^{\mathrm{g}} + C_{i,t}^{(nyt)}=1) < 1-\epsilon\quad a.s.`
 
 .. note:: 
     For a detailed discussion of the assumptions see `Callaway and Sant'Anna (2021) <https://doi.org/10.1016/j.jeconom.2020.12.001>`_.
