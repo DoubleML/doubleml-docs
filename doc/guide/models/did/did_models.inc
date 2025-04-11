@@ -29,7 +29,11 @@ Effect Aggregation
 Two treatment periods
 *********************
 
+.. warning::
+    This documentation refers to the deprecated implementation for two time periods. 
+    This functionality will be removed in a future version.
+
 .. note::
-    This documentation refers the deprecated implementation for two time periods and is deprecated. We recommend using the implementation :ref:`did-pa-model` and :ref:`did-cs-model`.
+    We recommend using the implementation :ref:`did-pa-model` and :ref:`did-cs-model`.
 
 .. include:: /guide/models/did/did_binary.rst
