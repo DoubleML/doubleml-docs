@@ -165,22 +165,13 @@ Difference-in-Differences Models
 .. include:: scores/did/did_scores.inc
 
 
+.. _ssm-scores:
+
 Sample Selection Models
 ************************
 
-.. _ssm-mar-score:
+.. include:: scores/ssm/ssm_scores.inc
 
-Missingness at Random
-======================
-
-.. include:: ./scores/mar_score.rst
-
-.. _ssm-nr-score:
-
-Nonignorable Nonresponse
-=========================
-
-.. include:: ./scores/nr_score.rst
 
 Specifying alternative score functions via callables
 ++++++++++++++++++++++++++++++++++++++++++++++++++++
