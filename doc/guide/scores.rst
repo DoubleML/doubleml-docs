@@ -148,41 +148,16 @@ Partially linear models (PLM)
 
 .. include:: scores/plm/plm_scores.inc
 
-.. _plr-score:
 
+.. _irm-scores:
 
 Interactive regression models (IRM)
 ***********************************
 
-Binary Interactive Regression Model (IRM)
-==========================================
+.. include:: scores/irm/irm_scores.inc
 
-.. include:: ./scores/irm_score.rst
 
-Average Potential Outcomes (APOs)
-=================================
-
-.. include:: ./scores/apo_score.rst
- 
-Interactive IV model (IIVM)
-===========================
-
-.. include:: ./scores/iivm_score.rst
-
-Potential quantiles (PQs)
-=========================
-
-.. include:: ./scores/pq_score.rst
-
-Local potential quantiles (LPQs)
-================================
-
-.. include:: ./scores/lpq_score.rst
-
-Conditional value at risk (CVaR)
-================================
-
-.. include:: ./scores/cvar_score.rst
+.. _did-scores:
 
 Difference-in-Differences Models
 ********************************

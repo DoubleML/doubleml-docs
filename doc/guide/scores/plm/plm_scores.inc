@@ -7,6 +7,9 @@ Partially linear regression model (PLR)
 
 .. include:: /guide/scores/plm/plr_score.rst
 
+
+.. _pliv-score:
+
 Partially linear IV regression model (PLIV)
 ===========================================
 
