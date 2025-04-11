@@ -1,7 +1,7 @@
 **Difference-in-Differences Models (DID)** implemented in the package focus on the the binary treatment case with staggered adoption.
 
 .. note::
-    The notation and identifying assumptions are based on `Callaway and Sant'Anna (2021) <https://doi.org/10.1016/j.jeconom.2020.12.001>`_, but adjusted to better fit into the general documentation conventions.
+    The notation and identifying assumptions are based on `Callaway and Sant'Anna (2021) <https://doi.org/10.1016/j.jeconom.2020.12.001>`_, but adjusted to better fit into the general package documentation conventions, sometimes slightly abusing notation.
     The underlying score functions are based on `Sant'Anna and Zhao (2020) <https://doi.org/10.1016/j.jeconom.2020.06.003>`_, `Zimmert (2018) <https://arxiv.org/abs/1809.01643>`_ and `Chang (2020) <https://doi.org/10.1093/ectj/utaa001>`_.
     For a more detailed introduction and recent developments of the difference-in-differences literature see e.g. `Roth et al. (2022) <https://arxiv.org/abs/2201.01194>`_.
 
@@ -48,7 +48,7 @@ The corresponding identifying assumptions are:
     :math:`\mathbb{E}[Y_{i,t}(\mathrm{g})|X_i, G_i^{\mathrm{g}}=1] = \mathbb{E}[Y_{i,t}(0)|X_i, G_i^{\mathrm{g}}=1]\quad a.s.` for all :math:`\mathrm{g}\in\mathcal{G}, t\in\{1,\dots,\mathcal{T}\}` such that :math:`t< \mathrm{g}-\delta`.
 
 4. **Conditional Parallel Trends:** 
-    Let :math:`\delta` be defined as in Assumption 3.
+    Let :math:`\delta` be defined as in Assumption 3.\\
     For each :math:`\mathrm{g}\in\mathcal{G}` and :math:`t\in\{2,\dots,\mathcal{T}\}` such that :math:`t\ge \mathrm{g}-\delta`:
 
     a. **Never Treated:**
