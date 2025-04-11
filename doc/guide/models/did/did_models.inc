@@ -14,8 +14,7 @@ Panel data
 Repeated cross-sections
 ***********************
 
-.. note::
-    Will be implemented soon.
+.. include:: /guide/models/did/did_cs.rst
 
 
 .. _did-aggregation:
