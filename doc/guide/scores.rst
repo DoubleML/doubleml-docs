@@ -141,20 +141,15 @@ In the attribute ``psi`` the values of the score function :math:`\psi(W_i; \tild
 Implemented Neyman orthogonal score functions
 +++++++++++++++++++++++++++++++++++++++++++++
 
+.. _plm-scores:
+
 Partially linear models (PLM)
 *****************************
 
+.. include:: scores/plm/plm_scores.inc
+
 .. _plr-score:
 
-Partially linear regression model (PLR)
-=======================================
-
-.. include:: ./scores/plr_score.rst
-
-Partially linear IV regression model (PLIV)
-===========================================
-
-.. include:: ./scores/pliv_score.rst
 
 Interactive regression models (IRM)
 ***********************************
