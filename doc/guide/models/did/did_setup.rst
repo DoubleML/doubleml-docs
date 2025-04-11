@@ -29,30 +29,40 @@ The corresponding control groups, defined by an indicator :math:`C`, can be typi
 Let
 
 .. math::
-    C_{i}^{nev}&:= 1\{G_i=\infty\} \quad \text{(never treated)}, \\
-
-    C_{i,t,\mathrm{g}}^{nyt}&:= 1\{G_i < \mathrm{g}\} \quad \text{(not yet treated)}.
-
+    \begin{align}
+    C_{i}^{nev} &:= 1\{G_i=\infty\} \quad \text{(never treated)}, \\
+    C_{i,t}^{nyt} &:= 1\{G_i > t\} \quad \text{(not yet treated)}.
+    \end{align}
 
 The corresponding identifying assumptions are:
 
 1. **Irreversibility of Treatment:** 
-   :math:`D_{i,1} = 0 \quad a.s.`
-   For all :math:`t=2,\dots,\mathcal{T}`, :math:`D_{i,t-1} = 1` implies :math:`D_{i,t} = 1 \quad a.s.`
+    :math:`D_{i,1} = 0 \quad a.s.`
+    For all :math:`t=2,\dots,\mathcal{T}`, :math:`D_{i,t-1} = 1` implies :math:`D_{i,t} = 1 \quad a.s.`
 
 2. **Panel Data (Random Sampling):** 
-   :math:`(Y_{i,1},\dots, Y_{i,\mathcal{T}}, X_i, D_{i,1}, \dots, D_{i,\mathcal{T}})_{i=1}^n` is independent and identically distributed.
+    :math:`(Y_{i,1},\dots, Y_{i,\mathcal{T}}, X_i, D_{i,1}, \dots, D_{i,\mathcal{T}})_{i=1}^n` is independent and identically distributed.
 
 3. **Limited Treatment Anticipation:**
     There is a known :math:`\delta\ge 0` such that
     :math:`\mathbb{E}[Y_{i,t}(\mathrm{g})|X_i, G_i^{\mathrm{g}}=1] = \mathbb{E}[Y_{i,t}(0)|X_i, G_i^{\mathrm{g}}=1]\quad a.s.` for all :math:`\mathrm{g}\in\mathcal{G}, t\in\{1,\dots,\mathcal{T}\}` such that :math:`t< \mathrm{g}-\delta`.
 
-4. **(Cond.) Parallel Trends:** 
-   :math:`\mathbb{E}[Y_{i1}(0) - Y_{i0}(0)|X_i, D_i=1] = \mathbb{E}[Y_{i1}(0) - Y_{i0}(0)|X_i, D_i=0]\quad a.s.`
+4. **Conditional Parallel Trends:** 
+    Let :math:`\delta` be defined as in Assumption 3.
+    For each :math:`\mathrm{g}\in\mathcal{G}` and :math:`t\in\{2,\dots,\mathcal{T}\}` such that :math:`t\ge \mathrm{g}-\delta`:
 
-5. **Overlap:** ´
-   :math:`\exists\epsilon > 0`: :math:`P(D_i=1) > \epsilon` and :math:`P(D_i=1|X_i) \le 1-\epsilon\quad a.s.`
+    a. **Never Treated:**
+        :math:`\mathbb{E}[Y_{i,t}(0) - Y_{i,t-1}(0)|X_i, G_i^{\mathrm{g}}=1] = \mathbb{E}[Y_{i,t}(0) - Y_{i,t-1}(0)|X_i,C_{i}^{nev}=1] \quad a.s.`
+
+    b. **Not Yet Treated:**
+        :math:`\mathbb{E}[Y_{i,t}(0) - Y_{i,t-1}(0)|X_i, G_i^{\mathrm{g}}=1] = \mathbb{E}[Y_{i,t}(0) - Y_{i,t-1}(0)|X_i,C_{i,t+\delta}^{nyt}=1] \quad a.s.`
+
+5. **Overlap:** 
+    For each time period :math:`t=2,\dots,\mathcal{T}` and :math:`\mathrm{g}\in\mathcal{G}` there exists a :math:`\epsilon > 0` such that
+    :math:`P(G_i^{\mathrm{g}}=1) > \epsilon` and :math:`P(G_i^{\mathrm{g}}=1|X_i, G_i^{\mathrm{g}} + C_{i,t}^{nyt}=1) < 1-\epsilon\quad a.s.`
 
 .. note:: 
     For a detailed discussion of the assumptions see `Callaway and Sant'Anna (2021) <https://doi.org/10.1016/j.jeconom.2020.12.001>`_.
-    Currently, the package automatically imposes "no-anticipation", e.g. :math:`\delta=0`.
+    Currently, the package automatically imposes "no-anticipation", e.g. :math:`\delta=0`, but can manually be adjusted via the considered combinations.
+
+Under the assumptions above (either Assumption 4.a or 4.b), the target parameter :math:`ATT(\mathrm{g},t)` is identified see Theorem 1. `Callaway and Sant'Anna (2021) <https://doi.org/10.1016/j.jeconom.2020.12.001>`_.
