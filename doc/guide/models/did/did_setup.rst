@@ -63,6 +63,5 @@ The corresponding identifying assumptions are:
 
 .. note:: 
     For a detailed discussion of the assumptions see `Callaway and Sant'Anna (2021) <https://doi.org/10.1016/j.jeconom.2020.12.001>`_.
-    Currently, the package automatically imposes "no-anticipation", e.g. :math:`\delta=0`, but can manually be adjusted via the considered combinations.
 
 Under the assumptions above (either Assumption 4.a or 4.b), the target parameter :math:`ATT(\mathrm{g},t)` is identified see Theorem 1. `Callaway and Sant'Anna (2021) <https://doi.org/10.1016/j.jeconom.2020.12.001>`_.
