@@ -2,25 +2,27 @@ For the estimation of the target parameters :math:`ATT(\mathrm{g},t)` the follow
 
 .. math::
     \begin{align}
-    g_{0, \mathrm{g}, t_{pre}, t_{eval}}(X_i) &:= \mathbb{E}[Y_{i,t} - Y_{i,\mathrm{g} - \delta - 1}|X_i, C_{i,t}^{(\cdot)} = 1], \\
-    m_{0, \mathrm{g}, t + \delta}(X_i) &:= P(G_i^{\mathrm{g}}=1|X_i, G_i^{\mathrm{g}} + C_{i,t + \delta}^{(\cdot)}=1).
+    g_{0, \mathrm{g}, t_{pre}, t_{eval}, \delta}(X_i) &:= \mathbb{E}[Y_{i,t_{eval}} - Y_{i,t_{pre}}|X_i, C_{i,t_{eval} + \delta}^{(\cdot)} = 1], \\
+    m_{0, \mathrm{g}, t_{eval} + \delta}(X_i) &:= P(G_i^{\mathrm{g}}=1|X_i, G_i^{\mathrm{g}} + C_{i,t_{eval} + \delta}^{(\cdot)}=1).
     \end{align}
 
-where :math:`g_{0, \mathrm{g}, t, \delta}(\cdot)` denotes the population outcome regression function and :math:`m_{0, \mathrm{g}, t + \delta}(\cdot)` the generalized propensity score.
-Remark that the nuisance functions depend on the control group used for the estimation of the target parameter.
-By slight abuse of notation we use the same notation for both control groups :math:`C_{i,t}^{(nev)}` and :math:`C_{i,t}^{(nyt)}`.
-
-Under these assumptions the target parameter :math:`ATT(\mathrm{g},t)` can be estimated by choosing a suitable combination of :math:`(\mathrm{g}, t, \delta)`. 
-
-.. note::
-    The package does not support a direct choice of the parameter :math:`\delta` but require the user to specify the tuple :math:`(\mathrm{g}, t_{pre}, t_{eval})` with the following interpretation
-
+where :math:`g_{0, \mathrm{g}, t_{pre}, t_{eval}}(\cdot)` denotes the population outcome regression function and :math:`m_{0, \mathrm{g}, t_{eval} + \delta}(\cdot)` the generalized propensity score.
+The interpretation of the parameters is as follows:
     - :math:`\mathrm{g}` is the first post-treatment period of interest, i.e. the treatment group.
     - :math:`t_{pre}` is the pre-treatment period, i.e. the time period from which the conditional parallel trends are assumed.
     - :math:`t_{eval}` is the time period of interest or evaluation period, i.e. the time period where the treatment effect is evaluated.
+    - :math:`\delta` is number of anticipation periods, i.e. the number of time periods for which units are assumed to anticipate the treatment.
 
+.. note::
+    Remark that the nuisance functions depend on the control group used for the estimation of the target parameter.
+    By slight abuse of notation we use the same notation for both control groups :math:`C_{i,t}^{(nev)}` and :math:`C_{i,t}^{(nyt)}`. More specifically, the
+    control group only depends on :math:`\delta` for *not yet treated* units.
+
+Under these assumptions the target parameter :math:`ATT(\mathrm{g},t_{eval})` can be estimated by choosing a suitable combination
+of :math:`(\mathrm{g}, t_{pre}, t_{eval}, \delta)` if :math:`t_{eval} - t_{pre} \ge 1 + \delta`, i.e. the parallel trends are assumed to hold at least one period more than the anticipation period.
+
+.. note::
     The tuple :math:`(\mathrm{g}, t_{pre}, t_{eval})` is used to implicitly define the corresponding tuple :math:`(g, t, \delta)` with :math:`t=t_{eval}` and :math:`\delta=t_{eval}-t_{pre}-1`.
-
 For a given tuple :math:`(\mathrm{g}, t_{pre}, t_{eval})` the target parameter :math:`ATT(\mathrm{g},t)` is estimated by solving the empirical version of the the following linear moment condition:
 
 .. math::
