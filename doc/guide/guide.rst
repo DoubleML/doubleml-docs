@@ -10,7 +10,7 @@ User Guide
    :numbered:
 
    The basics of double/debiased machine learning <basics>
-   The data-backend DoubleMLData <data_backend>
+   Data Backend <data_backend>
    Models <models>
    Heterogeneous Treatment Effects <heterogeneity>
    Score functions <scores>
