@@ -22,7 +22,7 @@ Two treatment periods
 
 .. warning::
     This documentation refers to the deprecated implementation for two time periods. 
-    This functionality will be removed in a future version. The generalized version are :ref:`did-pa-score` and :ref:`did-pa-score`.
+    This functionality will be removed in a future version. The generalized version are :ref:`did-pa-score` and :ref:`did-cs-score`.
 
 
 Panel Data
