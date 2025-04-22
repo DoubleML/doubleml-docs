@@ -88,7 +88,7 @@ Estimation is conducted via its ``fit()`` method:
         g(1,X) &\approx \mathbb{E}[Y_{i,t_{eval}} - Y_{i,t_{pre}}|X_i, G_i^{\mathrm{g}} = 1].
         \end{align}
 
-    Further, :math:`g(1,X)` is only required for :ref:`Sensitivity Analysis <sensitivity_did>` and is not used for the estimation of the target parameter.
+    Further, :math:`g(1,X)` is only required for :ref:`Sensitivity Analysis <sensitivity-did-pa>` and is not used for the estimation of the target parameter.
 
 .. note::
     A more detailed example is available in the :ref:`Example Gallery <examplegallery>`.
