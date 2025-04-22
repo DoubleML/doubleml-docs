@@ -58,16 +58,9 @@ Interactive regression models (IRM)
 .. include:: sensitivity/irm/irm_sensitivity.inc
 
 
-.. _sensitivity_did:
+.. _did-sensitivity:
 
-Difference-in-Differences for Panel Data
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Difference-in-Differences Models
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. include:: ./sensitivity/did_sensitivity.rst
-
-.. _sensitivity_did_cs:
-
-Difference-in-Differences for repeated cross-sections
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-.. include:: ./sensitivity/did_cs_sensitivity.rst
+.. include:: sensitivity/did/did_sensitivity.inc
