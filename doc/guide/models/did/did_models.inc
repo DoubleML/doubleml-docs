@@ -22,6 +22,8 @@ Repeated cross-sections
 Effect Aggregation
 ******************
 
+.. include:: /guide/models/did/did_aggregation.rst
+
 
 .. _did-binary-model:
 
