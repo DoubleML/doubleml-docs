@@ -25,4 +25,4 @@ For ``score='experimental'`` implies the score function implies the following re
 The ``nuisance_elements`` are then computed with plug-in versions according to the general :ref:`sensitivity_implementation`.
 
 .. note::
-    Remark that the elements are only non-zero for units in the corresponding treatment group :math:`\mathrm{g}` and control group :math:`C_{t_\text{eval} + \delta}^{(\cdot)}`.
+    Remark that the elements are only non-zero for units in the corresponding treatment group :math:`\mathrm{g}` and control group.
