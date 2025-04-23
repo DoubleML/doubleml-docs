@@ -91,4 +91,4 @@ Estimation is conducted via its ``fit()`` method:
     Further, :math:`g(1,X)` is only required for :ref:`Sensitivity Analysis <sensitivity-did-pa>` and is not used for the estimation of the target parameter.
 
 .. note::
-    A more detailed example is available in the :ref:`Example Gallery <examplegallery>`.
+    A more detailed example is available in the :ref:`Example Gallery <did_examplegallery>`.

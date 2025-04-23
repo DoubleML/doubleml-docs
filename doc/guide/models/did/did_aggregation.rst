@@ -53,5 +53,5 @@ The method ``aggregate()`` requires the ``aggregation`` argument to be set to on
 * ``dictionary``: a dictionary with values containing the aggregation weights (as ``numpy.ma.MaskedArray``).
 
 .. note::
-    A more detailed example on effect aggregation is available in the :ref:`example gallery <examplegallery>`.
+    A more detailed example on effect aggregation is available in the :ref:`example gallery <did_examplegallery>`.
     For a detailed discussion on different aggregation schemes, we refer to of `Callaway and Sant'Anna (2021) <https://doi.org/10.1016/j.jeconom.2020.12.001>`_.
