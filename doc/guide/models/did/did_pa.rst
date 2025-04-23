@@ -71,8 +71,8 @@ Estimation is conducted via its ``fit()`` method:
             )
             dml_did_obj = dml.did.DoubleMLDIDMulti(
                 obj_dml_data=dml_data,
-                ml_g=ml_g,
-                ml_m=ml_m,
+                ml_g=RandomForestRegressor(min_samples_split=10),
+                ml_m=RandomForestClassifier(min_samples_split=10),
                 gt_combinations="standard",
                 control_group="never_treated",
             )
