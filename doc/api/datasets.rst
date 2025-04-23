@@ -34,18 +34,6 @@ Dataset Generators
    datasets.make_confounded_irm_data
    datasets.make_heterogeneous_data
    datasets.make_irm_data_discrete_treatments
+   did.datasets.make_did_SZ2020
+   did.datasets.make_did_CS2021
    rdd.datasets.make_simple_rdd_data
-
-
-.. _api_datasets_did:
-
-Difference-in-Differences (DiD) Datasets
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-.. currentmodule:: doubleml.did
-
-.. autosummary::
-   :toctree: generated/
-
-      datasets.make_did_SZ2020
-      datasets.make_did_CS2021
