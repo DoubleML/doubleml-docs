@@ -21,3 +21,6 @@ seaborn
 xgboost
 lightgbm
 flaml
+
+# notebooks
+ipykernel
