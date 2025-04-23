@@ -11,7 +11,6 @@ API Reference
 
    DoubleML Data Class <data_class>
    DoubleML Models <dml_models>
-   Other Models <other_models>
    Datasets <datasets>
    Utility Classes and Functions <utility>
    Score Mixin Classes for DoubleML Models <mixins>
