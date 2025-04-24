@@ -499,9 +499,18 @@ Release Notes
 
   .. tab-item:: R
 
-    .. dropdown:: DoubleML 1.0.1
+    .. dropdown:: DoubleML 1.0.2
       :class-title: sd-bg-primary sd-font-weight-bold
       :open:
+
+      - Add sample selection models, thanks to new contributor Petra Jasenakova `@petronelaj <https://github.com/petronelaj>`_
+        `R #213 <https://github.com/DoubleML/doubleml-for-r/pull/213>`_
+      - Maintenance including updates to GitHub workflows
+        `R #205 <https://github.com/DoubleML/doubleml-for-r/pull/205>`_
+        `R #220 <https://github.com/DoubleML/doubleml-for-r/pull/220>`_
+
+    .. dropdown:: DoubleML 1.0.1
+      :class-title: sd-bg-primary sd-font-weight-bold
 
       - Maintenance (upcoming breaking changes from ``paradox`` package), thanks to new contributor Martin Binder `@mb706 <https://github.com/mb706>`_
         `R #195 <https://github.com/DoubleML/doubleml-for-r/pull/195>`_
@@ -509,7 +518,6 @@ Release Notes
 
     .. dropdown:: DoubleML 1.0.0
       :class-title: sd-bg-primary sd-font-weight-bold
-      :open:
 
       - Update citation info to publication in Journal of Statistical Software, rename helper function and fix links and GH actions
         `R #191 <https://github.com/DoubleML/doubleml-for-r/pull/191>`_
