@@ -81,7 +81,7 @@ with unobservables affecting :math:`Y_i` conditional on :math:`D_i` and :math:`X
 a (unknown) threshold model:
 
 - **Threshold:** :math:`S_i = 1\{V_i \le \xi(D,X,Z)\}` where :math:`\xi` is a general function and :math:`V_i` is a scalar with strictly monotonic cumulative distribution function conditional on :math:`X_i`.
-- **Cond. Independence:** :math:`Y_i \perp (Z_i, D_i)|X_i`.
+- **Cond. Independence:** :math:`V_i \perp (Z_i, D_i)|X_i`.
 
 Let :math:`\Pi_i := P(S_i=1|D_i, X_i, Z_i)` denote the selection probability.
 Additionally, the following assumptions are required:
