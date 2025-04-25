@@ -27,8 +27,6 @@ General Examples
     py_double_ml_multiway_cluster.ipynb
     py_double_ml_ssm.ipynb
     py_double_ml_sensitivity_booking.ipynb
-    py_double_ml_did.ipynb
-    py_double_ml_did_pretest.ipynb
     py_double_ml_basic_iv.ipynb
     py_double_ml_plm_irm_hetfx.ipynb
     py_double_ml_meets_flaml.ipynb
@@ -50,6 +48,20 @@ Effect Heterogeneity
     py_double_ml_pension_qte.ipynb
     py_double_ml_pq.ipynb
     py_double_ml_cvar.ipynb
+
+
+.. _did_examplegallery:
+
+Difference-in-Differences
++++++++++++++++++++++++++
+
+.. nbgallery::
+    :name: case-studies-py-did
+
+    did/py_panel_simple.ipynb
+    did/py_panel.ipynb
+    did/py_did.ipynb
+    did/py_did_pretest.ipynb
 
 R: Case studies
 ---------------

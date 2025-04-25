@@ -141,83 +141,37 @@ In the attribute ``psi`` the values of the score function :math:`\psi(W_i; \tild
 Implemented Neyman orthogonal score functions
 +++++++++++++++++++++++++++++++++++++++++++++
 
+.. _plm-scores:
+
 Partially linear models (PLM)
 *****************************
 
-.. _plr-score:
+.. include:: scores/plm/plm_scores.inc
 
-Partially linear regression model (PLR)
-=======================================
 
-.. include:: ./scores/plr_score.rst
-
-Partially linear IV regression model (PLIV)
-===========================================
-
-.. include:: ./scores/pliv_score.rst
+.. _irm-scores:
 
 Interactive regression models (IRM)
 ***********************************
 
-Binary Interactive Regression Model (IRM)
-==========================================
+.. include:: scores/irm/irm_scores.inc
 
-.. include:: ./scores/irm_score.rst
 
-Average Potential Outcomes (APOs)
-=================================
-
-.. include:: ./scores/apo_score.rst
- 
-Interactive IV model (IIVM)
-===========================
-
-.. include:: ./scores/iivm_score.rst
-
-Potential quantiles (PQs)
-=========================
-
-.. include:: ./scores/pq_score.rst
-
-Local potential quantiles (LPQs)
-================================
-
-.. include:: ./scores/lpq_score.rst
-
-Conditional value at risk (CVaR)
-================================
-
-.. include:: ./scores/cvar_score.rst
+.. _did-scores:
 
 Difference-in-Differences Models
 ********************************
 
-Panel Data
-==========
+.. include:: scores/did/did_scores.inc
 
-.. include:: ./scores/did_score.rst
 
-Repeated Cross-Sectional Data
-=============================
-
-.. include:: ./scores/didcs_score.rst
+.. _ssm-scores:
 
 Sample Selection Models
 ************************
 
-.. _ssm-mar-score:
+.. include:: scores/ssm/ssm_scores.inc
 
-Missingness at Random
-======================
-
-.. include:: ./scores/mar_score.rst
-
-.. _ssm-nr-score:
-
-Nonignorable Nonresponse
-=========================
-
-.. include:: ./scores/nr_score.rst
 
 Specifying alternative score functions via callables
 ++++++++++++++++++++++++++++++++++++++++++++++++++++
