@@ -36,29 +36,43 @@ You can verify the installations in a terminal:
    - [Developing inside a Container](https://code.visualstudio.com/docs/devcontainers/containers)
 
 
-## Build & Open the Development Container
+## Open the Development Container (Using Pre-built Image)
 
-   - Open the project `doubleml-docs` in VS code:
+For faster setup, we'll use a pre-built Docker image:
+
+1. Open the `doubleml-docs` repository in VS Code:
 
    ```bash
-   code .
+   code /path/to/doubleml-docs
    ```
 
-   - Open the Command Palette (`Ctrl+Shift+P`).
-   - Type `Remote-Containers: Reopen Folder in Container`.
-   - VS Code will build the new container(this may take some time) and open the project in it.
+2. Open the Command Palette (`Ctrl+Shift+P`).
+3. Type `Remote-Containers: Reopen in Container`.
+
+VS Code will pull the `svenklaassen/doubleml-docs:latest` image (if needed) based on `.devcontainer.json` and open the project in the container.<br>
+This approach is much faster than building the container from scratch. VS Code automatically downloads the image from Docker Hub if it's not already on your system.
 
 
 ## Build the documentation
 
-You can build the documentation via
+1. Open a terminal in VS Code (`Terminal > New Terminal`)
+
+2. Build the documentation:
 
    ```bash
    cd doc
    make html
    ```
 
-   Open the directory in WSL with
+3. View the built documentation by opening the output files:
+
    ```bash
-   explorer.exe .
+   # On Windows
+   explorer.exe _build/html
+   
+   # On Linux
+   xdg-open _build/html
+   
+   # On macOS
+   open _build/html
    ```
