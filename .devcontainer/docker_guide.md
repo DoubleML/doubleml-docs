@@ -49,7 +49,7 @@ For faster setup, we'll use a pre-built Docker image:
 2. Open the Command Palette (`Ctrl+Shift+P`).
 3. Type `Dev Containers: Reopen in Container`.
 
-VS Code will pull the `svenklaassen/doubleml-docs:latest` image (if needed) based on `.devcontainer.json` and open the project in the container.<br>
+VS Code will pull the `svenklaassen/doubleml-docs:latest` image (if needed) based on `devcontainer.json` and open the project in the container.<br>
 This approach is much faster than building the container from scratch. VS Code automatically downloads the image from Docker Hub if it's not already on your system.
 
 
