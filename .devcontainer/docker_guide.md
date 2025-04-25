@@ -7,7 +7,7 @@ Requirements:
  - [WSL2](https://learn.microsoft.com/en-us/windows/wsl/install)
  - [Docker Desktop](https://docs.docker.com/desktop/setup/install/windows-install/)
 
-## Verify installations & Setup
+## Step 1: Verify installations & Setup
 
 You can verify the installations in a terminal:
    
@@ -20,23 +20,23 @@ You can verify the installations in a terminal:
 ### Configure Docker to Use WSL2
 
    See [Docker Desktop Documentation](https://docs.docker.com/desktop/features/wsl/#turn-on-docker-desktop-wsl-2).
-   - Open Docker Desktop.
-   - Go to **Settings > General** and make sure **Use the WSL 2 based engine** is checked.
-   - Under **Settings > Resources > WSL Integration**, ensure that your desired Linux distribution(s) are selected for integration with Docker.
+   1. Open Docker Desktop.
+   2. Go to **Settings > General** and make sure **Use the WSL 2 based engine** is checked.
+   3. Under **Settings > Resources > WSL Integration**, ensure that your desired Linux distribution(s) are selected for integration with Docker.
 
 ### Install Extensions
 
-   - Open Visual Studio Code.
-   - Press `Ctrl+Shift+X` to open the Extensions view.
-   - Search and install (includes WSL and Dev Containers Extensions):
+   1. Open Visual Studio Code.
+   2. Press `Ctrl+Shift+X` to open the Extensions view.
+   3. Search and install (includes WSL and Dev Containers Extensions):
       - [Remote Development Extension Pack](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.vscode-remote-extensionpack)
 
-   VS Code Documentations:
+   Helpful VS Code Documentations:
    - [Developing in WSL](https://code.visualstudio.com/docs/remote/wsl)
    - [Developing inside a Container](https://code.visualstudio.com/docs/devcontainers/containers)
 
 
-## Open the Development Container (Using Pre-built Image)
+## Step 2: Open the Development Container (Using Pre-built Image)
 
 For faster setup, we'll use a pre-built Docker image:
 
@@ -47,13 +47,13 @@ For faster setup, we'll use a pre-built Docker image:
    ```
 
 2. Open the Command Palette (`Ctrl+Shift+P`).
-3. Type `Remote-Containers: Reopen in Container`.
+3. Type `Dev Containers: Reopen in Container`.
 
 VS Code will pull the `svenklaassen/doubleml-docs:latest` image (if needed) based on `.devcontainer.json` and open the project in the container.<br>
 This approach is much faster than building the container from scratch. VS Code automatically downloads the image from Docker Hub if it's not already on your system.
 
 
-## Build the documentation
+## Step 3: Build the documentation
 
 1. Open a terminal in VS Code (`Terminal > New Terminal`)
 

@@ -29,7 +29,7 @@ docker build -t svenklaassen/doubleml-docs:latest -f .devcontainer/Dockerfile.de
 To force a complete rebuild without using cache:
 
 ```bash
-docker build --no-cache -t yourusername/doubleml-docs:latest -f .devcontainer/Dockerfile.dev .
+docker build --no-cache -t svenklaassen/doubleml-docs:latest -f .devcontainer/Dockerfile.dev .
 ```
 
 ## Step 3 (Optional): Verify the image
@@ -41,14 +41,15 @@ docker build --no-cache -t yourusername/doubleml-docs:latest -f .devcontainer/Do
     ```json
     "image": "svenklaassen/doubleml-docs:latest"
     ```
+    Note: The `.devcontainer/devcontainer.json` file is configured to use the pre-built image. If you want to build the container from scratch, uncomment the `dockerFile` and `context` lines and comment out the `image` line.
 
-2. Open your repository in VS Code:
+2. Open the `doubleml-docs` repository in VS Code:
 
    ```bash
    code /path/to/doubleml-docs
    ```
 
-3. Open the Command Palette (`Ctrl+Shift+P`) and select `Remote-Containers: Reopen in Container`.
+3. Open the Command Palette (`Ctrl+Shift+P`) and select `Dev Containers: Reopen in Container`.
    VS Code will use your locally built image.
 
 ### Build the documentation
