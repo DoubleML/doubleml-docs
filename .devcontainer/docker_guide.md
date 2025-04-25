@@ -64,6 +64,11 @@ This approach is much faster than building the container from scratch. VS Code a
    make html
    ```
 
+   To build without notebook examples:
+   ```bash
+   make html NBSPHINX_EXECUTE=never
+   ```
+
 3. View the built documentation by opening the output files:
 
    ```bash
