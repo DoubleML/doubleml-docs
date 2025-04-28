@@ -42,37 +42,25 @@ Model-specific implementations
 
 This section contains the implementation details for each specific model and model specific interpretations.
 
-.. _sensitivity_plr:
+.. _plm-sensitivity:
 
-Partially linear regression model (PLR)
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Partially linear models (PLM)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. include:: ./sensitivity/plr_sensitivity.rst
+.. include:: sensitivity/plm/plm_sensitivity.inc
 
-.. _sensitivity_irm:
 
-Interactive regression model (IRM)
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+.. _irm-sensitivity:
 
-.. include:: ./sensitivity/irm_sensitivity.rst
+Interactive regression models (IRM)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. _sensitivity_apo:
+.. include:: sensitivity/irm/irm_sensitivity.inc
 
-Average Potential Outcomes (APOs)
+
+.. _did-sensitivity:
+
+Difference-in-Differences Models
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. include:: ./sensitivity/apo_sensitivity.rst
-
-.. _sensitivity_did:
-
-Difference-in-Differences for Panel Data
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-.. include:: ./sensitivity/did_sensitivity.rst
-
-.. _sensitivity_did_cs:
-
-Difference-in-Differences for repeated cross-sections
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-.. include:: ./sensitivity/did_cs_sensitivity.rst
+.. include:: sensitivity/did/did_sensitivity.inc

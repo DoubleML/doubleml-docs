@@ -104,12 +104,6 @@ Double Machine Learning Literature
         * Journal of Business & Economic Statistics, 1-12., 2023* |br|
         :octicon:`link` :bdg-link-dark:`URL <https://doi.org/10.1080/07350015.2023.2271071>`        
         |hr|
-            
-      - Neng-Chieh Chang |br|
-        **Double/debiased machine learning for difference-in-differences models** |br|
-        *The Econometrics Journal, 23(2), Pages 177–191, 2020* |br|
-        :octicon:`link` :bdg-link-dark:`URL <https://doi.org/10.1093/ectj/utaa001>`        
-        |hr|
 
       - Chernozhukov, Victor and Demirer, Mert and Duflo, Esther and Fernández-Val, Iván |br|
         **Generic Machine Learning Inference on Heterogeneous Treatment Effects in Randomized Experiments, with an Application to Immunization in India** |br|
@@ -150,12 +144,6 @@ Double Machine Learning Literature
         :bdg-link-dark:`arXiv <https://arxiv.org/abs/1711.00342>`
         |hr|
 
-      - Pedro HC Sant'Anna, Jun Zhao |br|
-        **Doubly robust difference-in-differences estimators** |br|
-        *Journal of Econometrics, 219(1), Pages 101-122, 2020* |br|
-        :octicon:`link` :bdg-link-dark:`URL <https://doi.org/10.1016/j.jeconom.2020.06.003>` 
-        |hr|
-
       - Victor Chernozhukov, Carlos Cinelli, Whitney Newey, Amit Sharma, Vasilis Syrgkanis |br|
         **Long Story Short: Omitted Variable Bias in Causal Machine Learning** |br|
         *No. w30302. National Bureau of Economic Research, 2022* |br|
@@ -172,12 +160,6 @@ Double Machine Learning Literature
         **Estimation and Inference on Heterogeneous Treatment Effects in High-Dimensional Dynamic Panels under Weak Dependence** |br|
         *arXiv preprint arXiv:1712.09988 [stat.ML], 2017* |br|
         :octicon:`link` :bdg-link-dark:`arXiv <https://arxiv.org/abs/1712.09988>` 
-        |hr|
-
-      - Michael Zimmert |br|
-        **Efficient Difference-in-Differences Estimation with High-Dimensional Common Trend Confounding** |br|
-        *arXiv preprint 	arXiv:1809.01643 [econ.EM], 2018* |br|
-        :octicon:`link` :bdg-link-dark:`arXiv <https://arxiv.org/abs/1809.01643>` 
         |hr|
 
       - Claudia Noack, Tomasz Olma, Christoph Rothe |br|
@@ -238,6 +220,40 @@ Double Machine Learning Literature
         *Journal of the Royal Statistical Society: Series B, 76, 217-242, 2014* |br|
         :octicon:`link` :bdg-link-dark:`URL <https://doi.org/10.1111/rssb.12026>`
         |hr|
+
+    .. dropdown:: Difference-in-Differences
+      :class-title: sd-bg-primary sd-font-weight-bold
+
+      - Brantly Callaway, Pedro HC Sant'Anna |br|
+        **Difference-in-Differences with multiple time periods** |br|
+        *Journal of Econometrics, 225(2), Pages 200-230, 2021* |br|
+        :octicon:`link` :bdg-link-dark:`URL <https://doi.org/10.1016/j.jeconom.2020.12.001>` 
+        |hr|
+
+      - Neng-Chieh Chang |br|
+        **Double/debiased machine learning for difference-in-differences models** |br|
+        *The Econometrics Journal, 23(2), Pages 177–191, 2020* |br|
+        :octicon:`link` :bdg-link-dark:`URL <https://doi.org/10.1093/ectj/utaa001>`        
+        |hr|
+
+      - Jonathan Roth, Pedro HC Sant'Anna, Alyssa Bilinski, John Poe |br|
+        **What’s trending in difference-in-differences? A synthesis of the recent econometrics literature** |br|
+        *Journal of Econometrics, 235(2), Pages 2218-2244, 2023* |br|
+        :octicon:`link` :bdg-link-dark:`URL <https://doi.org/10.1016/j.jeconom.2023.03.008>` 
+        |hr|
+
+      - Pedro HC Sant'Anna, Jun Zhao |br|
+        **Doubly robust difference-in-differences estimators** |br|
+        *Journal of Econometrics, 219(1), Pages 101-122, 2020* |br|
+        :octicon:`link` :bdg-link-dark:`URL <https://doi.org/10.1016/j.jeconom.2020.06.003>` 
+        |hr|
+
+      - Michael Zimmert |br|
+        **Efficient Difference-in-Differences Estimation with High-Dimensional Common Trend Confounding** |br|
+        *arXiv preprint 	arXiv:1809.01643 [econ.EM], 2018* |br|
+        :octicon:`link` :bdg-link-dark:`arXiv <https://arxiv.org/abs/1809.01643>` 
+        |hr|
+
 
 .. grid:: 1
 
