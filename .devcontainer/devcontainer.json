@@ -1,7 +1,8 @@
 {
 	"name": "DoubleML Documentation Development",
-	"dockerFile": "Dockerfile.dev", // Path to your Dockerfile
-	"context": "..", // Context for the build (root of your project)
+	"image": "svenklaassen/doubleml-docs:latest",
+	// "dockerFile": "Dockerfile.dev",
+	// "context": "..",
 	"workspaceFolder": "/workspace", // Folder inside the container for your project
 	// Customizations for VS Code
 	"customizations": {
