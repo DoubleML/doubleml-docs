@@ -192,7 +192,8 @@ Evaluate learners
 #################
 
 To compare different learners it is possible to evaluate the out-of-sample performance of each learner. The ``summary``
-already shows the root mean squared error (RMSE) for each learner and each corresponding repetition of cross-fitting (``n_rep`` argument).
+already displays either the root-mean-squared error (for regressions) or log-loss (for classifications) for each learner
+and each corresponding repetition of cross-fitting (``n_rep`` argument).
 
 To illustrate the parameter tuning, we work with the following example.
 
@@ -216,9 +217,9 @@ To illustrate the parameter tuning, we work with the following example.
         dml_plr_obj.fit()
         print(dml_plr_obj)
 
-The RMSEs of each learner are also stored in the ``rmses`` attribute.
+The loss of each learner are also stored in the ``nuisance_loss`` attribute.
 Further, the ``evaluate_learners()`` method allows to evalute customized evaluation metrics as e.g. the mean absolute error. 
-The default option is still the RMSE for evaluation.
+The default option is still the root-mean-squared error for evaluation.
 
 .. tab-set::
 
@@ -227,7 +228,7 @@ The default option is still the RMSE for evaluation.
 
     .. ipython:: python
 
-        print(dml_plr_obj.rmses)
+        print(dml_plr_obj.nuisance_loss)
         print(dml_plr_obj.evaluate_learners())
 
 To evaluate a customized metric one has to define a ``callable``. For some models (e.g. the IRM model) it is important that
@@ -274,12 +275,12 @@ To illustrate the use of external predictions, we work with the following exampl
       from sklearn.ensemble import RandomForestRegressor, RandomForestClassifier
 
       np.random.seed(3333)
-      data = make_irm_data(theta=0.5, n_obs=500, dim_x=20, return_type='DataFrame')
+      data = make_irm_data(theta=0.5, n_obs=500, dim_x=10, return_type='DataFrame')
       obj_dml_data = dml.DoubleMLData(data, 'y', 'd')
 
       # DoubleML with interal predictions
-      ml_g = RandomForestRegressor(n_estimators=100, max_features=20, max_depth=5, min_samples_leaf=2)
-      ml_m = RandomForestClassifier(n_estimators=100, max_features=20, max_depth=5, min_samples_leaf=2)
+      ml_g = RandomForestRegressor(n_estimators=100, max_features=10, max_depth=5, min_samples_leaf=2)
+      ml_m = RandomForestClassifier(n_estimators=100, max_features=10, max_depth=5, min_samples_leaf=2)
       dml_irm_obj = dml.DoubleMLIRM(obj_dml_data, ml_g, ml_m)
       dml_irm_obj.fit()
       print(dml_irm_obj.summary)

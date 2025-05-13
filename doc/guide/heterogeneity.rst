@@ -30,17 +30,17 @@ GATEs for IRM models
         :sync: py
 
         .. ipython:: python
-
+    
             import numpy as np
             import pandas as pd
             import doubleml as dml
             from doubleml.datasets import make_irm_data
             from sklearn.ensemble import RandomForestRegressor, RandomForestClassifier
 
-            ml_g = RandomForestRegressor(n_estimators=100, max_features=20, max_depth=5, min_samples_leaf=2)
-            ml_m = RandomForestClassifier(n_estimators=100, max_features=20, max_depth=5, min_samples_leaf=2)
+            ml_g = RandomForestRegressor(n_estimators=100, max_features=5, max_depth=5, min_samples_leaf=2)
+            ml_m = RandomForestClassifier(n_estimators=100, max_features=5, max_depth=5, min_samples_leaf=2)
             np.random.seed(3333)
-            data = make_irm_data(theta=0.5, n_obs=500, dim_x=20, return_type='DataFrame')
+            data = make_irm_data(theta=0.5, n_obs=500, dim_x=10, return_type='DataFrame')
             obj_dml_data = dml.DoubleMLData(data, 'y', 'd')
             dml_irm_obj = dml.DoubleMLIRM(obj_dml_data, ml_g, ml_m)
             _ = dml_irm_obj.fit()
@@ -124,10 +124,10 @@ CATEs for IRM models
             from doubleml.datasets import make_irm_data
             from sklearn.ensemble import RandomForestRegressor
 
-            ml_g = RandomForestRegressor(n_estimators=100, max_features=20, max_depth=5, min_samples_leaf=2)
-            ml_m = RandomForestClassifier(n_estimators=100, max_features=20, max_depth=5, min_samples_leaf=2)
+            ml_g = RandomForestRegressor(n_estimators=100, max_features=10, max_depth=5, min_samples_leaf=2)
+            ml_m = RandomForestClassifier(n_estimators=100, max_features=10, max_depth=5, min_samples_leaf=2)
             np.random.seed(3333)
-            data = make_irm_data(theta=0.5, n_obs=500, dim_x=20, return_type='DataFrame')
+            data = make_irm_data(theta=0.5, n_obs=500, dim_x=10, return_type='DataFrame')
             obj_dml_data = dml.DoubleMLData(data, 'y', 'd')
             dml_irm_obj = dml.DoubleMLIRM(obj_dml_data, ml_g, ml_m)
             _ = dml_irm_obj.fit()
@@ -258,10 +258,10 @@ In these cases the weights can be specified as an array via the ``weights`` argu
             from doubleml.datasets import make_irm_data
             from sklearn.ensemble import RandomForestRegressor
 
-            ml_g = RandomForestRegressor(n_estimators=100, max_features=20, max_depth=5, min_samples_leaf=2)
-            ml_m = RandomForestClassifier(n_estimators=100, max_features=20, max_depth=5, min_samples_leaf=2)
+            ml_g = RandomForestRegressor(n_estimators=100, max_features=10, max_depth=5, min_samples_leaf=2)
+            ml_m = RandomForestClassifier(n_estimators=100, max_features=10, max_depth=5, min_samples_leaf=2)
             np.random.seed(3333)
-            data = make_irm_data(theta=0.5, n_obs=500, dim_x=20, return_type='DataFrame')
+            data = make_irm_data(theta=0.5, n_obs=500, dim_x=10, return_type='DataFrame')
             obj_dml_data = dml.DoubleMLData(data, 'y', 'd')
             weights = np.ones(500)
             dml_irm_obj = dml.DoubleMLIRM(obj_dml_data, ml_g, ml_m, weights=weights)
@@ -345,7 +345,7 @@ Estimation is conducted via its ``fit()`` method:
             np.random.seed(3141)
             ml_g = RandomForestClassifier(n_estimators=100, max_features=20, max_depth=10, min_samples_leaf=2)
             ml_m = RandomForestClassifier(n_estimators=100, max_features=20, max_depth=10, min_samples_leaf=2)
-            data = make_iivm_data(theta=0.5, n_obs=1000, dim_x=20, return_type='DataFrame')
+            data = make_iivm_data(theta=0.5, n_obs=2000, dim_x=20, return_type='DataFrame')
             obj_dml_data = dml.DoubleMLData(data, 'y', 'd', z_cols='z')
             dml_lpq_obj = dml.DoubleMLLPQ(obj_dml_data, ml_g, ml_m, treatment=1, quantile=0.5)
             dml_lpq_obj.fit().summary
@@ -470,10 +470,10 @@ The ``depth`` parameter, which defaults to ``2``, can be used to adjust the maxi
             from doubleml.datasets import make_irm_data
             from sklearn.ensemble import RandomForestRegressor, RandomForestClassifier
 
-            ml_g = RandomForestRegressor(n_estimators=100, max_features=20, max_depth=5, min_samples_leaf=2)
-            ml_m = RandomForestClassifier(n_estimators=100, max_features=20, max_depth=5, min_samples_leaf=2)
+            ml_g = RandomForestRegressor(n_estimators=100, max_features=10, max_depth=5, min_samples_leaf=2)
+            ml_m = RandomForestClassifier(n_estimators=100, max_features=10, max_depth=5, min_samples_leaf=2)
             np.random.seed(3333)
-            data = make_irm_data(theta=0.5, n_obs=500, dim_x=20, return_type='DataFrame')
+            data = make_irm_data(theta=0.5, n_obs=500, dim_x=10, return_type='DataFrame')
             obj_dml_data = dml.DoubleMLData(data, 'y', 'd')
             dml_irm_obj = dml.DoubleMLIRM(obj_dml_data, ml_g, ml_m)
             _ = dml_irm_obj.fit()

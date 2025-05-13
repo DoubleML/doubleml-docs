@@ -12,8 +12,14 @@
 #
 import os
 import sys
+
+import doubleml
+import plotly.io as pio
+
 sys.path.insert(0, os.path.abspath('..'))
 
+# Set the default renderer for Plotly
+pio.renderers.default = 'sphinx_gallery'
 
 # -- Project information -----------------------------------------------------
 
@@ -31,6 +37,7 @@ extensions = [
     'sphinx.ext.autodoc',
     'sphinx.ext.autosummary',
     'sphinx.ext.coverage',
+    'sphinx.ext.doctest',
     'sphinx.ext.graphviz',
     'sphinx.ext.intersphinx',
     'sphinx.ext.mathjax',
@@ -66,29 +73,85 @@ autosummary_generate = True
 
 # The theme to use for HTML and HTML Help pages.  See the documentation for
 # a list of builtin themes.
-#
 html_theme = 'pydata_sphinx_theme'
 
+# version for the switcher
+if "dev" in doubleml.__version__:
+    version = "dev"
+else:
+    version = "stable"
+
 html_theme_options = {
-    'github_url': 'https://github.com/DoubleML/doubleml-for-py',
-    'navigation_with_keys': False,
+    "navigation_with_keys": False,
+    "navbar_start": ["navbar-logo"],
+    "navbar_center": ["navbar-nav"],
+    "navbar_persistent": ["search-field"],
+    "navbar_end": ["theme-switcher", "navbar-icon-links", "version-switcher"],
+    "show_nav_level": 2,
+    "collapse_navigation": True,
+    "navigation_depth": 4,
+    "show_toc_level": 2,
+    "navbar_align": "left",
+    "logo": {
+        "text": project,
+        "image_light": "img/logo.png",
+        "image_dark": "img/logo_dark.png",
+    },
     "header_links_before_dropdown": 6,
+    "use_edit_page_button": True,
+    "secondary_sidebar_items": ["page-toc", "edit-this-page", "sourcelink"],
+    "icon_links": [
+        {
+            "name": "GitHub",
+            "url": "https://github.com/DoubleML/doubleml-for-py",
+            "icon": "fa-brands fa-square-github",
+            "type": "fontawesome",
+        },
+        {
+            "name": "PyPI",
+            "url": "https://pypi.org/project/DoubleML/",
+            "icon": "fa-brands fa-python",
+            "type": "fontawesome",
+        },
+        {
+            "name": "Discussions",
+            "url": "https://github.com/DoubleML/doubleml-for-py/discussions",
+            "icon": "fa-solid fa-comments",
+            "type": "fontawesome",
+        },
+    ],
+    "switcher": {
+        "json_url": "https://docs.doubleml.org/dev/_static/switcher.json",
+        "version_match": version,
+    },
+    "show_version_warning_banner": True,
+    "check_switcher": True,
+    "announcement": "Interested to learn more? We offer <a href='https://trainings.doubleml.org/'>DoubleML Trainings!</a>",
 }
 
-# html_logo = '../img/logo.png'
 html_extra_path = ['../img/logo.png', '../img/logo_dark.png']
 html_favicon = '../img/favicon.ico'
 
-html_sidebars = {'**': ['logo.html',
-                        'search-field.html',
-                        'sidebar-nav-bs.html'],
-                 'workflow/workflow': ['logo.html',
-                                       'search-field.html',
-                                       'sidebar-nav-bs.html',
-                                       'sidebar-doubleml-workflow.html'],
-                 'guide/guide': ['logo.html',
-                                 'search-field.html',
-                                 'sidebar-nav-bs.html']}
+html_sidebars = {
+    '**': [
+        'logo.html',
+        'search-field.html',
+        'sidebar-nav-bs.html',
+    ],
+    'index': [],
+    'intro/install': [],
+    'intro/intro': [],
+    'workflow/workflow': [],
+    'literature/literature': [],
+    'release/release': [],
+}
+
+html_context = {
+    "github_user": "DoubleML",
+    "github_repo": "doubleml-docs",
+    "github_version": "dev",
+    "doc_path": "doc",
+}
 
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,
@@ -105,6 +168,8 @@ nbsphinx_thumbnails = {
     'examples/py_double_ml_basic_iv': '_static/basic_iv_example_nb.png',
     'examples/R_double_ml_basic_iv': '_static/basic_iv_example_nb.png',
     'examples/py_double_ml_ssm': '_static/ssm_example_nb.svg',
+    'examples/R_double_ml_ssm': '_static/ssm_example_nb.svg',
+    'examples/py_double_ml_sensitivity_booking': '_static/dag_usecase_revised.png',
 }
 
 copybutton_prompt_text = r'>>> |\.\.\. |\$ |In \[\d*\]: | {2,5}\.\.\.: | {5,8}: | {2,5}\.\.\.\.:'
@@ -194,6 +259,14 @@ linkcheck_ignore = [
     'https://glmnet.stanford.edu/index.html',
     # Valid URL Failed to establish a new connection: [Errno 111] Connection refused' ...
     'https://glmnet.stanford.edu/reference/cv.glmnet.html',
+    # Valid URL (error not replicable), Causes 409 Client Error: Too Many Requests for url
+    'http://dx.doi.org/10.2139/ssrn.3619201',
+    # Valid URL, Causes ConnectTimeoutError
+    'https://folia.unifr.ch/global/documents/306524',
+    # Valid DOI; Causes 403 Client Error: Forbidden for url:...
+    'https://doi.org/10.1146/annurev-economics-051520-021409',
+    # Valdi DOI; Causes 504 Server Error: Gateway Time-out for ...
+    'https://doi.org/10.1017/CBO9781139060035.008'
 ]
 
 # To execute R code via jupyter-execute one needs to install the R kernel for jupyter
@@ -203,4 +276,4 @@ jupyter_execute_default_kernel = 'ir'
 jupyter_sphinx_linenos = False
 
 # option to disable the execution of notebooks
-nbsphinx_execute = "auto"  # "auto" | "always" | "never"
+nbsphinx_execute = os.getenv("NBSPHINX_EXECUTE", "auto")  # Default is "auto"

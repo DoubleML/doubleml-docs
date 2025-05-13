@@ -9,7 +9,7 @@ on:
 jobs:
   build:
 
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-22.04
 
     steps:
     - name: Check out the repo containing the docu source
@@ -21,7 +21,7 @@ jobs:
     - name: Install python
       uses: actions/setup-python@v5
       with:
-        python-version: '3.9'
+        python-version: '3.12'
     - name: Install dependencies and the python package
       run: |
         python -m pip install --upgrade pip
@@ -31,7 +31,7 @@ jobs:
       run: |
         sudo apt install dirmngr gnupg apt-transport-https ca-certificates software-properties-common
         sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys E298A3A825C0D65DFD57CBB651716619E084DAB9
-        sudo add-apt-repository 'deb https://cloud.r-project.org/bin/linux/ubuntu focal-cran40/'
+        sudo add-apt-repository 'deb https://cloud.r-project.org/bin/linux/ubuntu jammy-cran40/'
     - name: Install R
       run: |
         sudo apt-get update
@@ -65,7 +65,7 @@ jobs:
 
     - name: Build docu with sphinx
       run: |
-        make -C doc html # build docu
+        make -C doc html
 
     - name: Deploy to stable
       uses: JamesIves/github-pages-deploy-action@v4

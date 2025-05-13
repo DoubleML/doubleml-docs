@@ -1,0 +1,52 @@
+{
+	"name": "DoubleML Documentation Development",
+	"image": "svenklaassen/doubleml-docs:latest",
+	// "dockerFile": "Dockerfile.dev",
+	// "context": "..",
+	"workspaceFolder": "/workspace", // Folder inside the container for your project
+	// Customizations for VS Code
+	"customizations": {
+		"vscode": {
+			"extensions": [
+				"ms-python.python", // Python extension for VS Code
+				"ms-azuretools.vscode-docker", // Docker integration for VS Code
+				"njpwerner.autodocstring", // Optional: Auto-generate docstrings
+				"ms-python.black-formatter", // Optional: Black formatter
+				"streetsidesoftware.code-spell-checker", // Optional: Spell checker
+				"github.copilot", // Add GitHub Copilot extension
+				"GitHub.github-vscode-theme", // GitHub theme
+				"github.vscode-github-actions", // GitHub Actions extension
+				"ms-toolsai.jupyter", // Jupyter extension
+				"charliermarsh.ruff" // Ruff extension
+			],
+			"settings": {
+				"python.defaultInterpreterPath": "/home/ubuntu/.venv/bin/python",
+				"editor.formatOnSave": true, // Auto-format code when saving
+				"editor.codeActionsOnSave": {
+					"source.organizeImports": true // Auto-organize imports on save
+				},
+				"python.linting.enabled": true, // Enable linting
+				"python.linting.flake8Enabled": false, // Disable Flake8 for linting
+				"python.linting.ruffEnabled": true, // Enable Ruff for linting
+				"python.formatting.provider": "none",
+				"[python]": {
+					"editor.defaultFormatter": "ms-python.black-formatter",
+					"editor.formatOnSave": true
+				},
+				"python.testing.pytestEnabled": true, // Enable Pytest for testing
+				"python.testing.pytestArgs": [],
+				"python.testing.unittestEnabled": false,
+				"files.exclude": {
+					"**/__pycache__": true, // Hide __pycache__ directories
+					"**/*.pyc": true, // Hide .pyc files
+					"**/.DS_Store": true // Hide .DS_Store files (macOS)
+				}
+			}
+		}
+	},
+	"mounts": [
+		"source=${localWorkspaceFolder},target=/workspace,type=bind,consistency=cached" // Mount your local workspace into the container
+	],
+	"remoteUser": "ubuntu",
+	"postCreateCommand": "id && ls -la /workspace && echo 'Container is ready!'"
+}

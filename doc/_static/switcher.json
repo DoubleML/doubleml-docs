@@ -1,0 +1,13 @@
+[
+    {
+        "name": "dev",
+        "version": "dev",
+        "url": "https://docs.doubleml.org/dev/"
+    },
+    {
+        "name": "stable",
+        "version": "stable",
+        "url": "https://docs.doubleml.org/stable/",
+        "preferred": true
+    }
+]

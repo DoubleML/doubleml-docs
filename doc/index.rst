@@ -126,12 +126,13 @@ ecosystem <https://github.com/mlr-org/mlr3/wiki/Extension-Packages>`_ (Lang et a
    :hidden:
 
     Install <intro/install>
-    Getting started <intro/intro>
+    Getting Started <intro/intro>
     Workflow <workflow/workflow>
-    User guide <guide/guide>
+    User Guide <guide/guide>
     Examples <examples/index>
     Python API <api/api>
     R API <https://docs.doubleml.org/r/stable/>
+    Coverage Repository <https://docs.doubleml.org/doubleml-coverage/>
     Literature <literature/literature>
     Release notes <release/release>
 
@@ -141,7 +142,7 @@ Double Machine Learning Algorithm
 .. raw:: html
 
     <p align="center">
-        <iframe width="500" height="400" src="https://www.youtube.com/embed/BMAr27rp4uA" title="Cross-Fitting Animation" frameborder="0" allowfullscreen></iframe>
+        <iframe width="500" height="400" src="https://www.youtube.com/embed/NWEoLe8mZqM?si=qJxpUOJb2ROqNogY" title="Cross-Fitting Animation" frameborder="0" allowfullscreen></iframe>
     </p>
 
 
