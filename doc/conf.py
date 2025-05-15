@@ -159,6 +159,7 @@ nbsphinx_thumbnails = {
     'examples/py_double_ml_gate_sensitivity': '_static/sensitivity_example_nb.png',
     'examples/py_double_ml_firststage': '_static/firststage_example_nb.png',
     'examples/py_double_ml_basic_iv': '_static/basic_iv_example_nb.png',
+    'examples/py_double_ml_robust_iv': '_static/basic_iv_example_nb.png',
     'examples/R_double_ml_basic_iv': '_static/basic_iv_example_nb.png',
     'examples/py_double_ml_ssm': '_static/ssm_example_nb.svg',
     'examples/py_double_ml_sensitivity_booking': '_static/dag_usecase_revised.png',
