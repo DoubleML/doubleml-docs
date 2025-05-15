@@ -28,6 +28,7 @@ General Examples
     py_double_ml_ssm.ipynb
     py_double_ml_sensitivity_booking.ipynb
     py_double_ml_basic_iv.ipynb
+    py_double_ml_robust_iv.ipynb
     py_double_ml_plm_irm_hetfx.ipynb
     py_double_ml_meets_flaml.ipynb
     py_double_ml_rdflex.ipynb
