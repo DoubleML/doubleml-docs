@@ -60,6 +60,7 @@ Difference-in-Differences
 
     did/py_panel_simple.ipynb
     did/py_panel.ipynb
+    did/py_panel_data_example.ipynb
     did/py_did.ipynb
     did/py_did_pretest.ipynb
 
