@@ -61,8 +61,8 @@ Difference-in-Differences
 
     did/py_panel_simple.ipynb
     did/py_panel.ipynb
-    did/py_did.ipynb
-    did/py_did_pretest.ipynb
+    did/py_panel_data_example.ipynb
+
 
 R: Case studies
 ---------------
@@ -79,7 +79,7 @@ These are case studies with the R package :ref:`DoubleML <doubleml_package>`.
     R_double_ml_ssm.ipynb
     R_double_ml_basic_iv.ipynb
 
-Sandbox
+Sandbox/Archive
 ----------
 
 These are examples which are work-in-progress and/or not yet fully documented.
@@ -90,3 +90,5 @@ These are examples which are work-in-progress and/or not yet fully documented.
 
     R_double_ml_pipeline.ipynb
     double_ml_bonus_data.ipynb
+    did/py_did.ipynb
+    did/py_did_pretest.ipynb

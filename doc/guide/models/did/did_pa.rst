@@ -25,6 +25,9 @@ of :math:`(\mathrm{g}, t_\text{pre}, t_\text{eval}, \delta)` if :math:`t_\text{e
 .. note::
     The choice :math:`t_\text{pre}= \min(\mathrm{g},t_\text{eval}) -\delta-1` corresponds to the definition of :math:`ATT_{dr}(\mathrm{g},t_\text{eval};\delta)` from `Callaway and Sant'Anna (2021) <https://doi.org/10.1016/j.jeconom.2020.12.001>`_.
 
+    As an example, if the target parameter is the effect on the group receiving treatment in :math:`2006` but evaluated in :math:`2007` with an anticipation period of :math:`\delta=1`, then the pre-treatment period is :math:`2004`.
+    The parallel trend assumption is slightly stronger with anticipation as the trends have to parallel for a longer periods, i.e. :math:`ATT_{dr}(2006,2007;1)=ATT(2006,2004;2006)`.
+
 In the following, we will omit the subscript :math:`\delta` in the notation of the nuisance functions and the control group (implicitly assuming :math:`\delta=0`).
 
 For a given tuple :math:`(\mathrm{g}, t_\text{pre}, t_\text{eval})` the target parameter :math:`ATT(\mathrm{g},t)` is estimated by solving the empirical version of the the following linear moment condition:
