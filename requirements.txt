@@ -24,3 +24,4 @@ flaml
 
 # notebooks
 ipykernel
+pyreadr
