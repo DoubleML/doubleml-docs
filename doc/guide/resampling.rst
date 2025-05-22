@@ -202,10 +202,7 @@ Standard errors are obtained as described in :ref:`se_confint`.
 The aggregation of the estimates of the causal parameter and its standard errors is done using the median
 
 .. math::
-    \tilde{\theta}_{0} &= \text{Median}\big((\tilde{\theta}_{0,m})_{m \in [M]}\big),
-
-    \hat{\sigma} &= \sqrt{\text{Median}\big((\hat{\sigma}_m^2 + (\tilde{\theta}_{0,m} - \tilde{\theta}_{0})^2)_{m \in [M]}\big)}.
-
+    \tilde{\theta}_{0} = \text{Median}\big((\tilde{\theta}_{0,m})_{m \in [M]}\big).
 The estimate of the causal parameter :math:`\tilde{\theta}_{0}` is stored in the ``coef`` attribute
 and the asymptotic standard error :math:`\hat{\sigma}/\sqrt{N}` in ``se``.
 
@@ -214,6 +211,18 @@ and the asymptotic standard error :math:`\hat{\sigma}/\sqrt{N}` in ``se``.
     .. tab-item:: Python
         :sync: py
 
+        In python, the confidence intervals and p-values are based on the :py:class:`doubleml.DoubleMLFramework` object.
+        This class provides methods such as ``confint``, ``bootstrap`` or ``p_adjust``. For different repetitions, 
+        the computations are done separately and combined via the median (based on Chernozhukov et al., 2018).
+
+        The estimate of the asymptotic standard error :math:`\hat{\sigma}/\sqrt{N}` is then based on the median aggregated confidence intervals with crictial value :math:`1.96`, i.e.,
+
+        .. math::
+
+            \hat{\sigma}/\sqrt{N} = (\text{Median}\big((\tilde{\theta}_{0,m} + 1.96\cdot \tilde{\sigma}_{m}/\sqrt{N})_{m \in [M]}\big) - \text{Median}\big((\tilde{\theta}_{0,m})_{m \in [M]}\big)) / 1.96.
+
+        Remark that methods such as methods such as ``confint``, ``bootstrap`` or ``p_adjust`` do not use the estimate of the standard error.
+
         .. ipython:: python
 
             print(dml_plr_obj.coef)
@@ -221,6 +230,12 @@ and the asymptotic standard error :math:`\hat{\sigma}/\sqrt{N}` in ``se``.
 
     .. tab-item:: R
         :sync: r
+
+        The aggregation of the standard errors is done using the median
+
+        .. math::
+
+            \hat{\sigma} = \sqrt{\text{Median}\big((\hat{\sigma}_m^2 + (\tilde{\theta}_{0,m} - \tilde{\theta}_{0})^2)_{m \in [M]}\big)}.
 
         .. jupyter-execute::
 
@@ -249,9 +264,7 @@ The parameter estimates :math:`(\tilde{\theta}_{0,m})_{m \in [M]}` and asymptoti
             print(dml_plr_obj$all_coef)
             print(dml_plr_obj$all_se)
 
-In python, the confidence intervals and p-values are based on the :py:class:`doubleml.DoubleMLFramework` object.
-This class provides methods such as ``confint``, ``bootstrap`` or ``p_adjust``. For different repetitions, 
-the computations are done seperately and combined via the median (as based on Chernozhukov et al., 2018).
+
 
 Externally provide a sample splitting / partition
 +++++++++++++++++++++++++++++++++++++++++++++++++
