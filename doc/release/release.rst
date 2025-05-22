@@ -7,16 +7,26 @@ Release Notes
 
   .. tab-item:: Python
 
-    .. dropdown:: DoubleML 0.9.3
+    .. dropdown:: DoubleML 0.10.0
       :class-title: sd-bg-primary sd-font-weight-bold
       :open:
+
+      - **Release highlight:** 
+        - Multi-Period Difference-in-Differences for Panel Data
+        - test
+
+      - Maintenance package
+
+      - Maintenance documentation
+
+    .. dropdown:: DoubleML 0.9.3
+      :class-title: sd-bg-primary sd-font-weight-bold
 
       - Fix / adapted unit tests which failed in the release of 0.9.2 to conda-forge
         `Docs #208 <https://github.com/DoubleML/doubleml-docs/pull/208>`_
 
     .. dropdown:: DoubleML 0.9.2
       :class-title: sd-bg-primary sd-font-weight-bold
-      :open:
 
       - Make `rdrobust` optional for conda. Create `pyproject.toml` and remove `setup.py` for packaging
         `Py #285 <https://github.com/DoubleML/doubleml-for-py/pull/285>`_
@@ -25,14 +35,13 @@ Release Notes
       - Maintenance package
         `Py #284 <https://github.com/DoubleML/doubleml-for-py/pull/284>`_
 
-      - Maintenance doccumentation
+      - Maintenance documentation
         `Docs #205 <https://github.com/DoubleML/doubleml-docs/pull/205>`_
         `Docs #206 <https://github.com/DoubleML/doubleml-docs/pull/206>`_
         `Docs #207 <https://github.com/DoubleML/doubleml-docs/pull/207>`_
     
     .. dropdown:: DoubleML 0.9.1
       :class-title: sd-bg-primary sd-font-weight-bold
-      :open:
 
       - **Release highlight:** Regression Discontinuity Designs with Flexible Covariate Adjustment
         via ``RDFlex`` class (in cooperation with `Claudia Noack <https://github.com/claudianoack>`_
