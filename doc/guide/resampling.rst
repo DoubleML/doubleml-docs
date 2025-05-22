@@ -221,7 +221,7 @@ and the asymptotic standard error :math:`\hat{\sigma}/\sqrt{N}` in ``se``.
 
             \hat{\sigma}/\sqrt{N} = (\text{Median}\big((\tilde{\theta}_{0,m} + 1.96\cdot \tilde{\sigma}_{m}/\sqrt{N})_{m \in [M]}\big) - \text{Median}\big((\tilde{\theta}_{0,m})_{m \in [M]}\big)) / 1.96.
 
-        Remark that methods such as methods such as ``confint``, ``bootstrap`` or ``p_adjust`` do not use the the estimate of the standard error.
+        Remark that methods such as methods such as ``confint``, ``bootstrap`` or ``p_adjust`` do not use the estimate of the standard error.
 
         .. ipython:: python
 
