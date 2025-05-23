@@ -7,16 +7,82 @@ Release Notes
 
   .. tab-item:: Python
 
-    .. dropdown:: DoubleML 0.9.3
+    .. dropdown:: DoubleML 0.10.0
       :class-title: sd-bg-primary sd-font-weight-bold
       :open:
+
+      - **Release highlight:** Multi-Period Difference-in-Differences for Panel Data
+
+        - Implementation via ``DoubleMLDIDMulti`` class
+          `Py #292 <https://github.com/DoubleML/doubleml-for-py/pull/292>`_
+          `Py #315 <https://github.com/DoubleML/doubleml-for-py/pull/315>`_
+        - New ``doubleml.data`` submodule including ``DoubleMLData`` and ``DoubleMLPanelData`` classes
+          `Py #292 <https://github.com/DoubleML/doubleml-for-py/pull/292>`_
+        - Extended User Guide and Example Gallery
+          `Docs #224 <https://github.com/DoubleML/doubleml-docs/pull/224>`_
+          `Docs #233 <https://github.com/DoubleML/doubleml-docs/pull/233>`_
+          `Docs #237 <https://github.com/DoubleML/doubleml-docs/pull/237>`_
+
+      - Added Confidence sets which are robust to weak IVs: ``robust_confset()`` method for ``DoubleMLIIVM``
+        (added by `Ezequiel Smucler <https://github.com/esmucler>`_ and `David Masip <https://github.com/david26694>`_)
+        `Py #318 <https://github.com/DoubleML/doubleml-for-py/pull/318>`_
+        `Docs #234 <https://github.com/DoubleML/doubleml-docs/pull/234>`_
+
+      - Update sensitivity operations to improve sensitivity bounds
+        `Py #295 <https://github.com/DoubleML/doubleml-for-py/pull/295>`_
+
+      - Improve ``DoubleMLAPO`` nuisance estimation and update weighted score elements.
+        Added example to compare ``DoubleMLIRM`` and ``DoubleMLAPO``.
+        `Py #295 <https://github.com/DoubleML/doubleml-for-py/pull/295>`_
+        `Py #297 <https://github.com/DoubleML/doubleml-for-py/pull/297>`_
+        `Docs #220 <https://github.com/DoubleML/doubleml-docs/pull/220>`_
+
+      - Updated variance aggregation over repetitions via confidence intervals
+        `Py #324 <https://github.com/DoubleML/doubleml-for-py/pull/324>`_
+        `Docs #236 <https://github.com/DoubleML/doubleml-docs/pull/236>`_
+
+      - Added a separate package citation using `CITATION.cff`
+        `Py #321 <https://github.com/DoubleML/doubleml-for-py/pull/321>`_
+
+      - Update package formatting, linting and add pre-commit hooks
+        `Py #288 <https://github.com/DoubleML/doubleml-for-py/pull/288>`_
+        `Py #289 <https://github.com/DoubleML/doubleml-for-py/pull/289>`_
+        `Py #294 <https://github.com/DoubleML/doubleml-for-py/pull/294>`_
+        `Py #316 <https://github.com/DoubleML/doubleml-for-py/pull/316>`_
+
+      - Maintenance package
+        `Py #287 <https://github.com/DoubleML/doubleml-for-py/pull/287>`_
+        `Py #288 <https://github.com/DoubleML/doubleml-for-py/pull/288>`_
+        `Py #291 <https://github.com/DoubleML/doubleml-for-py/pull/291>`_
+        `Py #319 <https://github.com/DoubleML/doubleml-for-py/pull/319>`_
+
+      - Maintenance documentation
+        `Docs #211 <https://github.com/DoubleML/doubleml-docs/pull/211>`_
+        `Docs #213 <https://github.com/DoubleML/doubleml-docs/pull/213>`_
+        `Docs #214 <https://github.com/DoubleML/doubleml-docs/pull/214>`_
+        `Docs #215 <https://github.com/DoubleML/doubleml-docs/pull/215>`_
+        `Docs #216 <https://github.com/DoubleML/doubleml-docs/pull/216>`_
+        `Docs #217 <https://github.com/DoubleML/doubleml-docs/pull/217>`_
+        `Docs #218 <https://github.com/DoubleML/doubleml-docs/pull/218>`_
+        `Docs #219 <https://github.com/DoubleML/doubleml-docs/pull/219>`_
+        `Docs #221 <https://github.com/DoubleML/doubleml-docs/pull/221>`_
+        `Docs #225 <https://github.com/DoubleML/doubleml-docs/pull/225>`_
+        `Docs #227 <https://github.com/DoubleML/doubleml-docs/pull/227>`_
+        `Docs #228 <https://github.com/DoubleML/doubleml-docs/pull/228>`_
+        `Docs #229 <https://github.com/DoubleML/doubleml-docs/pull/229>`_
+        `Docs #230 <https://github.com/DoubleML/doubleml-docs/pull/230>`_
+        `Docs #232 <https://github.com/DoubleML/doubleml-docs/pull/232>`_
+        `Docs #238 <https://github.com/DoubleML/doubleml-docs/pull/238>`_
+        `Docs #239 <https://github.com/DoubleML/doubleml-docs/pull/239>`_
+
+    .. dropdown:: DoubleML 0.9.3
+      :class-title: sd-bg-primary sd-font-weight-bold
 
       - Fix / adapted unit tests which failed in the release of 0.9.2 to conda-forge
         `Docs #208 <https://github.com/DoubleML/doubleml-docs/pull/208>`_
 
     .. dropdown:: DoubleML 0.9.2
       :class-title: sd-bg-primary sd-font-weight-bold
-      :open:
 
       - Make `rdrobust` optional for conda. Create `pyproject.toml` and remove `setup.py` for packaging
         `Py #285 <https://github.com/DoubleML/doubleml-for-py/pull/285>`_
@@ -25,14 +91,13 @@ Release Notes
       - Maintenance package
         `Py #284 <https://github.com/DoubleML/doubleml-for-py/pull/284>`_
 
-      - Maintenance doccumentation
+      - Maintenance documentation
         `Docs #205 <https://github.com/DoubleML/doubleml-docs/pull/205>`_
         `Docs #206 <https://github.com/DoubleML/doubleml-docs/pull/206>`_
         `Docs #207 <https://github.com/DoubleML/doubleml-docs/pull/207>`_
     
     .. dropdown:: DoubleML 0.9.1
       :class-title: sd-bg-primary sd-font-weight-bold
-      :open:
 
       - **Release highlight:** Regression Discontinuity Designs with Flexible Covariate Adjustment
         via ``RDFlex`` class (in cooperation with `Claudia Noack <https://github.com/claudianoack>`_
@@ -505,9 +570,11 @@ Release Notes
 
       - Add sample selection models, thanks to new contributor Petra Jasenakova `@petronelaj <https://github.com/petronelaj>`_
         `R #213 <https://github.com/DoubleML/doubleml-for-r/pull/213>`_
+        `Docs #223 <https://github.com/DoubleML/doubleml-docs/pull/223>`_
       - Maintenance including updates to GitHub workflows
         `R #205 <https://github.com/DoubleML/doubleml-for-r/pull/205>`_
         `R #220 <https://github.com/DoubleML/doubleml-for-r/pull/220>`_
+        `Docs #226 <https://github.com/DoubleML/doubleml-docs/pull/226>`_
 
     .. dropdown:: DoubleML 1.0.1
       :class-title: sd-bg-primary sd-font-weight-bold

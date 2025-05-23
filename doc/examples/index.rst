@@ -80,7 +80,7 @@ These are case studies with the R package :ref:`DoubleML <doubleml_package>`.
     R_double_ml_basic_iv.ipynb
 
 Sandbox/Archive
-----------
+---------------
 
 These are examples which are work-in-progress and/or not yet fully documented.
 
