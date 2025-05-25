@@ -15,8 +15,11 @@ Partially linear regression model (PLR)
 
 .. include:: /shared/causal_graphs/plr_irm_causal_graph.rst
 
-``DoubleMLPLR`` implements PLR models.
-Estimation is conducted via its ``fit()`` method:
+``DoubleMLPLR`` implements PLR models. Estimation is conducted via its ``fit()`` method. 
+
+.. note::
+    Remark that standard approach with ``score='partialling out'`` does not rely on a direct estimate of :math:`g_0(X)`,
+    but :math:`\ell_0(X) := \mathbb{E}[Y \mid X] = \theta_0 \mathbb{E}[D \mid X] + g(X)`.
 
 .. tab-set::
 

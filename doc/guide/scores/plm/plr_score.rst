@@ -11,7 +11,15 @@ For the PLR model implemented in ``DoubleMLPLR`` one can choose between
 
     &= \psi_a(W; \eta) \theta + \psi_b(W; \eta)
 
-with :math:`\eta=(\ell,m)` and where the components of the linear score are
+with :math:`\eta=(\ell,m)`, where
+
+.. math::
+
+    \ell_0(X) &:= \mathbb{E}[Y \mid X] = \theta_0\mathbb{E}[D \mid X] + g(X),
+
+    m_0(X) &:= \mathbb{E}[D \mid X].
+
+The components of the linear score are
 
 .. math::
 
@@ -29,7 +37,15 @@ with :math:`\eta=(\ell,m)` and where the components of the linear score are
 
     &= \psi_a(W; \eta) \theta + \psi_b(W; \eta)
 
-with :math:`\eta=(g,m)` and where the components of the linear score are
+with :math:`\eta=(g,m)`, where
+
+.. math::
+
+    g_0(X) &:= \mathbb{E}[Y - D \theta_0\mid X],
+
+    m_0(X) &:= \mathbb{E}[D \mid X].
+
+The components of the linear score are
 
 .. math::
 
