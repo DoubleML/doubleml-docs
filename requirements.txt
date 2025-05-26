@@ -1,4 +1,5 @@
 DoubleML[rdd]
+scikit-learn<1.6
 
 # test
 pytest
@@ -21,3 +22,7 @@ seaborn
 xgboost
 lightgbm
 flaml
+
+# notebooks
+ipykernel
+pyreadr

@@ -83,6 +83,7 @@ The default version of the :class:`DoubleML` class is based on the DML2 algorith
         :sync: py
 
         .. ipython:: python
+            :okwarning:
 
             import doubleml as dml
             from doubleml.datasets import make_plr_CCDDHNR2018

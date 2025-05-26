@@ -3,7 +3,7 @@
 DoubleML Data Class
 ----------------------------------
 
-.. currentmodule:: doubleml
+.. currentmodule:: doubleml.data
 
 .. autosummary::
     :toctree: generated/
@@ -11,3 +11,4 @@ DoubleML Data Class
 
     DoubleMLData
     DoubleMLClusterData
+    DoubleMLPanelData

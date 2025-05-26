@@ -37,6 +37,7 @@ extensions = [
     'sphinx.ext.autodoc',
     'sphinx.ext.autosummary',
     'sphinx.ext.coverage',
+    'sphinx.ext.doctest',
     'sphinx.ext.graphviz',
     'sphinx.ext.intersphinx',
     'sphinx.ext.mathjax',
@@ -109,7 +110,13 @@ html_theme_options = {
         {
             "name": "PyPI",
             "url": "https://pypi.org/project/DoubleML/",
-            "icon": "fa-solid fa-cube",
+            "icon": "fa-brands fa-python",
+            "type": "fontawesome",
+        },
+        {
+            "name": "Discussions",
+            "url": "https://github.com/DoubleML/doubleml-for-py/discussions",
+            "icon": "fa-solid fa-comments",
             "type": "fontawesome",
         },
     ],
@@ -118,7 +125,7 @@ html_theme_options = {
         "version_match": version,
     },
     "show_version_warning_banner": True,
-    "check_switcher": False,
+    "check_switcher": True,
     "announcement": "Interested to learn more? We offer <a href='https://trainings.doubleml.org/'>DoubleML Trainings!</a>",
 }
 
@@ -159,8 +166,11 @@ nbsphinx_thumbnails = {
     'examples/py_double_ml_gate_sensitivity': '_static/sensitivity_example_nb.png',
     'examples/py_double_ml_firststage': '_static/firststage_example_nb.png',
     'examples/py_double_ml_basic_iv': '_static/basic_iv_example_nb.png',
+    'examples/py_double_ml_robust_iv': '_static/basic_iv_example_nb.png',
     'examples/R_double_ml_basic_iv': '_static/basic_iv_example_nb.png',
+    'examples/py_double_ml_robust_iv': '_static/robust_iv_example_nb.png',
     'examples/py_double_ml_ssm': '_static/ssm_example_nb.svg',
+    'examples/R_double_ml_ssm': '_static/ssm_example_nb.svg',
     'examples/py_double_ml_sensitivity_booking': '_static/dag_usecase_revised.png',
 }
 
