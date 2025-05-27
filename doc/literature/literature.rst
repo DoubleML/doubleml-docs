@@ -8,7 +8,7 @@ Double Machine Learning Literature
   .. grid-item-card:: 
     :text-align: left
 
-    .. dropdown:: Main Reference
+    .. dropdown:: Main References
       :class-title: sd-bg-primary sd-font-weight-bold
       :open:
 
@@ -17,6 +17,12 @@ Double Machine Learning Literature
         *The Econometrics Journal, 21(1), C1-C68, 2018* |br|
         :octicon:`link` :bdg-link-dark:`URL <https://doi.org/10.1111/ectj.12097>`
         :bdg-link-dark:`arXiv <https://arxiv.org/abs/1608.00060>`
+
+      - Victor Chernozhukov, Christian Hansen, Nathan Kallus, Martin Spindler, Vasilis Syrgkanis |br|
+        **Applied Causal Inference Powered by ML and AI** |br|
+        *CausalML-book.org, 2024* |br|
+        :octicon:`link` :bdg-link-dark:`URL <https://CausalML-book.org>`
+        :bdg-link-dark:`arXiv <https://arxiv.org/abs/2403.02467>`
 
     .. dropdown:: Software for double machine learning
       :class-title: sd-bg-primary sd-font-weight-bold
