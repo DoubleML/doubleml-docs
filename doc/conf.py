@@ -16,16 +16,16 @@ import sys
 import doubleml
 import plotly.io as pio
 
-sys.path.insert(0, os.path.abspath('..'))
+sys.path.insert(0, os.path.abspath(".."))
 
 # Set the default renderer for Plotly
-pio.renderers.default = 'sphinx_gallery'
+pio.renderers.default = "sphinx_gallery"
 
 # -- Project information -----------------------------------------------------
 
-project = 'DoubleML'
-copyright = '2023, Bach, P., Chernozhukov, V., Klaassen, S., Kurz, M. S., and Spindler, M.'
-author = 'Bach, P., Chernozhukov, V., Klaassen, S., Kurz, M. S., and Spindler, M.'
+project = "DoubleML"
+copyright = "2023, Bach, P., Chernozhukov, V., Klaassen, S., Kurz, M. S., and Spindler, M."
+author = "Bach, P., Chernozhukov, V., Klaassen, S., Kurz, M. S., and Spindler, M."
 
 
 # -- General configuration ---------------------------------------------------
@@ -34,22 +34,22 @@ author = 'Bach, P., Chernozhukov, V., Klaassen, S., Kurz, M. S., and Spindler, M
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
 # ones.
 extensions = [
-    'sphinx.ext.autodoc',
-    'sphinx.ext.autosummary',
-    'sphinx.ext.coverage',
-    'sphinx.ext.doctest',
-    'sphinx.ext.graphviz',
-    'sphinx.ext.intersphinx',
-    'sphinx.ext.mathjax',
-    'sphinx.ext.napoleon',
-    'IPython.sphinxext.ipython_console_highlighting',
-    'IPython.sphinxext.ipython_directive',
-    'matplotlib.sphinxext.plot_directive',
-    'nbsphinx',
-    'sphinx_gallery.load_style',
-    'sphinx_copybutton',
-    'sphinx_design',
-    'jupyter_sphinx',
+    "sphinx.ext.autodoc",
+    "sphinx.ext.autosummary",
+    "sphinx.ext.coverage",
+    "sphinx.ext.doctest",
+    "sphinx.ext.graphviz",
+    "sphinx.ext.intersphinx",
+    "sphinx.ext.mathjax",
+    "sphinx.ext.napoleon",
+    "IPython.sphinxext.ipython_console_highlighting",
+    "IPython.sphinxext.ipython_directive",
+    "matplotlib.sphinxext.plot_directive",
+    "nbsphinx",
+    "sphinx_gallery.load_style",
+    "sphinx_copybutton",
+    "sphinx_design",
+    "jupyter_sphinx",
 ]
 
 # sphinx-panels shouldn't add bootstrap css since the pydata-sphinx-theme
@@ -57,23 +57,23 @@ extensions = [
 panels_add_bootstrap_css = False
 
 # Add any paths that contain templates here, relative to this directory.
-templates_path = ['_templates']
+templates_path = ["_templates"]
 
 # List of patterns, relative to source directory, that match files and
 # directories to ignore when looking for source files.
 # This pattern also affects html_static_path and html_extra_path.
-exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store', 'shared/*']
+exclude_patterns = ["_build", "Thumbs.db", ".DS_Store", "shared/*"]
 
-master_doc = 'index'
+master_doc = "index"
 
-autoclass_content = 'class'
+autoclass_content = "class"
 autosummary_generate = True
 
 # -- Options for HTML output -------------------------------------------------
 
 # The theme to use for HTML and HTML Help pages.  See the documentation for
 # a list of builtin themes.
-html_theme = 'pydata_sphinx_theme'
+html_theme = "pydata_sphinx_theme"
 
 # version for the switcher
 if "dev" in doubleml.__version__:
@@ -124,26 +124,26 @@ html_theme_options = {
         "json_url": "https://docs.doubleml.org/dev/_static/switcher.json",
         "version_match": version,
     },
-    "show_version_warning_banner": True,
+    "show_version_warning_banner": False,  # https://pydata-sphinx-theme.readthedocs.io/en/stable/user_guide/announcements.html#version-warning-banners
     "check_switcher": True,
     "announcement": "Interested to learn more? We offer <a href='https://trainings.doubleml.org/'>DoubleML Trainings!</a>",
 }
 
-html_extra_path = ['../img/logo.png', '../img/logo_dark.png']
-html_favicon = '../img/favicon.ico'
+html_extra_path = ["../img/logo.png", "../img/logo_dark.png"]
+html_favicon = "../img/favicon.ico"
 
 html_sidebars = {
-    '**': [
-        'logo.html',
-        'search-field.html',
-        'sidebar-nav-bs.html',
+    "**": [
+        "logo.html",
+        "search-field.html",
+        "sidebar-nav-bs.html",
     ],
-    'index': [],
-    'intro/install': [],
-    'intro/intro': [],
-    'workflow/workflow': [],
-    'literature/literature': [],
-    'release/release': [],
+    "index": [],
+    "intro/install": [],
+    "intro/intro": [],
+    "workflow/workflow": [],
+    "literature/literature": [],
+    "release/release": [],
 }
 
 html_context = {
@@ -156,25 +156,25 @@ html_context = {
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,
 # so a file named "default.css" will overwrite the builtin "default.css".
-html_static_path = ['_static']
-html_css_files = ['css/custom.css']
+html_static_path = ["_static"]
+html_css_files = ["css/custom.css"]
 
 # -- Extension configuration -------------------------------------------------
 
 nbsphinx_thumbnails = {
-    'examples/py_double_ml_sensitivity': '_static/sensitivity_example_nb.png',
-    'examples/py_double_ml_gate_sensitivity': '_static/sensitivity_example_nb.png',
-    'examples/py_double_ml_firststage': '_static/firststage_example_nb.png',
-    'examples/py_double_ml_basic_iv': '_static/basic_iv_example_nb.png',
-    'examples/py_double_ml_robust_iv': '_static/basic_iv_example_nb.png',
-    'examples/R_double_ml_basic_iv': '_static/basic_iv_example_nb.png',
-    'examples/py_double_ml_robust_iv': '_static/robust_iv_example_nb.png',
-    'examples/py_double_ml_ssm': '_static/ssm_example_nb.svg',
-    'examples/R_double_ml_ssm': '_static/ssm_example_nb.svg',
-    'examples/py_double_ml_sensitivity_booking': '_static/dag_usecase_revised.png',
+    "examples/py_double_ml_sensitivity": "_static/sensitivity_example_nb.png",
+    "examples/py_double_ml_gate_sensitivity": "_static/sensitivity_example_nb.png",
+    "examples/py_double_ml_firststage": "_static/firststage_example_nb.png",
+    "examples/py_double_ml_basic_iv": "_static/basic_iv_example_nb.png",
+    "examples/py_double_ml_robust_iv": "_static/basic_iv_example_nb.png",
+    "examples/R_double_ml_basic_iv": "_static/basic_iv_example_nb.png",
+    "examples/py_double_ml_robust_iv": "_static/robust_iv_example_nb.png",
+    "examples/py_double_ml_ssm": "_static/ssm_example_nb.svg",
+    "examples/R_double_ml_ssm": "_static/ssm_example_nb.svg",
+    "examples/py_double_ml_sensitivity_booking": "_static/dag_usecase_revised.png",
 }
 
-copybutton_prompt_text = r'>>> |\.\.\. |\$ |In \[\d*\]: | {2,5}\.\.\.: | {5,8}: | {2,5}\.\.\.\.:'
+copybutton_prompt_text = r">>> |\.\.\. |\$ |In \[\d*\]: | {2,5}\.\.\.: | {5,8}: | {2,5}\.\.\.\.:"
 copybutton_prompt_is_regexp = True
 
 # config of sphinx gallery for examples
@@ -195,86 +195,86 @@ nbsphinx_prolog = r"""
 
 # intersphinx configuration
 intersphinx_mapping = {
-    'python': ('https://docs.python.org/{.major}'.format(sys.version_info), None),
-    'sklearn': ('https://scikit-learn.org/stable/', None),
-    'numpy': ('https://numpy.org/doc/stable/', None),
-    'pandas': ('https://pandas.pydata.org/pandas-docs/stable/', None),
-    'statsmodels': ('https://www.statsmodels.org/stable/', None),
+    "python": ("https://docs.python.org/{.major}".format(sys.version_info), None),
+    "sklearn": ("https://scikit-learn.org/stable/", None),
+    "numpy": ("https://numpy.org/doc/stable/", None),
+    "pandas": ("https://pandas.pydata.org/pandas-docs/stable/", None),
+    "statsmodels": ("https://www.statsmodels.org/stable/", None),
 }
 
 linkcheck_ignore = [
     # Valid DOI; Causes 403 Client Error: Forbidden for url:...
-    'https://doi.org/10.1093/ectj/utaa001',
+    "https://doi.org/10.1093/ectj/utaa001",
     # Valid DOI; Causes 403 Client Error: Forbidden for url:...
-    'https://doi.org/10.1111/ectj.12097',
+    "https://doi.org/10.1111/ectj.12097",
     # Valid DOI; Causes 403 Client Error: Forbidden for url:...
-    'https://doi.org/10.2307/2171802',
+    "https://doi.org/10.2307/2171802",
     # Valid DOI; Causes 403 Client Error: Forbidden for url:...
-    'https://doi.org/10.2307/1912705',
+    "https://doi.org/10.2307/1912705",
     # Valid DOI; Causes 403 Client Error: Forbidden for url:...
-    'https://doi.org/10.1093/ectj/utaa027',
+    "https://doi.org/10.1093/ectj/utaa027",
     # Valid DOI; Causes 403 Client Error: Forbidden for url:...
-    'https://doi.org/10.1111/rssb.12026',
+    "https://doi.org/10.1111/rssb.12026",
     # Valid DOI; Causes 403 Client Error: Forbidden for url:...
-    'https://doi.org/10.1111/rssa.12623',
+    "https://doi.org/10.1111/rssa.12623",
     # Valid DOI; Causes 403 Client Error: Forbidden for url:...
-    'https://doi.org/10.1146/annurev-economics-012315-015826',
+    "https://doi.org/10.1146/annurev-economics-012315-015826",
     # Valid DOI, Causes 418 Client Error: unknown for url:...
-    'https://doi.org/10.1109/TIT.2014.2343629',
+    "https://doi.org/10.1109/TIT.2014.2343629",
     # Valid DOI; Causes 403 Client Error: Forbidden for url:...
-    'https://doi.org/10.1093/ectj/utaa001',
+    "https://doi.org/10.1093/ectj/utaa001",
     # Valid DOI; Causes 403 Client Error: Forbidden for url:...
-    'https://doi.org/10.1111/0034-6527.00321',
+    "https://doi.org/10.1111/0034-6527.00321",
     # Valid DOI; Causes 403 Client Error: Forbidden for url:...
-    'https://doi.org/10.1016/j.jeconom.2020.06.003',
+    "https://doi.org/10.1016/j.jeconom.2020.06.003",
     # Valid DOI; Causes 403 Client Error: Forbidden for url:...
-    'https://doi.org/10.1080/07350015.2021.1895815',
+    "https://doi.org/10.1080/07350015.2021.1895815",
     # Valid DOI; Causes 403 Client Error: Forbidden for url:...
-    'https://doi.org/10.1198/jbes.2010.07136',
+    "https://doi.org/10.1198/jbes.2010.07136",
     # Valid DOI; Causes 403 Client Error: Forbidden for url:...
-    'https://doi.org/10.1111/rssb.12348',
+    "https://doi.org/10.1111/rssb.12348",
     # Valid DOI; Causes 403 Client Error: Forbidden for url:...
-    'https://doi.org/10.1145/3460231.3474231',
+    "https://doi.org/10.1145/3460231.3474231",
     # Valid DOI; Causes 403 Client Error: Forbidden for url:...
-    'https://dl.acm.org/doi/10.1145/3447545.3451181',
+    "https://dl.acm.org/doi/10.1145/3447545.3451181",
     # Pipelines notebook has to be reworked
-    'https://mlr3book.mlr-org.com/pipelines.html',
+    "https://mlr3book.mlr-org.com/pipelines.html",
     # Valid DOI; Causes 403 Client Error: Forbidden for url:...
-    'https://doi.org/10.1080/07350015.2023.2271071',
+    "https://doi.org/10.1080/07350015.2023.2271071",
     # Valid DOI; Causes 403 Client Error: Forbidden for url:...
-    'https://doi.org/10.1093/restud/rdt044',
+    "https://doi.org/10.1093/restud/rdt044",
     # Valid DOI; 'Connection aborted.', RemoteDisconnected ...
-    'https://CRAN.R-project.org/package=mlr3learners',
+    "https://CRAN.R-project.org/package=mlr3learners",
     # Valid DOI (error not replicable), Causes 404 Client Error: Not Found for url:...
-    'https://doi.org/10.1214/14-AOS1204',
+    "https://doi.org/10.1214/14-AOS1204",
     # Valid DOI (error not replicable), Causes 404 Client Error: Not Found for url:...
-    'https://doi.org/10.1214/14-AOS1221',
+    "https://doi.org/10.1214/14-AOS1221",
     # Valid DOI (error not replicable), Causes 404 Client Error: Not Found for url:...
-    'https://doi.org/10.1214/17-AOS1671',
+    "https://doi.org/10.1214/17-AOS1671",
     # Valid DOI (error not replicable), Causes 404 Client Error: Not Found for url:...
-    'https://dx.doi.org/10.1214/13-AOS1161',
+    "https://dx.doi.org/10.1214/13-AOS1161",
     # Valid DOI (error not replicable), Causes 404 Client Error: Not Found for url:...
-    'https://dx.doi.org/10.1214/14-AOS1230',
+    "https://dx.doi.org/10.1214/14-AOS1230",
     # Valid URL Failed to establish a new connection: [Errno 111] Connection refused' ...
-    'https://glmnet.stanford.edu/',
+    "https://glmnet.stanford.edu/",
     # Valid URL Failed to establish a new connection: [Errno 111] Connection refused' ...
-    'https://glmnet.stanford.edu/index.html',
+    "https://glmnet.stanford.edu/index.html",
     # Valid URL Failed to establish a new connection: [Errno 111] Connection refused' ...
-    'https://glmnet.stanford.edu/reference/cv.glmnet.html',
+    "https://glmnet.stanford.edu/reference/cv.glmnet.html",
     # Valid URL (error not replicable), Causes 409 Client Error: Too Many Requests for url
-    'http://dx.doi.org/10.2139/ssrn.3619201',
+    "http://dx.doi.org/10.2139/ssrn.3619201",
     # Valid URL, Causes ConnectTimeoutError
-    'https://folia.unifr.ch/global/documents/306524',
+    "https://folia.unifr.ch/global/documents/306524",
     # Valid DOI; Causes 403 Client Error: Forbidden for url:...
-    'https://doi.org/10.1146/annurev-economics-051520-021409',
+    "https://doi.org/10.1146/annurev-economics-051520-021409",
     # Valdi DOI; Causes 504 Server Error: Gateway Time-out for ...
-    'https://doi.org/10.1017/CBO9781139060035.008'
+    "https://doi.org/10.1017/CBO9781139060035.008",
 ]
 
 # To execute R code via jupyter-execute one needs to install the R kernel for jupyter
 # https://github.com/IRkernel/IRkernel
 
-jupyter_execute_default_kernel = 'ir'
+jupyter_execute_default_kernel = "ir"
 jupyter_sphinx_linenos = False
 
 # option to disable the execution of notebooks
