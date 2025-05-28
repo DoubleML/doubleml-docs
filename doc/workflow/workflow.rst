@@ -199,7 +199,7 @@ We use a regression learner for the continuous outcome variable net financial as
 
 In Step 4., we initialize and parametrize the model object which will later be used to perform the estimation.
 
-We initialize a `DoubleMLPLR (Python) <https://docs.doubleml.org/stable/api/generated/doubleml.DoubleMLPLR.html>`_ /
+We initialize a `DoubleMLPLR (Python) <https://docs.doubleml.org/stable/guide/models.html#partially-linear-regression-model-plr>`_ /
 `DoubleMLPLR (R) <https://docs.doubleml.org/r/stable/reference/DoubleMLPLR.html>`_
 object using the previously generated data-backend. Moreover, we specify the resampling
 (= the number of repetitions and folds for :ref:`repeated cross-fitting <repeated-cross-fitting>`),
