@@ -40,8 +40,15 @@ The corresponding identifying assumptions are:
     :math:`D_{i,1} = 0 \quad a.s.`
     For all :math:`t=2,\dots,\mathcal{T}`, :math:`D_{i,t-1} = 1` implies :math:`D_{i,t} = 1 \quad a.s.`
 
-2. **Panel Data (Random Sampling):** 
-    :math:`(Y_{i,1},\dots, Y_{i,\mathcal{T}}, X_i, D_{i,1}, \dots, D_{i,\mathcal{T}})_{i=1}^n` is independent and identically distributed.
+2. **Data:**
+    The observed data are generated according to the following mechanisms:
+
+    a. **Panel Data (Random Sampling):** 
+    The sample :math:`(Y_{i,1},\dots, Y_{i,\mathcal{T}}, X_i, D_{i,1}, \dots, D_{i,\mathcal{T}})_{i=1}^n` is independent and identically distributed.
+    
+    b. **Repeated Cross Sections:**
+    The sample consists of :math:`(Y_{i,t},G^{2}_i,\dots,G^{\mathcal{T}}_i, C_i,T_i, X_i)_{i=1}^n`, where :math:`T_i\in \{1,\dots,\mathcal{T}\}` denotes the time period of unit :math:`i` being observed.
+    Conditional on :math:`T=t`, the data are independent and identically distributed from the distribution of :math:`(Y_{t},G^{2},\dots,G^{\mathcal{T}}, C, X)`, with :math:`(G^{2},\dots,G^{\mathcal{T}}, C, X)` being invariant to :math:`T`.
 
 3. **Limited Treatment Anticipation:**
     There is a known :math:`\delta\ge 0` such that
@@ -64,4 +71,4 @@ The corresponding identifying assumptions are:
 .. note:: 
     For a detailed discussion of the assumptions see `Callaway and Sant'Anna (2021) <https://doi.org/10.1016/j.jeconom.2020.12.001>`_.
 
-Under the assumptions above (either Assumption 4.a or 4.b), the target parameter :math:`ATT(\mathrm{g},t)` is identified see Theorem 1. `Callaway and Sant'Anna (2021) <https://doi.org/10.1016/j.jeconom.2020.12.001>`_.
+Under the assumptions above (either Assumption a. or b.), the target parameter :math:`ATT(\mathrm{g},t)` is identified see Theorem 1. `Callaway and Sant'Anna (2021) <https://doi.org/10.1016/j.jeconom.2020.12.001>`_.
