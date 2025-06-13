@@ -65,9 +65,9 @@ Setting ``panel=False`` will estimate the target parameter for repeated cross se
     .. math::
         \begin{align}
         g(0,0,X) &\approx g^{\text{control}}_{\mathrm{g}, t_\text{pre}, \text{eval} + \delta}(X_i) = \mathbb{E}[Y_{i,t_\text{pre}} |X_i, C_{i,t_\text{eval} + \delta}^{(\cdot)}=1, T_i=t_\text{pre}],\\
-        g(0,1,X) &\approx g^{\text{control}}_{\mathrm{g}, t_\text{post}, \text{eval} + \delta}(X_i) = \mathbb{E}[Y_{i,t_\text{post}} |X_i, C_{i,t_\text{eval} + \delta}^{(\cdot)}=1, T_i=t_\text{post}],\\
+        g(0,1,X) &\approx g^{\text{control}}_{\mathrm{g}, t_\text{eval}, \text{eval} + \delta}(X_i) = \mathbb{E}[Y_{i,t_\text{eval}} |X_i, C_{i,t_\text{eval} + \delta}^{(\cdot)}=1, T_i=t_\text{eval}],\\
         g(1,0,X) &\approx g^{\text{treat}}_{\mathrm{g}, t_\text{pre}, \text{eval} + \delta}(X_i) = \mathbb{E}[Y_{i,t_\text{pre}} |X_i, G_i^{\mathrm{g}}=1,, T_i=t_\text{pre}],\\
-        g(1,1,X) &\approx g^{\text{treat}}_{\mathrm{g}, t_\text{post}, \text{eval} + \delta}(X_i) = \mathbb{E}[Y_{i,t_\text{post}} |X_i, G_i^{\mathrm{g}}=1,, T_i=t_\text{post}].
+        g(1,1,X) &\approx g^{\text{treat}}_{\mathrm{g}, t_\text{eval}, \text{eval} + \delta}(X_i) = \mathbb{E}[Y_{i,t_\text{eval}} |X_i, G_i^{\mathrm{g}}=1,, T_i=t_\text{eval}].
         \end{align}
 
 .. note::
