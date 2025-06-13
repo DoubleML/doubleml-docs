@@ -2,8 +2,8 @@ For the estimation of the target parameters :math:`ATT(\mathrm{g},t)` the follow
 
 .. math::
     \begin{align}
-    g^{\text{treat}}_{\mathrm{g}, t, \text{eval} + \delta}(X_i) &:= \mathbb{E}[Y_{i,t} |X_i, G_i^{\mathrm{g}}=1, T_i=t], \\
-    g^{\text{control}}_{\mathrm{g}, t, \text{eval} + \delta}(X_i) &:= \mathbb{E}[Y_{i,t} |X_i, C_{i,t_\text{eval} + \delta}^{(\cdot)}=1, T_i=t], \\
+    g^{\text{treat}}_{0,\mathrm{g}, t, \text{eval} + \delta}(X_i) &:= \mathbb{E}[Y_{i,t} |X_i, G_i^{\mathrm{g}}=1, T_i=t], \\
+    g^{\text{control}}_{0,\mathrm{g}, t, \text{eval} + \delta}(X_i) &:= \mathbb{E}[Y_{i,t} |X_i, C_{i,t_\text{eval} + \delta}^{(\cdot)}=1, T_i=t], \\
     m_{0, \mathrm{g}, t_\text{eval} + \delta}(X_i) &:= P(G_i^{\mathrm{g}}=1|X_i, G_i^{\mathrm{g}} + C_{i,t_\text{eval} + \delta}^{(\cdot)}=1).
     \end{align}
 
@@ -20,7 +20,7 @@ For a given tuple :math:`(\mathrm{g}, t_\text{pre}, t_\text{eval})` the target p
 .. math::
     ATT(\mathrm{g}, t_\text{pre}, t_\text{eval}):= -\frac{\mathbb{E}[\psi_b(W,\eta_0)]}{\mathbb{E}[\psi_a(W,\eta_0)]}
 
-with nuisance elements :math:`\eta_0=(g^{\text{treat}}_{\mathrm{g}, t_\text{pre}, t_\text{eval} + \delta}, g^{\text{control}}_{\mathrm{g}, t_\text{pre}, t_\text{eval} + \delta}, g^{\text{treat}}_{\mathrm{g}, t_\text{eval}, t_\text{eval} + \delta}, g^{\text{control}}_{\mathrm{g}, t_\text{eval}, t_\text{eval} + \delta}, m_{0, \mathrm{g}, t_\text{eval}})` and score function :math:`\psi(W,\theta, \eta)` defined in the :ref:`DiD Score Section<did-cs-score>`.
+with nuisance elements :math:`\eta_0=(g^{0,\text{treat}}_{\mathrm{g}, t_\text{pre}, t_\text{eval} + \delta}, g^{0,\text{control}}_{\mathrm{g}, t_\text{pre}, t_\text{eval} + \delta}, g^{0,\text{treat}}_{\mathrm{g}, t_\text{eval}, t_\text{eval} + \delta}, g^{0,\text{control}}_{\mathrm{g}, t_\text{eval}, t_\text{eval} + \delta}, m_{0, \mathrm{g}, t_\text{eval}})` and score function :math:`\psi(W,\theta, \eta)` defined in the :ref:`DiD Score Section<did-cs-score>`.
 
 Setting ``panel=False`` will estimate the target parameter for repeated cross sections. Estimation is conducted via its ``fit()`` method:
 
@@ -64,10 +64,10 @@ Setting ``panel=False`` will estimate the target parameter for repeated cross se
 
     .. math::
         \begin{align}
-        g(0,0,X) &\approx g^{\text{control}}_{\mathrm{g}, t_\text{pre}, \text{eval} + \delta}(X_i) = \mathbb{E}[Y_{i,t_\text{pre}} |X_i, C_{i,t_\text{eval} + \delta}^{(\cdot)}=1, T_i=t_\text{pre}],\\
-        g(0,1,X) &\approx g^{\text{control}}_{\mathrm{g}, t_\text{eval}, \text{eval} + \delta}(X_i) = \mathbb{E}[Y_{i,t_\text{eval}} |X_i, C_{i,t_\text{eval} + \delta}^{(\cdot)}=1, T_i=t_\text{eval}],\\
-        g(1,0,X) &\approx g^{\text{treat}}_{\mathrm{g}, t_\text{pre}, \text{eval} + \delta}(X_i) = \mathbb{E}[Y_{i,t_\text{pre}} |X_i, G_i^{\mathrm{g}}=1,, T_i=t_\text{pre}],\\
-        g(1,1,X) &\approx g^{\text{treat}}_{\mathrm{g}, t_\text{eval}, \text{eval} + \delta}(X_i) = \mathbb{E}[Y_{i,t_\text{eval}} |X_i, G_i^{\mathrm{g}}=1,, T_i=t_\text{eval}].
+        g(0,0,X) &\approx g^{\text{control}}_{0,\mathrm{g}, t_\text{pre}, \text{eval} + \delta}(X_i) = \mathbb{E}[Y_{i,t_\text{pre}} |X_i, C_{i,t_\text{eval} + \delta}^{(\cdot)}=1, T_i=t_\text{pre}],\\
+        g(0,1,X) &\approx g^{\text{control}}_{0,\mathrm{g}, t_\text{eval}, \text{eval} + \delta}(X_i) = \mathbb{E}[Y_{i,t_\text{eval}} |X_i, C_{i,t_\text{eval} + \delta}^{(\cdot)}=1, T_i=t_\text{eval}],\\
+        g(1,0,X) &\approx g^{\text{treat}}_{0,\mathrm{g}, t_\text{pre}, \text{eval} + \delta}(X_i) = \mathbb{E}[Y_{i,t_\text{pre}} |X_i, G_i^{\mathrm{g}}=1,, T_i=t_\text{pre}],\\
+        g(1,1,X) &\approx g^{\text{treat}}_{0,\mathrm{g}, t_\text{eval}, \text{eval} + \delta}(X_i) = \mathbb{E}[Y_{i,t_\text{eval}} |X_i, G_i^{\mathrm{g}}=1,, T_i=t_\text{eval}].
         \end{align}
 
 .. note::
