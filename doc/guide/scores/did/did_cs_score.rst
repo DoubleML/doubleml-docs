@@ -76,7 +76,7 @@ If ``in_sample_normalization='False'``, the score is set to
 
     =\; &\tilde{\psi}_a(W; \eta) \theta + \tilde{\psi}_b(W; \eta)
 
-with :math:`\eta=(g, m, p, \lambda)`, where :math:`p_0 = \mathbb{E}[G^{\mathrm{g}}]` and :math:`\lambda_0 = \mathbb{E}[T]` are estimated on the whole sample.
+with :math:`\eta=(g, m, p, \lambda)`, where :math:`p_0 = \mathbb{E}[G^{\mathrm{g}}]` and :math:`\lambda_0 = \mathbb{E}[T]` are estimated on the subsample.
 Remark that this will result a similar score, but just uses slightly different normalization.
 
 ``score='experimental'`` assumes that the treatment probability is independent of the covariates :math:`X` and
@@ -121,5 +121,5 @@ Analogously, if ``in_sample_normalization='False'``,  the score is set to
 
     =\; &\tilde{\psi}_a(W; \eta) \theta + \tilde{\psi}_b(W; \eta)
 
-with :math:`\eta=(g, m, p, \lambda)`, where :math:`p_0 = \mathbb{E}[G^{\mathrm{g}}]` and :math:`\lambda_0 = \mathbb{E}[T]` are estimated on the whole sample.
+with :math:`\eta=(g, m, p, \lambda)`, where :math:`p_0 = \mathbb{E}[G^{\mathrm{g}}]` and :math:`\lambda_0 = \mathbb{E}[T]` are estimated on the subsample.
 Remark that this will result in a similar score, but just uses slightly different normalization.
