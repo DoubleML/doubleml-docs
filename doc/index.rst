@@ -200,7 +200,12 @@ and `https://github.com/DoubleML/doubleml-for-r/issues <https://github.com/Doubl
 Citation
 --------
 
-If you use the DoubleML package a citation is highly appreciated:
+If you use the DoubleML package a citation is highly appreciated. To cite the Python package, please use the following reference:
+
+Bach, P., Chernozhukov, V., Klaassen, S., Kurz, M. S., & Spindler, M. DoubleML - Double
+Machine Learning in Python [Computer software]. `https://github.com/DoubleML/doubleml-for-py <https://github.com/DoubleML/doubleml-for-py>`_.
+
+An accompanying paper to the DoubleML package for Python has been published in the Journal of Machine Learning Research. For citation, please use the following reference:
 
 Bach, P., Chernozhukov, V., Kurz, M. S., and Spindler, M. (2022), DoubleML - An
 Object-Oriented Implementation of Double Machine Learning in Python,
@@ -208,11 +213,24 @@ Journal of Machine Learning Research, 23(53): 1-6,
 `https://www.jmlr.org/papers/v23/21-0862.html  <https://www.jmlr.org/papers/v23/21-0862.html>`_.
 
 
+For the R package, please use the following reference:
+
 Bach, P., Chernozhukov, V., Kurz, M. S., Spindler, M.  and Klaassen, S. (2024),
 DoubleML - An Object-Oriented Implementation of Double Machine Learning in R, Journal of Statistical Software,
 108(3): 1-56, doi:`10.18637/jss.v108.i03 <https://doi.org/10.18637/jss.v108.i03>`_, arXiv:`2103.09603 <https://arxiv.org/abs/2103.09603>`_.
 
 Bibtex-entries:
+
+.. code-block:: TeX
+
+    @software{DoubleML,
+      title    = {{DoubleML} -- Double Machine Learning in Python},
+      author   = {Bach, Philipp and Chernozhukov, Victor and Klaassen, Sven and Kurz, Malte S. and Spindler, Martin},
+      year     = {2024},
+      version  = {latest},
+      url      = {https://github.com/DoubleML/doubleml-for-py},
+      note     = {BSD-3-Clause License. Documentation: \url{https://docs.doubleml.org/stable/index.html}}
+    }
 
 .. code-block:: TeX
 
