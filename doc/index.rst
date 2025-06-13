@@ -268,6 +268,9 @@ Foundation) is acknowledged – Project Number 431701914.
 References
 ----------
 
+Bach, P., Chernozhukov, V., Klaassen, S., Kurz, M. S., & Spindler, M. DoubleML - Double
+Machine Learning in Python [Computer software]. `https://github.com/DoubleML/doubleml-for-py <https://github.com/DoubleML/doubleml-for-py>`_.
+
 Bach, P., Chernozhukov, V., Kurz, M. S., and Spindler, M. (2022), DoubleML - An
 Object-Oriented Implementation of Double Machine Learning in Python,
 Journal of Machine Learning Research, 23(53): 1-6,
