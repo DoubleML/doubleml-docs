@@ -1,10 +1,17 @@
 .. include:: /guide/models/did/did_setup.rst
 
+.. _did-implementation-model:
+
+Parameters & Implementation
+***************************
+
+.. include:: /guide/models/did/did_implementation.rst
+
 
 .. _did-pa-model:
 
 Panel data
-**********
+******************
 
 .. include:: /guide/models/did/did_pa.rst
 
@@ -12,7 +19,7 @@ Panel data
 .. _did-cs-model:
 
 Repeated cross-sections
-***********************
+*******************************
 
 .. include:: /guide/models/did/did_cs.rst
 

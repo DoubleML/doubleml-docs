@@ -4,7 +4,7 @@ In the :ref:`did-pa-model` with ``score='observational'`` and ``in_sample_normal
 
 .. math::
 
-    m(W,g) &= \big(g(1,X) - g(0,X)\big)\cdot \frac{G^{\mathrm{g}}}{\mathbb{E}[G^{\mathrm{g}}]}
+    m(W,g) &= \big(g(1,X) - g(0,X)\big)\cdot \frac{G^{\mathrm{g}}}{\mathbb{E}[G^{\mathrm{g}}]}\cdot \max(G^{\mathrm{g}}, C^{(\cdot)})
 
     \alpha(W) &= \left(\frac{G^{\mathrm{g}}}{\mathbb{E}[G^{\mathrm{g}}]} - \frac{\frac{m(X)(1-G^{\mathrm{g}})}{1-m(X)}}{\mathbb{E}\left[\frac{m(X)(1-G^{\mathrm{g}})}{1-m(X)}\right]}\right) \cdot \max(G^{\mathrm{g}}, C^{(\cdot)}).
 
@@ -22,7 +22,7 @@ For ``score='experimental'`` implies the score function implies the following re
 
     \alpha(W) &= \left(\frac{G^{\mathrm{g}}}{\mathbb{E}[G^{\mathrm{g}}]} - \frac{1-G^{\mathrm{g}}}{1-\mathbb{E}[G^{\mathrm{g}}]}\right) \cdot \max(G^{\mathrm{g}}, C^{(\cdot)}).
 
-The ``nuisance_elements`` are then computed with plug-in versions according to the general :ref:`sensitivity_implementation`.
+The ``nuisance_elements`` are then computed with plug-in versions according to the general :ref:`sensitivity_implementation`, but the scores :math:`\psi_{\sigma^2}` and :math:`\psi_{\nu^2}` are scaled according to the sample size of the subset, i.e. with scaling factor :math:`c=\frac{n_{\text{ids}}}{n_{\text{subset}}}`.
 
 .. note::
-    Remark that the elements are only non-zero for units in the corresponding treatment group :math:`\mathrm{g}` and control group :math:`C^{(\cdot)}`, as :math:`1-G^{\mathrm{g}}=C^{(\cdot)}` if :math:`G^{\mathrm{g}} \vee C_{t_\text{eval} + \delta}^{(\cdot)}=1`.
+    Remark that the elements are only non-zero for units in the corresponding treatment group :math:`\mathrm{g}` and control group :math:`C^{(\cdot)}`, as :math:`1-G^{\mathrm{g}}=C^{(\cdot)}` if :math:`\max(G^{\mathrm{g}}, C^{(\cdot)})=1`.
