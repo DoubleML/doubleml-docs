@@ -10,7 +10,7 @@ for a certain choice of :math:`(\mathrm{g}, t_\text{pre}, t_\text{eval})` and :m
 
 For notational purposes, we will omit the subscripts :math:`\mathrm{g}, t_\text{pre}, t_\text{eval}, \delta` in the following and use the notation 
 
-* :math:`g_0(0, X_i)\equiv g_{0, \mathrm{g}, t_\text{pre}, t_\text{eval}, \delta}(X_i)` (population outcome regression function of the control group)
+* :math:`g_0(0, X_i)\equiv g_{0, \mathrm{g}, t_\text{pre}, t_\text{eval}, \delta}(X_i)` (population outcome change regression function of the control group)
 * :math:`m_0(X_i)\equiv m_{0, \mathrm{g}, t_\text{eval} + \delta}(X_i)` (generalized propensity score)
 
 All scores in the multi-period setting have the form 
