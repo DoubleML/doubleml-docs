@@ -62,6 +62,7 @@ Difference-in-Differences
     did/py_panel_simple.ipynb
     did/py_panel.ipynb
     did/py_panel_data_example.ipynb
+    did/py_rep_cs.ipynb
 
 
 R: Case studies
