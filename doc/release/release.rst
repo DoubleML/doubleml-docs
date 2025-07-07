@@ -19,12 +19,12 @@ Release Notes
         - Extended User Guide and Example Gallery
           `Docs #243 <https://github.com/DoubleML/doubleml-docs/pull/243>`_
 
-        - Allow user defined bandwidth for ``RDFlex``
-          `Py #343 <https://github.com/DoubleML/doubleml-for-py/pull/343>`_
+      - Allow user defined bandwidth for ``RDFlex``
+        `Py #343 <https://github.com/DoubleML/doubleml-for-py/pull/343>`_
 
-        - Maintenance package
-          `Py #327 <https://github.com/DoubleML/doubleml-for-py/pull/327>`_
-          `Py #336 <https://github.com/DoubleML/doubleml-for-py/pull/336>`_
+      - Maintenance package
+        `Py #327 <https://github.com/DoubleML/doubleml-for-py/pull/327>`_
+        `Py #336 <https://github.com/DoubleML/doubleml-for-py/pull/336>`_
 
       - Maintenance documentation
         `Docs #241 <https://github.com/DoubleML/doubleml-docs/pull/241>`_
