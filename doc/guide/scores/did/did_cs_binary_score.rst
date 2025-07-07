@@ -55,8 +55,8 @@ If ``in_sample_normalization='False'``, the score is set to
 
     =\; &\psi_a(W; \eta) \theta + \psi_b(W; \eta)
 
-with :math:`\eta=(g, p, \lambda)`, where :math:`p_0 = \mathbb{E}[D]` and :math:`\lambda_0 = \mathbb{E}[T]` are estimated on the cross-fitting folds.
-Remark that this will result in the same score, but just uses slightly different normalization.
+with :math:`\eta=(g, p, \lambda)`, where :math:`p_0 = \mathbb{E}[D]` and :math:`\lambda_0 = \mathbb{E}[T]` are estimated on the whole sample.
+Remark that this will result in a similar score, but just uses slightly different normalization.
 
 ``score='experimental'`` assumes that the treatment probability is independent of the covariates :math:`X` and
 implements the score function:
@@ -115,5 +115,5 @@ Analogously, if ``in_sample_normalization='False'``,  the score is set to
 
     =\; &\psi_a(W; \eta) \theta + \psi_b(W; \eta)
 
-with :math:`\eta=(g, m, p, \lambda)`, where :math:`p_0 = \mathbb{E}[D]` and :math:`\lambda_0 = \mathbb{E}[T]` are estimated on the cross-fitting folds.
-Remark that this will result in the same score, but just uses slightly different normalization.
+with :math:`\eta=(g, m, p, \lambda)`, where :math:`p_0 = \mathbb{E}[D]` and :math:`\lambda_0 = \mathbb{E}[T]` are estimated on the whole sample.
+Remark that this will result in a similar score, but just uses slightly different normalization.
