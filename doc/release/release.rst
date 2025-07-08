@@ -7,6 +7,33 @@ Release Notes
 
   .. tab-item:: Python
 
+    .. dropdown:: DoubleML 0.10.1
+      :class-title: sd-bg-primary sd-font-weight-bold
+      :open:
+
+      - **Release highlight:** Multi-Period Difference-in-Differences for Repeated Cross Sections
+
+        - Implementation via ``DoubleMLDIDMulti`` class
+          `Py #330 <https://github.com/DoubleML/doubleml-for-py/pull/330>`_
+          `Py #345 <https://github.com/DoubleML/doubleml-for-py/pull/345>`_
+        - Extended User Guide and Example Gallery
+          `Docs #243 <https://github.com/DoubleML/doubleml-docs/pull/243>`_
+
+      - Allow user defined bandwidth for ``RDFlex``
+        `Py #343 <https://github.com/DoubleML/doubleml-for-py/pull/343>`_
+
+      - Maintenance package
+        `Py #327 <https://github.com/DoubleML/doubleml-for-py/pull/327>`_
+        `Py #336 <https://github.com/DoubleML/doubleml-for-py/pull/336>`_
+
+      - Maintenance documentation
+        `Docs #241 <https://github.com/DoubleML/doubleml-docs/pull/241>`_
+        `Docs #242 <https://github.com/DoubleML/doubleml-docs/pull/242>`_
+        `Docs #244 <https://github.com/DoubleML/doubleml-docs/pull/244>`_
+        `Docs #245 <https://github.com/DoubleML/doubleml-docs/pull/245>`_
+        `Docs #246 <https://github.com/DoubleML/doubleml-docs/pull/246>`_
+
+
     .. dropdown:: DoubleML 0.10.0
       :class-title: sd-bg-primary sd-font-weight-bold
       :open:
