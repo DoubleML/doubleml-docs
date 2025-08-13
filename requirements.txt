@@ -26,3 +26,4 @@ flaml
 # notebooks
 ipykernel
 pyreadr
+tabpfn
