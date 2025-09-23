@@ -34,7 +34,7 @@ GATEs for IRM models
             import numpy as np
             import pandas as pd
             import doubleml as dml
-            from doubleml.datasets import make_irm_data
+            from doubleml.irm.datasets import make_irm_data
             from sklearn.ensemble import RandomForestRegressor, RandomForestClassifier
 
             ml_g = RandomForestRegressor(n_estimators=100, max_features=5, max_depth=5, min_samples_leaf=2)
@@ -72,7 +72,7 @@ GATEs for PLR models
             import numpy as np
             import pandas as pd
             import doubleml as dml
-            from doubleml.datasets import make_plr_CCDDHNR2018
+            from doubleml.plm.datasets import make_plr_CCDDHNR2018
             from sklearn.ensemble import RandomForestRegressor
 
             ml_g = RandomForestRegressor(n_estimators=100, max_features=20, max_depth=5, min_samples_leaf=2)
@@ -121,7 +121,7 @@ CATEs for IRM models
             import patsy
 
             import doubleml as dml
-            from doubleml.datasets import make_irm_data
+            from doubleml.irm.datasets import make_irm_data
             from sklearn.ensemble import RandomForestRegressor
 
             ml_g = RandomForestRegressor(n_estimators=100, max_features=10, max_depth=5, min_samples_leaf=2)
@@ -161,7 +161,7 @@ CATEs for PLR models
             import patsy
 
             import doubleml as dml
-            from doubleml.datasets import make_plr_CCDDHNR2018
+            from doubleml.plm.datasets import make_plr_CCDDHNR2018
             from sklearn.ensemble import RandomForestRegressor, RandomForestClassifier
 
             ml_g = RandomForestRegressor(n_estimators=100, max_features=20, max_depth=5, min_samples_leaf=2)
@@ -255,7 +255,7 @@ In these cases the weights can be specified as an array via the ``weights`` argu
             import pandas as pd
 
             import doubleml as dml
-            from doubleml.datasets import make_irm_data
+            from doubleml.irm.datasets import make_irm_data
             from sklearn.ensemble import RandomForestRegressor
 
             ml_g = RandomForestRegressor(n_estimators=100, max_features=10, max_depth=5, min_samples_leaf=2)
@@ -318,7 +318,7 @@ Potential quantiles (PQs)
 
             import numpy as np
             import doubleml as dml
-            from doubleml.datasets import make_irm_data
+            from doubleml.irm.datasets import make_irm_data
             from sklearn.ensemble import RandomForestClassifier
             np.random.seed(3141)
             ml_g = RandomForestClassifier(n_estimators=100, max_features=20, max_depth=10, min_samples_leaf=2)
@@ -340,7 +340,7 @@ Estimation is conducted via its ``fit()`` method:
 
             import numpy as np
             import doubleml as dml
-            from doubleml.datasets import make_iivm_data
+            from doubleml.irm.datasets import make_iivm_data
             from sklearn.ensemble import RandomForestClassifier
             np.random.seed(3141)
             ml_g = RandomForestClassifier(n_estimators=100, max_features=20, max_depth=10, min_samples_leaf=2)
@@ -367,7 +367,7 @@ Quantile treatment effects (QTEs)
 
             import numpy as np
             import doubleml as dml
-            from doubleml.datasets import make_irm_data
+            from doubleml.irm.datasets import make_irm_data
             from sklearn.ensemble import RandomForestClassifier
             np.random.seed(3141)
             ml_g = RandomForestClassifier(n_estimators=100, max_features=20, max_depth=10, min_samples_leaf=2)
@@ -403,7 +403,7 @@ Estimation is conducted via its ``fit()`` method:
 
             import numpy as np
             import doubleml as dml
-            from doubleml.datasets import make_irm_data
+            from doubleml.irm.datasets import make_irm_data
             from sklearn.ensemble import RandomForestClassifier, RandomForestRegressor
             np.random.seed(3141)
             ml_g = RandomForestRegressor(n_estimators=100, max_features=20, max_depth=10, min_samples_leaf=2)
@@ -431,7 +431,7 @@ Estimation is conducted via its ``fit()`` method:
 
             import numpy as np
             import doubleml as dml
-            from doubleml.datasets import make_irm_data
+            from doubleml.irm.datasets import make_irm_data
             from sklearn.ensemble import RandomForestClassifier, RandomForestRegressor
             np.random.seed(3141)
             ml_g = RandomForestRegressor(n_estimators=100, max_features=20, max_depth=10, min_samples_leaf=2)
@@ -467,7 +467,7 @@ The ``depth`` parameter, which defaults to ``2``, can be used to adjust the maxi
             import numpy as np
             import pandas as pd
             import doubleml as dml
-            from doubleml.datasets import make_irm_data
+            from doubleml.irm.datasets import make_irm_data
             from sklearn.ensemble import RandomForestRegressor, RandomForestClassifier
 
             ml_g = RandomForestRegressor(n_estimators=100, max_features=10, max_depth=5, min_samples_leaf=2)

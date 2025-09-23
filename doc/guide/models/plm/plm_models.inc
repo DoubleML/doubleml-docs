@@ -30,7 +30,7 @@ Partially linear regression model (PLR)
 
             import numpy as np
             import doubleml as dml
-            from doubleml.datasets import make_plr_CCDDHNR2018
+            from doubleml.plm.datasets import make_plr_CCDDHNR2018
             from sklearn.ensemble import RandomForestRegressor
             from sklearn.base import clone
 
@@ -87,7 +87,7 @@ Estimation is conducted via its ``fit()`` method:
 
             import numpy as np
             import doubleml as dml
-            from doubleml.datasets import make_pliv_CHS2015
+            from doubleml.plm.datasets import make_pliv_CHS2015
             from sklearn.ensemble import RandomForestRegressor
             from sklearn.base import clone
 

@@ -27,7 +27,7 @@ Estimation is conducted via its ``fit()`` method:
 
             import numpy as np
             import doubleml as dml
-            from doubleml.datasets import make_irm_data
+            from doubleml.irm.datasets import make_irm_data
             from sklearn.ensemble import RandomForestRegressor, RandomForestClassifier
 
             ml_g = RandomForestRegressor(n_estimators=100, max_features=10, max_depth=5, min_samples_leaf=2)
@@ -76,7 +76,7 @@ Estimation is conducted via its ``fit()`` method:
 
             import numpy as np
             import doubleml as dml
-            from doubleml.datasets import make_irm_data
+            from doubleml.irm.datasets import make_irm_data
             from sklearn.ensemble import RandomForestRegressor, RandomForestClassifier
 
             ml_g = RandomForestRegressor(n_estimators=100, max_features=10, max_depth=5, min_samples_leaf=2)
@@ -107,7 +107,7 @@ Estimation is conducted via its ``fit()`` method. The ``causal_contrast()`` meth
 
             import numpy as np
             import doubleml as dml
-            from doubleml.datasets import make_irm_data
+            from doubleml.irm.datasets import make_irm_data
             from sklearn.ensemble import RandomForestRegressor, RandomForestClassifier
 
             ml_g = RandomForestRegressor(n_estimators=100, max_features=10, max_depth=5, min_samples_leaf=2)
@@ -144,7 +144,7 @@ Estimation is conducted via its ``fit()`` method:
 
             import numpy as np
             import doubleml as dml
-            from doubleml.datasets import make_iivm_data
+            from doubleml.irm.datasets import make_iivm_data
             from sklearn.ensemble import RandomForestRegressor, RandomForestClassifier
 
             ml_g = RandomForestRegressor(n_estimators=100, max_features=20, max_depth=5, min_samples_leaf=2)
