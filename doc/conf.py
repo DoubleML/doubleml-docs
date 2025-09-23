@@ -94,8 +94,8 @@ html_theme_options = {
     "navbar_align": "left",
     "logo": {
         "text": project,
-        "image_light": "img/logo.png",
-        "image_dark": "img/logo_dark.png",
+        "image_light": "../img/logo.png",
+        "image_dark": "../img/logo_dark.png",
     },
     "header_links_before_dropdown": 6,
     "use_edit_page_button": True,
@@ -133,6 +133,7 @@ html_extra_path = ["../img/logo.png", "../img/logo_dark.png"]
 html_favicon = "../img/favicon.ico"
 
 html_sidebars = {
+    
     "**": [
         "logo.html",
         "search-field.html",
