@@ -11,7 +11,7 @@ of :math:`\theta_0` and the sampling error :math:`\sqrt{N}(\tilde{\theta}_0 - \t
 
 .. math::
 
-    \sqrt{N}(\tilde{\theta}_0 - \theta_0) \leadsto N(o, \sigma^2),
+    \sqrt{N}(\tilde{\theta}_0 - \theta_0) \leadsto N(0, \sigma^2),
 
 with mean zero and variance given by
 
