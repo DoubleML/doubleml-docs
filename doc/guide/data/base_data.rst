@@ -7,6 +7,12 @@ We download the Bonus data set from the Pennsylvania Reemployment Bonus experime
     - In R we use `data.table::data.table() <https://rdatatable.gitlab.io/data.table/reference/data.table.html>`_, `data.frame() <https://rdrr.io/r/base/data.frame.html>`_, and `matrix() <https://rdrr.io/r/base/matrix.html>`_.
       The data can be fetched via `DoubleML::fetch_bonus() <https://docs.doubleml.org/r/stable/reference/fetch_bonus.html>`_
 
+.. important::
+    Cluster-robust analyses no longer require the dedicated ``DoubleMLClusterData`` backend.
+    Use :class:`doubleml.DoubleMLData` with the ``cluster_cols`` (or ``cluster_vars`` for arrays)
+    arguments instead. The wrapper ``DoubleMLClusterData`` remains available for backwards
+    compatibility but is deprecated and scheduled for removal with version 0.12.0.
+
 .. tab-set::
 
   .. tab-item:: Python
@@ -102,6 +108,11 @@ Comments on detailed specifications:
 * In case of multiple treatment variables, the boolean ``use_other_treat_as_covariate`` indicates whether the other
   treatment variables should be added as covariates in each treatment-variable-specific learning task.
 * Instrumental variables for IV models have to be provided as ``z_cols``.
+* Cluster variables can directly be added via ``cluster_cols``; they must be distinct from all variables in
+  ``y_col``, ``d_cols``, ``x_cols`` and ``z_cols``. The object exposes ``cluster_cols`` and ``cluster_vars``
+  properties for convenience.
+* The optional ``force_all_d_finite`` flag mirrors ``force_all_x_finite`` and controls missings/infinite values
+  in the treatment variables, which is especially relevant for panel models.
 
 
 DoubleMLData from arrays and matrices
@@ -171,3 +182,16 @@ To specify the data and the variables for the causal model from arrays we call
       
       obj_dml_data_sim = double_ml_data_from_matrix(X = X, y = y, d = d)
       obj_dml_data_sim
+
+Cluster assignments can be supplied through the optional ``cluster_vars`` argument (``cluster_cols`` in R).
+
+.. tab-set::
+
+  .. tab-item:: Python
+    :sync: py
+
+    .. ipython:: python
+
+      cluster_vars = (np.arange(n_obs) // 5).reshape(-1, 1)
+      obj_dml_data_sim_cluster = DoubleMLData.from_arrays(X, y, d, cluster_vars=cluster_vars)
+      obj_dml_data_sim_cluster.cluster_cols
