@@ -1,14 +1,12 @@
-The ``DoubleMLSSMData`` class covers the sample selection model backend. It
-extends :ref:`DoubleMLData <dml_data>` with a dedicated selection indicator and
-inherits support for clustered data.
+The ``DoubleMLSSMData`` class covers the sample selection model backend. 
+It extends :ref:`DoubleMLData <dml_data>` with a dedicated selection indicator and inherits support for clustered data.
 
 Key arguments
 """""""""""""
 
 * ``s_col``: column containing the selection indicator.
 * ``cluster_cols``: optional cluster identifiers.
-* ``from_arrays``: expects an additional ``s`` array together with ``x``, ``y``
-  and ``d``.
+* ``from_arrays``: expects an additional ``s`` array together with ``x``, ``y`` and ``d``.
 
 The object exposes the ``s`` property and keeps the selection indicator
 separate from covariates and treatment variables.

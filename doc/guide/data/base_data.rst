@@ -183,7 +183,8 @@ To specify the data and the variables for the causal model from arrays we call
       obj_dml_data_sim = double_ml_data_from_matrix(X = X, y = y, d = d)
       obj_dml_data_sim
 
-Cluster assignments can be supplied through the optional ``cluster_vars`` argument (``cluster_cols`` in R).
+In Python, cluster assignments can be supplied through the optional ``cluster_cols`` argument (or ``cluster_vars`` in the ``from_arrays`` method).
+In R, one has to create a ``DoubleMLClusterData`` object instead of ``DoubleMLData`` to use clustering.
 
 .. tab-set::
 
@@ -195,3 +196,5 @@ Cluster assignments can be supplied through the optional ``cluster_vars`` argume
       cluster_vars = (np.arange(n_obs) // 5).reshape(-1, 1)
       obj_dml_data_sim_cluster = DoubleMLData.from_arrays(X, y, d, cluster_vars=cluster_vars)
       obj_dml_data_sim_cluster.cluster_cols
+      print(obj_dml_data_sim_cluster)
+
