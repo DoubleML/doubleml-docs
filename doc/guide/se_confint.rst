@@ -56,7 +56,7 @@ implemented in ``DoubleMLPLR``.
         .. ipython:: python
 
             import doubleml as dml
-            from doubleml.datasets import make_plr_CCDDHNR2018
+            from doubleml.plm.datasets import make_plr_CCDDHNR2018
             from sklearn.ensemble import RandomForestRegressor
             from sklearn.base import clone
 
