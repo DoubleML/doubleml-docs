@@ -121,3 +121,38 @@ Estimation is conducted via its ``fit()`` method:
             dml_pliv_obj = DoubleMLPLIV$new(obj_dml_data, ml_l, ml_m, ml_r)
             dml_pliv_obj$fit()
             print(dml_pliv_obj)
+
+Logistic partially linear regression model (LPLR)
+***************************************
+
+.. include:: /guide/models/plm/lplr.rst
+
+.. include:: /shared/causal_graphs/plr_irm_causal_graph.rst
+
+``DoubleMLLPLR`` implements LPLR models. Estimation is conducted via its ``fit()`` method.
+
+.. note::
+    Remark that the treatment effects are not additive in this model. The partial linear term enters the model through a logistic link function.
+
+.. tab-set::
+
+    .. tab-item:: Python
+        :sync: py
+
+        .. ipython:: python
+
+            import numpy as np
+            import doubleml as dml
+            from doubleml.plm.datasets import make_lplr_LZZ2020
+            from sklearn.ensemble import RandomForestRegressor, RandomForestClassifier
+            from sklearn.base import clone
+            np.random.seed(3141)
+            ml_t = RandomForestRegressor(n_estimators=100, max_features=20, max_depth=5, min_samples_leaf=2)
+            ml_m = RandomForestRegressor(n_estimators=100, max_features=20, max_depth=5, min_samples_leaf=2)
+            ml_M = RandomForestClassifier(n_estimators=100, max_features=20, max_depth=5, min_samples_leaf=2)
+            obj_dml_data = make_lplr_LZZ2020(alpha=0.5, n_obs=500, dim_x=20)
+            dml_lplr_obj = dml.DoubleMLPLR(obj_dml_data, ml_M, ml_t, ml_m)
+            dml_lplr_obj.fit().summary
+
+
+

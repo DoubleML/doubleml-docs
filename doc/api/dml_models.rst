@@ -17,6 +17,7 @@ doubleml.plm
 
     DoubleMLPLR
     DoubleMLPLIV
+    DoubleMLLPLR
 
 
 .. _api_irm_models:
