@@ -25,7 +25,8 @@ Example usage
         :sync: py
 
         .. ipython:: python
-
+          :okwarning:
+          
             import doubleml as dml
             from doubleml.did.datasets import make_did_SZ2020
 

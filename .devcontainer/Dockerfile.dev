@@ -62,7 +62,7 @@ COPY --chown=$USERNAME:$USERNAME requirements.txt /tmp/requirements.txt
 RUN python -m venv /home/$USERNAME/.venv && \
     /home/$USERNAME/.venv/bin/python -m pip install --upgrade pip && \
     /home/$USERNAME/.venv/bin/pip install --no-cache-dir -r /tmp/requirements.txt && \
-    /home/$USERNAME/.venv/bin/pip install --no-cache-dir git+https://github.com/DoubleML/doubleml-for-py.git@main#egg=DoubleML[rdd]
+    /home/$USERNAME/.venv/bin/pip install --no-cache-dir "DoubleML[rdd] @ git+https://github.com/DoubleML/doubleml-for-py.git@main"
 
 # Set the virtual environment as the default Python environment
 ENV PATH="/home/$USERNAME/.venv/bin:$PATH"
