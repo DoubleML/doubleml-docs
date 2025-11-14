@@ -11,7 +11,7 @@ based on `Chernozhukov et al. (2022) <https://www.nber.org/papers/w30302>`_.
 General algorithm
 +++++++++++++++++
 
-The section :ref:`sensitivity_theory` contains a general summary and the relevant defintions, whereas :ref:`sensitivity_implementation` considers
+The section :ref:`sensitivity_theory` contains a general summary and the relevant definitions, whereas :ref:`sensitivity_implementation` considers
 the general part of the implementation.
 
 .. _sensitivity_theory:
