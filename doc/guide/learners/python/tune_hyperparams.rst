@@ -78,6 +78,3 @@ In this case the tuning should be done externally and the parameters can then be
       dml_plr_obj.set_ml_nuisance_params('ml_m', 'd', {'alpha': ml_m_tune.alpha_});
       print(dml_plr_obj.params)
       print(dml_plr_obj.fit().summary)
-
-External tuning requires knowledge about the underlying machine learning estimators and
-is therefore not recommended for all models.
