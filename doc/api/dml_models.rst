@@ -16,8 +16,8 @@ doubleml.plm
     :template: class.rst
 
     DoubleMLPLR
-    DoubleMLPLIV
     DoubleMLLPLR
+    DoubleMLPLIV
 
 
 .. _api_irm_models:

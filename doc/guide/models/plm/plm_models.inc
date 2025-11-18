@@ -123,7 +123,7 @@ Estimation is conducted via its ``fit()`` method:
             print(dml_pliv_obj)
 
 Logistic partially linear regression model (LPLR)
-***************************************
+*************************************************
 
 .. include:: /guide/models/plm/lplr.rst
 
@@ -140,6 +140,7 @@ Logistic partially linear regression model (LPLR)
         :sync: py
 
         .. ipython:: python
+            :okwarning:
 
             import numpy as np
             import doubleml as dml
