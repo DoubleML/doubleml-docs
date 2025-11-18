@@ -52,7 +52,7 @@ for example :py:class:`sklearn.ensemble.RandomForestRegressor`.
     .. ipython:: python
 
       import doubleml as dml
-      from doubleml.datasets import make_plr_CCDDHNR2018
+      from doubleml.plm.datasets import make_plr_CCDDHNR2018
       from sklearn.ensemble import RandomForestRegressor
 
       np.random.seed(1234)
@@ -205,7 +205,7 @@ To illustrate the parameter tuning, we work with the following example.
     .. ipython:: python
 
         import doubleml as dml
-        from doubleml.datasets import make_plr_CCDDHNR2018
+        from doubleml.plm.datasets import make_plr_CCDDHNR2018
         from sklearn.ensemble import RandomForestRegressor
 
         np.random.seed(1234)
@@ -271,7 +271,7 @@ To illustrate the use of external predictions, we work with the following exampl
 
       import numpy as np
       import doubleml as dml
-      from doubleml.datasets import make_irm_data
+      from doubleml.irm.datasets import make_irm_data
       from sklearn.ensemble import RandomForestRegressor, RandomForestClassifier
 
       np.random.seed(3333)

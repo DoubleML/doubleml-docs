@@ -26,13 +26,13 @@ Estimation is conducted via its ``fit()`` method:
 
             import numpy as np
             from sklearn.linear_model import LassoCV, LogisticRegressionCV
-            from doubleml.datasets import make_ssm_data
+            from doubleml.irm.datasets import make_ssm_data
             import doubleml as dml
 
             np.random.seed(42)
             n_obs = 2000
             df = make_ssm_data(n_obs=n_obs, mar=True, return_type='DataFrame')
-            dml_data = dml.DoubleMLData(df, 'y', 'd', s_col='s')
+            dml_data = dml.DoubleMLSSMData(df, 'y', 'd', s_col='s')
 
             ml_g = LassoCV()
             ml_m = LogisticRegressionCV(penalty='l1', solver='liblinear')
@@ -115,13 +115,13 @@ Estimation is conducted via its ``fit()`` method:
 
             import numpy as np
             from sklearn.linear_model import LassoCV, LogisticRegressionCV
-            from doubleml.datasets import make_ssm_data
+            from doubleml.irm.datasets import make_ssm_data
             import doubleml as dml
 
             np.random.seed(42)
             n_obs = 2000
             df = make_ssm_data(n_obs=n_obs, mar=False, return_type='DataFrame')
-            dml_data = dml.DoubleMLData(df, 'y', 'd', z_cols='z', s_col='s')
+            dml_data = dml.DoubleMLSSMData(df, 'y', 'd', z_cols='z', s_col='s')
 
             ml_g = LassoCV()
             ml_m = LogisticRegressionCV(penalty='l1', solver='liblinear')

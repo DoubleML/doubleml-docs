@@ -12,3 +12,6 @@ DoubleML Data Class
     DoubleMLData
     DoubleMLClusterData
     DoubleMLPanelData
+    DoubleMLSSMData
+    DoubleMLRDDData
+    DoubleMLDIDData

@@ -88,10 +88,10 @@ where:
 .. math::
    \eta_0(x) = \frac{1}{2} \left( \mu_0^+(x) + \mu_0^-(x) \right), \quad \mu_0^\star(x) = \mathbb{E}[Y_i | S_i = 0^\star, X_i = x] \text{ for } \star \in \{+, -\}.
 
-``RDFlex`` implements this regression discontinuity design with :math:`\eta_0` being estimated by user-specified ML methods. The indicator ``fuzzy=False`` indicates a sharp design. The ``DoubleMLData`` object has to be defined with the arguments:
+``RDFlex`` implements this regression discontinuity design with :math:`\eta_0` being estimated by user-specified ML methods. The indicator ``fuzzy=False`` indicates a sharp design. The ``DoubleMLRDDData`` object has to be defined with the arguments:
 
  - ``y_col`` refers to the observed outcome, on which we want to estimate the effect at the cutoff
- - ``s_col`` refers to the score
+ - ``score_col`` refers to the score
  - ``x_cols`` refers to the covariates to be adjusted for
  - ``d_cols`` is an indicator of whether an observation is treated or not. In the sharp design, this should be identical to an indicator of whether an observation is left or right of the cutoff (:math:`D_i = \mathbb{I}[S_i > c]`)
 
@@ -117,7 +117,7 @@ Estimation is conducted via its ``fit()`` method:
             cov_names = ['x' + str(i) for i in range(data_dict['X'].shape[1])]
             df = pd.DataFrame(np.column_stack((data_dict['Y'], data_dict['D'], data_dict['score'], data_dict['X'])), columns=['y', 'd', 'score'] + cov_names)
             
-            dml_data = dml.DoubleMLData(df, y_col='y', d_cols='d', x_cols=cov_names, s_col='score')
+            dml_data = dml.DoubleMLRDDData(df, y_col='y', d_cols='d', x_cols=cov_names, score_col='score')
 
             ml_g = LassoCV()
 
@@ -158,10 +158,10 @@ Under similar considerations as in the sharp case, an estimator using flexible c
 
 where :math:`\eta_Y` and :math:`\eta_D` are defined as in the sharp RDD setting, with the respective outcome.
 
-``RDFlex`` implements this fuzzy RDD with flexible covariate adjustment. The indicator ``fuzzy=True`` indicates a fuzzy design. The ``DoubleMLData`` object has to be defined with the arguments:
+``RDFlex`` implements this fuzzy RDD with flexible covariate adjustment. The indicator ``fuzzy=True`` indicates a fuzzy design. The ``DoubleMLRDDData`` object has to be defined with the arguments:
 
  - ``y_col`` refers to the observed outcome, on which we want to estimate the effect at the cutoff
- - ``s_col`` refers to the score
+ - ``score_col`` refers to the score
  - ``x_cols`` refers to the covariates to be adjusted for
  - ``d_cols`` is an indicator of whether an observation is treated or not. In the fuzzy design, this should **not** be identical to an indicator of whether an observation is left or right of the cutoff (:math:`D_i \neq \mathbb{I}[S_i > c]`)
 
@@ -187,7 +187,7 @@ Estimation is conducted via its ``fit()`` method:
             cov_names = ['x' + str(i) for i in range(data_dict['X'].shape[1])]
             df = pd.DataFrame(np.column_stack((data_dict['Y'], data_dict['D'], data_dict['score'], data_dict['X'])), columns=['y', 'd', 'score'] + cov_names)
             
-            dml_data = dml.DoubleMLData(df, y_col='y', d_cols='d', x_cols=cov_names, s_col='score')
+            dml_data = dml.DoubleMLRDDData(df, y_col='y', d_cols='d', x_cols=cov_names, score_col='score')
 
             ml_g = LassoCV()
             ml_m = LogisticRegressionCV()
