@@ -22,10 +22,11 @@ General Examples
     py_double_ml_sensitivity.ipynb
     py_double_ml_apo.ipynb
     py_double_ml_irm_vs_apo.ipynb
+    py_double_ml_lplr.ipynb
+    py_double_ml_ssm.ipynb
     py_double_ml_learner.ipynb
     py_double_ml_firststage.ipynb
     py_double_ml_multiway_cluster.ipynb
-    py_double_ml_ssm.ipynb
     py_double_ml_sensitivity_booking.ipynb
     learners/py_tabpfn.ipynb
     py_double_ml_basic_iv.ipynb
@@ -33,7 +34,6 @@ General Examples
     py_double_ml_plm_irm_hetfx.ipynb
     py_double_ml_meets_flaml.ipynb
     py_double_ml_rdflex.ipynb
-    py_double_ml_lplr.ipynb
 
 
 Effect Heterogeneity
