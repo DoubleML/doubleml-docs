@@ -17,8 +17,9 @@ with nuisance elements :math:`\eta = { r(\cdot), m(\cdot), \psi(\cdot) }`, where
 
     \psi(X) = \text{expit} (-r_0(X)).
 
-For the estimation of :math:`r_0(X)`, we further need to obtain the following estimates as well as a preliminary estimate
-:math:`\breve \beta` as described in `Liu et al. (2021) <https://doi.org/10.1093/ectj/utab019>`_
+For the estimation of :math:`r_0(X)`, we further need to obtain a preliminary estimate :math:`\breve \beta` and
+:math:`M (D, X) = \mathbb{P} [Y=1 | D, X]` as described in `Liu et al. (2021) <https://doi.org/10.1093/ectj/utab019>`_
+and the following estimates:
 
 .. math::
 
