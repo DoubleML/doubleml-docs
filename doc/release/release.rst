@@ -45,6 +45,7 @@ Release Notes
 
       - Added TabPFN example notebook
         `Docs #248 <https://github.com/DoubleML/doubleml-docs/pull/248>`_
+        `Docs #259 <https://github.com/DoubleML/doubleml-docs/pull/259>`_
 
       - Maintenance package
         `Py #354 <https://github.com/DoubleML/doubleml-for-py/pull/354>`_
@@ -67,6 +68,7 @@ Release Notes
         `Docs #255 <https://github.com/DoubleML/doubleml-docs/pull/255>`_
         `Docs #256 <https://github.com/DoubleML/doubleml-docs/pull/256>`_
         `Docs #257 <https://github.com/DoubleML/doubleml-docs/pull/257>`_
+        `Docs #258 <https://github.com/DoubleML/doubleml-docs/pull/258>`_
 
     .. dropdown:: DoubleML 0.10.1
       :class-title: sd-bg-primary sd-font-weight-bold
