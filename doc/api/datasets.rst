@@ -31,6 +31,7 @@ Dataset Generators
 
    plm.datasets.make_plr_CCDDHNR2018
    plm.datasets.make_plr_turrell2018
+   plm.datasets.make_lplr_LZZ2020
    plm.datasets.make_pliv_CHS2015
    plm.datasets.make_pliv_multiway_cluster_CKMS2021
    plm.datasets.make_confounded_plr_data
