@@ -57,7 +57,6 @@ Release Notes
         `Py #360 <https://github.com/DoubleML/doubleml-for-py/pull/360>`_
         `Py #361 <https://github.com/DoubleML/doubleml-for-py/pull/361>`_
         `Py #367 <https://github.com/DoubleML/doubleml-for-py/pull/367>`_
-        `Py #367 <https://github.com/DoubleML/doubleml-for-py/pull/367>`_
         `Py #369 <https://github.com/DoubleML/doubleml-for-py/pull/369>`_
         `Py #370 <https://github.com/DoubleML/doubleml-for-py/pull/370>`_
 
