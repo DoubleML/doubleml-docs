@@ -1,6 +1,9 @@
 The ``DoubleMLPanelData`` class serves as data-backend for :ref:`DiD models <did-models>` and can be initialized from a dataframe.
 The class is a subclass of :ref:`DoubleMLData <dml_data>` and inherits all methods and attributes.
-Furthermore, it provides additional methods and attributes to handle panel data ()
+Furthermore, it provides additional methods and attributes to handle panel data.
+
+Key arguments
+"""""""""""""
 
 * ``id_col``: column to with unique identifiers for each unit
 * ``t_col``: column to specify the time periods of the observation
@@ -9,6 +12,9 @@ Furthermore, it provides additional methods and attributes to handle panel data 
 .. note::
     The ``t_col`` can contain ``float``, ``int`` or ``datetime`` values.
 
+Example usage
+"""""""""""""
+
 .. tab-set::
 
     .. tab-item:: Python
@@ -16,6 +22,8 @@ Furthermore, it provides additional methods and attributes to handle panel data 
 
         .. ipython:: python
 
+            import numpy as np
+            import doubleml as dml
             from doubleml.did.datasets import make_did_CS2021
 
             np.random.seed(42)
@@ -29,4 +37,5 @@ Furthermore, it provides additional methods and attributes to handle panel data 
                 x_cols=["Z1", "Z2", "Z3", "Z4"],
                 datetime_unit="M"
             )
+
             print(dml_data)

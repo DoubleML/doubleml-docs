@@ -94,8 +94,8 @@ html_theme_options = {
     "navbar_align": "left",
     "logo": {
         "text": project,
-        "image_light": "img/logo.png",
-        "image_dark": "img/logo_dark.png",
+        "image_light": "../img/logo.png",
+        "image_dark": "../img/logo_dark.png",
     },
     "header_links_before_dropdown": 6,
     "use_edit_page_button": True,
@@ -133,6 +133,7 @@ html_extra_path = ["../img/logo.png", "../img/logo_dark.png"]
 html_favicon = "../img/favicon.ico"
 
 html_sidebars = {
+    
     "**": [
         "logo.html",
         "search-field.html",
@@ -273,6 +274,8 @@ linkcheck_ignore = [
     "https://doi.org/10.1097%2FEDE.0b013e3181f74493",
     # Valid DOI; Causes 403 Client Error: Forbidden for url:...
     "https://doi.org/10.3982/ECTA15732",
+    # Valid DOI; Causes 403 Client Error: Forbidden for url:...
+    "https://doi.org/10.1093/ectj/utab019"
 ]
 
 # To execute R code via jupyter-execute one needs to install the R kernel for jupyter

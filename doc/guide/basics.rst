@@ -50,7 +50,7 @@ The nuisance functions are given by
         .. code-block:: python
 
             import numpy as np
-            from doubleml.datasets import make_plr_CCDDHNR2018
+            from doubleml.plm.datasets import make_plr_CCDDHNR2018
 
             np.random.seed(1234)
             n_rep = 1000

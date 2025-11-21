@@ -18,6 +18,8 @@ Utility Classes
     utils.DoubleMLPolicyTree
     utils.GlobalRegressor
     utils.GlobalClassifier
+    utils.PSProcessorConfig
+    utils.PSProcessor
 
 Utility Functions
 ~~~~~~~~~~~~~~~~~

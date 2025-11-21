@@ -1,5 +1,5 @@
 DoubleML[rdd]
-scikit-learn<1.6
+scikit-learn==1.6.1
 
 # test
 pytest

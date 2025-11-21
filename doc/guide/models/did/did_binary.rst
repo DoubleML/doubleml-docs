@@ -51,7 +51,7 @@ Estimation is conducted via its ``fit()`` method:
             np.random.seed(42)
             data = make_did_SZ2020(n_obs=500, return_type='DataFrame') 
             # y is already defined as the difference of observed outcomes
-            obj_dml_data = dml.DoubleMLData(data, 'y', 'd')
+            obj_dml_data = dml.DoubleMLDIDData(data, 'y', 'd')
             dml_did_obj = dml.DoubleMLDID(obj_dml_data, ml_g, ml_m)
             print(dml_did_obj.fit())
 
@@ -89,6 +89,6 @@ Estimation is conducted via its ``fit()`` method:
             ml_m = RandomForestClassifier(n_estimators=100, max_depth=5, min_samples_leaf=5)
             np.random.seed(42)
             data = make_did_SZ2020(n_obs=500, cross_sectional_data=True, return_type='DataFrame')
-            obj_dml_data = dml.DoubleMLData(data, 'y', 'd', t_col='t')
+            obj_dml_data = dml.DoubleMLDIDData(data, 'y', 'd', t_col='t')
             dml_did_obj = dml.DoubleMLDIDCS(obj_dml_data, ml_g, ml_m)
             print(dml_did_obj.fit())
