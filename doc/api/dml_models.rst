@@ -16,6 +16,7 @@ doubleml.plm
     :template: class.rst
 
     DoubleMLPLR
+    DoubleMLLPLR
     DoubleMLPLIV
 
 

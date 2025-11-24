@@ -64,6 +64,40 @@ Partially linear regression model (PLR)
             dml_plr_obj$fit()
             print(dml_plr_obj)
 
+.. _lplr-model:
+
+Logistic partially linear regression model (LPLR)
+*************************************************
+
+.. include:: /guide/models/plm/lplr.rst
+
+.. include:: /shared/causal_graphs/plr_irm_causal_graph.rst
+
+``DoubleMLLPLR`` implements LPLR models. Estimation is conducted via its ``fit()`` method.
+
+.. note::
+    Remark that the treatment effects are not additive in this model. The partial linear term enters the model through a logistic link function.
+
+.. tab-set::
+
+    .. tab-item:: Python
+        :sync: py
+
+        .. ipython:: python
+
+            import numpy as np
+            import doubleml as dml
+            from doubleml.plm.datasets import make_lplr_LZZ2020
+            from sklearn.ensemble import RandomForestRegressor, RandomForestClassifier
+            from sklearn.base import clone
+            np.random.seed(3141)
+            ml_t = RandomForestRegressor(n_estimators=100, max_features=15, max_depth=15, min_samples_leaf=5)
+            ml_m = RandomForestRegressor(n_estimators=100, max_features=15, max_depth=15, min_samples_leaf=5)
+            ml_M = RandomForestClassifier(n_estimators=100, max_features=15, max_depth=15, min_samples_leaf=5)
+            obj_dml_data = make_lplr_LZZ2020(alpha=0.5, n_obs=1000, dim_x=15)
+            dml_lplr_obj = dml.DoubleMLLPLR(obj_dml_data, ml_M, ml_t, ml_m)
+            dml_lplr_obj.fit().summary
+
 
 .. _pliv-model:
 
@@ -91,12 +125,12 @@ Estimation is conducted via its ``fit()`` method:
             from sklearn.ensemble import RandomForestRegressor
             from sklearn.base import clone
 
-            learner = RandomForestRegressor(n_estimators=100, max_features=20, max_depth=5, min_samples_leaf=2)
+            learner = RandomForestRegressor(n_estimators=100, max_features=5, max_depth=5, min_samples_leaf=5)
             ml_l = clone(learner)
             ml_m = clone(learner)
             ml_r = clone(learner)
             np.random.seed(2222)
-            data = make_pliv_CHS2015(alpha=0.5, n_obs=500, dim_x=20, dim_z=1, return_type='DataFrame')
+            data = make_pliv_CHS2015(alpha=0.5, n_obs=500, dim_x=5, dim_z=1, return_type='DataFrame')
             obj_dml_data = dml.DoubleMLData(data, 'y', 'd', z_cols='Z1')
             dml_pliv_obj = dml.DoubleMLPLIV(obj_dml_data, ml_l, ml_m, ml_r)
             print(dml_pliv_obj.fit())

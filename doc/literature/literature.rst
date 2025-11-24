@@ -136,6 +136,12 @@ Double Machine Learning Literature
         :octicon:`link` :bdg-link-dark:`URL <https://jmlr.org/papers/volume21/19-827/19-827.pdf>` 
         |hr|
 
+      - Molei Liu, Yi Zhang, Doudou Zhou |br|
+        **Double/Debiased Machine Learning for Logistic Partially Linear Model** |br|
+        *The Econometrics Journal, 24(3), Pages 559–588, 2021* |br|
+        :octicon:`link` :bdg-link-dark:`URL <https://doi.org/10.1093/ectj/utab019>`
+        |hr|
+
       - Yusuke Narita, Shota Yasui, Kohei Yata |br|
         **Debiased Off-Policy Evaluation for Recommendation Systems** |br|
         *RecSys '21: Fifteenth ACM Conference on Recommender Systems, 372–379, 2021* |br|

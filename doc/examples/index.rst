@@ -22,11 +22,12 @@ General Examples
     py_double_ml_sensitivity.ipynb
     py_double_ml_apo.ipynb
     py_double_ml_irm_vs_apo.ipynb
+    py_double_ml_lplr.ipynb
+    py_double_ml_ssm.ipynb
     learners/py_learner.ipynb
     learners/py_optuna.ipynb
     py_double_ml_firststage.ipynb
     py_double_ml_multiway_cluster.ipynb
-    py_double_ml_ssm.ipynb
     py_double_ml_sensitivity_booking.ipynb
     learners/py_tabpfn.ipynb
     py_double_ml_basic_iv.ipynb

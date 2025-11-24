@@ -7,6 +7,12 @@ Partially linear regression model (PLR)
 
 .. include:: /guide/scores/plm/plr_score.rst
 
+.. _lplr-score:
+
+Logistic partial linear regression (LPLR)
+===========================================
+
+.. include:: /guide/scores/plm/lplr_score.rst
 
 .. _pliv-score:
 

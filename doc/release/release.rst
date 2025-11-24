@@ -7,9 +7,71 @@ Release Notes
 
   .. tab-item:: Python
 
-    .. dropdown:: DoubleML 0.10.1
+    .. dropdown:: DoubleML 0.11.0
       :class-title: sd-bg-primary sd-font-weight-bold
       :open:
+
+      - **Release highlight:** Logistic Partially Linear Regression Model (by `Julius Herzig <https://github.com/jer2ig>`_)
+
+        - Implementation via ``DoubleMLLPLR`` class
+          `Py #365 <https://github.com/DoubleML/doubleml-for-py/pull/365>`_
+        - Extended User Guide and Example Gallery
+          `Docs #253 <https://github.com/DoubleML/doubleml-docs/pull/253>`_
+
+      - Refactored data classes (by `Jan Teichert-Kluge <https://github.com/JanTeichertKluge>`_)
+        `Py #338 <https://github.com/DoubleML/doubleml-for-py/pull/338>`_
+        `Py #337 <https://github.com/DoubleML/doubleml-for-py/pull/337>`_
+        `Py #336 <https://github.com/DoubleML/doubleml-for-py/pull/336>`_
+        `Docs #251 <https://github.com/DoubleML/doubleml-docs/pull/251>`_
+
+        - Integrated clusters into ``DoubleMLData`` class
+        - Added model specific data backends:
+
+          - ``DoubleMLPanelData``
+          - ``DoubleMLSSMData``
+          - ``DoubleMLRDDData``
+
+        - Data generators are placed into the corresponding submodules, e.g.
+          ``from doubleml.plm.datasets import make_plr_CCDDHNR2018``
+          `Py #331 <https://github.com/DoubleML/doubleml-for-py/pull/331>`_
+          `Py #332 <https://github.com/DoubleML/doubleml-for-py/pull/332>`_
+
+      - Updated nuisance tuning for ``DoubleMLSSM`` class (by `Batuhan Tongarlak <https://github.com/batuhanovski>`_)
+        `Py #352 <https://github.com/DoubleML/doubleml-for-py/pull/352>`_
+
+      - Updated propensity score handling in ``irm`` and ``did`` models, via new ``PSProcessor`` class
+        `Py #363 <https://github.com/DoubleML/doubleml-for-py/pull/363>`_
+        `Docs #254 <https://github.com/DoubleML/doubleml-docs/pull/254>`_
+
+      - Added TabPFN example notebook
+        `Docs #248 <https://github.com/DoubleML/doubleml-docs/pull/248>`_
+        `Docs #259 <https://github.com/DoubleML/doubleml-docs/pull/259>`_
+
+      - Maintenance package
+        `Py #354 <https://github.com/DoubleML/doubleml-for-py/pull/354>`_
+        `Py #355 <https://github.com/DoubleML/doubleml-for-py/pull/355>`_
+        `Py #356 <https://github.com/DoubleML/doubleml-for-py/pull/356>`_
+        `Py #357 <https://github.com/DoubleML/doubleml-for-py/pull/357>`_
+        `Py #358 <https://github.com/DoubleML/doubleml-for-py/pull/358>`_
+        `Py #359 <https://github.com/DoubleML/doubleml-for-py/pull/359>`_
+        `Py #360 <https://github.com/DoubleML/doubleml-for-py/pull/360>`_
+        `Py #361 <https://github.com/DoubleML/doubleml-for-py/pull/361>`_
+        `Py #367 <https://github.com/DoubleML/doubleml-for-py/pull/367>`_
+        `Py #369 <https://github.com/DoubleML/doubleml-for-py/pull/369>`_
+        `Py #370 <https://github.com/DoubleML/doubleml-for-py/pull/370>`_
+        `Py #371 <https://github.com/DoubleML/doubleml-for-py/pull/371>`_
+
+      - Maintenance documentation
+        `Docs #249 <https://github.com/DoubleML/doubleml-docs/pull/249>`_
+        `Docs #250 <https://github.com/DoubleML/doubleml-docs/pull/250>`_
+        `Docs #252 <https://github.com/DoubleML/doubleml-docs/pull/252>`_
+        `Docs #255 <https://github.com/DoubleML/doubleml-docs/pull/255>`_
+        `Docs #256 <https://github.com/DoubleML/doubleml-docs/pull/256>`_
+        `Docs #257 <https://github.com/DoubleML/doubleml-docs/pull/257>`_
+        `Docs #258 <https://github.com/DoubleML/doubleml-docs/pull/258>`_
+
+    .. dropdown:: DoubleML 0.10.1
+      :class-title: sd-bg-primary sd-font-weight-bold
 
       - **Release highlight:** Multi-Period Difference-in-Differences for Repeated Cross Sections
 
@@ -32,11 +94,10 @@ Release Notes
         `Docs #244 <https://github.com/DoubleML/doubleml-docs/pull/244>`_
         `Docs #245 <https://github.com/DoubleML/doubleml-docs/pull/245>`_
         `Docs #246 <https://github.com/DoubleML/doubleml-docs/pull/246>`_
-
+        `Docs #247 <https://github.com/DoubleML/doubleml-docs/pull/247>`_
 
     .. dropdown:: DoubleML 0.10.0
       :class-title: sd-bg-primary sd-font-weight-bold
-      :open:
 
       - **Release highlight:** Multi-Period Difference-in-Differences for Panel Data
 
