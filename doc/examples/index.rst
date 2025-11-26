@@ -24,8 +24,8 @@ General Examples
     py_double_ml_irm_vs_apo.ipynb
     py_double_ml_lplr.ipynb
     py_double_ml_ssm.ipynb
-    learners/py_learner.ipynb
     learners/py_optuna.ipynb
+    learners/py_learner.ipynb
     py_double_ml_firststage.ipynb
     py_double_ml_multiway_cluster.ipynb
     py_double_ml_sensitivity_booking.ipynb
