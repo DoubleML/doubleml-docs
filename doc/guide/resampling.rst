@@ -203,6 +203,7 @@ The aggregation of the estimates of the causal parameter and its standard errors
 
 .. math::
     \tilde{\theta}_{0} = \text{Median}\big((\tilde{\theta}_{0,m})_{m \in [M]}\big).
+
 The estimate of the causal parameter :math:`\tilde{\theta}_{0}` is stored in the ``coef`` attribute
 and the asymptotic standard error :math:`\hat{\sigma}/\sqrt{N}` in ``se``.
 
@@ -356,7 +357,7 @@ Note that cross-fitting performs well empirically and is recommended to remove b
 
         .. note:: 
             The flag ``apply_cross_fitting`` is deprecated for the python package. To avoid cross-fitting, please use the option
-            to set :ref:`external predictions <ext_pred>`.
+            to set :ref:`external predictions <py_ext_pred>`.
 
     .. tab-item:: R
         :sync: r
@@ -407,7 +408,7 @@ justification, see also :ref:`bias_overfitting`.
 
         .. note:: 
             The flag ``apply_cross_fitting`` is deprecated for the python package. To avoid cross-fitting, please use the option
-            to set :ref:`external predictions <ext_pred>`. Additionally, the number of folds ``n_folds`` is expected to be at least ``2``.
+            to set :ref:`external predictions <py_ext_pred>`. Additionally, the number of folds ``n_folds`` is expected to be at least ``2``.
 
     .. tab-item:: R
         :sync: r

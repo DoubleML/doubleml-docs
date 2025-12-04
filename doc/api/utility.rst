@@ -14,6 +14,7 @@ Utility Classes
 
     utils.DMLDummyRegressor
     utils.DMLDummyClassifier
+    utils.DMLOptunaResult
     utils.DoubleMLBLP
     utils.DoubleMLPolicyTree
     utils.GlobalRegressor
