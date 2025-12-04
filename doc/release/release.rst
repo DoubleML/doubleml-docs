@@ -7,6 +7,26 @@ Release Notes
 
   .. tab-item:: Python
 
+    .. dropdown:: DoubleML 0.11.1
+      :class-title: sd-bg-primary sd-font-weight-bold
+      :open:
+
+      - **Release highlight:** Hyperparameter tuning with `Optuna` (by `Jan Teichert-Kluge <https://github.com/JanTeichertKluge>`_)
+
+        - Implementation of ``tune_ml_models()`` method for DoubleML classes
+          `Py #368 <https://github.com/DoubleML/doubleml-for-py/pull/368>`_
+        - Extended User Guide and Example Gallery
+          `Docs #260 <https://github.com/DoubleML/doubleml-docs/pull/260>`_
+
+      - Maintenance package
+        `Py #372 <https://github.com/DoubleML/doubleml-for-py/pull/372>`_
+        `Py #374 <https://github.com/DoubleML/doubleml-for-py/pull/374>`_
+        `Py #377 <https://github.com/DoubleML/doubleml-for-py/pull/377>`_
+
+      - Maintenance documentation
+        `Docs #261 <https://github.com/DoubleML/doubleml-docs/pull/261>`_
+        `Docs #262 <https://github.com/DoubleML/doubleml-docs/pull/262>`_
+
     .. dropdown:: DoubleML 0.11.0
       :class-title: sd-bg-primary sd-font-weight-bold
       :open:
