@@ -26,4 +26,4 @@ flaml
 # notebooks
 ipykernel
 pyreadr
-tabpfn
+# tabpfn  # only relevant for TabPFN example notebooks
