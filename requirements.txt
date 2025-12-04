@@ -26,5 +26,4 @@ flaml
 # notebooks
 ipykernel
 pyreadr
-torch==2.8.0+cpu --extra-index-url https://download.pytorch.org/whl/cpu
-tabpfn
+# tabpfn  # only relevant for TabPFN example notebooks
