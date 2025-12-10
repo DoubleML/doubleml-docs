@@ -17,6 +17,7 @@ doubleml.plm
 
     DoubleMLPLR
     DoubleMLLPLR
+    DoubleMLPLPR
     DoubleMLPLIV
 
 
