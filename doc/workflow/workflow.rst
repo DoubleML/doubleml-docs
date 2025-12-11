@@ -150,6 +150,8 @@ We can directly pass the parameters during initialization of the learner objects
 Because we have a binary treatment variable, we can use a classification learner for the corresponding nuisance part.
 We use a regression learner for the continuous outcome variable net financial assets.
 
+Hyperparameter tuning of the machine learning models can be performed in Step 5. before estimation.
+
 .. tab-set::
 
     .. tab-item:: Python
@@ -249,10 +251,89 @@ the dml algorithm (:ref:`DML1 vs. DML2 <algorithms>`) and the score function (:r
                                             score = 'partialling out',
                                             dml_procedure = 'dml2')
 
-5. Estimation
+
+5. Hyperparameter Tuning
+------------------------
+
+As (optional) step before estimation, we can perform hyperparameter tuning of the machine learning models.
+:ref:`DoubleML <doubleml_package>` for Python supports hyperparameter tuning via `Optuna <https://optuna.org/>`_ and
+the R version relies on the `mlr3tuning <https://mlr3tuning.mlr-org.com/>`_ package.
+For more details, please refer to the :ref:`hyperparameter tuning (Python) <py_tune_params>` and :ref:`hyperparameter tuning (R) <r_tune_params>`
+sections in the documentation.
+
+.. tab-set::
+
+    .. tab-item:: Python
+        :sync: py
+
+        .. ipython:: python
+
+            import optuna
+
+            # define search spaces for hyperparameters
+            def ml_l_params(trial):
+                return {
+                    'n_estimators': trial.suggest_int('n_estimators', 50, 200, step=50),
+                    'max_depth': trial.suggest_int('max_depth', 3, 10),
+                    'min_samples_leaf': trial.suggest_int('min_samples_leaf', 1, 5),
+                }
+
+            def ml_m_params(trial):
+                return {
+                    'n_estimators': trial.suggest_int('n_estimators', 50, 200, step=50),
+                    'max_depth': trial.suggest_int('max_depth', 3, 10),
+                    'min_samples_leaf': trial.suggest_int('min_samples_leaf', 1, 5),
+                }
+
+            param_space = {
+                'ml_l': ml_l_params,
+                'ml_m': ml_m_params
+            }
+
+            optuna_settings = {
+                'n_trials': 10,  # small number for illustration purposes
+                'show_progress_bar': True,
+                'verbosity': optuna.logging.WARNING,  # Suppress Optuna logs
+            }
+
+            # Hyperparameter tuning
+            dml_plr_tree.tune_ml_models(ml_param_space=param_space,
+                                        optuna_settings=optuna_settings,
+            )
+
+    .. tab-item:: R
+        :sync: r
+
+        .. jupyter-execute::
+
+            library(mlr3tuning)
+            library(paradox)
+            lgr::get_logger("mlr3")$set_threshold("warn")
+            lgr::get_logger("bbotk")$set_threshold("warn")
+
+            # Define search spaces for hyperparameters
+            param_grid = list(
+              "ml_l" = ps(mtry = p_int(lower = 2, upper = 5),
+                          max.depth = p_int(lower = 3, upper = 7)),
+              "ml_m" = ps(mtry = p_int(lower = 2, upper = 5),
+                          max.depth = p_int(lower = 3, upper = 7))
+            )
+
+            tune_settings = list(
+              terminator = trm("evals", n_evals = 10),
+              algorithm = tnr("grid_search", resolution = 5),
+              measure = list("ml_l" = msr("regr.mse"),
+                             "ml_m" = msr("classif.ce"))
+            )
+
+            # Hyperparameter tuning
+            dml_plr_forest$tune(param_set = param_grid, tune_settings = tune_settings, tune_on_folds = FALSE)
+
+
+6. Estimation
 -------------
 
-We perform estimation in Step 5. In this step, the cross-fitting algorithm is executed such that the predictions
+We perform estimation in Step 6. In this step, the cross-fitting algorithm is executed such that the predictions
 in the score are computed. As an output, users can access the coefficient estimates and standard errors either via the
 corresponding fields or via a summary.
 
@@ -292,10 +373,10 @@ corresponding fields or via a summary.
             # Summary
             dml_plr_forest$summary()
 
-6. Inference
+7. Inference
 ------------
 
-In Step 6., we can perform further inference methods and finally interpret our findings. For example, we can set up confidence intervals
+In Step 7., we can perform further inference methods and finally interpret our findings. For example, we can set up confidence intervals
 or, in case multiple causal parameters are estimated, adjust the analysis for multiple testing. :ref:`DoubleML <doubleml_package>`
 supports various approaches to perform :ref:`valid simultaneous inference <sim_inf>`
 which are partly based on a multiplier bootstrap.
@@ -342,10 +423,10 @@ If we did not control for the confounding variables, the average treatment effec
             dml_plr_forest$confint(joint = TRUE)
 
 
-7. Sensitivity Analysis
+8. Sensitivity Analysis
 ------------------------
 
-In Step 7., we can analyze the sensitivity of the estimated parameters. In the :ref:`plr-model` the causal interpretation
+In Step 8., we can analyze the sensitivity of the estimated parameters. In the :ref:`plr-model` the causal interpretation
 relies on conditional exogeneity, which requires to control for confounding variables. The :ref:`DoubleML <doubleml_package>` python package
 implements :ref:`sensitivity` with respect to omitted confounders. 
 
