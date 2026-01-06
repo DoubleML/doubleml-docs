@@ -23,6 +23,7 @@ General Examples
     py_double_ml_apo.ipynb
     py_double_ml_irm_vs_apo.ipynb
     py_double_ml_lplr.ipynb
+    py_double_ml_plpr.ipynb
     py_double_ml_ssm.ipynb
     learners/py_optuna.ipynb
     learners/py_learner.ipynb

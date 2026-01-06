@@ -99,6 +99,38 @@ Logistic partially linear regression model (LPLR)
             dml_lplr_obj.fit().summary
 
 
+.. _plpr-model:
+
+Partially linear panel regression model (PLPR)
+**********************************************
+
+.. include:: /guide/models/plm/plpr.rst
+
+``DoubleMLPLPR`` implements PLPR models. Estimation is conducted via its ``fit()`` method.
+
+.. tab-set::
+
+    .. tab-item:: Python
+        :sync: py
+
+        .. ipython:: python
+
+            import numpy as np
+            import doubleml as dml
+            from doubleml.plm.datasets import make_plpr_CP2025
+            from sklearn.linear_model import LassoCV
+            from sklearn.base import clone
+            np.random.seed(3142)
+            learner = LassoCV()
+            ml_l = clone(learner)
+            ml_m = clone(learner)
+            data = make_plpr_CP2025(num_id=250, num_t=10, dim_x=30, theta=0.5, dgp_type='dgp1')
+            obj_dml_data = DoubleMLPanelData(data, 'y', 'd', 'time', 'id', static_panel=True)
+            dml_plpr_obj = DoubleMLPLPR(obj_dml_data, ml_l, ml_m)
+            dml_plpr_obj.fit()
+            print(dml_plpr_obj)
+
+
 .. _pliv-model:
 
 Partially linear IV regression model (PLIV)
