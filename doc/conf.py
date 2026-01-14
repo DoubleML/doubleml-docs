@@ -277,7 +277,9 @@ linkcheck_ignore = [
     # Valid DOI; Causes 403 Client Error: Forbidden for url:...
     "https://doi.org/10.1093/ectj/utab019",
     # Valid DOI; Causes 403 Client Error: Forbidden for url:...
-    "https://doi.org/10.1093/ectj/utaf011"
+    "https://doi.org/10.1093/ectj/utaf011",
+    # Valid DOI; Causes 403 Client Error: Forbidden for url:...
+    "https://doi.org/10.2307/1913646"
 ]
 
 # To execute R code via jupyter-execute one needs to install the R kernel for jupyter
