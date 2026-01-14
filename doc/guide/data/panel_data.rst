@@ -54,13 +54,13 @@ Example usage
             from doubleml.plm.datasets import make_plpr_CP2025
 
             np.random.seed(42)
-            df = make_plpr_CP2025(num_id=100, num_t=5, x_dim=5) 
+            df = make_plpr_CP2025(num_id=100, num_t=5, dim_x=5) 
             dml_data = dml.data.DoubleMLPanelData(
                 df,
                 y_col="y",
                 d_cols="d",
                 id_col="id",
-                t_col="t",
+                t_col="time",
                 x_cols=["x1", "x2", "x3", "x4", "x5"],
                 static_panel=True
             )
