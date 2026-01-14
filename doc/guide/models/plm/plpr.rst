@@ -57,9 +57,11 @@ Assumptions `(Clarke and Polselli, 2025) <https://doi.org/10.1093/ectj/utaf011>`
     :math:`\mathbb{E} [Y_{it}(d) - Y_{it}(0) | X_{it}, \xi_i] = d \theta_0`
 
 - **Additive Separability**
-    :math:`\mathbb{E} [Y_{it}(0) | X_{it}, \xi_i] &= g_1(X_{it}) + \alpha^*_i, & &\alpha^*_i = \alpha^*(\xi_i)`,
+    .. math::
+
+        &\mathbb{E} [Y_{it}(0) | X_{it}, \xi_i] = g_1(X_{it}) + \alpha^*_i, & &\alpha^*_i = \alpha^*(\xi_i),
     
-    :math:`\mathbb{E} [D_{it} | X_{it}, \xi_i] &= m_1(X_{it}) + \gamma_i, & &\gamma_i = \gamma(\xi_i)`
+        &\mathbb{E} [D_{it} | X_{it}, \xi_i] = m_1(X_{it}) + \gamma_i, & &\gamma_i = \gamma(\xi_i)
 
 
 **Correlated Random Effect (CRE) Approaches**
@@ -130,9 +132,9 @@ two are transformation approaches. This can be selected with the ``approach`` pa
 
 - First learn :math:`\tilde{m}_1(X_{it}, \bar{X}_i)` from :math:`\{ D_{it}, X_{it}, \bar{X}_i : t=1,\dots, T \}_{i=1}^N`, with predictions :math:`\hat{m}_{1,it} = \tilde{m}_1 (X_{it}, \bar{X}_i)`
 
-    - Calculate :math:`\hat{\bar{m}}_i = T^{-1} \sum_{t=1}^T \hat{m}_{1,it}`,
+  - Calculate :math:`\hat{\bar{m}}_i = T^{-1} \sum_{t=1}^T \hat{m}_{1,it}`,
 
-    - Calculate final nuisance part as :math:`\hat{m}^*_1 (X_{it}, \bar{X}_i, \bar{D}_i) = \hat{m}_{1,it} + \bar{D}_i - \hat{\bar{m}}_i`, 
+  - Calculate final nuisance part as :math:`\hat{m}^*_1 (X_{it}, \bar{X}_i, \bar{D}_i) = \hat{m}_{1,it} + \bar{D}_i - \hat{\bar{m}}_i`, 
 
   where :math:`\hat{m}^*_1 (X_{it}, \bar{X}_i, \bar{D}_i) = \mathbb{E}[D_{it} | X_{it}, \bar{X}_i] + c_i`. 
 
@@ -174,7 +176,7 @@ Approximating the model gives
 Similarly,
 
 .. math::
-    Q(Y_{it}) &\approx \theta_0 Q(V_{it}) + \ell_1 (Q(X_{it})) + Q(U_{it}).
+    Q(Y_{it}) \approx \theta_0 Q(V_{it}) + \ell_1 (Q(X_{it})) + Q(U_{it}).
 
 - Learn :math:`\ell_1` from transformed data :math:`\{ Q(Y_{it}), Q(X_{it}) : t=1,\dots,T \}_{i=1}^N`,
 
