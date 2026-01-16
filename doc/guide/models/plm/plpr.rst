@@ -1,6 +1,6 @@
 Suppose a panel study observes each of :math:`N` individuals over :math:`T` time periods (or waves).
 For each individual :math:`i=1,\dots,N` and each period :math:`t=1,\dots,T`, the data consists of the
-triple :math:`(Y_it, D_it, X_it)`. Let :math:`\{(Y_it, D_it, X_it) : t = 1, \dots , T\}_{i=1}^N`
+triple :math:`(Y_{it}, D_{it}, X_{it})`. Let :math:`\{(Y_{it}, D_{it}, X_{it}) : t = 1, \dots , T\}_{i=1}^N`
 denote :math:`N` independent and identically distributed (iid) random vectors, where each vector
 corresponds to individual :math:`i` observed across all T waves.
 
