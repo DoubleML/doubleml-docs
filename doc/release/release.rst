@@ -7,6 +7,37 @@ Release Notes
 
   .. tab-item:: Python
 
+    .. dropdown:: DoubleML 0.11.2
+      :class-title: sd-bg-primary sd-font-weight-bold
+      :open:
+
+      - **Release highlight:** DoubleML for static panel models with fixed effects (by `Julian Diefenbacher <https://github.com/JulianDiefenbacher>`_)
+
+        - Implementation via ``DoubleMLPLPR`` class
+          `Py #378 <https://github.com/DoubleML/doubleml-for-py/pull/378>`_
+        - Extended User Guide and Example Gallery
+          `Docs #267 <https://github.com/DoubleML/doubleml-docs/pull/267>`_
+
+      - Refactoring of the ``DoubleMLFramework`` class
+        `Py #376 <https://github.com/DoubleML/doubleml-for-py/pull/376>`_
+
+      - Added tuning to workflow
+        `Docs #268 <https://github.com/DoubleML/doubleml-docs/pull/268>`_
+        `Docs #269 <https://github.com/DoubleML/doubleml-docs/pull/269>`_
+
+      - Maintenance package
+        `Py #380 <https://github.com/DoubleML/doubleml-for-py/pull/380>`_
+        `Py #381 <https://github.com/DoubleML/doubleml-for-py/pull/381>`_
+        `Py #382 <https://github.com/DoubleML/doubleml-for-py/pull/382>`_
+        `Py #384 <https://github.com/DoubleML/doubleml-for-py/pull/384>`_
+
+      - Maintenance documentation
+        `Docs #263 <https://github.com/DoubleML/doubleml-docs/pull/263>`_
+        `Docs #264 <https://github.com/DoubleML/doubleml-docs/pull/264>`_
+        `Docs #265 <https://github.com/DoubleML/doubleml-docs/pull/265>`_
+        `Docs #266 <https://github.com/DoubleML/doubleml-docs/pull/266>`_
+        `Docs #270 <https://github.com/DoubleML/doubleml-docs/pull/270>`_
+
     .. dropdown:: DoubleML 0.11.1
       :class-title: sd-bg-primary sd-font-weight-bold
       :open:
