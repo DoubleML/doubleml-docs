@@ -9,5 +9,5 @@ The high-dimensional vector :math:`X = (X_1, \ldots, X_p)` consists of confoundi
 :math:`\text{expit}` is the logistic link function
 
 .. math::
-    \text{expit} ( X ) = \frac{1}{1 + e^{-x}}
+    \text{expit} ( X ) = \frac{1}{1 + e^{-x}}.
 
