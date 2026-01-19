@@ -431,7 +431,7 @@ relies on conditional exogeneity, which requires to control for confounding vari
 implements :ref:`sensitivity` with respect to omitted confounders. 
 
 Analyzing the sensitivity of the intent-to-treat effect in the 401(k) example, we find that the effect remains positive even after adjusting for
-omitted confounders with a lower bound of :math:`$4,611` for the point estimate and :math:`$2,359` including statistical uncertainty.
+omitted confounders with a lower bound of :math:`$4,353` for the point estimate and :math:`$2,096` including statistical uncertainty.
 
 .. tab-set::
 

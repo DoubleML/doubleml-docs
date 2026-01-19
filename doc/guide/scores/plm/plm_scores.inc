@@ -14,6 +14,13 @@ Logistic partial linear regression (LPLR)
 
 .. include:: /guide/scores/plm/lplr_score.rst
 
+.. _plpr-score:
+
+Partially linear panel regression (PLPR)
+========================================
+
+.. include:: /guide/scores/plm/plpr_score.rst
+
 .. _pliv-score:
 
 Partially linear IV regression model (PLIV)

@@ -142,6 +142,12 @@ Double Machine Learning Literature
         :octicon:`link` :bdg-link-dark:`URL <https://doi.org/10.1093/ectj/utab019>`
         |hr|
 
+      - Paul S Clarke, Annalivia Polselli |br|
+        **Double machine learning for static panel models with fixed effects** |br|
+        *The Econometrics Journal, utaf011, 2025* |br|
+        :octicon:`link` :bdg-link-dark:`URL <https://doi.org/10.1093/ectj/utaf011>`
+        |hr|
+
       - Yusuke Narita, Shota Yasui, Kohei Yata |br|
         **Debiased Off-Policy Evaluation for Recommendation Systems** |br|
         *RecSys '21: Fifteenth ACM Conference on Recommender Systems, 372–379, 2021* |br|
