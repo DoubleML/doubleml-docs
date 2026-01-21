@@ -126,7 +126,7 @@ html_theme_options = {
     },
     "show_version_warning_banner": False,  # https://pydata-sphinx-theme.readthedocs.io/en/stable/user_guide/announcements.html#version-warning-banners
     "check_switcher": True,
-    "announcement": "DoubleML's first user survey is live: <a href='https://forms.gle/HjZsWgrF5UEFUyDX9'> Share your feedback here!</a> (10-15 minutes)",
+    "announcement": "Interested to learn more? We offer <a href='https://trainings.doubleml.org/'>DoubleML Trainings!</a>",
 }
 
 html_extra_path = ["../img/logo.png", "../img/logo_dark.png"]
