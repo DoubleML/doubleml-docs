@@ -93,7 +93,7 @@ where :math:`a_i`, :math:`c_i` are random effects and covariate unit means
 These approaches remove individual heterogeneity from the model by transforming the data.
 For some random variable :math:`W_{it}`, define the First-Difference (FD) transformation
 :math:`Q(W_{it}) = W_{it} - W_{it-1}` (for :math:`t=2, \dots, T`), and the Within-Group (WG)
-transformation :math:`Q(W_{it}) = X_{it} - \bar{X}_{i}`, where :math:`\bar{W}_{i} = T^{-1} \sum_{t=1}^T W_{it}`.
+transformation :math:`Q(W_{it}) = W_{it} - \bar{W}_{i}`, where :math:`\bar{W}_{i} = T^{-1} \sum_{t=1}^T W_{it}`.
 
 The PLPR model under the transformation approaches takes the form
 
