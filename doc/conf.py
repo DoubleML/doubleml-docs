@@ -127,6 +127,12 @@ html_theme_options = {
     "show_version_warning_banner": False,  # https://pydata-sphinx-theme.readthedocs.io/en/stable/user_guide/announcements.html#version-warning-banners
     "check_switcher": True,
     "announcement": "Interested to learn more? We offer <a href='https://trainings.doubleml.org/'>DoubleML Trainings!</a>",
+    "analytics": {
+        # The domain you'd like to use for this analytics instance
+        "plausible_analytics_domain": "docs.doubleml.org",
+        # The analytics script that is served by Plausible
+        "plausible_analytics_url": "https://plausible.io/js/script.js",
+    },
 }
 
 html_extra_path = ["../img/logo.png", "../img/logo_dark.png"]
