@@ -7,6 +7,26 @@ Release Notes
 
   .. tab-item:: Python
 
+    .. dropdown:: DoubleML 0.11.3
+      :class-title: sd-bg-primary sd-font-weight-bold
+      :open:
+
+      - **Release highlight:** Multiple repetitions for CATE estimation (by `Oliver Schacht <https://github.com/OliverSchacht>`_)
+        `Py #386 <https://github.com/DoubleML/doubleml-for-py/pull/386>`_
+        `Py #395 <https://github.com/DoubleML/doubleml-for-py/pull/395>`_
+
+      - Maintenance package
+        `Py #385 <https://github.com/DoubleML/doubleml-for-py/pull/385>`_
+        `Py #387 <https://github.com/DoubleML/doubleml-for-py/pull/387>`_
+        `Py #388 <https://github.com/DoubleML/doubleml-for-py/pull/388>`_
+        `Py #390 <https://github.com/DoubleML/doubleml-for-py/pull/390>`_
+        `Py #392 <https://github.com/DoubleML/doubleml-for-py/pull/392>`_
+
+      - Maintenance documentation
+        `Docs #274 <https://github.com/DoubleML/doubleml-docs/pull/274>`_
+        `Docs #276 <https://github.com/DoubleML/doubleml-docs/pull/276>`_
+        `Docs #278 <https://github.com/DoubleML/doubleml-docs/pull/278>`_
+
     .. dropdown:: DoubleML 0.11.2
       :class-title: sd-bg-primary sd-font-weight-bold
       :open:
