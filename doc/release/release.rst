@@ -7,6 +7,13 @@ Release Notes
 
   .. tab-item:: Python
 
+    .. dropdown:: DoubleML 0.11.4
+      :class-title: sd-bg-primary sd-font-weight-bold
+      :open:
+
+      - **Bugfix:** Fixes bug for critical values in ``DoubleMLBLP``. Decreases joint confidence intervals length.
+        `Py #400 <https://github.com/DoubleML/doubleml-for-py/pull/400>`_
+
     .. dropdown:: DoubleML 0.11.3
       :class-title: sd-bg-primary sd-font-weight-bold
       :open:
