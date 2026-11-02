@@ -18,6 +18,7 @@ General Examples
     :name: case-studies-py
 
     py_double_ml_basics.ipynb
+    py_double_ml_maketables.ipynb
     py_double_ml_pension.ipynb
     py_double_ml_sensitivity.ipynb
     py_double_ml_apo.ipynb
