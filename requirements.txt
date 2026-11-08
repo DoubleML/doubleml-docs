@@ -24,6 +24,7 @@ lightgbm
 flaml
 
 # notebooks
+maketables>=0.2.0
 ipykernel
 pyreadr
 # tabpfn  # only relevant for TabPFN example notebooks
